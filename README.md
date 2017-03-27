@@ -1,2 +1,2 @@
 # OnlineAtelier
-Sample online atelier
+Simple online atelier
