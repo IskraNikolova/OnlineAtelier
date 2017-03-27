@@ -258,6 +258,10 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\OnlineAtelier.Data.Common\OnlineAtelier.Data.Common.csproj">
+      <Project>{2E5B489B-1378-4D50-A5FB-77F5F6096F90}</Project>
+      <Name>OnlineAtelier.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\OnlineAtelier.Data\OnlineAtelier.Data.csproj">
       <Project>{3f65e87a-4ce8-452d-85ed-307c57dfce8a}</Project>
       <Name>OnlineAtelier.Data</Name>
