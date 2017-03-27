@@ -10,6 +10,8 @@ using OnlineAtelier.Web.Models;
 
 namespace OnlineAtelier.Web.Controllers
 {
+    using Models.ManageViewModels;
+
     [Authorize]
     public class ManageController : Controller
     {

@@ -14,6 +14,9 @@ using OnlineAtelier.Web.Models;
 
 namespace OnlineAtelier.Web
 {
+    using Data;
+    using OnlineAtelier.Models;
+
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
