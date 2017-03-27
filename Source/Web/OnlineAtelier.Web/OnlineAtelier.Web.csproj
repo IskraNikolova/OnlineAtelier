@@ -270,6 +270,10 @@
       <Project>{d6f648d1-519a-4d9c-8f97-12f14d69e80d}</Project>
       <Name>OnlineAtelier.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OnlineAtelier.Web.Infrastructure\OnlineAtelier.Web.Infrastructure.csproj">
+      <Project>{84cd06bf-04d7-4a2a-b04c-78c1f3371885}</Project>
+      <Name>OnlineAtelier.Web.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OnlineAtelier.Web.Models\OnlineAtelier.Web.Models.csproj">
       <Project>{e7019785-08c9-4f49-9836-1b3731b1b0c4}</Project>
       <Name>OnlineAtelier.Web.Models</Name>

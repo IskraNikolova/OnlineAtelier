@@ -1,7 +1,6 @@
 ﻿namespace OnlineAtelier.Models
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
     using System.Threading.Tasks;
@@ -16,7 +15,6 @@
             this.CreatedOn = DateTime.Now;
         }
 
-        [Required]
         public string FullName { get; set; }
 
         [Index]
