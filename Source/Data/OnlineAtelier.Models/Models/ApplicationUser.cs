@@ -1,4 +1,4 @@
-﻿namespace OnlineAtelier.Models
+﻿namespace OnlineAtelier.Models.Models
 {
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -13,8 +13,14 @@
         public ApplicationUser()
         {
             this.CreatedOn = DateTime.Now;
+            this.FullName = FirstName + " " + LastName;
         }
+     
+        public string FirstName { get; set; }
 
+        public string LastName { get; set; }
+
+        [NotMapped]
         public string FullName { get; set; }
 
         [Index]

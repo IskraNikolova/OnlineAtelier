@@ -11,6 +11,7 @@ namespace OnlineAtelier.Web
 {
     using Data;
     using OnlineAtelier.Models;
+    using OnlineAtelier.Models.Models;
 
     public class EmailService : IIdentityMessageService
     {
