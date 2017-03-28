@@ -5,9 +5,10 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using Comments;
+    using Data.Common.Models;
     using Enums;
 
-    public class Order
+    public class Order: IAuditInfo, IDeletableEntity
     {
         private IEnumerable<byte[]> userPictures;
         private IEnumerable<Picture> galeryPictures;
@@ -27,7 +28,7 @@
 
         public string Details { get; set; }
 
-        public Category Category { get; set; }
+        public string Category { get; set; }
 
         public DateTime? DateOfDecision { get; set; }
 
@@ -57,5 +58,15 @@
             get { return this.comments; }
             set { this.comments = value; }
         }
+
+        public DateTime CreatedOn { get; set; }
+
+        public bool PreserveCreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
     }
 }

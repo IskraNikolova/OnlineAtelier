@@ -1,12 +1,22 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
     using System.Web.Mvc;
+    using Data.Common.Repository;
+    using OnlineAtelier.Models.Models;
 
     public class HomeController : Controller
     {
+        private IRepository<Category> categories;
+
+        public HomeController(IRepository<Category> categories)
+        {
+            this.categories = categories;
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var category = this.categories.All();
+            return View(category);
         }
 
         public ActionResult About()
