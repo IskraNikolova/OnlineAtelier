@@ -10,6 +10,10 @@
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+
+        [Display(Name = "UserPhoto")]
+        public byte[] UserPhoto { get; set; }
+
         [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }

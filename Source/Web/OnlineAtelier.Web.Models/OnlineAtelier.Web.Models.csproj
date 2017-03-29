@@ -87,6 +87,7 @@
     <Compile Include="AcountViewModels\ForgotPasswordViewModel.cs" />
     <Compile Include="AcountViewModels\ForgotViewModel.cs" />
     <Compile Include="AcountViewModels\LoginViewModel.cs" />
+    <Compile Include="AcountViewModels\ProfilePageViewModel.cs" />
     <Compile Include="AcountViewModels\RegisterViewModel.cs" />
     <Compile Include="AcountViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="AcountViewModels\SendCodeViewModel.cs" />
@@ -103,6 +104,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\OnlineAtelier.Models\OnlineAtelier.Models.csproj">
+      <Project>{d6f648d1-519a-4d9c-8f97-12f14d69e80d}</Project>
+      <Name>OnlineAtelier.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineAtelier.Web.Infrastructure\OnlineAtelier.Web.Infrastructure.csproj">
+      <Project>{84cd06bf-04d7-4a2a-b04c-78c1f3371885}</Project>
+      <Name>OnlineAtelier.Web.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
