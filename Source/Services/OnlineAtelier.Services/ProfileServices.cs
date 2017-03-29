@@ -28,11 +28,16 @@
         {
             var user =
             this.users.All()
-                .Project()
-                .To<ProfilePageViewModel>()
                 .FirstOrDefault(u => u.Id == userId);
 
-            return user;
+            var model = new ProfilePageViewModel()
+            {
+                Email = user.Email,
+                UserPhoto = user.UserPhoto,
+                Orders = user.Orders
+            };
+
+            return model;
         }
 
         public byte[] GetImageData(string fileName)

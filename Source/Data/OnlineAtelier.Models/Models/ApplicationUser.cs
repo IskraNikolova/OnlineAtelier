@@ -17,16 +17,12 @@
         public ApplicationUser()
         {
             this.CreatedOn = DateTime.Now;
-            this.FullName = this.FirstName + " " + this.LastName;
             this.orders = new HashSet<Order>();
         }
      
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
-
-        [NotMapped]
-        public string FullName { get; set; }
 
         [Index]
         public bool IsDeleted { get; set; }

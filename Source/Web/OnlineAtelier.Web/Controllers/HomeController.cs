@@ -8,23 +8,34 @@
     using Data.Common.Repository;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
+    using OnlineAtelier.Models.Enums;
     using OnlineAtelier.Models.Models;
 
     public class HomeController : Controller
     {
-        private IRepository<Category> categories;
+        private IRepository<Order> orders;
 
 
-        public HomeController(IRepository<Category> categories, IRepository<ApplicationUser> users)
+        public HomeController(IRepository<Order> orders)
         {
-            this.categories = categories;
+            this.orders = orders;
         }
 
         public ActionResult Index()
         {
 
-            var category = this.categories.All();
-            return this.View(category);
+            var order = new Order()
+            {
+                SizeOfTheBox = SizeOfTheBox.StandardFour,
+                ApplicationUserId = this.User.Identity.GetUserId(),
+                Category = "new",
+
+            };
+
+            this.orders.Add(order);
+            this.orders.SaveChanges();
+
+            return this.View(order);
         }
 
 
