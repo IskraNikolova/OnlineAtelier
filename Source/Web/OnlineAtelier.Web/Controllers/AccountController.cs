@@ -1,9 +1,12 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
+    using Data;
+    using Data.Common.Repository;
     using Infrastructure.Constants;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
@@ -139,7 +142,7 @@
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return this.View();
         }
 
         //
@@ -147,33 +150,50 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register([Bind(Exclude = "UserPhoto")]RegisterViewModel model)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email,
+                // To convert the user uploaded Photo as Byte Array before save to DB 
+                byte[] imageData = null;
+                if (this.Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase httpPostedFileBase = this.Request.Files["UserPhoto"];
+
+                    using (var binary = new BinaryReader(httpPostedFileBase.InputStream))
+                    {
+                        imageData = binary.ReadBytes(httpPostedFileBase.ContentLength);
+                    }
+                }
+
+
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    PhoneNumber = model.PhoneNumber.Number};
-                var result = await UserManager.CreateAsync(user, model.Password);
+                    PhoneNumber = model.PhoneNumber.Number
+                };
+
+                //Here we pass the byte array to user context to store in db 
+                user.UserPhoto = imageData;
+
+                var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-                    return RedirectToAction(Views.Index, "Home");
+                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771              
+
+                    return this.RedirectToAction("Index", "Home");
                 }
-                AddErrors(result);
+
+                this.AddErrors(result);
             }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
+            // If we got this far, something failed, redisplay form 
+            return this.View(model);
         }
 
         //
@@ -194,7 +214,7 @@
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
-            return View();
+            return this.View();
         }
 
         //
@@ -204,10 +224,10 @@
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
-                var user = await UserManager.FindByNameAsync(model.Email);
-                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                var user = await this.UserManager.FindByNameAsync(model.Email);
+                if (user == null || !(await this.UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
                     // Don't reveal that the user does not exist or is not confirmed
                     return View("ForgotPasswordConfirmation");
@@ -222,7 +242,7 @@
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return this.View(model);
         }
 
         //
@@ -238,7 +258,7 @@
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
-            return code == null ? View("Error") : View();
+            return code == null ? this.View("Error") : this.View();
         }
 
         //
@@ -248,23 +268,23 @@
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
-                return View(model);
+                return this.View(model);
             }
-            var user = await UserManager.FindByNameAsync(model.Email);
+            var user = await this.UserManager.FindByNameAsync(model.Email);
             if (user == null)
             {
                 // Don't reveal that the user does not exist
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                return this.RedirectToAction("ResetPasswordConfirmation", "Account");
             }
-            var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
+            var result = await this.UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                return this.RedirectToAction("ResetPasswordConfirmation", "Account");
             }
-            AddErrors(result);
-            return View();
+            this.AddErrors(result);
+            return this.View();
         }
 
         //
@@ -272,7 +292,7 @@
         [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
         {
-            return View();
+            return this.View();
         }
 
         //
@@ -283,7 +303,7 @@
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
             // Request a redirect to the external login provider
-            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
+            return new ChallengeResult(provider, this.Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
 
         //
@@ -291,14 +311,14 @@
         [AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
-            var userId = await SignInManager.GetVerifiedUserIdAsync();
+            var userId = await this.SignInManager.GetVerifiedUserIdAsync();
             if (userId == null)
             {
                 return View("Error");
             }
-            var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
+            var userFactors = await this.UserManager.GetValidTwoFactorProvidersAsync(userId);
             var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
-            return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
+            return this.View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
         //
@@ -308,17 +328,17 @@
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SendCode(SendCodeViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
-                return View();
+                return this.View();
             }
 
             // Generate the token and send it
-            if (!await SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider))
+            if (!await this.SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider))
             {
-                return View("Error");
+                return this.View("Error");
             }
-            return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
+            return this.RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
         }
 
         //

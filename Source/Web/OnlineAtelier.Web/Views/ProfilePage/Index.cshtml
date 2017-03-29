@@ -1,0 +1,20 @@
+﻿@model OnlineAtelier.Web.Models.AcountViewModels.ProfilePageViewModel
+@{
+    ViewBag.Title = "Profile Page";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>@Model.FullName</h2>
+        <p>
+         
+            </p>
+            <p><img class="userPhoto" src="@Url.Action("UserPhotos", "ProfilePage")" /></p>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>

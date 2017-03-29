@@ -13,10 +13,6 @@
         [Required]
         public string Text { get; set; }
 
-        [ForeignKey("Author")]
-        public string ApplicationUserId { get; set; }
-
-        public virtual ApplicationUser Author{ get; set; }
         public DateTime CreatedOn { get; set; }
 
         public bool PreserveCreatedOn { get; set; }
@@ -26,5 +22,10 @@
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        [ForeignKey("Author")]
+        public string ApplicationUserId { get; set; }
+
+        public virtual ApplicationUser Author { get; set; }
     }
 }

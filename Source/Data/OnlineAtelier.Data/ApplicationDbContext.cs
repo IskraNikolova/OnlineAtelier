@@ -17,6 +17,17 @@
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
+        public IDbSet<Comment> Comments { get; set; }
+
+        public IDbSet<Album> Albums { get; set; }
+
+        public IDbSet<Category> Categories { get; set; }
+
+        public IDbSet<Order> Orders { get; set; }
+
+        public IDbSet<Picture> Pictures { get; set; }
+
+        public IDbSet<Publication> Publications { get; set; }
 
 
         public static ApplicationDbContext Create()
@@ -29,18 +40,6 @@
             this.ApplyAuditInfoRules();
             return base.SaveChanges();
         }
-
-        public IDbSet<Comment> Comments { get; set; }
-
-        public IDbSet<Album> Albums { get; set; }
-
-        public IDbSet<Category> Categories { get; set; }
-
-        public IDbSet<Order> Orders { get; set; }
-
-        public IDbSet<Picture> Pictures { get; set; }
-
-        public IDbSet<Publication> Publications { get; set; }
 
         private void ApplyAuditInfoRules()
         {

@@ -1,6 +1,8 @@
 ﻿namespace OnlineAtelier.Models.Models
 {
     using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
     using System.Threading.Tasks;
@@ -10,10 +12,13 @@
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
+        private IEnumerable<Order> orders;
+
         public ApplicationUser()
         {
             this.CreatedOn = DateTime.Now;
-            this.FullName = FirstName + " " + LastName;
+            this.FullName = this.FirstName + " " + this.LastName;
+            this.orders = new HashSet<Order>();
         }
      
         public string FirstName { get; set; }
@@ -35,6 +40,12 @@
         public DateTime? ModifiedOn { get; set; }
 
         public byte[] UserPhoto { get; set; }
+
+        public virtual IEnumerable<Order> Orders
+        {
+            get { return this.orders; }
+            set { this.orders = value; }
+        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
