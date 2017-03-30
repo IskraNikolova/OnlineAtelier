@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAtelier.Web.Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAtelier.Web.Models", "Web\OnlineAtelier.Web.Models\OnlineAtelier.Web.Models.csproj", "{E7019785-08C9-4F49-9836-1B3731B1B0C4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{64AB94BF-7E1C-4EC6-AD1E-C184B46C6217}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAtelier.Logic", "Logic\OnlineAtelier.Logic\OnlineAtelier.Logic.csproj", "{8BCFB2D7-5DF9-4E08-8327-DC7F47E04E01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,10 @@ Global
 		{E7019785-08C9-4F49-9836-1B3731B1B0C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7019785-08C9-4F49-9836-1B3731B1B0C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7019785-08C9-4F49-9836-1B3731B1B0C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BCFB2D7-5DF9-4E08-8327-DC7F47E04E01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BCFB2D7-5DF9-4E08-8327-DC7F47E04E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BCFB2D7-5DF9-4E08-8327-DC7F47E04E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BCFB2D7-5DF9-4E08-8327-DC7F47E04E01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +77,6 @@ Global
 		{92F406BD-986A-436B-9C3E-BC723B828FCD} = {58779A32-8E8E-4F77-948E-1D012FAC58B6}
 		{84CD06BF-04D7-4A2A-B04C-78C1F3371885} = {85586CD3-FD17-493D-AFA1-2A2E24D72378}
 		{E7019785-08C9-4F49-9836-1B3731B1B0C4} = {85586CD3-FD17-493D-AFA1-2A2E24D72378}
+		{8BCFB2D7-5DF9-4E08-8327-DC7F47E04E01} = {64AB94BF-7E1C-4EC6-AD1E-C184B46C6217}
 	EndGlobalSection
 EndGlobal

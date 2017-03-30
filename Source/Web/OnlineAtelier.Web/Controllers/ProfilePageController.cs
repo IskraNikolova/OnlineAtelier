@@ -1,6 +1,7 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
     using System.Web.Mvc;
+    using Logic;
     using Microsoft.AspNet.Identity;
     using Services.Contracts;
 
@@ -25,7 +26,7 @@
         {
             string fileName = this.HttpContext.Server.MapPath(path);
 
-            byte[] imageData = this.profileService.GetImageData(fileName);
+            byte[] imageData = GetImageData.GetIamge(fileName);
 
             return this.File(imageData, "image/png");
         }
@@ -41,9 +42,6 @@
                 {
                     return this.ImageLoad(@"~/Images/noImg.png");
                 }
-
-                //var bdUsers = this.HttpContext.GetOwinContext().Get<ApplicationDbContext>();
-                //var userImage = bdUsers.Users.FirstOrDefault(x => x.Id == userId);//todo check this
 
                 return new FileContentResult(user.UserPhoto, "image/jpeg");
             }
@@ -61,9 +59,6 @@
             {
                 return this.ImageLoad(@"~/Images/noImg.png");
             }
-
-            //var bdUsers = this.HttpContext.GetOwinContext().Get<ApplicationDbContext>();
-            //var userImage = bdUsers.Users.FirstOrDefault(x => x.Id == id);
 
             return new FileContentResult(user.UserPhoto, "image/jpeg");
         }

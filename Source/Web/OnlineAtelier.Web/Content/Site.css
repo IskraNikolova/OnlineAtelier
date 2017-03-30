@@ -23,13 +23,25 @@ textarea {
     max-width: 280px;
 }
 
+/* Set style for profile-images */
 .userPhoto {
     width:160px;
     height:160px;
     background: #FFFFFF;
     margin: auto;
-    -moz-border-radius: 60px;
+    -moz-border-radius: 30px;
     border-radius: 100px;
     padding: 6px;
-    box-shadow: 0px 0px 20px #888;
+    box-shadow: 0px 0px 18px #888;
+}
+
+.userPhotoMini {
+        width:40px;
+    height:40px;
+    background: #FFFFFF;
+    margin: auto;
+    -moz-border-radius: 20px;
+    border-radius: 25px;
+    padding: 1px;
+    box-shadow: 0px 0px 2px #888;
 }

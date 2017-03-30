@@ -293,6 +293,10 @@
       <Project>{d6f648d1-519a-4d9c-8f97-12f14d69e80d}</Project>
       <Name>OnlineAtelier.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Logic\OnlineAtelier.Logic\OnlineAtelier.Logic.csproj">
+      <Project>{8bcfb2d7-5df9-4e08-8327-dc7f47e04e01}</Project>
+      <Name>OnlineAtelier.Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Services\OnlineAtelier.Services\OnlineAtelier.Services.csproj">
       <Project>{92f406bd-986a-436b-9c3e-bc723b828fcd}</Project>
       <Name>OnlineAtelier.Services</Name>
