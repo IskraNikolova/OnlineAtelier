@@ -10,5 +10,6 @@
         ApplicationUser GetUser(string id);
 
         ProfilePageViewModel GetProfilePageViewModel(string userId);
+
     }
 }
