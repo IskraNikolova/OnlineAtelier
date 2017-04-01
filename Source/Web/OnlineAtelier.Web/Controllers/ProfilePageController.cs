@@ -1,8 +1,10 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Web.Mvc;
     using Logic;
     using Microsoft.AspNet.Identity;
+    using Models.ProfilePageModels;
     using Services.Contracts;
 
     public class ProfilePageController : Controller
@@ -20,6 +22,12 @@
             var userId = this.User.Identity.GetUserId();
             var model = this.profileService.GetProfilePageViewModel(userId);
             return this.View(model);
+        }
+
+        public ActionResult GetOrders(string id)
+        {
+            IEnumerable<ProfileOrdersViewModel> model = this.profileService.GetOrders(id);
+            return this.PartialView("_ProfilePagePartial", model);
         }
 
         public FileContentResult ImageLoad(string path)

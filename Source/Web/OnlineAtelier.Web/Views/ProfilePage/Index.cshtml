@@ -4,20 +4,16 @@
 }
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>@Model.Email</h2>
-        <p>
-         
-            </p>
-            <p><img class="userPhoto" src="@Url.Action("UserPhotos", "ProfilePage")" /></p>
-        </div>
-        <div class="col-md-4">
-            @foreach (var order in @Model.Orders)
-            {
-                <p>1.@order.CreatedOn</p>
-            }
-        </div>
-        <div class="col-md-4">
-
-        </div>
+    <div class="col-md-2">
+        <p>.</p>
+        <p><img class="userPhoto" src="@Url.Action("UserPhotos", "ProfilePage")"/>
+        </p>
     </div>
+    <div class="col-md-10">
+        <h3>@Html.DisplayFor(m => m.FullName)</h3>
+        <div><h4>@Html.ActionLink("Направи поръчка", "Add" ,"Order")</h4></div>
+        <br/>
+        <div><h5>Моите Поръчки</h5></div>
+        @Html.Action("GetOrders", new {id = Model.Id})
+    </div>
+</div>

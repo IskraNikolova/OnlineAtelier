@@ -1,27 +1,25 @@
-﻿namespace OnlineAtelier.Models.Models
+﻿namespace OnlineAtelier.Web.Models.ProfilePageModels
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using Comments;
-    using Data.Common.Models;
-    using Enums;
+    using OnlineAtelier.Models.Models;
+    using OnlineAtelier.Models.Models.Comments;
 
-    public class Order: IAuditInfo, IDeletableEntity
+    public class ProfileOrdersViewModel
     {
         private IEnumerable<byte[]> userPictures;
         private IEnumerable<Picture> galeryPictures;
         private IEnumerable<OrderComment> comments;
 
-        public Order()
+        public ProfileOrdersViewModel()
         {
             this.userPictures = new List<byte[]>();
             this.galeryPictures = new List<Picture>();
             this.comments = new HashSet<OrderComment>();
         }
 
-        [Key]
         public int Id { get; set; }
 
         public string Details { get; set; }
@@ -56,11 +54,11 @@
 
         public DateTime? DeletedOn { get; set; }
 
-        public virtual Appearance Appearance { get; set; }
+        public Appearance Appearance { get; set; }
 
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
-        public virtual IEnumerable<OrderComment> Comments
+        public IEnumerable<OrderComment> Comments
         {
             get { return this.comments; }
             set { this.comments = value; }

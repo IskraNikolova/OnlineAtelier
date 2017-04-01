@@ -1,0 +1,18 @@
+﻿@model IEnumerable<OnlineAtelier.Web.Models.ProfilePageModels.ProfileOrdersViewModel>
+
+@{
+    ViewBag.Title = "_ProfilePagePartial";
+}
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+ 
+   @foreach (var order in Model)
+   {
+    <div class="panel-heading">Категория: @order.Category</div>
+    <div class="panel-body">
+        <p>@order.Details</p>
+    </div>
+   }    
+</div>
+

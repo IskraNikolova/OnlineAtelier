@@ -71,10 +71,12 @@ namespace OnlineAtelier.Web.App_Start
             kernel.Bind(typeof(IRepository<Album>)).To(typeof(DeletableEntityRepository<Album>));
             kernel.Bind(typeof(IRepository<Comment>)).To(typeof(DeletableEntityRepository<Comment>));
             kernel.Bind(typeof(IRepository<Category>)).To(typeof(DeletableEntityRepository<Category>));
+            kernel.Bind(typeof(IRepository<Appearance>)).To(typeof(DeletableEntityRepository<Appearance>));
             kernel.Bind(typeof(IRepository<Order>)).To(typeof(DeletableEntityRepository<Order>));
             kernel.Bind(typeof(IRepository<Picture>)).To(typeof(DeletableEntityRepository<Picture>));
             kernel.Bind(typeof(IRepository<Publication>)).To(typeof(DeletableEntityRepository<Publication>));
             kernel.Bind(typeof(IProfileService)).To(typeof(ProfileServices));
+            kernel.Bind(typeof(IOrderService)).To(typeof(OrderService));
 
             kernel.Bind(typeof(IRepository<ApplicationUser>)).To(typeof(DeletableEntityRepository<ApplicationUser>));
 

@@ -84,7 +84,7 @@
     </Reference>
     <Reference Include="OnlineAtelier.Web.Models, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Web\OnlineAtelier.Web\Bin\OnlineAtelier.Web.Models.dll</HintPath>
+      <HintPath>..\..\Web\OnlineAtelier.Web.Models\obj\Debug\OnlineAtelier.Web.Models.dll</HintPath>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -127,8 +127,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IOrderService.cs" />
     <Compile Include="Contracts\IProfileService.cs" />
     <Compile Include="Contracts\IService.cs" />
+    <Compile Include="OrderService.cs" />
     <Compile Include="ProfileServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

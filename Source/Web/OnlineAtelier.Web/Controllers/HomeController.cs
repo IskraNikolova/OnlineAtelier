@@ -13,29 +13,9 @@
 
     public class HomeController : Controller
     {
-        private IRepository<Order> orders;
-
-
-        public HomeController(IRepository<Order> orders)
-        {
-            this.orders = orders;
-        }
-
         public ActionResult Index()
         {
-
-            var order = new Order()
-            {
-                SizeOfTheBox = SizeOfTheBox.StandardFour,
-                ApplicationUserId = this.User.Identity.GetUserId(),
-                Category = "new",
-
-            };
-
-            this.orders.Add(order);
-            this.orders.SaveChanges();
-
-            return this.View(order);
+            return this.View();
         }
 
 

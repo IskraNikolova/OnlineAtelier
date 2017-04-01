@@ -100,6 +100,9 @@
     <Compile Include="AcountViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="AcountViewModels\SendCodeViewModel.cs" />
     <Compile Include="AcountViewModels\VerifyCodeViewModel.cs" />
+    <Compile Include="BindingModels\OrderBindingModel.cs" />
+    <Compile Include="CategoriesViewModels\DisplayAllCategories.cs" />
+    <Compile Include="CategoriesViewModels\DisplayCategoryNameViewModel.cs" />
     <Compile Include="ManageViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="ManageViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ManageViewModels\ConfigureTwoFactorViewModel.cs" />
@@ -108,6 +111,8 @@
     <Compile Include="ManageViewModels\ManageLoginsViewModel.cs" />
     <Compile Include="ManageViewModels\SetPasswordViewModel.cs" />
     <Compile Include="ManageViewModels\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="OrderViewModels\OrderViewModel.cs" />
+    <Compile Include="ProfilePageModels\ProfileOrdersViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

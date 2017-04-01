@@ -23,6 +23,8 @@
 
         public IDbSet<Category> Categories { get; set; }
 
+        public IDbSet<Appearance> Appearances { get; set; }
+
         public IDbSet<Order> Orders { get; set; }
 
         public IDbSet<Picture> Pictures { get; set; }

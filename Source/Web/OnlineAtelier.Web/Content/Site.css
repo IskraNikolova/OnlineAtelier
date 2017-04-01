@@ -36,12 +36,12 @@ textarea {
 }
 
 .userPhotoMini {
-        width:40px;
-    height:40px;
+    width:25px;
+    height:25px;
     background: #FFFFFF;
     margin: auto;
-    -moz-border-radius: 20px;
-    border-radius: 25px;
+    -moz-border-radius: 18px;
+    border-radius: 23px;
     padding: 1px;
     box-shadow: 0px 0px 2px #888;
 }

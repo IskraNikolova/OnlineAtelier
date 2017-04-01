@@ -1,0 +1,23 @@
+﻿@using System.Web.Mvc.Html
+@model OnlineAtelier.Web.Models.OrderViewModels.OrderViewModel
+@{
+    ViewBag.Title = "Add";
+}
+
+@using (Html.BeginForm("Add", "Order", FormMethod.Post))
+{
+    @* Category selection dropdown *@
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.Category, Model.Categories, "- Избери категория -", new { @class = "form-control" })
+    </div>
+    @* Appearance of orders selection dropdown *@
+    <div class="form-group">
+        @Html.DropDownListFor(m => m.Appearance, Model.Appearances, "- Избери вид на поръчката -", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Детайли:")
+        @Html.TextAreaFor(m => m.Details, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Поръчай</button>//todo with html helpers
+}
+
