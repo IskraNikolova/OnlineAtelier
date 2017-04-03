@@ -10,6 +10,5 @@
         ApplicationUser GetUser(string id);
 
         ProfilePageViewModel GetProfilePageViewModel(string userId);
-        IEnumerable<ProfileOrdersViewModel> GetOrders(string id);
     }
 }

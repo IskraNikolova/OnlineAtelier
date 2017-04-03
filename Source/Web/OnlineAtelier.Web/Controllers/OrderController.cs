@@ -1,9 +1,11 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Models.BindingModels;
     using Models.OrderViewModels;
+    using Models.ProfilePageModels;
     using Services.Contracts;
 
     public class OrderController : Controller
@@ -45,6 +47,13 @@
             }
 
             return this.View(this.service.GetViewModel(model));
+        }
+
+
+        public ActionResult GetOrders(string id)
+        {
+            IEnumerable<ProfileOrdersViewModel> model = this.service.GetOrders(id);
+            return this.PartialView("_GetOrdersPartial", model);
         }
     }
 }

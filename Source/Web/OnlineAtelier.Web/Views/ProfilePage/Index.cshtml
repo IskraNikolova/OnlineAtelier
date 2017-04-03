@@ -17,7 +17,7 @@
         <div class="panel panel-body">
             <br/>            
             <div><h5>Моите Поръчки</h5></div>
-            @Html.Action("GetOrders", new {id = Model.Id})
+            @Html.Action("GetOrders", "Order", new {id = Model.Id})
         </div>
     </div>
 </div>

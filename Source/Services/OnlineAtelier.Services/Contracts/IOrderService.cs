@@ -4,6 +4,7 @@
     using System.Web.Mvc;
     using Web.Models.BindingModels;
     using Web.Models.OrderViewModels;
+    using Web.Models.ProfilePageModels;
 
     public interface IOrderService
     {
@@ -16,5 +17,7 @@
         IEnumerable<SelectListItem> GetSelectListItems(IEnumerable<string> elements);
 
         IEnumerable<string> GetAllAppearances();
+
+        IEnumerable<ProfileOrdersViewModel> GetOrders(string id);
     }
 }

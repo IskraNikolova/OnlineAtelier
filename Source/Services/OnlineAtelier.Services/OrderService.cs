@@ -8,6 +8,7 @@
     using Models.Models;
     using Web.Models.BindingModels;
     using Web.Models.OrderViewModels;
+    using Web.Models.ProfilePageModels;
 
     public class OrderService : IOrderService
     {
@@ -16,10 +17,10 @@
         private readonly IRepository<Appearance> appearances;
         private readonly IRepository<ApplicationUser> users;
 
-        public OrderService(IRepository<Order> orders, 
-                            IRepository<Category> categories,
-                            IRepository<Appearance> appearances,
-                            IRepository<ApplicationUser> users )
+        public OrderService(IRepository<Order> orders,
+            IRepository<Category> categories,
+            IRepository<Appearance> appearances,
+            IRepository<ApplicationUser> users)
         {
             this.orders = orders;
             this.categories = categories;
@@ -49,7 +50,7 @@
         }
 
         public OrderViewModel GetViewModel(OrderBindingModel model)
-        {           
+        {
             var viewModel = new OrderViewModel()
             {
                 Category = model.Category,
@@ -57,7 +58,7 @@
                 Appearance = model.Appearance,
                 Categories = this.GetSelectListItems(this.GetAllCategories()),
                 Appearances = this.GetSelectListItems(this.GetAllAppearances())
-                
+
             };
 
             return viewModel;
@@ -77,7 +78,7 @@
         {
             var allAppearances = this.appearances
                 .All()
-                .Select(a=>a.Name)
+                .Select(a => a.Name)
                 .ToList();
 
             return allAppearances;
@@ -102,6 +103,33 @@
             }
 
             return selectList;
+        }
+
+        public IEnumerable<ProfileOrdersViewModel> GetOrders(string id)
+        {
+            var currentOrders = this.orders.All()
+                .Where(o => o.ApplicationUser.Id == id)
+                .ToList();
+
+            var ordersModel = new List<ProfileOrdersViewModel>();
+            foreach (var item in currentOrders)
+            {
+                var order = new ProfileOrdersViewModel()
+                {
+                    Id = item.Id,
+                    Details = item.Details,
+                    Category = item.Category,
+                    AppearanceName = item.Appearance.Name,
+                    AppearancePrice = item.Appearance.Price,
+                    CreatedOn = item.CreatedOn,
+                    GaleryPictures = item.GaleryPictures,
+                    UserPictures = item.UserPictures
+                };
+
+                ordersModel.Add(order);
+            }
+
+            return ordersModel;
         }
     }
 }

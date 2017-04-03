@@ -282,7 +282,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\ProfilePage\Index.cshtml" />
     <Content Include="Views\Order\Add.cshtml" />
-    <Content Include="Views\ProfilePage\_ProfilePagePartial.cshtml" />
+    <Content Include="Views\Order\_GetOrdersPartial.cshtml" />
     <Content Include="Views\OrderComment\_AddCommentPartial.cshtml" />
     <Content Include="Views\OrderComment\_ViewCommentsPartial.cshtml" />
   </ItemGroup>

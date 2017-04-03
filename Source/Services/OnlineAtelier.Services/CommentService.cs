@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using AutoMapper.QueryableExtensions;
     using Contracts;
     using Data.Common.Repository;
     using Models.Models.Comments;

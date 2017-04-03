@@ -11,13 +11,10 @@
     public class ProfileServices : IProfileService
     {
         private readonly IRepository<ApplicationUser> users;
-        private readonly IRepository<Order> orders;
 
-        public ProfileServices(IRepository<ApplicationUser> users, IRepository<Order> orders)
+        public ProfileServices(IRepository<ApplicationUser> users)
         {
             this.users = users;
-            this.orders = orders;
-
         }
 
         public ApplicationUser GetUser(string id)
@@ -42,33 +39,6 @@
             };
 
             return model;
-        }
-
-        public IEnumerable<ProfileOrdersViewModel> GetOrders(string id)
-        {
-            var currentOrders = this.orders.All()
-                .Where(o => o.ApplicationUser.Id == id)
-                .ToList();
-
-            var ordersModel = new List<ProfileOrdersViewModel>();
-            foreach (var item in currentOrders)
-            {
-                var order = new ProfileOrdersViewModel()
-                {
-                    Id = item.Id,
-                    Details = item.Details,
-                    Category = item.Category,
-                    AppearanceName = item.Appearance.Name,
-                    AppearancePrice = item.Appearance.Price,
-                    CreatedOn = item.CreatedOn,
-                    GaleryPictures = item.GaleryPictures,
-                    UserPictures = item.UserPictures
-                };
-
-                ordersModel.Add(order);
-            }
-
-            return ordersModel;
         }
     }
 }

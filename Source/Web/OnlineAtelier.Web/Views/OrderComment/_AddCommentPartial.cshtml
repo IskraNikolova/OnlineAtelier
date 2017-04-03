@@ -4,9 +4,18 @@
 }
 
 @using (Html.BeginForm("AddComment", "OrderComment", FormMethod.Post))
-{
-    <div class="form-group">
-        @Html.EditorFor(m => m.Text, new {@class = "form-control"})
+{ 
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="input-group">                   
+                    <input type="text" class="form-control" placeholder="..." name ="Text">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Коментирай</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Коментирай</button>//todo with html helpers
-}
+
+            }

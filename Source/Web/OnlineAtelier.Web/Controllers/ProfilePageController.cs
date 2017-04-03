@@ -24,12 +24,6 @@
             return this.View(model);
         }
 
-        public ActionResult GetOrders(string id)
-        {
-            IEnumerable<ProfileOrdersViewModel> model = this.profileService.GetOrders(id);
-            return this.PartialView("_ProfilePagePartial", model);
-        }
-
         public FileContentResult ImageLoad(string path)
         {
             string fileName = this.HttpContext.Server.MapPath(path);
