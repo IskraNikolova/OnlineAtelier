@@ -31,7 +31,9 @@
 
         public void AddOrder(OrderViewModel model, string authorId, IEnumerable<UserPicture> pictures)
         {
-            var user = this.users.All().FirstOrDefault(u => u.Id == authorId);
+            var user = this.users.All()
+                .FirstOrDefault(u => u.Id == authorId);
+
             this.users.Detach(user);
 
             var appearance = this.appearances.All()
@@ -126,7 +128,6 @@
                     AppearancePrice = item.Appearance.Price,
                     CreatedOn = item.CreatedOn,
                     GaleryPictures = item.GaleryPictures,
-                    //UserPictures = item.UserPictures
                 };
 
                 ordersModel.Add(order);

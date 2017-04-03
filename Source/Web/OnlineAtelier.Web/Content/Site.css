@@ -45,3 +45,8 @@ textarea {
     padding: 1px;
     box-shadow: 0px 0px 2px #888;
 }
+
+.userPictures {
+      width:171px;
+    height:180px;
+}

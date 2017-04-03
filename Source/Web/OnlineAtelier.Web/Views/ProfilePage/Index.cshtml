@@ -4,7 +4,7 @@
 }
 
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
         <br/>
         <p><img class="userPhoto" src="@Url.Action("UserPhotos", "Image")"/>
             <h3>@Html.DisplayFor(m => m.FullName)</h3>
@@ -12,12 +12,20 @@
         <div><h4>@Html.ActionLink("Направи Поръчка", "Add", "Order", null ,new {@class="btn btn-primary"})</h4>
         </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-7">
         <br/>
         <div class="panel panel-body">
             <br/>            
             <div><h5>Моите Поръчки</h5></div>
+            <hr/>
             @Html.Action("GetOrders", "Order", new {id = Model.Id})
+        </div>
+    </div>
+    <div class="col-md-3">
+        <br />
+        <div class="panel panel-body">
+            <br />
+           
         </div>
     </div>
 </div>

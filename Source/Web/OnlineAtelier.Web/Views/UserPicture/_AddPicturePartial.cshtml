@@ -5,11 +5,15 @@
 
 @using (Html.BeginForm("AddPicture", "UserPicture", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="form-group">
-                <input type="file" value="" name="UserPictures" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif" />
-                <input type="submit" class="btn btn-default" value="Добави снимка" />
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-default" value="Добави снимка" />
+                        <input type="file" value="" name="UserPictures" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>

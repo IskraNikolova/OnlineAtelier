@@ -1,9 +1,12 @@
 ﻿namespace OnlineAtelier.Services
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using AutoMapper.QueryableExtensions;
     using Contracts;
     using Data.Common.Repository;
-    using Models;
     using Models.Models;
+    using Web.Models.UsersPictureViewModels;
 
     public class UserPictureService : IUserPictureService
     {
@@ -24,6 +27,23 @@
 
             this.userPictures.Add(picture);
             this.userPictures.SaveChanges();
+        }
+
+        public IEnumerable<UserPictureViewModel> AllUserPicture(int orderId)
+        {
+            var models = this.userPictures.All()
+                .Where(p => p.OrderId == orderId)
+                .Project()
+                .To<UserPictureViewModel>();
+
+            return models;
+        }
+
+        public byte[] TakePhoto(int userPictureId, int orderId)
+        {
+            var pictures = this.AllUserPicture(orderId);
+            UserPictureViewModel photo = pictures.FirstOrDefault(p => p.Id == userPictureId);
+            return photo.UserPictures;
         }
     }
 }

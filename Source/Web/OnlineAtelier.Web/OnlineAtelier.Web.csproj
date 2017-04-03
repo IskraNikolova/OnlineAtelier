@@ -288,6 +288,7 @@
     <Content Include="Views\OrderComment\_AddCommentPartial.cshtml" />
     <Content Include="Views\OrderComment\_ViewCommentsPartial.cshtml" />
     <Content Include="Views\UserPicture\_AddPicturePartial.cshtml" />
+    <Content Include="Views\UserPicture\_ViewAllUserPicturePartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

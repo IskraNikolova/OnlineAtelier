@@ -43,6 +43,7 @@
                     {
                         ApplicationUserId = oc.ApplicationUserId,
                         Text = oc.Text,
+                        CreatedOn = oc.CreatedOn
                     };
 
                     result.Add(model);

@@ -19,6 +19,8 @@
 
         public string Category { get; set; }
 
+        public int OrderId { get; set; }
+
 
         public IEnumerable<Picture> GaleryPictures
         {

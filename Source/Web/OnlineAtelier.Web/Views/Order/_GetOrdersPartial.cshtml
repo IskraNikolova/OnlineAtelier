@@ -9,9 +9,8 @@
 {
     <div class="panel panel-default">
         <!-- Default panel contents -->
-
         <div class="panel-heading">
-            <br />
+            <br/>
             <h6>@order.AppearanceName - @order.AppearancePrice лв.</h6>
             <em>@order.CreatedOn</em>
         </div>
@@ -19,13 +18,13 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <p>@order.Details</p>
+                    @Html.Action("AddPicture", "UserPicture", new {id = order.Id})
+                    @Html.Action("All", "UserPicture", new {id = order.Id})
                 </div>
             </div>
-            @*<img class="userPhoto" src="@Url.Action("UserPhotos", "Image")" />*@
+            @Html.Action("GetComments", "OrderComment", new {id = order.Id})
 
-            @Html.Action("GetComments", "OrderComment", new { id = order.Id })
-            @Html.Action("AddPicture", "UserPicture", new { id = order.Id })
-            @Html.Action("AddComment", "OrderComment", new { id = order.Id })
+            @Html.Action("AddComment", "OrderComment", new {id = order.Id})
         </div>
     </div>
 }
