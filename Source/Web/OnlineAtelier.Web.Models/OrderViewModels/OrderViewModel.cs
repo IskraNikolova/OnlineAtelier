@@ -1,6 +1,7 @@
 ﻿namespace OnlineAtelier.Web.Models.OrderViewModels
 {
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using OnlineAtelier.Models.Models;
     using System.Web.Mvc;
 
@@ -28,6 +29,7 @@
         // This property will hold all available appearances of orders for selection
         public IEnumerable<SelectListItem> Appearances { get; set; }
 
+        [Display(Name = "UserPictures")]
         public IEnumerable<byte[]> UserPictures
         {
             get { return this.userPictures; }

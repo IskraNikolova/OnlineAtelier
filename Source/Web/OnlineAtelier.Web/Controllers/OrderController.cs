@@ -1,11 +1,17 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
+    using System.Collections;
     using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Models.BindingModels;
     using Models.OrderViewModels;
     using Models.ProfilePageModels;
+    using OnlineAtelier.Models;
+    using OnlineAtelier.Models.Models;
     using Services.Contracts;
 
     public class OrderController : Controller
@@ -42,14 +48,32 @@
             var modelView = this.service.GetViewModel(model);
             if (this.ModelState.IsValid)
             {
-                this.service.AddOrder(modelView, userId);
+
+                byte[] imageData = null;
+                if (this.Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase httpPostedFileBase = this.Request.Files["UserPictures"];
+
+                    using (var binary = new BinaryReader(httpPostedFileBase.InputStream))
+                    {
+                        imageData = binary.ReadBytes(httpPostedFileBase.ContentLength);
+                    }
+                }
+
+                IEnumerable<UserPicture> pictures = new List<UserPicture>();
+                pictures.ToList().Add(new UserPicture()
+                {
+                    UserPictures = imageData
+                });
+
+                this.service.AddOrder(modelView, userId, pictures);
                 return this.RedirectToAction("Index", "ProfilePage");
             }
 
             return this.View(this.service.GetViewModel(model));
         }
 
-
+        [Authorize]
         public ActionResult GetOrders(string id)
         {
             IEnumerable<ProfileOrdersViewModel> model = this.service.GetOrders(id);

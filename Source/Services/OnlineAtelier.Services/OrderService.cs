@@ -5,6 +5,7 @@
     using System.Web.Mvc;
     using Contracts;
     using Data.Common.Repository;
+    using Models;
     using Models.Models;
     using Web.Models.BindingModels;
     using Web.Models.OrderViewModels;
@@ -28,7 +29,7 @@
             this.users = users;
         }
 
-        public void AddOrder(OrderViewModel model, string authorId)
+        public void AddOrder(OrderViewModel model, string authorId, IEnumerable<UserPicture> pictures)
         {
             var user = this.users.All().FirstOrDefault(u => u.Id == authorId);
             this.users.Detach(user);
@@ -42,7 +43,8 @@
                 Category = model.Category,
                 Details = model.Details,
                 Appearance = appearance,
-                ApplicationUser = user
+                ApplicationUser = user,
+                UserPictures = pictures
             };
 
             this.orders.Add(order);
@@ -51,6 +53,7 @@
 
         public OrderViewModel GetViewModel(OrderBindingModel model)
         {
+
             var viewModel = new OrderViewModel()
             {
                 Category = model.Category,
@@ -123,7 +126,7 @@
                     AppearancePrice = item.Appearance.Price,
                     CreatedOn = item.CreatedOn,
                     GaleryPictures = item.GaleryPictures,
-                    UserPictures = item.UserPictures
+                    //UserPictures = item.UserPictures
                 };
 
                 ordersModel.Add(order);

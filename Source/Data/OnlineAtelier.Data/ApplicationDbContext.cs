@@ -6,6 +6,7 @@
     using Common.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Migrations;
+    using Models;
     using Models.Models;
     using Models.Models.Comments;
 
@@ -28,6 +29,9 @@
         public IDbSet<Order> Orders { get; set; }
 
         public IDbSet<Picture> Pictures { get; set; }
+
+        public IDbSet<UserPicture> UserPictures { get; set; }
+
 
         public IDbSet<Publication> Publications { get; set; }
 

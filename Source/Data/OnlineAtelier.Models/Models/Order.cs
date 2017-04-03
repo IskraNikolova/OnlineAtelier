@@ -3,20 +3,18 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
     using Comments;
     using Data.Common.Models;
-    using Enums;
 
     public class Order: IAuditInfo, IDeletableEntity
     {
-        private IEnumerable<byte[]> userPictures;
+        private IEnumerable<UserPicture> userPictures;
         private IEnumerable<Picture> galeryPictures;
         private IEnumerable<OrderComment> comments;
 
         public Order()
         {
-            this.userPictures = new List<byte[]>();
+            this.userPictures = new HashSet<UserPicture>();
             this.galeryPictures = new List<Picture>();
             this.comments = new HashSet<OrderComment>();
         }
@@ -34,7 +32,7 @@
 
         public bool IsRefused { get; set; }
 
-        public IEnumerable<byte[]> UserPictures
+        public virtual IEnumerable<UserPicture> UserPictures
         {
             get { return this.userPictures; }
             set { this.userPictures = value; }

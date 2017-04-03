@@ -1,0 +1,23 @@
+﻿@model OnlineAtelier.Web.Models.BindingModels.AddPictureBindingModel
+@{
+    ViewBag.Title = "_AddPicturePartial";
+}
+
+@using (Html.BeginForm("AddPicture", "UserPicture", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="file" name="UserPictures" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif" />
+                        <input type="submit" class="btn btn-default" value="Добави снимка" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+

@@ -13,6 +13,7 @@ namespace OnlineAtelier.Web.App_Start
     using Ninject.Web.Common;
     using OnlineAtelier.Models.Models.Comments;
     using Data.Common.Repository;
+    using OnlineAtelier.Models;
     using OnlineAtelier.Models.Models;
     using Services.Contracts;
     using Services;
@@ -72,12 +73,14 @@ namespace OnlineAtelier.Web.App_Start
             kernel.Bind(typeof(IRepository<Comment>)).To(typeof(DeletableEntityRepository<Comment>));
             kernel.Bind(typeof(IRepository<Category>)).To(typeof(DeletableEntityRepository<Category>));
             kernel.Bind(typeof(IRepository<Appearance>)).To(typeof(DeletableEntityRepository<Appearance>));
+            kernel.Bind(typeof(IRepository<UserPicture>)).To(typeof(DeletableEntityRepository<UserPicture>));
             kernel.Bind(typeof(IRepository<Order>)).To(typeof(DeletableEntityRepository<Order>));
             kernel.Bind(typeof(IRepository<Picture>)).To(typeof(DeletableEntityRepository<Picture>));
             kernel.Bind(typeof(IRepository<Publication>)).To(typeof(DeletableEntityRepository<Publication>));
             kernel.Bind(typeof(IProfileService)).To(typeof(ProfileServices));
             kernel.Bind(typeof(IOrderService)).To(typeof(OrderService));
             kernel.Bind(typeof(ICommentService)).To(typeof(CommentService));
+            kernel.Bind(typeof(IUserPictureService)).To(typeof(UserPictureService));
 
             kernel.Bind(typeof(IRepository<ApplicationUser>)).To(typeof(DeletableEntityRepository<ApplicationUser>));
 

@@ -100,6 +100,7 @@
     <Compile Include="AcountViewModels\ResetPasswordViewModel.cs" />
     <Compile Include="AcountViewModels\SendCodeViewModel.cs" />
     <Compile Include="AcountViewModels\VerifyCodeViewModel.cs" />
+    <Compile Include="BindingModels\AddPictureBindingModel.cs" />
     <Compile Include="BindingModels\OrderBindingModel.cs" />
     <Compile Include="CategoriesViewModels\DisplayAllCategories.cs" />
     <Compile Include="CategoriesViewModels\DisplayCategoryNameViewModel.cs" />

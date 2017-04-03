@@ -3,17 +3,14 @@
     using System;
     using System.Collections.Generic;
     using OnlineAtelier.Models.Models;
-    using OnlineAtelier.Models.Models.Comments;
 
     public class ProfileOrdersViewModel
     {
-        private IEnumerable<byte[]> userPictures;
         private IEnumerable<Picture> galeryPictures;
 
         public ProfileOrdersViewModel()
         {
-            this.userPictures = new List<byte[]>();
-            this.galeryPictures = new List<Picture>();
+            this.GaleryPictures = this.galeryPictures;
         }
 
         public int Id { get; set; }
@@ -22,11 +19,6 @@
 
         public string Category { get; set; }
 
-        public IEnumerable<byte[]> UserPictures
-        {
-            get { return this.userPictures; }
-            set { this.userPictures = value; }
-        }
 
         public IEnumerable<Picture> GaleryPictures
         {
