@@ -1,4 +1,4 @@
-﻿namespace OnlineAtelier.Web.Models.Categories
+﻿namespace OnlineAtelier.Web.Models.CategoriesViewModels
 {
     using Infrastructure.Mapping;
     using OnlineAtelier.Models.Models;

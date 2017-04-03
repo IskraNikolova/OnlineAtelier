@@ -15,6 +15,7 @@
             this.galeryPictures = new List<Picture>();
         }
 
+        public int Id { get; set; }
         public string Appearance { get; set; }
 
         public string Details { get; set; }

@@ -1,0 +1,10 @@
+﻿@model IEnumerable<OnlineAtelier.Web.Models.CommentsViewModels.OrderCommentViewModel>
+@{
+    ViewBag.Title = "_ViewCommentsPartial";
+}
+
+@foreach (var comment in Model)
+{
+    <p>@comment.Text</p>
+}
+

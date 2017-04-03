@@ -111,6 +111,7 @@
     <Compile Include="ManageViewModels\ManageLoginsViewModel.cs" />
     <Compile Include="ManageViewModels\SetPasswordViewModel.cs" />
     <Compile Include="ManageViewModels\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="CommentsViewModels\OrderCommentViewModel.cs" />
     <Compile Include="OrderViewModels\OrderViewModel.cs" />
     <Compile Include="ProfilePageModels\ProfileOrdersViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

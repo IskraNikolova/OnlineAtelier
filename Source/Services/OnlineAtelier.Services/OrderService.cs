@@ -37,6 +37,7 @@
 
             var order = new Order()
             {
+                Id = model.Id,
                 Category = model.Category,
                 Details = model.Details,
                 Appearance = appearance,

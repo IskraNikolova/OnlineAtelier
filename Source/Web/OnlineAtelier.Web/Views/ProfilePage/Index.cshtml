@@ -4,16 +4,20 @@
 }
 
 <div class="row">
-    <div class="col-md-2">
-        <p>.</p>
-        <p><img class="userPhoto" src="@Url.Action("UserPhotos", "ProfilePage")"/>
-        </p>
-    </div>
-    <div class="col-md-10">
-        <h3>@Html.DisplayFor(m => m.FullName)</h3>
-        <div><h4>@Html.ActionLink("Направи поръчка", "Add" ,"Order")</h4></div>
+    <div class="col-md-3">
         <br/>
-        <div><h5>Моите Поръчки</h5></div>
-        @Html.Action("GetOrders", new {id = Model.Id})
+        <p><img class="userPhoto" src="@Url.Action("UserPhotos", "ProfilePage")"/>
+            <h3>@Html.DisplayFor(m => m.FullName)</h3>
+        </p>
+        <div><h4>@Html.ActionLink("Направи Поръчка", "Add", "Order", null ,new {@class="btn btn-primary"})</h4>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <br/>
+        <div class="panel panel-body">
+            <br/>            
+            <div><h5>Моите Поръчки</h5></div>
+            @Html.Action("GetOrders", new {id = Model.Id})
+        </div>
     </div>
 </div>

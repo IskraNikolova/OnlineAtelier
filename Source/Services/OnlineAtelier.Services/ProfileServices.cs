@@ -1,9 +1,7 @@
 ﻿namespace OnlineAtelier.Services
 {
     using System.Collections.Generic;
-    using System.IO;
     using System.Linq;
-    using AutoMapper.QueryableExtensions;
     using Contracts;
     using Data.Common.Repository;
     using Models.Models;
@@ -48,18 +46,21 @@
 
         public IEnumerable<ProfileOrdersViewModel> GetOrders(string id)
         {
-            var currentOrders = this.orders.All().Where(o => o.ApplicationUser.Id == id).ToList();
+            var currentOrders = this.orders.All()
+                .Where(o => o.ApplicationUser.Id == id)
+                .ToList();
+
             var ordersModel = new List<ProfileOrdersViewModel>();
             foreach (var item in currentOrders)
             {
                 var order = new ProfileOrdersViewModel()
                 {
+                    Id = item.Id,
                     Details = item.Details,
                     Category = item.Category,
-                    Appearance = item.Appearance,
-                    ApplicationUser = item.ApplicationUser,
+                    AppearanceName = item.Appearance.Name,
+                    AppearancePrice = item.Appearance.Price,
                     CreatedOn = item.CreatedOn,
-                    Comments = item.Comments,
                     GaleryPictures = item.GaleryPictures,
                     UserPictures = item.UserPictures
                 };

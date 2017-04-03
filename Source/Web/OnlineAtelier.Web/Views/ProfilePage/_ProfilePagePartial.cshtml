@@ -4,15 +4,21 @@
     ViewBag.Title = "_ProfilePagePartial";
 }
 
-<div class="panel panel-default">
-    <!-- Default panel contents -->
- 
-   @foreach (var order in Model)
-   {
-    <div class="panel-heading">Категория: @order.Category</div>
-    <div class="panel-body">
-        <p>@order.Details</p>
-    </div>
-   }    
-</div>
 
+@foreach (var order in Model)
+{
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+
+        <div class="panel-heading">
+            <br />
+            <h6>@order.AppearanceName - @order.AppearancePrice лв.</h6>
+            <em>@order.CreatedOn</em>
+        </div>
+        <div class="panel-body">
+            <p>@order.Details</p>
+            @Html.Action("AddComment", "OrderComment", new { id = order.Id })
+            @Html.Action("GetComments", "OrderComment", new { id = order.Id })
+        </div>
+    </div>
+}

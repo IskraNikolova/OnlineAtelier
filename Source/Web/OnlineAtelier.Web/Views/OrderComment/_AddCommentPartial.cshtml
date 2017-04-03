@@ -1,0 +1,12 @@
+﻿@model OnlineAtelier.Web.Models.CommentsViewModels.OrderCommentViewModel
+@{
+    ViewBag.Title = "_AddCommentPartial";
+}
+
+@using (Html.BeginForm("AddComment", "OrderComment", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.EditorFor(m => m.Text, new {@class = "form-control"})
+    </div>
+    <button type="submit" class="btn btn-primary">Коментирай</button>//todo with html helpers
+}
