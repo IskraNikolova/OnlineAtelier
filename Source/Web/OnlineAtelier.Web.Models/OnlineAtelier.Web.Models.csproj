@@ -116,6 +116,7 @@
     <Compile Include="OrderViewModels\OrderViewModel.cs" />
     <Compile Include="ProfilePageModels\ProfileOrdersViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersPictureViewModels\AddPictureViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

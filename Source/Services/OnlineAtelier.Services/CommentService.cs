@@ -41,6 +41,7 @@
                 {
                     var model = new OrderCommentViewModel()
                     {
+                        ApplicationUserId = oc.ApplicationUserId,
                         Text = oc.Text,
                     };
 

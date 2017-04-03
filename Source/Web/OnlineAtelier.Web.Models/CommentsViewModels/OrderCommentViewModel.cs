@@ -6,5 +6,7 @@
     public class OrderCommentViewModel : IMapFrom<Comment>
     {
         public string Text { get; set; }
+
+        public  string ApplicationUserId  { get; set; }
     }
 }

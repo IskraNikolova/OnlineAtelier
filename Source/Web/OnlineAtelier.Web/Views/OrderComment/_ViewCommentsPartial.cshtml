@@ -5,6 +5,13 @@
 
 @foreach (var comment in Model)
 {
-    <p>@comment.Text</p>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>
+                <img class="userPhotoMini" src="@Url.Action("TakeUserPhotos", "Image", new {id = comment.ApplicationUserId})" />
+                @comment.Text
+            </p>
+        </div>
+    </div>
 }
 
