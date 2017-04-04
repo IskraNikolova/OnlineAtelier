@@ -4,6 +4,7 @@
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Models;
+    using Models.BindingModels;
     using Models.ViewModels.Comments;
     using Services.Contracts;
 
@@ -23,7 +24,7 @@
         }
 
         [HttpPost]
-        public ActionResult AddComment(OrderCommentViewModel model, int? id)
+        public ActionResult AddComment(OrderCommentBindingModel model, int? id)
         {
             string userId = this.User.Identity.GetUserId();
             if (this.ModelState.IsValid)

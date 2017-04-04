@@ -90,6 +90,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindingModels\OrderCommentBindingModel.cs" />
     <Compile Include="ViewModels\Acount\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Acount\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\Acount\ForgotPasswordViewModel.cs" />

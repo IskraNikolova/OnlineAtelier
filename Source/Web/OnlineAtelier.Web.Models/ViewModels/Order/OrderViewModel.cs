@@ -3,10 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
+    using BindingModels;
+    using Infrastructure.Mapping;
 
-    public class OrderViewModel 
+    public class OrderViewModel : IMapFrom<OrderBindingModel>
     {
         public int Id { get; set; }
 

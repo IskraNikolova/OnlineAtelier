@@ -9,6 +9,7 @@
     using Web.Models.BindingModels;
     using Web.Models.ViewModels.Order;
     using Web.Models.ViewModels.ProfilePage;
+    using AutoMapper;
 
     public class OrderService : IOrderService
     {
@@ -68,6 +69,9 @@
 
         public OrderViewModel GetViewModel(OrderBindingModel model)
         {
+            var m = new List<OrderBindingModel>();
+            m.Add(model);
+            
 
             var viewModel = new OrderViewModel()
             {
@@ -81,7 +85,6 @@
                 Appearance = model.Appearance,
                 Categories = this.GetSelectListItems(this.GetAllCategories()),
                 Appearances = this.GetSelectListItems(this.GetAllAppearances())
-
             };
 
             return viewModel;
