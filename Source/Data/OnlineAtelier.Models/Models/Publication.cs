@@ -18,9 +18,11 @@
 
         public string PhotoUrl { get; set; }
 
-        public string PublicationText { get; set; }
+        public string Title { get; set; }
 
-        public IEnumerable<PublicationComment> Comments
+        public string Content { get; set; }
+
+        public virtual IEnumerable<PublicationComment> Comments
         {
             get { return this.comments; }
             set { this.comments = value; }
