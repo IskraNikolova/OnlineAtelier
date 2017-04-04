@@ -1,36 +1,23 @@
 ﻿namespace OnlineAtelier.Web.Models.BindingModels
 {
-    using System.Collections.Generic;
-    using OnlineAtelier.Models.Enums;
-    using OnlineAtelier.Models.Models;
+    using System;
 
     public class OrderBindingModel
     {
-        private IEnumerable<byte[]> userPictures;
-        private IEnumerable<Picture> galeryPictures;
-
-        public OrderBindingModel()
-        {
-            this.userPictures = new List<byte[]>();
-            this.galeryPictures = new List<Picture>();
-        }
-
         public string Details { get; set; }
 
         public string Category { get; set; }
 
         public string Appearance { get; set; }
 
-        public IEnumerable<byte[]> UserPictures
-        {
-            get { return this.userPictures; }
-            set { this.userPictures = value; }
-        }
+        public DateTime DateOfDecision { get; set; }
 
-        public IEnumerable<Picture> GaleryPictures
-        {
-            get { return this.galeryPictures; }
-            set { this.galeryPictures = value; }
-        }
+        public string ShippingAddress { get; set; }
+
+        public string ColorOfBox { get; set; }
+
+        public string TextOfBox { get; set; }
+
+        public string TextOfCookies { get; set; }
     }
 }

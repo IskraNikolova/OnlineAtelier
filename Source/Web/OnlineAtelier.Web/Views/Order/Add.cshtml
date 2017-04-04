@@ -17,6 +17,27 @@
     <div class="form-group">
         @Html.Label("Детайли:")
         @Html.TextAreaFor(m => m.Details, new { @class = "form-control" })
+    </div>   
+    <div class="form-group">
+        @Html.Label("Дата за получаване:")
+        @Html.EditorFor(m => m.DateOfDecision)
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Адрес за получаване:")
+        @Html.EditorFor(m => m.ShippingAddress, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.Label("Цветова гама:")
+        @Html.EditorFor(m => m.ColorOfBox, new { @class = "form-control", placeholder = "Нямам предпочитания" })
+    </div>  
+      <div class="form-group">
+        @Html.Label("Надпис/послание на кутията отгоре:")
+        @Html.EditorFor(m => m.TextOfBox, new { @class = "form-control", placeholder="Без надпис" })
+    </div>   
+     <div class="form-group">
+        @Html.Label("Надпис/и върху сладка/и")
+        @Html.EditorFor(m => m.TextOfCookies, new { @class = "form-control", placeholder = "Нямам специални изисквания" })
     </div>
     <button type="submit" class="btn btn-primary">Поръчай</button>//todo with html helpers
 }

@@ -5,7 +5,6 @@
     using System.Web.Mvc;
     using Contracts;
     using Data.Common.Repository;
-    using Models;
     using Models.Models;
     using Web.Models.BindingModels;
     using Web.Models.OrderViewModels;
@@ -44,6 +43,11 @@
                 Id = model.Id,
                 Category = model.Category,
                 Details = model.Details,
+                DateOfDecision = model.DateOfDecision,
+                ShippingAddress = model.ShippingAddress,
+                ColorOfBox = model.ColorOfBox,
+                TextOfBox = model.TextOfBox,
+                TextOfCookies = model.TextOfCookies,
                 Appearance = appearance,
                 ApplicationUser = user,
                 UserPictures = pictures
@@ -60,6 +64,11 @@
             {
                 Category = model.Category,
                 Details = model.Details,
+                DateOfDecision = model.DateOfDecision,
+                ShippingAddress = model.ShippingAddress,
+                ColorOfBox = model.ColorOfBox,
+                TextOfBox = model.TextOfBox,
+                TextOfCookies = model.TextOfCookies,
                 Appearance = model.Appearance,
                 Categories = this.GetSelectListItems(this.GetAllCategories()),
                 Appearances = this.GetSelectListItems(this.GetAllAppearances())
