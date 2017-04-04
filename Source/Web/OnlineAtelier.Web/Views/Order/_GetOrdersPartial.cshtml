@@ -4,11 +4,9 @@
     ViewBag.Title = "_GetOrdersPartial";
 }
 
-
 @foreach (var order in Model)
 {
     <div class="panel panel-default">
-        <!-- Default panel contents -->
         <div class="panel-heading">
             <br/>
             <h6>@order.AppearanceName - @order.AppearancePrice лв.</h6>

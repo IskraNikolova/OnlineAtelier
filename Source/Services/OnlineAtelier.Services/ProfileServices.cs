@@ -17,15 +17,17 @@
 
         public ApplicationUser GetUser(string id)
         {                  
-            var user = this.users.All()
+            var user = this.users
+                .All()
                 .FirstOrDefault(u => u.Id == id);
+
             return user;
         }
 
         public ProfilePageViewModel GetProfilePageViewModel(string userId)
         {
-            var user =
-            this.users.All()
+            var user = this.users
+                .All()
                 .FirstOrDefault(u => u.Id == userId);
 
             var model = new ProfilePageViewModel()

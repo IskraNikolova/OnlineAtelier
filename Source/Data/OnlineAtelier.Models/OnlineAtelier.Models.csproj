@@ -61,7 +61,6 @@
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Comments\Comment.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Comments\OrderComment.cs" />
     <Compile Include="Models\Picture.cs" />

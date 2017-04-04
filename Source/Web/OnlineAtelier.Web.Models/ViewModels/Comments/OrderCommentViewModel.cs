@@ -4,7 +4,7 @@
     using Infrastructure.Mapping;
     using OnlineAtelier.Models.Models.Comments;
 
-    public class OrderCommentViewModel : IMapFrom<Comment>
+    public class OrderCommentViewModel : IMapFrom<OrderComment>
     {
         public string Text { get; set; }
 

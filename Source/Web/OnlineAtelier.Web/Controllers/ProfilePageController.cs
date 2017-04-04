@@ -1,7 +1,6 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
     using System.Web.Mvc;
-    using Logic;
     using Microsoft.AspNet.Identity;
     using Services.Contracts;
 

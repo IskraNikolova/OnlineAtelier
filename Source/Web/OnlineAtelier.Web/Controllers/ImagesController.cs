@@ -5,7 +5,6 @@
 
     public abstract class ImagesController : Controller
     {
-
         public FileContentResult ImageLoad(string path)
         {
             string fileName = this.HttpContext.Server.MapPath(path);

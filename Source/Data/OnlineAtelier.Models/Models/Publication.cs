@@ -22,12 +22,6 @@
 
         public string Content { get; set; }
 
-        public virtual IEnumerable<PublicationComment> Comments
-        {
-            get { return this.comments; }
-            set { this.comments = value; }
-        }
-
         public DateTime CreatedOn { get; set; }
 
         public bool PreserveCreatedOn { get; set; }
@@ -37,5 +31,12 @@
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public virtual IEnumerable<PublicationComment> Comments
+        {
+            get { return this.comments; }
+            set { this.comments = value; }
+        }
+
     }
 }

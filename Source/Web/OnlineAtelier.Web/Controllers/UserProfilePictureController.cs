@@ -13,6 +13,7 @@
             this.profileService = profileService;
         }
 
+        [HttpGet]
         public FileContentResult UserPhotos()
         {
             if (this.User.Identity.IsAuthenticated)
@@ -33,6 +34,7 @@
             }
         }
 
+        [HttpGet]
         public FileContentResult TakeUserPhotos(string id)
         {
             var user = this.profileService.GetUser(id);

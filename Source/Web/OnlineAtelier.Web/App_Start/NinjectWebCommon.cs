@@ -70,7 +70,7 @@ namespace OnlineAtelier.Web.App_Start
         {
             kernel.Bind<DbContext>().To<ApplicationDbContext>();
             kernel.Bind(typeof(IRepository<Album>)).To(typeof(DeletableEntityRepository<Album>));
-            kernel.Bind(typeof(IRepository<Comment>)).To(typeof(DeletableEntityRepository<Comment>));
+            kernel.Bind(typeof(IRepository<OrderComment>)).To(typeof(DeletableEntityRepository<OrderComment>));
             kernel.Bind(typeof(IRepository<Category>)).To(typeof(DeletableEntityRepository<Category>));
             kernel.Bind(typeof(IRepository<Appearance>)).To(typeof(DeletableEntityRepository<Appearance>));
             kernel.Bind(typeof(IRepository<UserPicture>)).To(typeof(DeletableEntityRepository<UserPicture>));

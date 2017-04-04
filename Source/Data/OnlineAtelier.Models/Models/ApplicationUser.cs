@@ -13,13 +13,15 @@
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
         private IEnumerable<Order> orders;
-        private IEnumerable<Comment> comments;
+        private IEnumerable<OrderComment> orderComments;
+        private IEnumerable<PublicationComment> publicationComments;
 
         public ApplicationUser()
         {
             this.CreatedOn = DateTime.Now;
             this.orders = new HashSet<Order>();
-            this.comments = new HashSet<Comment>();
+            this.orderComments = new HashSet<OrderComment>();
+            this.publicationComments = new HashSet<PublicationComment>();
         }
      
         public string FirstName { get; set; }
@@ -45,10 +47,16 @@
             set { this.orders = value; }
         }
 
-        public virtual IEnumerable<Comment> Comments
+        public virtual IEnumerable<OrderComment> OrderComments
         {
-            get { return this.comments; }
-            set { this.comments = value; }
+            get { return this.orderComments; }
+            set { this.orderComments = value; }
+        }
+
+        public virtual IEnumerable<PublicationComment> PublicationComments
+        {
+            get { return this.publicationComments; }
+            set { this.publicationComments = value; }
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)

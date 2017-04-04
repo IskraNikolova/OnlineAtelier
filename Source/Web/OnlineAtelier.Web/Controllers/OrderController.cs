@@ -2,15 +2,12 @@
 {
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
     using System.Web;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Models.BindingModels;
     using Models.ViewModels.Order;
     using Models.ViewModels.ProfilePage;
-    using OnlineAtelier.Models;
-    using OnlineAtelier.Models.Models;
     using Services.Contracts;
 
     public class OrderController : Controller
@@ -43,9 +40,9 @@
         {
             var userId = this.User.Identity.GetUserId();
             var modelView = this.service.GetViewModel(model);
+
             if (this.ModelState.IsValid)
             {
-
                 byte[] imageData = null;
                 if (this.Request.Files.Count > 0)
                 {
@@ -56,8 +53,7 @@
                         imageData = binary.ReadBytes(httpPostedFileBase.ContentLength);
                     }
                 }
-
-           
+          
                 this.service.AddOrder(modelView, userId, imageData);
                 return this.RedirectToAction("Index", "ProfilePage");
             }
