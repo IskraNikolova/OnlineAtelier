@@ -4,7 +4,7 @@
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Models;
-    using Models.CommentsViewModels;
+    using Models.ViewModels.Comments;
     using Services.Contracts;
 
     public class OrderCommentController : Controller

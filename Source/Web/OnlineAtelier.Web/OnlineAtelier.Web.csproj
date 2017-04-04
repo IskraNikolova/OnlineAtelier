@@ -199,12 +199,13 @@
     <Compile Include="Config\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
+    <Compile Include="Controllers\UserProfilePictureController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrderCommentController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProfilePageController.cs" />
-    <Compile Include="Controllers\UserPictureController.cs" />
+    <Compile Include="Controllers\UserOrderPictureController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -289,12 +290,13 @@
     <Content Include="Views\Order\_GetOrdersPartial.cshtml" />
     <Content Include="Views\OrderComment\_AddCommentPartial.cshtml" />
     <Content Include="Views\OrderComment\_ViewCommentsPartial.cshtml" />
-    <Content Include="Views\UserPicture\_AddPicturePartial.cshtml" />
-    <Content Include="Views\UserPicture\_ViewAllUserPicturePartial.cshtml" />
+    <Content Include="Views\UserOrderPicture\_AddPicturePartial.cshtml" />
+    <Content Include="Views\UserOrderPicture\_ViewAllUserPicturePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Views\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

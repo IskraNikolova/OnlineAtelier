@@ -1,43 +1,74 @@
 ﻿@using System.Web.Mvc.Html
-@model OnlineAtelier.Web.Models.OrderViewModels.OrderViewModel
+@model OnlineAtelier.Web.Models.ViewModels.Order.OrderViewModel
 @{
     ViewBag.Title = "Add";
 }
 
-@using (Html.BeginForm("Add", "Order", FormMethod.Post))
+@using (Html.BeginForm("Add", "Order", FormMethod.Post, new { @class = "form-horizontal", role = "form"}))
 {
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
     @* Category selection dropdown *@
-    <div class="form-group">
-        @Html.DropDownListFor(m => m.Category, Model.Categories, "- Избери категория -", new { @class = "form-control" })
+    <div class="form-group">      
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Category, Model.Categories, "- Избери категория -", new { @class = "form-control" })
+        </div>
     </div>
+
     @* Appearance of orders selection dropdown *@
     <div class="form-group">
-        @Html.DropDownListFor(m => m.Appearance, Model.Appearances, "- Избери вид на поръчката -", new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.Label("Детайли:")
-        @Html.TextAreaFor(m => m.Details, new { @class = "form-control" })
-    </div>   
-    <div class="form-group">
-        @Html.Label("Дата за получаване:")
-        @Html.EditorFor(m => m.DateOfDecision)
+        <div class="col-md-10">
+           @Html.DropDownListFor(m => m.Appearance, Model.Appearances, "- Избери вид на поръчката -", new { @class = "form-control" })
+        </div>
     </div>
 
     <div class="form-group">
-        @Html.Label("Адрес за получаване:")
-        @Html.EditorFor(m => m.ShippingAddress, new { @class = "form-control"})
+        @Html.LabelFor(m => m.Details, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Details, new { @class = "form-control" })
+        </div>
     </div>
+
     <div class="form-group">
-        @Html.Label("Цветова гама:")
-        @Html.EditorFor(m => m.ColorOfBox, new { @class = "form-control", placeholder = "Нямам предпочитания" })
-    </div>  
-      <div class="form-group">
-        @Html.Label("Надпис/послание на кутията отгоре:")
-        @Html.EditorFor(m => m.TextOfBox, new { @class = "form-control", placeholder="Без надпис" })
-    </div>   
-     <div class="form-group">
-        @Html.Label("Надпис/и върху сладка/и")
-        @Html.EditorFor(m => m.TextOfCookies, new { @class = "form-control", placeholder = "Нямам специални изисквания" })
+        @Html.LabelFor(m => m.DateOfDecision, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.DateOfDecision, new { @class = "form-control" })
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Поръчай</button>//todo with html helpers
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ShippingAddress, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.ShippingAddress, new { @class = "form-control", placeholder = "Ще дойда на място" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.TextOfCookies, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.TextOfCookies, new { @class = "form-control", placeholder = "Нямам предпочитания" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ColorOfBox, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.ColorOfBox, new { @class = "form-control", placeholder = "Нямам предпочитания" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.TextOfBox, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.TextOfBox, new { @class = "form-control", placeholder = "Без надпис" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Поръчай" />
+        </div>
+    </div>
 }

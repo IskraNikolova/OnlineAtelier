@@ -5,12 +5,12 @@
     using Models;
     using Models.Models;
     using Web.Models.BindingModels;
-    using Web.Models.OrderViewModels;
-    using Web.Models.ProfilePageModels;
+    using Web.Models.ViewModels.Order;
+    using Web.Models.ViewModels.ProfilePage;
 
     public interface IOrderService
     {
-        void AddOrder(OrderViewModel model, string authorId, IEnumerable<UserPicture> pictures);
+        void AddOrder(OrderViewModel model, string authorId, byte[] imageData);
 
         OrderViewModel GetViewModel(OrderBindingModel model);
 

@@ -4,7 +4,7 @@
     using Contracts;
     using Data.Common.Repository;
     using Models.Models;
-    using Web.Models.AcountViewModels;
+    using Web.Models.ViewModels.Acount;
 
     public class ProfileServices : IProfileService
     {

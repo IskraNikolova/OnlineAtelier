@@ -1,21 +1,20 @@
-﻿@model OnlineAtelier.Web.Models.CommentsViewModels.OrderCommentViewModel
+﻿@model OnlineAtelier.Web.Models.ViewModels.Comments.OrderCommentViewModel
 @{
     ViewBag.Title = "_AddCommentPartial";
 }
 
 @using (Html.BeginForm("AddComment", "OrderComment", FormMethod.Post))
-{ 
+{
     <div class="row">
         <div class="col-lg-6">
             <div class="form-group">
-                <div class="input-group">                   
-                    <input type="text" class="form-control" placeholder="..." name ="Text">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="..." name="Text">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="submit">Коментирай</button>
                     </span>
-                </div><!-- /input-group -->
+                </div>
             </div>
         </div>
     </div>
-
-            }
+}

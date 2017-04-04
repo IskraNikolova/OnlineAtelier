@@ -80,7 +80,7 @@ namespace OnlineAtelier.Web.App_Start
             kernel.Bind(typeof(IProfileService)).To(typeof(ProfileServices));
             kernel.Bind(typeof(IOrderService)).To(typeof(OrderService));
             kernel.Bind(typeof(ICommentService)).To(typeof(CommentService));
-            kernel.Bind(typeof(IUserPictureService)).To(typeof(UserPictureService));
+            kernel.Bind(typeof(IUserPictureService)).To(typeof(UserOrderPicturesService));
 
             kernel.Bind(typeof(IRepository<ApplicationUser>)).To(typeof(DeletableEntityRepository<ApplicationUser>));
 

@@ -5,7 +5,7 @@
     using Contracts;
     using Data.Common.Repository;
     using Models.Models.Comments;
-    using Web.Models.CommentsViewModels;
+    using Web.Models.ViewModels.Comments;
 
 
     public class CommentService : ICommentService

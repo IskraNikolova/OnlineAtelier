@@ -7,8 +7,8 @@
     using Data.Common.Repository;
     using Models.Models;
     using Web.Models.BindingModels;
-    using Web.Models.OrderViewModels;
-    using Web.Models.ProfilePageModels;
+    using Web.Models.ViewModels.Order;
+    using Web.Models.ViewModels.ProfilePage;
 
     public class OrderService : IOrderService
     {
@@ -28,7 +28,7 @@
             this.users = users;
         }
 
-        public void AddOrder(OrderViewModel model, string authorId, IEnumerable<UserPicture> pictures)
+        public void AddOrder(OrderViewModel model, string authorId, byte[] imageData)
         {
             var user = this.users.All()
                 .FirstOrDefault(u => u.Id == authorId);
@@ -37,6 +37,15 @@
 
             var appearance = this.appearances.All()
                 .FirstOrDefault(a => a.Name == model.Appearance);
+
+            IEnumerable<UserPicture> pictures = new List<UserPicture>();
+
+            pictures.ToList().Add(
+                new UserPicture()
+                {
+                    UserPictures = imageData
+                });
+
 
             var order = new Order()
             {
@@ -136,7 +145,6 @@
                     AppearanceName = item.Appearance.Name,
                     AppearancePrice = item.Appearance.Price,
                     CreatedOn = item.CreatedOn,
-                    GaleryPictures = item.GaleryPictures,
                 };
 
                 ordersModel.Add(order);

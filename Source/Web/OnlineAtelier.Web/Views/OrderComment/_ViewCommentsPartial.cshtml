@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnlineAtelier.Web.Models.CommentsViewModels.OrderCommentViewModel>
+﻿@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.Comments.OrderCommentViewModel>
 @{
     ViewBag.Title = "_ViewCommentsPartial";
 }
@@ -8,7 +8,7 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <p>
-                <img class="userPhotoMini" src="@Url.Action("TakeUserPhotos", "Image", new {id = comment.ApplicationUserId})" />
+                <img class="userPhotoMini" src="@Url.Action("TakeUserPhotos", "UserProfilePicture", new {id = comment.ApplicationUserId})" />
                 @comment.Text
             </p>
         </div>

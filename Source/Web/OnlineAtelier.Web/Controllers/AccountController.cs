@@ -11,7 +11,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
-    using Models.AcountViewModels;
+    using Models.ViewModels.Acount;
     using OnlineAtelier.Models;
     using OnlineAtelier.Models.Models;
 
@@ -180,6 +180,7 @@
                 user.UserPhoto = imageData;
 
                 var result = await this.UserManager.CreateAsync(user, model.Password);
+                
                 if (result.Succeeded)
                 {
                     await this.SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);

@@ -1,7 +1,7 @@
 ﻿namespace OnlineAtelier.Services.Contracts
 {
     using System.Collections.Generic;
-    using Web.Models.CommentsViewModels;
+    using Web.Models.ViewModels.Comments;
 
     public interface ICommentService : IService
     {

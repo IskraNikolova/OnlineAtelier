@@ -2,8 +2,7 @@
 {
     using System.Collections.Generic;
     using Models.Models;
-    using Web.Models.AcountViewModels;
-    using Web.Models.ProfilePageModels;
+    using Web.Models.ViewModels.Acount;
 
     public interface IProfileService : IService
     {

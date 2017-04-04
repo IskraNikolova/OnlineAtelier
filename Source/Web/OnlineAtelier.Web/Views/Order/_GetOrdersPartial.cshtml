@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnlineAtelier.Web.Models.ProfilePageModels.ProfileOrdersViewModel>
+﻿@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.ProfilePage.ProfileOrdersViewModel>
 
 @{
     ViewBag.Title = "_GetOrdersPartial";
@@ -18,8 +18,8 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <p>@order.Details</p>
-                    @Html.Action("AddPicture", "UserPicture", new {id = order.Id})
-                    @Html.Action("All", "UserPicture", new {id = order.Id})
+                    @Html.Action("AddPicture", "UserOrderPicture", new {id = order.Id})
+                    @Html.Action("All", "UserOrderPicture", new {id = order.Id})
                 </div>
             </div>
             @Html.Action("GetComments", "OrderComment", new {id = order.Id})

@@ -1,7 +1,7 @@
 ﻿namespace OnlineAtelier.Services.Contracts
 {
     using System.Collections.Generic;
-    using Web.Models.UsersPictureViewModels;
+    using Web.Models.ViewModels.UsersPicture;
 
     public interface IUserPictureService
     {

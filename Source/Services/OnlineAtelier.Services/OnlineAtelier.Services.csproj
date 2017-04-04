@@ -140,7 +140,7 @@
     <Compile Include="OrderService.cs" />
     <Compile Include="ProfileServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserPictureService.cs" />
+    <Compile Include="UserOrderPicturesService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\OnlineAtelier.Data.Common\OnlineAtelier.Data.Common.csproj">

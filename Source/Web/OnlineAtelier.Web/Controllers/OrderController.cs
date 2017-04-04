@@ -1,6 +1,5 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
-    using System.Collections;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -8,8 +7,8 @@
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Models.BindingModels;
-    using Models.OrderViewModels;
-    using Models.ProfilePageModels;
+    using Models.ViewModels.Order;
+    using Models.ViewModels.ProfilePage;
     using OnlineAtelier.Models;
     using OnlineAtelier.Models.Models;
     using Services.Contracts;
@@ -24,7 +23,6 @@
         }
 
         [HttpGet]
-        [Authorize]
         public ActionResult Add()
         {
             var categories = this.service.GetAllCategories();
@@ -41,7 +39,6 @@
         }
 
         [HttpPost]
-        [Authorize]
         public ActionResult Add(OrderBindingModel model)
         {
             var userId = this.User.Identity.GetUserId();
@@ -60,13 +57,8 @@
                     }
                 }
 
-                IEnumerable<UserPicture> pictures = new List<UserPicture>();
-                pictures.ToList().Add(new UserPicture()
-                {
-                    UserPictures = imageData
-                });
-
-                this.service.AddOrder(modelView, userId, pictures);
+           
+                this.service.AddOrder(modelView, userId, imageData);
                 return this.RedirectToAction("Index", "ProfilePage");
             }
 
