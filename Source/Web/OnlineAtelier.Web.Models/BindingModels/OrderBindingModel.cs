@@ -8,7 +8,7 @@
 
         public string Category { get; set; }
 
-        public string Appearance { get; set; }
+        public string AppearanceName { get; set; }
 
         public DateTime DateOfDecision { get; set; }
 

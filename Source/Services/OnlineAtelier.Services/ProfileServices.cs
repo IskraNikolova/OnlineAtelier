@@ -1,6 +1,7 @@
 ﻿namespace OnlineAtelier.Services
 {
     using System.Linq;
+    using AutoMapper;
     using Contracts;
     using Data.Common.Repository;
     using Models.Models;
@@ -30,16 +31,9 @@
                 .All()
                 .FirstOrDefault(u => u.Id == userId);
 
-            var model = new ProfilePageViewModel()
-            {
-                Id = user.Id,
-                Email = user.Email,
-                UserPhoto = user.UserPhoto,
-                FullName = user.FirstName + " " + user.LastName,
-                Orders = user.Orders
-            };
+            var profileViewModel = Mapper.Map<ApplicationUser, ProfilePageViewModel>(user);
 
-            return model;
+            return profileViewModel;
         }
     }
 }

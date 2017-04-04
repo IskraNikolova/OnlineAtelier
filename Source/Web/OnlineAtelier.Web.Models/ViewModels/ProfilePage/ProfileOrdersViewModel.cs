@@ -1,8 +1,10 @@
 ﻿namespace OnlineAtelier.Web.Models.ViewModels.ProfilePage
 {
     using System;
+    using Infrastructure.Mapping;
+    using OnlineAtelier.Models.Models;
 
-    public class ProfileOrdersViewModel
+    public class ProfileOrdersViewModel : IMapFrom<Order>
     {
         public int Id { get; set; }
 

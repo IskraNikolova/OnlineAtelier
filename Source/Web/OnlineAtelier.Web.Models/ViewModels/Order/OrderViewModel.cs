@@ -6,12 +6,13 @@
     using System.Web.Mvc;
     using BindingModels;
     using Infrastructure.Mapping;
+    using OnlineAtelier.Models.Models;
 
-    public class OrderViewModel : IMapFrom<OrderBindingModel>
+    public class OrderViewModel : IMapFrom<OrderBindingModel>, IMapFrom<Order>
     {
         public int Id { get; set; }
 
-        public string Appearance { get; set; }
+        public string AppearanceName { get; set; }
       
         [DisplayName("Детайли")]
         public string Details { get; set; }

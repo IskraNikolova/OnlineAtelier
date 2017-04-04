@@ -3,6 +3,8 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
+    using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using Contracts;
     using Data.Common.Repository;
     using Models.Models;
@@ -32,57 +34,41 @@
         {
             var user = this.users.All()
                 .FirstOrDefault(u => u.Id == authorId);
-
             this.users.Detach(user);
 
             var appearance = this.appearances.All()
-                .FirstOrDefault(a => a.Name == model.Appearance);
+                .FirstOrDefault(a => a.Name == model.AppearanceName);
 
-            IEnumerable<UserPicture> pictures = new List<UserPicture>();
+            var pictures = TakeUserPictures(imageData);
 
-            pictures.ToList().Add(
-                new UserPicture()
-                {
-                    UserPictures = imageData
-                });
-
-
-            var order = new Order()
-            {
-                Id = model.Id,
-                Category = model.Category,
-                Details = model.Details,
-                DateOfDecision = model.DateOfDecision,
-                ShippingAddress = model.ShippingAddress,
-                ColorOfBox = model.ColorOfBox,
-                TextOfBox = model.TextOfBox,
-                TextOfCookies = model.TextOfCookies,
-                Appearance = appearance,
-                ApplicationUser = user,
-                UserPictures = pictures
-            };
+            var order = Mapper.Map<OrderViewModel, Order>(model);
+            order.Appearance = appearance;
+            order.ApplicationUser = user;
+            order.UserPictures = pictures;
 
             this.orders.Add(order);
             this.orders.SaveChanges();
         }
 
+        private static IEnumerable<UserPicture> TakeUserPictures(byte[] imageData)
+        {
+            IEnumerable<UserPicture> pictures = new List<UserPicture>();
+
+            pictures.ToList().Add(new UserPicture()
+            {
+                UserPictures = imageData
+            });
+            return pictures;
+        }
+
         public OrderViewModel GetViewModel(OrderBindingModel model)
         {
-            var viewModel = new OrderViewModel()
-            {
-                Category = model.Category,
-                Details = model.Details,
-                DateOfDecision = model.DateOfDecision,
-                ShippingAddress = model.ShippingAddress,
-                ColorOfBox = model.ColorOfBox,
-                TextOfBox = model.TextOfBox,
-                TextOfCookies = model.TextOfCookies,
-                Appearance = model.Appearance,
-                Categories = this.GetSelectListItems(this.GetAllCategories()),
-                Appearances = this.GetSelectListItems(this.GetAllAppearances())
-            };
+            var orderViewModel = Mapper.Map<OrderBindingModel, OrderViewModel>(model);
 
-            return viewModel;
+            orderViewModel.Categories = this.GetSelectListItems(this.GetAllCategories());
+            orderViewModel.Appearances = this.GetSelectListItems(this.GetAllAppearances());
+
+            return orderViewModel;
         }
 
         public IEnumerable<string> GetAllCategories()
@@ -128,27 +114,12 @@
 
         public IEnumerable<ProfileOrdersViewModel> GetOrders(string id)
         {
-            var currentOrders = this.orders.All()
+            var profileOrdersViewModel = this.orders.All()
                 .Where(o => o.ApplicationUser.Id == id)
-                .ToList();
+                .Project()
+                .To<ProfileOrdersViewModel>();
 
-            var ordersModel = new List<ProfileOrdersViewModel>();
-            foreach (var item in currentOrders)
-            {
-                var order = new ProfileOrdersViewModel()
-                {
-                    Id = item.Id,
-                    Details = item.Details,
-                    Category = item.Category,
-                    AppearanceName = item.Appearance.Name,
-                    AppearancePrice = item.Appearance.Price,
-                    CreatedOn = item.CreatedOn,
-                };
-
-                ordersModel.Add(order);
-            }
-
-            return ordersModel;
+            return profileOrdersViewModel;
         }
     }
 }
