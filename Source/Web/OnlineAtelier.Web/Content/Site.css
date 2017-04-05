@@ -1,6 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url("dots.png");
+    background-size: 80px 60px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -27,12 +29,12 @@ textarea {
 .userPhoto {
     width:160px;
     height:160px;
-    background: #FFFFFF;
+   background: #FFFFFF;
     margin: auto;
-    -moz-border-radius: 30px;
+    -moz-border-radius: 18px;
     border-radius: 100px;
-    padding: 6px;
-    box-shadow: 0px 0px 18px #888;
+    padding: 1px;
+    box-shadow: 0px 0px 2px #888;
 }
 
 .userPhotoMini {

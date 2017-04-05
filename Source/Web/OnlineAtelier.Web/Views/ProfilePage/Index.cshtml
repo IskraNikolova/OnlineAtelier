@@ -2,23 +2,23 @@
 @{
     ViewBag.Title = "Profile Page";
 }
-
 <div class="row">
-    <div class="col-md-2">
-        <br/>
-        <p><img class="userPhoto" src="@Url.Action("UserPhotos", "UserProfilePicture")"/>
+    <div class="col-md-3">
+        <br />
+        <div class="panel panel-body">
+            <img class="userPhoto" src="@Url.Action("UserPhotos", "UserProfilePicture")" />
             <h3>@Html.DisplayFor(m => m.FirstName)</h3>
-        </p>
-        <div><h4>@Html.ActionLink("Направи Поръчка", "Add", "Order", null ,new {@class="btn btn-primary"})</h4>
+            <div>
+                @Html.ActionLink("Направи Поръчка", "Add", "Order", null, new {@class = "btn btn-primary"})
+            </div>
         </div>
     </div>
     <div class="col-md-7">
-        <br/>
+        <br />
         <div class="panel panel-body">
-            <br/>            
             <div><h5>Моите Поръчки</h5></div>
-            <hr/>
-            @Html.Action("GetOrders", "Order", new {id = Model.Id})
+            <hr />
+            </div>
+            @Html.Action("GetOrders", "Order", new { id = Model.Id })
         </div>
-    </div>
 </div>
