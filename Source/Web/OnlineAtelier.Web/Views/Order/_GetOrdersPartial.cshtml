@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.ProfilePage.ProfileOrdersViewModel>
+﻿@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.Order.DisplayOrderVm>
 
 @{
     ViewBag.Title = "_GetOrdersPartial";
@@ -9,15 +9,13 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <br/>
-            <h6>@Html.DisplayFor(m => order.AppearanceName) - @Html.DisplayFor(m => order.AppearancePrice)лв.</h6>
+            <h5>@Html.DisplayFor(m => order.AppearanceName) - @Html.DisplayFor(m => order.AppearancePrice)лв.</h5>
+            <div><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> @Html.ActionLink("Виж детайли", "Details", new { id = order.Id })</div>
             <em>@Html.DisplayFor(m => order.CreatedOn)</em>
-            
-        @*//todo put details button*@
         </div>
         <div class="panel-body">
             <div class="panel panel-default">
-                <div class="panel-body">
-                    <p>@Html.DisplayFor(m => order.Details)</p>                   
+                <div class="panel-body">                 
                     @Html.Action("All", "UserOrderPicture", new {id = order.Id})                  
                 </div>
             </div>

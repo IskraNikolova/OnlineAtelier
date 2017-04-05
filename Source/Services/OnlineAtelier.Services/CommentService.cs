@@ -6,6 +6,7 @@
     using Data.Common.Repository;
     using Models.Models.Comments;
     using Web.Models.BindingModels;
+    using Web.Models.BindingModels.Comments;
     using Web.Models.ViewModels.Comments;
 
 
@@ -18,13 +19,12 @@
             this.comments = comments;
         }
 
-        public void AddOrderComment(OrderCommentBindingModel model, int? id, string userId)
+        public void AddOrderComment(OrderCommentBindingModel model, int id, string userId)
         {
-            if (id == null) return;
             var orderComment = new OrderComment()
             {
                 Text = model.Text,               
-                OrderId = (int)id,
+                OrderId = id,
                 ApplicationUserId = userId
             };
 
@@ -32,7 +32,7 @@
             this.comments.SaveChanges();
         }
 
-        public IEnumerable<OrderCommentViewModel> GetComments(int? id)
+        public IEnumerable<OrderCommentViewModel> GetComments(int id)
         {
             var commentsModels = this.comments.All()
                 .Where(c => c.OrderId == id)

@@ -5,11 +5,11 @@
     using System.Web;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
-    using Models.BindingModels;
+    using Models.BindingModels.Order;
     using Models.ViewModels.Order;
-    using Models.ViewModels.ProfilePage;
     using Services.Contracts;
 
+    [RoutePrefix("Order")]
     public class OrderController : Controller
     {
         private readonly IOrderService service;
@@ -25,7 +25,7 @@
             var categories = this.service.GetAllCategories();
             var appearances = this.service.GetAllAppearances();
 
-            var model = new OrderViewModel
+            var model = new AddOrderVm
             {
                 Categories = this.service.GetSelectListItems(categories),
                 Appearances = this.service.GetSelectListItems(appearances)
@@ -64,8 +64,21 @@
         [Authorize]
         public ActionResult GetOrders(string id)
         {
-            IEnumerable<ProfileOrdersViewModel> model = this.service.GetOrders(id);
+            IEnumerable<DisplayOrderVm> model = this.service.GetOrders(id);
             return this.PartialView("_GetOrdersPartial", model);
+        }
+
+        [Authorize]
+        [HttpGet, Route("Details/{id}")]
+        public ActionResult Details(int id)
+        {
+            DetailsOrderVm detailsOrderVm = this.service.GetDetails(id);
+            if (detailsOrderVm == null)
+            {
+                return this.HttpNotFound();
+            }  
+             
+            return this.View(detailsOrderVm);
         }
     }
 }

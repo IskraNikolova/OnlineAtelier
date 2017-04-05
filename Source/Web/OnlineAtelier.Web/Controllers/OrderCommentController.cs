@@ -5,6 +5,7 @@
     using Microsoft.AspNet.Identity;
     using Models;
     using Models.BindingModels;
+    using Models.BindingModels.Comments;
     using Models.ViewModels.Comments;
     using Services.Contracts;
 
@@ -18,13 +19,13 @@
         }
 
         [HttpGet]
-        public ActionResult AddComment(int? id)
+        public ActionResult AddComment(int id)
         {
             return this.PartialView("_AddCommentPartial");
         }
 
         [HttpPost]
-        public ActionResult AddComment(OrderCommentBindingModel model, int? id)
+        public ActionResult AddComment(OrderCommentBindingModel model, int id)
         {
             string userId = this.User.Identity.GetUserId();
             if (this.ModelState.IsValid)
@@ -37,7 +38,7 @@
         }
 
         [HttpGet]
-        public ActionResult GetComments(int? id)
+        public ActionResult GetComments(int id)
         {
             var model = this.service.GetComments(id);
             return this.PartialView("_ViewCommentsPartial", model);

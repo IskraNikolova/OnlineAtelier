@@ -294,6 +294,7 @@
     <Content Include="Views\OrderComment\_ViewCommentsPartial.cshtml" />
     <Content Include="Views\UserOrderPicture\_AddPicturePartial.cshtml" />
     <Content Include="Views\UserOrderPicture\_ViewAllUserPicturePartial.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Controllers\" />

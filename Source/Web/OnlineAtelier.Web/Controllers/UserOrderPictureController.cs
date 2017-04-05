@@ -4,6 +4,7 @@
     using System.Web;
     using System.Web.Mvc;
     using Models.BindingModels;
+    using Models.BindingModels.UserPicture;
     using Services.Contracts;
 
     public class UserOrderPictureController : ImagesController

@@ -8,9 +8,8 @@
     using Contracts;
     using Data.Common.Repository;
     using Models.Models;
-    using Web.Models.BindingModels;
+    using Web.Models.BindingModels.Order;
     using Web.Models.ViewModels.Order;
-    using Web.Models.ViewModels.ProfilePage;
 
     public class OrderService : IOrderService
     {
@@ -30,7 +29,7 @@
             this.users = users;
         }
 
-        public void AddOrder(OrderViewModel model, string authorId, byte[] imageData)
+        public void AddOrder(AddOrderVm model, string authorId, byte[] imageData)
         {
             var user = this.users.All()
                 .FirstOrDefault(u => u.Id == authorId);
@@ -41,7 +40,7 @@
 
             var pictures = TakeUserPictures(imageData);
 
-            var order = Mapper.Map<OrderViewModel, Order>(model);
+            var order = Mapper.Map<AddOrderVm, Order>(model);
             order.Appearance = appearance;
             order.ApplicationUser = user;
             order.UserPictures = pictures;
@@ -61,9 +60,9 @@
             return pictures;
         }
 
-        public OrderViewModel GetViewModel(OrderBindingModel model)
+        public AddOrderVm GetViewModel(OrderBindingModel model)
         {
-            var orderViewModel = Mapper.Map<OrderBindingModel, OrderViewModel>(model);
+            var orderViewModel = Mapper.Map<OrderBindingModel, AddOrderVm>(model);
 
             orderViewModel.Categories = this.GetSelectListItems(this.GetAllCategories());
             orderViewModel.Appearances = this.GetSelectListItems(this.GetAllAppearances());
@@ -112,14 +111,29 @@
             return selectList;
         }
 
-        public IEnumerable<ProfileOrdersViewModel> GetOrders(string id)
+        public IEnumerable<DisplayOrderVm> GetOrders(string id)
         {
             var profileOrdersViewModel = this.orders.All()
                 .Where(o => o.ApplicationUser.Id == id)
                 .Project()
-                .To<ProfileOrdersViewModel>();
+                .To<DisplayOrderVm>();
 
             return profileOrdersViewModel;
+        }
+
+        public DetailsOrderVm GetDetails(int id)
+        {
+            var order = this.orders.All()
+                .FirstOrDefault(o => o.Id == id);
+
+            if (order == null)
+            {
+                return null;
+            }
+
+            var model = Mapper.Map<Order, DetailsOrderVm>(order);
+
+            return model;
         }
     }
 }

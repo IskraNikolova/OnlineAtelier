@@ -1,18 +1,14 @@
-﻿namespace OnlineAtelier.Web.Models.ViewModels.ProfilePage
+﻿namespace OnlineAtelier.Web.Models.ViewModels.Order
 {
     using System;
     using Infrastructure.Mapping;
     using OnlineAtelier.Models.Models;
 
-    public class ProfileOrdersViewModel : IMapFrom<Order>
+    public class DisplayOrderVm : IMapFrom<Order>
     {
         public int Id { get; set; }
 
         public string Details { get; set; }
-
-        public string Category { get; set; }
-
-        public int OrderId { get; set; }
 
         public DateTime CreatedOn { get; set; }
 

@@ -1,4 +1,4 @@
-﻿namespace OnlineAtelier.Web.Models.BindingModels
+﻿namespace OnlineAtelier.Web.Models.BindingModels.UserPicture
 {
     using System.ComponentModel.DataAnnotations;
 
