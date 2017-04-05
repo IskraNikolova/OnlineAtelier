@@ -7,8 +7,10 @@
     @foreach (var picture in Model)
     {
         <div class="col-xs-6 col-md-3">
-            <a href="#" class="thumbnail">
-                <img src="@Url.Action("TakePhotos", "UserOrderPicture", new {id = picture.Id, orderId = picture.OrderId})" />
+            
+            <a href='' class="thumbnail">
+                <img src="@Url.Action("TakePhotoFromOrder", "PhotosOrder", new {id = picture.Id, orderId = picture.OrderId})"/>
+                @Html.ActionLink("виж", "TakePhoto", new { id = picture.Id })
             </a>
         </div>
     }

@@ -15,14 +15,13 @@
         </div>
         <div class="panel-body">
             <div class="panel panel-default">
-                <div class="panel-body">                 
-                    @Html.Action("All", "UserOrderPicture", new {id = order.Id})                  
+                <div class="panel-body">
+                    @Html.Action("All", "PhotosOrder", new {id = order.Id})
                 </div>
             </div>
             @Html.Action("GetComments", "OrderComment", new {id = order.Id})
-
             @Html.Action("AddComment", "OrderComment", new {id = order.Id})
-            @Html.Action("AddPicture", "UserOrderPicture", new { id = order.Id })
+            @Html.Action("AddPicture", "PhotosOrder", new { id = order.Id })
         </div>
     </div>
 }

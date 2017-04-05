@@ -3,15 +3,15 @@
     using System.IO;
     using System.Web;
     using System.Web.Mvc;
-    using Models.BindingModels;
     using Models.BindingModels.UserPicture;
     using Services.Contracts;
 
-    public class UserOrderPictureController : ImagesController
+    [RoutePrefix("PhotosOrder")]
+    public class PhotosOrderController : ImagesController
     {
         private readonly IUserPictureService service;
 
-        public UserOrderPictureController(IUserPictureService service)
+        public PhotosOrderController(IUserPictureService service)
         {
             this.service = service;
         }
@@ -40,14 +40,22 @@
             return this.RedirectToAction("Index", "ProfilePage");
         }
 
-
-        public FileContentResult TakePhotos(int id, int orderId)
+        [HttpGet]
+        public FileContentResult TakePhotoFromOrder(int id, int orderId)
         {
-            var photo = this.service.TakePhoto(id, orderId);
+            var photo = this.service.TakePhotoFromOrder(id, orderId);
             if (id == null || photo == null || photo.Length == 0)
             {
-                return this.ImageLoad(@"~/Images/noImg.png");
+                return null;//todo error message
             }
+
+            return new FileContentResult(photo, "image/jpeg");
+        }
+
+        [HttpGet, Route("TakePhoto/{id}")]
+        public FileContentResult TakePhoto(int id)
+        {
+            var photo = this.service.TakePhoto(id);
 
             return new FileContentResult(photo, "image/jpeg");
         }

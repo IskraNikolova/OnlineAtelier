@@ -9,6 +9,8 @@
 
         IEnumerable<UserPictureViewModel> AllUserPicture(int orderId);
 
-        byte[] TakePhoto(int userPictureId, int orderId);
+        byte[] TakePhotoFromOrder(int userPictureId, int orderId);
+
+        byte[] TakePhoto(int userPictureId);
     }
 }

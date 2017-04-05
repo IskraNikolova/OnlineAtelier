@@ -205,7 +205,7 @@
     <Compile Include="Controllers\OrderCommentController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProfilePageController.cs" />
-    <Compile Include="Controllers\UserOrderPictureController.cs" />
+    <Compile Include="Controllers\PhotosOrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -292,8 +292,8 @@
     <Content Include="Views\Order\_GetOrdersPartial.cshtml" />
     <Content Include="Views\OrderComment\_AddCommentPartial.cshtml" />
     <Content Include="Views\OrderComment\_ViewCommentsPartial.cshtml" />
-    <Content Include="Views\UserOrderPicture\_AddPicturePartial.cshtml" />
-    <Content Include="Views\UserOrderPicture\_ViewAllUserPicturePartial.cshtml" />
+    <Content Include="Views\PhotosOrder\_AddPicturePartial.cshtml" />
+    <Content Include="Views\PhotosOrder\_ViewAllUserPicturePartial.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
