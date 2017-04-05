@@ -4,7 +4,6 @@ Sample online atelier
 TODO
 ================
 
-* DC (Ninject)
-* Auto mapper
-* URL
-
+*Admin Area
+*File storage
+*ASURE?

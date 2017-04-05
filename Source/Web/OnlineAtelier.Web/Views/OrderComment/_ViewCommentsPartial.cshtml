@@ -9,7 +9,7 @@
         <div class="panel-body">
             <p>
                 <img class="userPhotoMini" src="@Url.Action("TakeUserPhotos", "UserProfilePicture", new {id = comment.ApplicationUserId})" />
-                @comment.Text
+                @Html.DisplayFor(m => comment.Text)
             </p>
         </div>
     </div>

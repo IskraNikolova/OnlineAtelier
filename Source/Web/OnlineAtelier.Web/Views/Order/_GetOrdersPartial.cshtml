@@ -9,15 +9,15 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <br/>
-            <h6>@order.AppearanceName </h6>
-            <em>@order.CreatedOn</em>
+            <h6>@Html.DisplayFor(m => order.AppearanceName) - @Html.DisplayFor(m => order.AppearancePrice)лв.</h6>
+            <em>@Html.DisplayFor(m => order.CreatedOn)</em>
         </div>
         <div class="panel-body">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <p>@order.Details</p>
-                    @Html.Action("AddPicture", "UserOrderPicture", new {id = order.Id})
+                    <p>@Html.DisplayFor(m => order.Details)</p>                   
                     @Html.Action("All", "UserOrderPicture", new {id = order.Id})
+                    @Html.Action("AddPicture", "UserOrderPicture", new { id = order.Id })
                 </div>
             </div>
             @Html.Action("GetComments", "OrderComment", new {id = order.Id})
