@@ -6,7 +6,7 @@
     {
         public string Details { get; set; }
 
-        public string Category { get; set; }
+        public string CategoryName { get; set; }
 
         public string AppearanceName { get; set; }
 

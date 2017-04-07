@@ -11,7 +11,7 @@
         public string Details { get; set; }
 
         [DisplayName("Категория")]
-        public string Category { get; set; }
+        public string CategoryName { get; set; }
 
         [DisplayName("Цветова гама")]
         public string ColorOfBox { get; set; }

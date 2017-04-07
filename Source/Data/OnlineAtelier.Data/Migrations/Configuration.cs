@@ -32,35 +32,35 @@
                 manager.Create(role);
             }
 
-            //context.Categories.AddOrUpdate(category => category.CategoryName, new Category[]
+            //context.Categories.AddOrUpdate(category => category.Name, new Category[]
             //{
             //  new Category()
             //  {
-            //      CategoryName = "Любов, любов за мен ти си всичко!",
+            //      Name = "Любов, любов за мен ти си всичко!",
             //  },
             //  new Category()
             //  {
-            //      CategoryName = "Рожден ден",
+            //      Name = "Рожден ден",
             //  },
             //    new Category()
             //  {
-            //      CategoryName = "Осми март",
+            //      Name = "Осми март",
             //  },
             //    new Category()
             //  {
-            //      CategoryName = "Великден",
+            //      Name = "Великден",
             //  },
             //       new Category()
             //  {
-            //      CategoryName = "Коледаааа",
+            //      Name = "Коледаааа",
             //  },
             //    new Category()
             //  {
-            //      CategoryName = "Кръщенета и други бебешки истории",
+            //      Name = "Кръщенета и други бебешки истории",
             //  },
             //    new Category()
             //  {
-            //      CategoryName = "Други",
+            //      Name = "Други",
             //  },
             //});
 

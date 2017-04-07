@@ -38,7 +38,6 @@
 
             foreach (var entity in orderComments)
             {
-
                var orderCommentVm = Mapper.Map<OrderComment, OrderCommentViewModel>(entity);
                result.Add(orderCommentVm);
             }

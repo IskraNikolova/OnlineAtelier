@@ -25,8 +25,6 @@
 
         public string Details { get; set; }
 
-        public string Category { get; set; }
-
         public DateTime DateOfDecision { get; set; }
 
         public string ShippingAddress { get; set; }
@@ -64,6 +62,8 @@
         public DateTime? DeletedOn { get; set; }
 
         public virtual Appearance Appearance { get; set; }
+
+        public virtual Category Category { get; set; }
 
         [ForeignKey("Author")]
         public string ApplicationUserId { get; set; }

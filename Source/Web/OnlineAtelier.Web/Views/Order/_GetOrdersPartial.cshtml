@@ -9,7 +9,13 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <br/>
-            <h5>@Html.DisplayFor(m => order.AppearanceName) - @Html.DisplayFor(m => order.AppearancePrice)лв.</h5>
+            <h5>
+                <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> @Html.DisplayFor(m => order.CategoryName) <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+            </h5>
+            <br/>
+                <h6>
+                    @Html.DisplayFor(m => order.AppearanceName) - @Html.DisplayFor(m => order.AppearancePrice)лв.
+                </h6>
             <div><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> @Html.ActionLink("Виж детайли", "Details", new { id = order.Id })</div>
             <em>@Html.DisplayFor(m => order.CreatedOn) <span class="glyphicon glyphicon-time" aria-hidden="true"></span></em>
         </div>

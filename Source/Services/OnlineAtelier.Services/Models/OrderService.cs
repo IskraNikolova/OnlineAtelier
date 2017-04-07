@@ -31,8 +31,12 @@
             var appearance = this.appearances.All()
                 .FirstOrDefault(a => a.Name == model.AppearanceName);
 
+            var category = this.categories.All()
+                .FirstOrDefault(a => a.Name == model.CategoryName);
+
             var order = Mapper.Map<AddOrderVm, Order>(model);
             order.Appearance = appearance;
+            order.Category = category;
             order.ApplicationUserId = authorId;
 
             this.orders.Add(order);
@@ -53,7 +57,7 @@
         {
             var allCategories = this.categories
                 .All()
-                .Select(c => c.CategoryName)
+                .Select(c => c.Name)
                 .ToList();
 
             return allCategories;
@@ -89,7 +93,8 @@
             var profileOrdersViewModel = this.orders.All()
                 .Where(o => o.ApplicationUserId == id)
                 .Project()
-                .To<DisplayOrderVm>();
+                .To<DisplayOrderVm>()
+                .ToList();
 
             return profileOrdersViewModel;
         }
@@ -105,6 +110,7 @@
             }
 
             var model = Mapper.Map<Order, DetailsOrderVm>(order);
+            model.CategoryName = order.Category.Name;
 
             return model;
         }

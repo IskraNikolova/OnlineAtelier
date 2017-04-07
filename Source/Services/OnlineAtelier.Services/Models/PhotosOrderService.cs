@@ -43,14 +43,18 @@
         public byte[] TakePhotoFromOrder(int userPictureId, int orderId)
         {
             var pictures = this.AllUserPictures(orderId);
-            UserPictureViewModel photo = pictures.FirstOrDefault(p => p.Id == userPictureId);
+            UserPictureViewModel photo = pictures
+                .FirstOrDefault(p => p.Id == userPictureId);
 
             return photo.UserPictures;
         }
 
         public byte[] TakePhoto(int userPictureId)
         {
-            var picture = this.userPictures.All().ToList().FirstOrDefault(p => p.Id == userPictureId);
+            var picture = this.userPictures
+                .All()
+                .FirstOrDefault(p => p.Id == userPictureId);
+
             UserPictureViewModel photo = Mapper.Map<UserPicture, UserPictureViewModel>(picture);
 
             return photo.UserPictures;

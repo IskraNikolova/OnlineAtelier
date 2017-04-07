@@ -10,6 +10,8 @@
 
         public string Details { get; set; }
 
+        public string CategoryName { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public string AppearanceName { get; set; }

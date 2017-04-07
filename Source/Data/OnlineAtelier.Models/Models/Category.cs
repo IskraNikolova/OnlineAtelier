@@ -8,24 +8,10 @@
 
     public class Category : IAuditInfo, IDeletableEntity
     {
-        private IEnumerable<Album> albums;
-
-        public Category()
-        {
-            this.albums = new HashSet<Album>();
-        }
-
         [Key]
         public int Id { get; set; }
 
-        [DisplayName("Category Name")]
-        public string CategoryName { get; set; }
-
-        public virtual IEnumerable<Album> Albums
-        {
-            get { return this.albums; }
-            set { this.albums = value; }
-        }
+        public string Name { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
