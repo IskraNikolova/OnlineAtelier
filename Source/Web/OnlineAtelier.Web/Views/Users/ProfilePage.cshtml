@@ -6,7 +6,7 @@
     <div class="col-md-3">
         <br />
         <div class="panel panel-body">
-            <img class="userPhoto" src="@Url.Action("UserPhotos", "UserProfilePicture")" />
+            <img class="userPhoto" src="@Url.Action("UserPhotos", "Users")" />
             <h3>@Html.DisplayFor(m => m.FirstName)</h3>
             <div>
                 @Html.ActionLink("Направи Поръчка", "Add", "Order", null, new {@class = "btn btn-primary"})
