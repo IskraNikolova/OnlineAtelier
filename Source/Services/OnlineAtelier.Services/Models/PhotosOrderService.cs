@@ -1,4 +1,4 @@
-﻿namespace OnlineAtelier.Services
+﻿namespace OnlineAtelier.Services.Models
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -6,7 +6,7 @@
     using AutoMapper.QueryableExtensions;
     using Contracts;
     using Data.Common.Repository;
-    using Models.Models;
+    using OnlineAtelier.Models.Models;
     using Web.Models.ViewModels.UsersPicture;
 
     public class PhotosOrderService : IUserPictureService

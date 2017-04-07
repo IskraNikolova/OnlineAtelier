@@ -40,7 +40,7 @@
 
             this.service.AddPictureToOrder(imageData, id);
 
-            return this.RedirectToAction("Index", "ProfilePage");
+            return this.RedirectToAction("ProfilePage", "Users");
         }
 
         [HttpGet]
@@ -49,13 +49,11 @@
             var photo = this.service.TakePhotoFromOrder(id, orderId);
             if (id == null || photo == null || photo.Length == 0)
             {
-                return null;
+                return null;//todo
             }
 
             return new FileContentResult(photo, "image/jpeg");
         }
-
-
 
         [HttpGet, Route("TakePhoto/{id}")]
         public FileContentResult TakePhotoDetails(int id)

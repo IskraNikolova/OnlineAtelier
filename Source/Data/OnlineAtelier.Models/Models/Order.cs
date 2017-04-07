@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using Comments;
     using Data.Common.Models;
 
@@ -64,7 +65,10 @@
 
         public virtual Appearance Appearance { get; set; }
 
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        [ForeignKey("Author")]
+        public string ApplicationUserId { get; set; }
+
+        public virtual ApplicationUser Author { get; set; }
 
         public virtual IEnumerable<OrderComment> Comments
         {

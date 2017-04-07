@@ -1,4 +1,4 @@
-﻿namespace OnlineAtelier.Services
+﻿namespace OnlineAtelier.Services.Models
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -7,7 +7,7 @@
     using AutoMapper.QueryableExtensions;
     using Contracts;
     using Data.Common.Repository;
-    using Models.Models;
+    using OnlineAtelier.Models.Models;
     using Web.Models.BindingModels.Order;
     using Web.Models.ViewModels.Order;
 
@@ -16,31 +16,24 @@
         private readonly IRepository<Order> orders;
         private readonly IRepository<Category> categories;
         private readonly IRepository<Appearance> appearances;
-        private readonly IRepository<ApplicationUser> users;
 
         public OrderService(IRepository<Order> orders,
             IRepository<Category> categories,
-            IRepository<Appearance> appearances,
-            IRepository<ApplicationUser> users)
+            IRepository<Appearance> appearances)
         {
             this.orders = orders;
             this.categories = categories;
             this.appearances = appearances;
-            this.users = users;
         }
 
-        public void AddOrder(AddOrderVm model, string authorId, byte[] imageData)
+        public void AddOrder(AddOrderVm model, string authorId)
         {
-            var user = this.users.All()
-                .FirstOrDefault(u => u.Id == authorId);
-            this.users.Detach(user);
-
             var appearance = this.appearances.All()
                 .FirstOrDefault(a => a.Name == model.AppearanceName);
 
             var order = Mapper.Map<AddOrderVm, Order>(model);
             order.Appearance = appearance;
-            order.ApplicationUser = user;
+            order.ApplicationUserId = authorId;
 
             this.orders.Add(order);
             this.orders.SaveChanges();
@@ -94,7 +87,7 @@
         public IEnumerable<DisplayOrderVm> GetOrders(string id)
         {
             var profileOrdersViewModel = this.orders.All()
-                .Where(o => o.ApplicationUser.Id == id)
+                .Where(o => o.ApplicationUserId == id)
                 .Project()
                 .To<DisplayOrderVm>();
 
@@ -114,18 +107,6 @@
             var model = Mapper.Map<Order, DetailsOrderVm>(order);
 
             return model;
-        }
-
-        private static IEnumerable<UserPicture> TakeUserPictures(byte[] imageData)
-        {
-            IEnumerable<UserPicture> pictures = new List<UserPicture>();
-
-            pictures.ToList().Add(new UserPicture()
-            {
-                UserPictures = imageData
-            });
-
-            return pictures;
         }
     }
 }

@@ -7,7 +7,7 @@
 
     public interface IOrderService
     {
-        void AddOrder(AddOrderVm model, string authorId, byte[] imageData);
+        void AddOrder(AddOrderVm model, string authorId);
 
         AddOrderVm GetViewModel(OrderBindingModel model);
 

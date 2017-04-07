@@ -17,6 +17,7 @@ namespace OnlineAtelier.Web.App_Start
     using OnlineAtelier.Models.Models;
     using Services.Contracts;
     using Services;
+    using Services.Models;
 
     public static class NinjectWebCommon 
     {
@@ -77,7 +78,7 @@ namespace OnlineAtelier.Web.App_Start
             kernel.Bind(typeof(IRepository<Order>)).To(typeof(DeletableEntityRepository<Order>));
             kernel.Bind(typeof(IRepository<Picture>)).To(typeof(DeletableEntityRepository<Picture>));
             kernel.Bind(typeof(IRepository<Publication>)).To(typeof(DeletableEntityRepository<Publication>));
-            kernel.Bind(typeof(IProfileService)).To(typeof(ProfileServices));
+            kernel.Bind(typeof(IUserService)).To(typeof(UserServices));
             kernel.Bind(typeof(IOrderService)).To(typeof(OrderService));
             kernel.Bind(typeof(ICommentService)).To(typeof(CommentService));
             kernel.Bind(typeof(IUserPictureService)).To(typeof(PhotosOrderService));

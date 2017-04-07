@@ -5,11 +5,11 @@
     using Models.BindingModels.Comments;
     using Services.Contracts;
 
-    public class OrderCommentController : Controller
+    public class CommentOrderController : Controller
     {
         private readonly ICommentService service;
 
-        public OrderCommentController(ICommentService service)
+        public CommentOrderController(ICommentService service)
         {
             this.service = service;
         }
@@ -30,10 +30,10 @@
             if (this.ModelState.IsValid)
             {
                 this.service.AddCommentToOrder(model, id, userId);
-                return this.RedirectToAction("Index", "ProfilePage");
+                return this.RedirectToAction("ProfilePage", "Users");
             }
 
-            return this.RedirectToAction("Index", "ProfilePage");
+            return this.RedirectToAction("ProfilePage", "Users");
         }
 
         [HttpGet]

@@ -44,19 +44,8 @@
 
             if (this.ModelState.IsValid)
             {
-                byte[] imageData = null;
-                if (this.Request.Files.Count > 0)
-                {
-                    HttpPostedFileBase httpPostedFileBase = this.Request.Files["UserPictures"];
-
-                    using (var binary = new BinaryReader(httpPostedFileBase.InputStream))
-                    {
-                        imageData = binary.ReadBytes(httpPostedFileBase.ContentLength);
-                    }
-                }
-          
-                this.service.AddOrder(modelView, userId, imageData);
-                return this.RedirectToAction("Index", "ProfilePage");
+                this.service.AddOrder(modelView, userId);
+                return this.RedirectToAction("ProfilePage", "Users");
             }
 
             return this.View(this.service.GetViewModel(model));

@@ -200,11 +200,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
-    <Compile Include="Controllers\UserProfilePictureController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\OrderCommentController.cs" />
+    <Compile Include="Controllers\CommentOrderController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\ProfilePageController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\PhotosOrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -287,11 +286,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\ProfilePage\Index.cshtml" />
+    <Content Include="Views\Users\ProfilePage.cshtml" />
     <Content Include="Views\Order\Add.cshtml" />
     <Content Include="Views\Order\_GetOrdersPartial.cshtml" />
-    <Content Include="Views\OrderComment\_AddCommentPartial.cshtml" />
-    <Content Include="Views\OrderComment\_ViewCommentsPartial.cshtml" />
+    <Content Include="Views\CommentOrder\_AddCommentPartial.cshtml" />
+    <Content Include="Views\CommentOrder\_ViewCommentsPartial.cshtml" />
     <Content Include="Views\PhotosOrder\_AddPicturePartial.cshtml" />
     <Content Include="Views\PhotosOrder\_ViewAllUserPicturePartial.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />

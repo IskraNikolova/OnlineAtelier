@@ -1,15 +1,13 @@
-﻿namespace OnlineAtelier.Services
+﻿namespace OnlineAtelier.Services.Models
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
     using Contracts;
     using Data.Common.Repository;
-    using Models.Models.Comments;
+    using OnlineAtelier.Models.Models.Comments;
     using Web.Models.BindingModels.Comments;
     using Web.Models.ViewModels.Comments;
-
 
     public class CommentService : ICommentService
     {

@@ -131,16 +131,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommentService.cs" />
+    <Compile Include="Models\CommentService.cs" />
     <Compile Include="Contracts\ICommentService.cs" />
     <Compile Include="Contracts\IOrderService.cs" />
-    <Compile Include="Contracts\IProfileService.cs" />
+    <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Contracts\IService.cs" />
     <Compile Include="Contracts\IUserPictureService.cs" />
-    <Compile Include="OrderService.cs" />
-    <Compile Include="ProfileServices.cs" />
+    <Compile Include="Models\OrderService.cs" />
+    <Compile Include="Models\UserServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PhotosOrderService.cs" />
+    <Compile Include="Models\PhotosOrderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Data\OnlineAtelier.Data.Common\OnlineAtelier.Data.Common.csproj">

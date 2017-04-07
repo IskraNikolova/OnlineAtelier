@@ -1,17 +1,17 @@
-﻿namespace OnlineAtelier.Services
+﻿namespace OnlineAtelier.Services.Models
 {
     using System.Linq;
     using AutoMapper;
     using Contracts;
     using Data.Common.Repository;
-    using Models.Models;
+    using OnlineAtelier.Models.Models;
     using Web.Models.ViewModels.Acount;
 
-    public class ProfileServices : IProfileService
+    public class UserServices : IUserService
     {
         private readonly IRepository<ApplicationUser> users;
 
-        public ProfileServices(IRepository<ApplicationUser> users)
+        public UserServices(IRepository<ApplicationUser> users)
         {
             this.users = users;
         }

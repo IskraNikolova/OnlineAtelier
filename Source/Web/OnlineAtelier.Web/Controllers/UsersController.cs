@@ -4,13 +4,21 @@
     using Microsoft.AspNet.Identity;
     using Services.Contracts;
 
-    public class UserProfilePictureController : ImagesController
+    public class UsersController : ImagesController
     {
-        private readonly IProfileService profileService;
+        private readonly IUserService userService;
 
-        public UserProfilePictureController(IProfileService profileService)
+        public UsersController(IUserService userService)
         {
-            this.profileService = profileService;
+            this.userService = userService;
+        }
+
+        [HttpGet]
+        public ActionResult ProfilePage()
+        {
+            var userId = this.User.Identity.GetUserId();
+            var model = this.userService.GetProfilePageViewModel(userId);
+            return this.View(model);
         }
 
         [HttpGet]
@@ -19,7 +27,7 @@
             if (this.User.Identity.IsAuthenticated)
             {
                 string userId = this.User.Identity.GetUserId();
-                var user = this.profileService.GetUser(userId);
+                var user = this.userService.GetUser(userId);
 
                 if (userId == null || user.UserPhoto == null || user.UserPhoto.Length == 0)
                 {
@@ -37,7 +45,7 @@
         [HttpGet]
         public FileContentResult TakeUserPhotos(string id)
         {
-            var user = this.profileService.GetUser(id);
+            var user = this.userService.GetUser(id);
 
             if (id == null || user.UserPhoto == null || user.UserPhoto.Length == 0)
             {
