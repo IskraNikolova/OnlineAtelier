@@ -7,15 +7,9 @@
     @foreach (var picture in Model)
     {
         <div class="col-xs-6 col-md-3">
-            
-            @*<a href='' class="thumbnail">
-                <img src="@Url.Action("TakePhotoFromOrder", "PhotosOrder", new {id = picture.Id, orderId = picture.OrderId})"/>
-                @Html.ActionLink("виж", "TakePhoto", new { id = picture.Id })
-            </a>*@
-            
-               <a class="thumbnail" href='@Url.Action("TakePhoto", "PhotosOrder", new { id = picture.Id })'>
-                    <img src="@Url.Action("TakePhotoFromOrder", "PhotosOrder", new {id = picture.Id, orderId = picture.OrderId})" />
-                </a>
+               <a class="thumbnail" href='@Url.Action("TakePhotoDetails", "PhotosOrder", new { id = picture.Id })'>
+                    <img src="@Url.Action("TakePhoto", "PhotosOrder", new {id = picture.Id, orderId = picture.OrderId})" />
+               </a>
         </div>
     }
 </div>

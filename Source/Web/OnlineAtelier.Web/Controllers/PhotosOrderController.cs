@@ -17,12 +17,14 @@
         }
 
         [HttpGet]
+        [ChildActionOnly]
         public ActionResult AddPicture()
         {
             return this.PartialView("_AddPicturePartial");
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddPicture([Bind(Exclude = "UserPictures")]AddPictureBindingModel model, int id)
         {
             byte[] imageData = null;
@@ -36,24 +38,27 @@
                 }
             }
 
-            this.service.AddPicture(imageData, id);
+            this.service.AddPictureToOrder(imageData, id);
+
             return this.RedirectToAction("Index", "ProfilePage");
         }
 
         [HttpGet]
-        public FileContentResult TakePhotoFromOrder(int id, int orderId)
+        public FileContentResult TakePhoto(int id, int orderId)
         {
             var photo = this.service.TakePhotoFromOrder(id, orderId);
             if (id == null || photo == null || photo.Length == 0)
             {
-                return null;//todo error message
+                return null;
             }
 
             return new FileContentResult(photo, "image/jpeg");
         }
 
+
+
         [HttpGet, Route("TakePhoto/{id}")]
-        public FileContentResult TakePhoto(int id)
+        public FileContentResult TakePhotoDetails(int id)
         {
             var photo = this.service.TakePhoto(id);
 
@@ -61,9 +66,10 @@
         }
 
         [HttpGet]
+        [ChildActionOnly]
         public ActionResult All(int id)
         {
-            var models = this.service.AllUserPicture(id);
+            var models = this.service.AllUserPictures(id);
             return this.PartialView("_ViewAllUserPicturePartial", models);
         }
     }

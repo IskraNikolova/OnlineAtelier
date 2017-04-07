@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Web.Mvc;
-    using BindingModels;
     using BindingModels.Order;
     using Infrastructure.Mapping;
     using OnlineAtelier.Models.Models;
@@ -13,11 +12,13 @@
     {
         public int Id { get; set; }
 
+        [DisplayName("Вид на поръчката/Количество")]
         public string AppearanceName { get; set; }
       
         [DisplayName("Детайли")]
         public string Details { get; set; }
 
+        [DisplayName("Категория")]
         public string Category { get; set; }
 
         [DisplayName("Цветова гама")]

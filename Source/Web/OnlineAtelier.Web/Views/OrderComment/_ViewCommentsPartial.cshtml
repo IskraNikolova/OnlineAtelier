@@ -8,6 +8,7 @@
     <p>
         <img class="userPhotoMini" src="@Url.Action("TakeUserPhotos", "UserProfilePicture", new {id = comment.ApplicationUserId})" />
         @Html.DisplayFor(m => comment.Text)
+        <p>@Html.DisplayFor(m => comment.CreatedOn)</p>
         <hr />
     </p>
 }

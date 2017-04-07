@@ -13,7 +13,7 @@
             this.profileService = profileService;
         }
 
-        // GET: ProfilePage
+        [HttpGet]
         public ActionResult Index()
         {
             var userId = this.User.Identity.GetUserId();

@@ -2,9 +2,6 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
-    using Models;
-    using Models.Models;
-    using Web.Models.BindingModels;
     using Web.Models.BindingModels.Order;
     using Web.Models.ViewModels.Order;
 

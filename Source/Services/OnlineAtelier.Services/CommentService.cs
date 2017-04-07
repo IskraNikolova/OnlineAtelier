@@ -1,11 +1,12 @@
 ﻿namespace OnlineAtelier.Services
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
+    using AutoMapper;
     using Contracts;
     using Data.Common.Repository;
     using Models.Models.Comments;
-    using Web.Models.BindingModels;
     using Web.Models.BindingModels.Comments;
     using Web.Models.ViewModels.Comments;
 
@@ -19,37 +20,29 @@
             this.comments = comments;
         }
 
-        public void AddOrderComment(OrderCommentBindingModel model, int id, string userId)
+        public void AddCommentToOrder(OrderCommentBindingModel model, int orderId, string userId)
         {
-            var orderComment = new OrderComment()
-            {
-                Text = model.Text,               
-                OrderId = id,
-                ApplicationUserId = userId
-            };
+            var oC = Mapper.Map<OrderCommentBindingModel, OrderComment>(model);
+            oC.ApplicationUserId = userId;
+            oC.OrderId = orderId;
 
-            this.comments.Add(orderComment);
+            this.comments.Add(oC);
             this.comments.SaveChanges();
         }
 
         public IEnumerable<OrderCommentViewModel> GetComments(int id)
         {
-            var commentsModels = this.comments.All()
+            var orderComments = this.comments.All()
                 .Where(c => c.OrderId == id)
                 .ToList();
 
             var result = new List<OrderCommentViewModel>();
 
-            foreach (var orderComment in commentsModels)
+            foreach (var entity in orderComments)
             {
-                var model = new OrderCommentViewModel()
-                {
-                    ApplicationUserId = orderComment.ApplicationUserId,
-                    Text = orderComment.Text,
-                    
-                };
 
-               result.Add(model);
+               var orderCommentVm = Mapper.Map<OrderComment, OrderCommentViewModel>(entity);
+               result.Add(orderCommentVm);
             }
 
             return result;

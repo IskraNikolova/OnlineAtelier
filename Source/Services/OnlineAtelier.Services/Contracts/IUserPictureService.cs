@@ -5,9 +5,9 @@
 
     public interface IUserPictureService
     {
-        void AddPicture(byte[] content, int id);
+        void AddPictureToOrder(byte[] content, int id);
 
-        IEnumerable<UserPictureViewModel> AllUserPicture(int orderId);
+        IEnumerable<UserPictureViewModel> AllUserPictures(int orderId);
 
         byte[] TakePhotoFromOrder(int userPictureId, int orderId);
 

@@ -1,12 +1,8 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
-    using System.Collections.Generic;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
-    using Models;
-    using Models.BindingModels;
     using Models.BindingModels.Comments;
-    using Models.ViewModels.Comments;
     using Services.Contracts;
 
     public class OrderCommentController : Controller
@@ -19,18 +15,21 @@
         }
 
         [HttpGet]
+        [ChildActionOnly]
         public ActionResult AddComment(int id)
         {
             return this.PartialView("_AddCommentPartial");
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AddComment(OrderCommentBindingModel model, int id)
         {
             string userId = this.User.Identity.GetUserId();
+
             if (this.ModelState.IsValid)
             {
-                this.service.AddOrderComment(model, id, userId);
+                this.service.AddCommentToOrder(model, id, userId);
                 return this.RedirectToAction("Index", "ProfilePage");
             }
 
@@ -38,6 +37,7 @@
         }
 
         [HttpGet]
+        [ChildActionOnly]
         public ActionResult GetComments(int id)
         {
             var model = this.service.GetComments(id);

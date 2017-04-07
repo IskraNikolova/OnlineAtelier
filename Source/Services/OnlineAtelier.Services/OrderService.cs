@@ -38,26 +38,12 @@
             var appearance = this.appearances.All()
                 .FirstOrDefault(a => a.Name == model.AppearanceName);
 
-            var pictures = TakeUserPictures(imageData);
-
             var order = Mapper.Map<AddOrderVm, Order>(model);
             order.Appearance = appearance;
             order.ApplicationUser = user;
-            order.UserPictures = pictures;
 
             this.orders.Add(order);
             this.orders.SaveChanges();
-        }
-
-        private static IEnumerable<UserPicture> TakeUserPictures(byte[] imageData)
-        {
-            IEnumerable<UserPicture> pictures = new List<UserPicture>();
-
-            pictures.ToList().Add(new UserPicture()
-            {
-                UserPictures = imageData
-            });
-            return pictures;
         }
 
         public AddOrderVm GetViewModel(OrderBindingModel model)
@@ -92,13 +78,7 @@
 
         public IEnumerable<SelectListItem> GetSelectListItems(IEnumerable<string> elements)
         {
-            // Create an empty list to hold result of the operation
             var selectList = new List<SelectListItem>();
-
-            // For each string in the 'elements' variable, create a new SelectListItem object
-            // that has both its Value and Text properties set to a particular value.
-            // This will result in MVC rendering each item as:
-            //     <option value="Category">Category</option>
             foreach (var element in elements)
             {
                 selectList.Add(new SelectListItem
@@ -134,6 +114,18 @@
             var model = Mapper.Map<Order, DetailsOrderVm>(order);
 
             return model;
+        }
+
+        private static IEnumerable<UserPicture> TakeUserPictures(byte[] imageData)
+        {
+            IEnumerable<UserPicture> pictures = new List<UserPicture>();
+
+            pictures.ToList().Add(new UserPicture()
+            {
+                UserPictures = imageData
+            });
+
+            return pictures;
         }
     }
 }

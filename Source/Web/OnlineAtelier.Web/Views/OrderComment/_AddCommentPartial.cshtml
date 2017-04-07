@@ -1,18 +1,19 @@
-﻿@model OnlineAtelier.Web.Models.ViewModels.Comments.OrderCommentViewModel
-@{
+﻿@{
     ViewBag.Title = "_AddCommentPartial";
 }
 
 @using (Html.BeginForm("AddComment", "OrderComment", FormMethod.Post))
 {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="row">
         <div class="col-lg-6">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="..." name="Text">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit">Коментирай</button>
-                    </span>
-                </div>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Коментирай..." name="Text">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+                </span>
+            </div>
         </div>
     </div>
 }

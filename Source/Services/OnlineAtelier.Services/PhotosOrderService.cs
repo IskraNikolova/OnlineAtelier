@@ -9,16 +9,16 @@
     using Models.Models;
     using Web.Models.ViewModels.UsersPicture;
 
-    public class UserOrderPicturesService : IUserPictureService
+    public class PhotosOrderService : IUserPictureService
     {
         private readonly IRepository<UserPicture> userPictures;
 
-        public UserOrderPicturesService(IRepository<UserPicture> userPictures)
+        public PhotosOrderService(IRepository<UserPicture> userPictures)
         {
             this.userPictures = userPictures;
         }
 
-        public void AddPicture(byte[] content, int id)
+        public void AddPictureToOrder(byte[] content, int id)
         {
             var picture = new UserPicture()
             {
@@ -30,7 +30,7 @@
             this.userPictures.SaveChanges();
         }
 
-        public IEnumerable<UserPictureViewModel> AllUserPicture(int orderId)
+        public IEnumerable<UserPictureViewModel> AllUserPictures(int orderId)
         {
             var models = this.userPictures.All()
                 .Where(p => p.OrderId == orderId)
@@ -42,8 +42,9 @@
 
         public byte[] TakePhotoFromOrder(int userPictureId, int orderId)
         {
-            var pictures = this.AllUserPicture(orderId);
+            var pictures = this.AllUserPictures(orderId);
             UserPictureViewModel photo = pictures.FirstOrDefault(p => p.Id == userPictureId);
+
             return photo.UserPictures;
         }
 

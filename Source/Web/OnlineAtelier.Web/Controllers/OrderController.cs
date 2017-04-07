@@ -36,6 +36,7 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(OrderBindingModel model)
         {
             var userId = this.User.Identity.GetUserId();
@@ -61,7 +62,9 @@
             return this.View(this.service.GetViewModel(model));
         }
 
-        [Authorize]
+
+        [HttpGet]
+        [ChildActionOnly]
         public ActionResult GetOrders(string id)
         {
             IEnumerable<DisplayOrderVm> model = this.service.GetOrders(id);
