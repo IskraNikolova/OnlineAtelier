@@ -9,7 +9,7 @@
 
     public class Album: IAuditInfo, IDeletableEntity
     {
-        private IEnumerable<Picture> pictures;
+        private ICollection<Picture> pictures;
 
         public Album()
         {
@@ -23,7 +23,7 @@
         [DisplayName("Album Name")]
         public string AlbumName { get; set; }
 
-        public virtual IEnumerable<Picture> Pictures
+        public virtual ICollection<Picture> Pictures
         {
             get { return this.pictures; }
             set { this.pictures = value; }

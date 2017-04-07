@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using Contracts;
     using Data.Common.Repository;
     using OnlineAtelier.Models.Models.Comments;
@@ -20,29 +21,24 @@
 
         public void AddCommentToOrder(OrderCommentBindingModel model, int orderId, string userId)
         {
-            var oC = Mapper.Map<OrderCommentBindingModel, OrderComment>(model);
-            oC.ApplicationUserId = userId;
-            oC.OrderId = orderId;
+            var orderCommentVm = Mapper.Map<OrderCommentBindingModel, OrderComment>(model);
+            orderCommentVm.ApplicationUserId = userId;
+            orderCommentVm.OrderId = orderId;
 
-            this.comments.Add(oC);
+            this.comments.Add(orderCommentVm);
             this.comments.SaveChanges();
         }
 
         public IEnumerable<OrderCommentViewModel> GetComments(int id)
         {
-            var orderComments = this.comments.All()
+            var orderCommentsVm = this.comments
+                .All()
                 .Where(c => c.OrderId == id)
+                .Project()
+                .To<OrderCommentViewModel>()
                 .ToList();
 
-            var result = new List<OrderCommentViewModel>();
-
-            foreach (var entity in orderComments)
-            {
-               var orderCommentVm = Mapper.Map<OrderComment, OrderCommentViewModel>(entity);
-               result.Add(orderCommentVm);
-            }
-
-            return result;
+            return orderCommentsVm;
         }
     }
 }

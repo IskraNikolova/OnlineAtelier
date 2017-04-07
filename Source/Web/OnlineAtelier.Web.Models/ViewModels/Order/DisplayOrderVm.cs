@@ -1,6 +1,7 @@
 ﻿namespace OnlineAtelier.Web.Models.ViewModels.Order
 {
     using System;
+    using System.Collections.Generic;
     using Infrastructure.Mapping;
     using OnlineAtelier.Models.Models;
 
@@ -17,5 +18,7 @@
         public string AppearanceName { get; set; }
 
         public decimal AppearancePrice { get; set; }
+
+        public ICollection<Order> ProfileOrders { get; set; }
     }
 }

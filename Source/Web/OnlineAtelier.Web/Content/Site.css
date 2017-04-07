@@ -55,4 +55,6 @@ textarea {
 
 .eli {
     background-color: darkred;
+    padding: 1%;
+    border-radius: 5px;
 }

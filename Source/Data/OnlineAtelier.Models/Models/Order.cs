@@ -9,9 +9,9 @@
 
     public class Order: IAuditInfo, IDeletableEntity
     {
-        private IEnumerable<UserPicture> userPictures;
-        private IEnumerable<Picture> galeryPictures;
-        private IEnumerable<OrderComment> comments;
+        private ICollection<UserPicture> userPictures;
+        private ICollection<Picture> galeryPictures;
+        private ICollection<OrderComment> comments;
 
         public Order()
         {
@@ -39,13 +39,13 @@
 
         public bool IsАccepted { get; set; }
 
-        public virtual IEnumerable<UserPicture> UserPictures
+        public virtual ICollection<UserPicture> UserPictures
         {
             get { return this.userPictures; }
             set { this.userPictures = value; }
         }
 
-        public IEnumerable<Picture> GaleryPictures
+        public ICollection<Picture> GaleryPictures
         {
             get { return this.galeryPictures; }
             set { this.galeryPictures = value; }
@@ -70,7 +70,7 @@
 
         public virtual ApplicationUser Author { get; set; }
 
-        public virtual IEnumerable<OrderComment> Comments
+        public virtual ICollection<OrderComment> Comments
         {
             get { return this.comments; }
             set { this.comments = value; }

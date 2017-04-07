@@ -5,7 +5,7 @@
     using Contracts;
     using Data.Common.Repository;
     using OnlineAtelier.Models.Models;
-    using Web.Models.ViewModels.Acount;
+    using Web.Models.ViewModels.Users;
 
     public class UserServices : IUserService
     {
@@ -21,17 +21,17 @@
             var user = this.users
                 .All()
                 .FirstOrDefault(u => u.Id == id);
-
+          
             return user;
         }
 
-        public ProfilePageViewModel GetProfilePageViewModel(string userId)
+        public ProfileViewModel GetProfileViewModel(string userId)
         {
             var user = this.users
                 .All()
                 .FirstOrDefault(u => u.Id == userId);
 
-            var profileViewModel = Mapper.Map<ApplicationUser, ProfilePageViewModel>(user);
+            var profileViewModel = Mapper.Map<ApplicationUser, ProfileViewModel>(user);
 
             return profileViewModel;
         }

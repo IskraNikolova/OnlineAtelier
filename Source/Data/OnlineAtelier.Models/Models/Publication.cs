@@ -7,7 +7,7 @@
 
     public class Publication : IAuditInfo, IDeletableEntity
     {
-        private IEnumerable<PublicationComment> comments;
+        private ICollection<PublicationComment> comments;
 
         public Publication()
         {
@@ -32,11 +32,10 @@
 
         public DateTime? DeletedOn { get; set; }
 
-        public virtual IEnumerable<PublicationComment> Comments
+        public virtual ICollection<PublicationComment> Comments
         {
             get { return this.comments; }
             set { this.comments = value; }
         }
-
     }
 }

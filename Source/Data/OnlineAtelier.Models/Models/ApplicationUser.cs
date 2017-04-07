@@ -12,9 +12,9 @@
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
-        private IEnumerable<Order> orders;
-        private IEnumerable<OrderComment> orderComments;
-        private IEnumerable<PublicationComment> publicationComments;
+        private ICollection<Order> orders;
+        private ICollection<OrderComment> orderComments;
+        private ICollection<PublicationComment> publicationComments;
 
         public ApplicationUser()
         {
@@ -27,6 +27,9 @@
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        [NotMapped]
+        public string FullName => this.FirstName + " " + this.LastName;
 
         [Index]
         public bool IsDeleted { get; set; }
@@ -41,19 +44,19 @@
 
         public byte[] UserPhoto { get; set; }
 
-        public virtual IEnumerable<Order> Orders
+        public virtual ICollection<Order> Orders
         {
             get { return this.orders; }
             set { this.orders = value; }
         }
 
-        public virtual IEnumerable<OrderComment> OrderComments
+        public virtual ICollection<OrderComment> OrderComments
         {
             get { return this.orderComments; }
             set { this.orderComments = value; }
         }
 
-        public virtual IEnumerable<PublicationComment> PublicationComments
+        public virtual ICollection<PublicationComment> PublicationComments
         {
             get { return this.publicationComments; }
             set { this.publicationComments = value; }

@@ -4,6 +4,13 @@
     ViewBag.Title = "_GetOrdersPartial";
 }
 
+<div class="panel panel-body">
+    <div>
+        <h5> Моите Поръчки  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">@Model.ToList().Count</span></h5>
+    </div>
+</div>
+
+<hr />
 @foreach (var order in Model)
 {
     <div class="panel panel-default">

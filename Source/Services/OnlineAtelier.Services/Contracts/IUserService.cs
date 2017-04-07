@@ -1,12 +1,12 @@
 ﻿namespace OnlineAtelier.Services.Contracts
 {
     using OnlineAtelier.Models.Models;
-    using Web.Models.ViewModels.Acount;
+    using Web.Models.ViewModels.Users;
 
     public interface IUserService : IService
     {
         ApplicationUser GetUser(string id);
 
-        ProfilePageViewModel GetProfilePageViewModel(string userId);
+        ProfileViewModel GetProfileViewModel(string userId);
     }
 }

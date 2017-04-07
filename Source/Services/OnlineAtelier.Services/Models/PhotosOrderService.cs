@@ -43,6 +43,7 @@
         public byte[] TakePhotoFromOrder(int userPictureId, int orderId)
         {
             var pictures = this.AllUserPictures(orderId);
+
             UserPictureViewModel photo = pictures
                 .FirstOrDefault(p => p.Id == userPictureId);
 

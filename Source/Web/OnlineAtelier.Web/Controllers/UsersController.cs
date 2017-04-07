@@ -17,7 +17,7 @@
         public ActionResult ProfilePage()
         {
             var userId = this.User.Identity.GetUserId();
-            var model = this.userService.GetProfilePageViewModel(userId);
+            var model = this.userService.GetProfileViewModel(userId);
             return this.View(model);
         }
 

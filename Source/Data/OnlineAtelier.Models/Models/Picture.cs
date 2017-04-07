@@ -10,8 +10,7 @@
         [Key]
         public int Id { get; set; }
 
-        [DisplayName("Picture Name")]
-        public string PictureName { get; set; }
+        public string Name { get; set; }
 
         [Required]
         public string Url { get; set; }

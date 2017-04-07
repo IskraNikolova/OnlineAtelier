@@ -96,7 +96,7 @@
     <Compile Include="ViewModels\Acount\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Acount\ForgotViewModel.cs" />
     <Compile Include="ViewModels\Acount\LoginViewModel.cs" />
-    <Compile Include="ViewModels\Acount\ProfilePageViewModel.cs" />
+    <Compile Include="ViewModels\Users\ProfileViewModel.cs" />
     <Compile Include="ViewModels\Acount\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Acount\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Acount\SendCodeViewModel.cs" />

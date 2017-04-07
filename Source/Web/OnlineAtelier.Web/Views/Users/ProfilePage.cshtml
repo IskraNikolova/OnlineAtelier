@@ -1,4 +1,4 @@
-﻿@model OnlineAtelier.Web.Models.ViewModels.Acount.ProfilePageViewModel
+﻿@model OnlineAtelier.Web.Models.ViewModels.Users.ProfileViewModel
 @{
     ViewBag.Title = "Profile Page";
 }
@@ -7,7 +7,7 @@
         <br />
         <div class="panel panel-body">
             <img class="userPhoto" src="@Url.Action("UserPhotos", "Users")" />
-            <h3>@Html.DisplayFor(m => m.FirstName)</h3>
+            <h3>@Html.DisplayFor(m => m.FullName)</h3>
             <div>
                 @Html.ActionLink("Направи Поръчка", "Add", "Order", null, new {@class = "btn btn-primary"})
             </div>
@@ -15,10 +15,6 @@
     </div>
     <div class="col-md-7">
         <br />
-        <div class="panel panel-body">
-            <div><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <h5>Моите Поръчки</h5></div>
-            <hr />
-            </div>
             @Html.Action("GetOrders", "Order", new { id = Model.Id })
         </div>
 </div>

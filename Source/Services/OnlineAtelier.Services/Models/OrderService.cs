@@ -94,6 +94,7 @@
                 .Where(o => o.ApplicationUserId == id)
                 .Project()
                 .To<DisplayOrderVm>()
+                .OrderByDescending(o => o.CreatedOn)
                 .ToList();
 
             return profileOrdersViewModel;
@@ -101,7 +102,8 @@
 
         public DetailsOrderVm GetDetails(int id)
         {
-            var order = this.orders.All()
+            var order = this.orders
+                .All()
                 .FirstOrDefault(o => o.Id == id);
 
             if (order == null)
