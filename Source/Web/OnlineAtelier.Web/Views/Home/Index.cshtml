@@ -8,16 +8,18 @@
 </div>
 <div class="row">
     <div class="col-lg-offset-2 col-lg-8">
-            @foreach (var publication in @Model)
+        @foreach (var publication in @Model)
             {
-                <div class="panel-body">
-                    <div class="thumbnail">
-                        <h6> @Html.DisplayFor(m => publication.Title)</h6>
-                        <p> @Html.DisplayFor(m => publication.Content)</p>
+            <div class="panel-body">
+                <div class="thumbnail">
+                    <h6> @Html.DisplayFor(m => publication.Title)</h6>
+                    <p> @Html.DisplayFor(m => publication.Content)</p>
+                    <a  class="thumbnail" href='@Url.Action("Details", "Publications", new { id = publication.Id })'>
                         <img src="@publication.PhotoUrl" />
-                        <br />
-                    </div>
-                    </div>
-                }
+                    </a>
+                    <br />
+                </div>
             </div>
+        }
     </div>
+</div>

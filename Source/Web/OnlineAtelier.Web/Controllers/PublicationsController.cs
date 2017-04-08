@@ -33,12 +33,14 @@
         }
 
         [HttpGet, Route("Create")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return this.View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PublicationBm publication)
         {
@@ -52,6 +54,7 @@
         }
 
         [HttpGet, Route("Edit/{id}")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -69,6 +72,7 @@
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(PublicationBm publication)
         {
@@ -82,12 +86,14 @@
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete()
         {
             return this.View();
         }
 
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

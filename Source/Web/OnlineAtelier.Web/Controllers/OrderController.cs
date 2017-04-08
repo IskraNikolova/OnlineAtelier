@@ -18,6 +18,7 @@
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Add()
         {
             var categories = this.service.GetAllCategories();
@@ -34,6 +35,7 @@
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Add(OrderBindingModel model)
         {
