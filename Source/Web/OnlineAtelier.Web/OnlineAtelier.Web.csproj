@@ -299,7 +299,6 @@
     <Content Include="Views\Publications\Delete.cshtml" />
     <Content Include="Views\Publications\Details.cshtml" />
     <Content Include="Views\Publications\Edit.cshtml" />
-    <Content Include="Views\Publications\Index.cshtml" />
     <Content Include="Views\PhotosOrder\Delete.cshtml" />
     <Content Include="Views\CommentOrder\Delete.cshtml" />
   </ItemGroup>

@@ -69,7 +69,7 @@
                 }
                 else
                 {
-                    entity.ModifiedOn = DateTime.Now;
+                    entity.ModifiedOn =(DateTime?)DateTime.Now;
                 }
             }
         }
