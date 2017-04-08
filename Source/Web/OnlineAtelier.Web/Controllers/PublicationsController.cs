@@ -6,10 +6,17 @@
     using System.Web.Mvc;
     using Data;
     using OnlineAtelier.Models.Models;
+    using Services.Contracts;
 
     public class PublicationsController : Controller
     {
+        private IPublicationsService service;
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        public PublicationsController(IPublicationsService service)
+        {
+            this.service = service;
+        }
 
         // GET: Publications
         public ActionResult Index()

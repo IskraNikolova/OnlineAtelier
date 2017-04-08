@@ -72,6 +72,7 @@ namespace OnlineAtelier.Web.App_Start
             kernel.Bind<DbContext>().To<ApplicationDbContext>();
             kernel.Bind(typeof(IRepository<Album>)).To(typeof(DeletableEntityRepository<Album>));
             kernel.Bind(typeof(IRepository<OrderComment>)).To(typeof(DeletableEntityRepository<OrderComment>));
+            kernel.Bind(typeof(IRepository<PublicationComment>)).To(typeof(DeletableEntityRepository<PublicationComment>));
             kernel.Bind(typeof(IRepository<Category>)).To(typeof(DeletableEntityRepository<Category>));
             kernel.Bind(typeof(IRepository<Appearance>)).To(typeof(DeletableEntityRepository<Appearance>));
             kernel.Bind(typeof(IRepository<PhotosOrder>)).To(typeof(DeletableEntityRepository<PhotosOrder>));
@@ -82,6 +83,7 @@ namespace OnlineAtelier.Web.App_Start
             kernel.Bind(typeof(IOrderService)).To(typeof(OrderService));
             kernel.Bind(typeof(ICommentService)).To(typeof(CommentService));
             kernel.Bind(typeof(IPhotosOrderService)).To(typeof(PhotosOrderService));
+            kernel.Bind(typeof(IPublicationsService)).To(typeof(PublicationService));
 
             kernel.Bind(typeof(IRepository<ApplicationUser>)).To(typeof(DeletableEntityRepository<ApplicationUser>));
 
