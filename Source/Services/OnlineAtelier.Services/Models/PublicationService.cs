@@ -1,6 +1,9 @@
 ﻿namespace OnlineAtelier.Services.Models
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using Contracts;
     using Data.Common.Repository;
     using OnlineAtelier.Models.Models;
@@ -55,6 +58,17 @@
             var entity = this.publications.GetById(id);
             this.publications.Delete(entity);
             this.publications.SaveChanges();
+        }
+
+        public IEnumerable<IndexPublicationVm> All()
+        {
+            var model = this.publications
+                .All()
+                .Project()
+                .To<IndexPublicationVm>()
+                .ToList();
+
+            return model;
         }
     }
 }
