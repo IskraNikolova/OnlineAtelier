@@ -136,7 +136,7 @@
     <Compile Include="Contracts\IOrderService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Contracts\IService.cs" />
-    <Compile Include="Contracts\IUserPictureService.cs" />
+    <Compile Include="Contracts\IPhotosOrderService.cs" />
     <Compile Include="Models\OrderService.cs" />
     <Compile Include="Models\UserServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -203,6 +203,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\CommentOrderController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\PublicationsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\PhotosOrderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -294,6 +295,13 @@
     <Content Include="Views\PhotosOrder\_AddPicturePartial.cshtml" />
     <Content Include="Views\PhotosOrder\_ViewAllUserPicturePartial.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Publications\Create.cshtml" />
+    <Content Include="Views\Publications\Delete.cshtml" />
+    <Content Include="Views\Publications\Details.cshtml" />
+    <Content Include="Views\Publications\Edit.cshtml" />
+    <Content Include="Views\Publications\Index.cshtml" />
+    <Content Include="Views\PhotosOrder\Delete.cshtml" />
+    <Content Include="Views\CommentOrder\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Controllers\" />

@@ -40,5 +40,12 @@
 
             return orderCommentsVm;
         }
+
+        public void Delete(int id)
+        {
+            var entity = this.comments.GetById(id);
+            this.comments.Delete(entity);
+            this.comments.SaveChanges();
+        }
     }
 }

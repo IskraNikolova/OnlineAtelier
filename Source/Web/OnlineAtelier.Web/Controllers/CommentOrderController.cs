@@ -43,5 +43,20 @@
             var model = this.service.GetComments(id);
             return this.PartialView("_ViewCommentsPartial", model);
         }
+
+
+        [HttpGet]
+        public ActionResult Delete()
+        {
+            return this.View();
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            this.service.Delete(id);
+            return this.RedirectToAction("ProfilePage", "Users");
+        }
     }
 }

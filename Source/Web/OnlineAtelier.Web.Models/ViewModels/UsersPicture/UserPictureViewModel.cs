@@ -3,7 +3,7 @@
     using Infrastructure.Mapping;
     using OnlineAtelier.Models.Models;
 
-    public class UserPictureViewModel : IMapFrom<UserPicture>
+    public class UserPictureViewModel : IMapFrom<PhotosOrder>
     {
         public int Id { get; set; }
 

@@ -9,5 +9,7 @@
         void AddCommentToOrder(OrderCommentBindingModel model, int orderId, string userId);
 
         IEnumerable<OrderCommentViewModel> GetComments(int id);
+
+        void Delete(int id);
     }
 }

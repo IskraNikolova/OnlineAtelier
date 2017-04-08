@@ -8,6 +8,7 @@
     <p>
         <img class="userPhotoMini" src="@Url.Action("TakeUserPhotos", "Users", new {id = comment.ApplicationUserId})" />
         @Html.DisplayFor(m => comment.Text)
+        @Html.ActionLink("Delete", "Delete", new { id = comment.Id})
         <p>@Html.DisplayFor(m => comment.CreatedOn)</p>
         <hr />
     </p>

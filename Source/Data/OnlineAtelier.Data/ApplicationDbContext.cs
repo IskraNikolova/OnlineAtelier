@@ -32,7 +32,7 @@
 
         public IDbSet<Picture> Pictures { get; set; }
 
-        public IDbSet<UserPicture> UserPictures { get; set; }
+        public IDbSet<PhotosOrder> UserPictures { get; set; }
 
 
         public IDbSet<Publication> Publications { get; set; }

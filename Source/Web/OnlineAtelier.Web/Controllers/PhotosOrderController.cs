@@ -1,17 +1,19 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
     using System.IO;
+    using System.Net;
     using System.Web;
     using System.Web.Mvc;
     using Models.BindingModels.UserPicture;
+    using OnlineAtelier.Models.Models;
     using Services.Contracts;
 
     [RoutePrefix("PhotosOrder")]
     public class PhotosOrderController : ImagesController
     {
-        private readonly IUserPictureService service;
+        private readonly IPhotosOrderService service;
 
-        public PhotosOrderController(IUserPictureService service)
+        public PhotosOrderController(IPhotosOrderService service)
         {
             this.service = service;
         }
@@ -69,6 +71,20 @@
         {
             var models = this.service.AllUserPictures(id);
             return this.PartialView("_ViewAllUserPicturePartial", models);
+        }
+
+        [HttpGet]
+        public ActionResult Delete()
+        {
+            return this.View();
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            this.service.Delete(id);
+            return this.RedirectToAction("ProfilePage","Users");
         }
     }
 }

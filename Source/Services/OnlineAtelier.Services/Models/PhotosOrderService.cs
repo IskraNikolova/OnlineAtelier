@@ -9,18 +9,18 @@
     using OnlineAtelier.Models.Models;
     using Web.Models.ViewModels.UsersPicture;
 
-    public class PhotosOrderService : IUserPictureService
+    public class PhotosOrderService : IPhotosOrderService
     {
-        private readonly IRepository<UserPicture> userPictures;
+        private readonly IRepository<PhotosOrder> userPictures;
 
-        public PhotosOrderService(IRepository<UserPicture> userPictures)
+        public PhotosOrderService(IRepository<PhotosOrder> userPictures)
         {
             this.userPictures = userPictures;
         }
 
         public void AddPictureToOrder(byte[] content, int id)
         {
-            var picture = new UserPicture()
+            var picture = new PhotosOrder()
             {
                 UserPictures = content,
                 OrderId = id
@@ -56,9 +56,21 @@
                 .All()
                 .FirstOrDefault(p => p.Id == userPictureId);
 
-            UserPictureViewModel photo = Mapper.Map<UserPicture, UserPictureViewModel>(picture);
+            UserPictureViewModel photo = Mapper.Map<PhotosOrder, UserPictureViewModel>(picture);
 
             return photo.UserPictures;
+        }
+
+        public PhotosOrder GetEntity(int? id)
+        {
+            return this.userPictures.GetById((int)id);
+        }
+
+        public void Delete(int id)
+        {
+            var entity = this.userPictures.GetById(id);
+            this.userPictures.Delete(entity);
+            this.userPictures.SaveChanges();
         }
     }
 }
