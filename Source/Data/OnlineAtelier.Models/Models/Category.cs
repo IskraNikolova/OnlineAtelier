@@ -2,12 +2,18 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using Data.Common.Models;
 
     public class Category : IAuditInfo, IDeletableEntity
     {
+        private ICollection<Album> albums;
+
+        public Category()
+        {
+            this.albums = new HashSet<Album>();
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -22,5 +28,11 @@
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public virtual ICollection<Album> Albums
+        {
+            get { return this.albums; }
+            set { this.albums = value; }
+        }
     }
 }

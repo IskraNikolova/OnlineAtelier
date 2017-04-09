@@ -4,33 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dd>
-            <img src="@Model.PhotoUrl"/>
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-    </dl>
+<div class="thumbnail">
+    <img class="thumbnail" src="@Model.PhotoUrl" />
+    <p>
+        @Html.ActionLink("Редактирай", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Назад", "Index", "Home")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index", "Home")
-</p>

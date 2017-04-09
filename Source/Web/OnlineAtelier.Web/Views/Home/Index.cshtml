@@ -1,25 +1,37 @@
-﻿@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.Publications.IndexPublicationVm>
+﻿@using OnlineAtelier.Web.Infrastructure.Constants
+@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.Publications.IndexPublicationVm>
 @{
     ViewBag.Title = "Home Page";
 }
 
+
 <div class="jumbotron eli">
     <h2 class="lead">Cookies!!! I can say everything with cookies!</h2>
 </div>
+
 <div class="row">
-    <div class="col-lg-offset-2 col-lg-8">
-        @foreach (var publication in @Model)
+    <div class="col-lg-3">
+            <div class="btn-group-vertical"  style="width: 200px"> @*todo move to css fail*@
+                @Html.ActionLink("Начало", Views.Index, "Home", new { type = "button", @class = "btn btn-default active" })
+                @Html.ActionLink("За Нас", Views.About, "Home", new { type = "button", @class = "btn btn-default" })
+                @Html.ActionLink("Контакти", Views.Contact, "Home", new { type = "button", @class = "btn btn-default" })
+                @Html.ActionLink("Поръчай", "Add", "Order", null, new { type = "button", @class = "btn btn-default" })
+        <br/>
+            </div>
+        </div>
+    <div class="col-lg-6">
+        @foreach (var publication in Model)
             {
-            <div class="panel-body">
                 <div class="thumbnail">
-                    <h6> @Html.DisplayFor(m => publication.Title)</h6>
-                    <p> @Html.DisplayFor(m => publication.Content)</p>
-                    <a  class="thumbnail" href='@Url.Action("Details", "Publications", new { id = publication.Id })'>
+                    <div class="panel-body">
+                        <h6> @Html.DisplayFor(m => publication.Title)</h6>
+                        <p> @Html.DisplayFor(m => publication.Content)</p>
+                    </div>
+                    <a class="thumbnail" href='@Url.Action("Details", "Publications", new {id = publication.Id})'>
                         <img src="@publication.PhotoUrl" />
                     </a>
                     <br />
                 </div>
-            </div>
         }
     </div>
 </div>

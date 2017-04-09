@@ -23,6 +23,16 @@
         [DisplayName("Album Name")]
         public string AlbumName { get; set; }
 
+        public DateTime CreatedOn { get; set; }
+
+        public bool PreserveCreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
+
         public virtual ICollection<Picture> Pictures
         {
             get { return this.pictures; }
@@ -33,15 +43,5 @@
         public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
-
-        public DateTime CreatedOn { get; set; }
-
-        public bool PreserveCreatedOn { get; set; }
-
-        public DateTime? ModifiedOn { get; set; }
-
-        public bool IsDeleted { get; set; }
-
-        public DateTime? DeletedOn { get; set; }
     }
 }
