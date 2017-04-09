@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
+    using Logic;
     using Microsoft.AspNet.Identity;
     using Models.BindingModels.Order;
     using Models.ViewModels.Order;
@@ -10,27 +11,25 @@
     [RoutePrefix("Order")]
     public class OrderController : Controller
     {
-        private readonly IOrderService service;
+        private readonly IOrderService orderService;
+        private readonly ICategoryService categoryService;
+        private readonly IAppearanceService appearanceService;
 
-        public OrderController(IOrderService service)
+        public OrderController(IOrderService orderService, 
+            ICategoryService categoryService, 
+            IAppearanceService appearanceService)
         {
-            this.service = service;
+            this.orderService = orderService;
+            this.categoryService = categoryService;
+            this.appearanceService = appearanceService;
         }
 
         [HttpGet]
         [Authorize]
         public ActionResult Add()
         {
-            var categories = this.service.GetAllCategories();
-            var appearances = this.service.GetAllAppearances();
+            var model = this.GetAddOrderVm();
 
-            var model = new AddOrderVm
-            {
-                Categories = this.service.GetSelectListItems(categories),
-                Appearances = this.service.GetSelectListItems(appearances)
-            };
-
-            // Create a list of SelectListItems so these can be rendered on the page
             return this.View(model);
         }
 
@@ -40,23 +39,23 @@
         public ActionResult Add(OrderBindingModel model)
         {
             var userId = this.User.Identity.GetUserId();
-            var modelView = this.service.GetViewModel(model);
 
             if (this.ModelState.IsValid)
             {
-                this.service.AddOrder(modelView, userId);
+                var appearance = this.appearanceService.GetAppearence(model.AppearanceName);
+                var category = this.categoryService.GetCategory(model.CategoryName);
+                this.orderService.AddOrder(model, userId, appearance, category);
                 return this.RedirectToAction("ProfilePage", "Users");
             }
 
-            return this.View(this.service.GetViewModel(model));
+            return this.View(this.GetAddOrderVm());
         }
-
 
         [HttpGet]
         [ChildActionOnly]
         public ActionResult GetOrders(string id)
         {
-            IEnumerable<DisplayOrderVm> model = this.service.GetOrders(id);
+            IEnumerable<DisplayOrderVm> model = this.orderService.GetOrders(id);
             return this.PartialView("_GetOrdersPartial", model);
         }
 
@@ -64,13 +63,24 @@
         [HttpGet, Route("Details/{id}")]
         public ActionResult Details(int id)
         {
-            DetailsOrderVm detailsOrderVm = this.service.GetDetails(id);
+            DetailsOrderVm detailsOrderVm = this.orderService.GetDetails(id);
             if (detailsOrderVm == null)
             {
                 return this.HttpNotFound();
             }  
              
             return this.View(detailsOrderVm);
+        }
+
+        private AddOrderVm GetAddOrderVm()
+        {
+            var model = new AddOrderVm
+            {
+                Categories = GetListItem.GetSelectListItems(this.categoryService.GetAllCategories()),
+                Appearances = GetListItem.GetSelectListItems(this.appearanceService.GetAllAppearances())
+            };
+
+            return model;
         }
     }
 }

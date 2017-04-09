@@ -131,7 +131,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IAppearanceService.cs" />
+    <Compile Include="Contracts\ICategoryService.cs" />
     <Compile Include="Contracts\IPublicationsService.cs" />
+    <Compile Include="Models\AppearancesService.cs" />
+    <Compile Include="Models\CategoryService.cs" />
     <Compile Include="Models\CommentService.cs" />
     <Compile Include="Contracts\ICommentService.cs" />
     <Compile Include="Contracts\IOrderService.cs" />
@@ -156,6 +160,10 @@
     <ProjectReference Include="..\..\Data\OnlineAtelier.Models\OnlineAtelier.Models.csproj">
       <Project>{d6f648d1-519a-4d9c-8f97-12f14d69e80d}</Project>
       <Name>OnlineAtelier.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logic\OnlineAtelier.Logic\OnlineAtelier.Logic.csproj">
+      <Project>{8BCFB2D7-5DF9-4E08-8327-DC7F47E04E01}</Project>
+      <Name>OnlineAtelier.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\OnlineAtelier.Web.Infrastructure\OnlineAtelier.Web.Infrastructure.csproj">
       <Project>{84CD06BF-04D7-4A2A-B04C-78C1F3371885}</Project>

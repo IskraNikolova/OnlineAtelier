@@ -2,11 +2,11 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Web.Mvc;
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
     using Contracts;
     using Data.Common.Repository;
+    using Logic;
     using OnlineAtelier.Models.Models;
     using Web.Models.BindingModels.Order;
     using Web.Models.ViewModels.Order;
@@ -14,78 +14,35 @@
     public class OrderService : IOrderService
     {
         private readonly IRepository<Order> orders;
-        private readonly IRepository<Category> categories;
-        private readonly IRepository<Appearance> appearances;
 
-        public OrderService(IRepository<Order> orders,
-            IRepository<Category> categories,
-            IRepository<Appearance> appearances)
+        public OrderService(IRepository<Order> orders)
         {
             this.orders = orders;
-            this.categories = categories;
-            this.appearances = appearances;
         }
 
-        public void AddOrder(AddOrderVm model, string authorId)
+        public void AddOrder(OrderBindingModel model, string authorId,
+            Appearance appearance,
+            Category category)
         {
-            var appearance = this.appearances.All()
-                .FirstOrDefault(a => a.Name == model.AppearanceName);
-
-            var category = this.categories.All()
-                .FirstOrDefault(a => a.Name == model.CategoryName);
-
-            var order = Mapper.Map<AddOrderVm, Order>(model);
-            order.Appearance = appearance;
-            order.Category = category;
+            var order = Mapper.Map<OrderBindingModel, Order>(model);
+            order.AppearanceId = appearance.Id;
+            order.CategoryId = category.Id;
             order.ApplicationUserId = authorId;
 
             this.orders.Add(order);
             this.orders.SaveChanges();
         }
 
-        public AddOrderVm GetViewModel(OrderBindingModel model)
+        public AddOrderVm GetViewModel(OrderBindingModel model,
+            IEnumerable<string> categories,
+            IEnumerable<string> appearances)
         {
             var orderViewModel = Mapper.Map<OrderBindingModel, AddOrderVm>(model);
 
-            orderViewModel.Categories = this.GetSelectListItems(this.GetAllCategories());
-            orderViewModel.Appearances = this.GetSelectListItems(this.GetAllAppearances());
+            orderViewModel.Categories = GetListItem.GetSelectListItems(categories);
+            orderViewModel.Appearances = GetListItem.GetSelectListItems(appearances);
 
             return orderViewModel;
-        }
-
-        public IEnumerable<string> GetAllCategories()
-        {
-            var allCategories = this.categories
-                .All()
-                .Select(c => c.Name)
-                .ToList();
-
-            return allCategories;
-        }
-
-        public IEnumerable<string> GetAllAppearances()
-        {
-            var allAppearances = this.appearances
-                .All()
-                .Select(a => a.Name)
-                .ToList();
-
-            return allAppearances;
-        }
-
-        public IEnumerable<SelectListItem> GetSelectListItems(IEnumerable<string> elements)
-        {
-            var selectList = new List<SelectListItem>();
-            foreach (var element in elements)
-            {
-                selectList.Add(new SelectListItem
-                {
-                    Value = element,
-                    Text = element
-                });
-            }
-
-            return selectList;
         }
 
         public IEnumerable<DisplayOrderVm> GetOrders(string id)

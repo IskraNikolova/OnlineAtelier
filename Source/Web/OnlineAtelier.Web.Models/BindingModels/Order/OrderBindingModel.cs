@@ -1,8 +1,10 @@
 ﻿namespace OnlineAtelier.Web.Models.BindingModels.Order
 {
     using System;
+    using Infrastructure.Mapping;
+    using OnlineAtelier.Models.Models;
 
-    public class OrderBindingModel
+    public class OrderBindingModel : IMapFrom<Order>
     {
         public string Details { get; set; }
 

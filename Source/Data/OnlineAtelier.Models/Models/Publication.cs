@@ -32,6 +32,8 @@
 
         public DateTime? DeletedOn { get; set; }
 
+        public virtual Album Album { get; set; }
+
         public virtual ICollection<PublicationComment> Comments
         {
             get { return this.comments; }

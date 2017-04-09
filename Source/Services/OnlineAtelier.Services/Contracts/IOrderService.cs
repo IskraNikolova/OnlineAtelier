@@ -2,20 +2,17 @@
 {
     using System.Collections.Generic;
     using System.Web.Mvc;
+    using OnlineAtelier.Models.Models;
     using Web.Models.BindingModels.Order;
     using Web.Models.ViewModels.Order;
 
     public interface IOrderService
     {
-        void AddOrder(AddOrderVm model, string authorId);
+        void AddOrder(OrderBindingModel model, string authorId, Appearance appearance,
+            Category category);
 
-        AddOrderVm GetViewModel(OrderBindingModel model);
-
-        IEnumerable<string> GetAllCategories();
-
-        IEnumerable<SelectListItem> GetSelectListItems(IEnumerable<string> elements);
-
-        IEnumerable<string> GetAllAppearances();
+        AddOrderVm GetViewModel(OrderBindingModel model, IEnumerable<string> categories,
+            IEnumerable<string> appearances);
 
         IEnumerable<DisplayOrderVm> GetOrders(string id);
 

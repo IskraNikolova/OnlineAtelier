@@ -6,7 +6,6 @@
     using Common.Models;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Migrations;
-    using Models;
     using Models.Models;
     using Models.Models.Comments;
 
@@ -30,13 +29,9 @@
 
         public IDbSet<Order> Orders { get; set; }
 
-        public IDbSet<Picture> Pictures { get; set; }
-
         public IDbSet<PhotosOrder> UserPictures { get; set; }
 
-
         public IDbSet<Publication> Publications { get; set; }
-
 
         public static ApplicationDbContext Create()
         {
@@ -69,7 +64,7 @@
                 }
                 else
                 {
-                    entity.ModifiedOn =(DateTime?)DateTime.Now;
+                    entity.ModifiedOn = DateTime.Now;
                 }
             }
         }

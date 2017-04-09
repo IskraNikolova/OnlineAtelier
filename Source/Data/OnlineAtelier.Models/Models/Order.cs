@@ -10,13 +10,13 @@
     public class Order: IAuditInfo, IDeletableEntity
     {
         private ICollection<PhotosOrder> userPictures;
-        private ICollection<Picture> galeryPictures;
+        private ICollection<Publication> galeryPictures;
         private ICollection<OrderComment> comments;
 
         public Order()
         {
             this.userPictures = new HashSet<PhotosOrder>();
-            this.galeryPictures = new List<Picture>();
+            this.galeryPictures = new List<Publication>();
             this.comments = new HashSet<OrderComment>();
         }
 
@@ -45,7 +45,7 @@
             set { this.userPictures = value; }
         }
 
-        public ICollection<Picture> GaleryPictures
+        public ICollection<Publication> GaleryPictures
         {
             get { return this.galeryPictures; }
             set { this.galeryPictures = value; }
@@ -60,8 +60,11 @@
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+        public int AppearanceId { get; set; }
 
         public virtual Appearance Appearance { get; set; }
+
+        public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
 

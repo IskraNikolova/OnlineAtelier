@@ -2,26 +2,23 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using Data.Common.Models;
 
     public class Album: IAuditInfo, IDeletableEntity
     {
-        private ICollection<Picture> pictures;
+        private ICollection<Publication> publications;
 
         public Album()
         {
-            this.pictures = new HashSet<Picture>();
+            this.publications = new HashSet<Publication>();
         }
 
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [DisplayName("Album Name")]
-        public string AlbumName { get; set; }
+        public string AlbumName => this.Category.Name;
 
         public DateTime CreatedOn { get; set; }
 
@@ -33,10 +30,10 @@
 
         public DateTime? DeletedOn { get; set; }
 
-        public virtual ICollection<Picture> Pictures
+        public virtual ICollection<Publication> Publications
         {
-            get { return this.pictures; }
-            set { this.pictures = value; }
+            get { return this.publications; }
+            set { this.publications = value; }
         }
 
         [ForeignKey("Category")]
