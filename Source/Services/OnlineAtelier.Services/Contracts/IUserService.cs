@@ -12,6 +12,6 @@
 
         EditUserVm GetEditVm(string userId);
 
-        void Edit(EditUserBm bind);
+        void Edit(EditUserBm bind, byte[] imageBytes);
     }
 }

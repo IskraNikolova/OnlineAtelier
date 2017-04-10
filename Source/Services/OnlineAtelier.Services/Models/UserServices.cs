@@ -45,15 +45,16 @@
             return editVm;
         }
 
-        public void Edit(EditUserBm bind)
+        public void Edit(EditUserBm bind, byte[] imageBytes)
         {
             var entity = this.users.All().FirstOrDefault(u => u.Id == bind.Id);
 
-            //if (bind.UserPhoto != null)
-            //{
-            //    entity.UserPhoto = bind.UserPhoto;
-            //}todo this don not work
-            
+            if (imageBytes != null)
+            {
+                entity.UserPhoto = imageBytes;
+            }
+
+
             entity.PhoneNumber = bind.PhoneNumber;
             entity.Email = bind.Email;
             entity.UserName = bind.Email;

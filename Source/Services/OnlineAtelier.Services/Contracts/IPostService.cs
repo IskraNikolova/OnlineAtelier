@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using OnlineAtelier.Models.Models;
     using Web.Models.BindingModels.Posts;
+    using Web.Models.ViewModels.AdminArea.Posts;
     using Web.Models.ViewModels.Posts;
 
 

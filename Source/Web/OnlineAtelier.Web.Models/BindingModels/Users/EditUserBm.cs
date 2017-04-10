@@ -1,5 +1,6 @@
 ﻿namespace OnlineAtelier.Web.Models.BindingModels.Users
 {
+    using System.ComponentModel.DataAnnotations;
     using Infrastructure.Mapping;
     using OnlineAtelier.Models.Models;
 
@@ -11,6 +12,7 @@
 
         public string Email { get; set; }
 
+        [Display(Name = "UserPhoto")]
         public byte[] UserPhoto { get; set; }
     }
 }

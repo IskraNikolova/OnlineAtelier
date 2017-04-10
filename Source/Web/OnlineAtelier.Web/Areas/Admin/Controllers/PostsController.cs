@@ -4,6 +4,7 @@
     using System.Web.Mvc;
     using Logic;
     using Models.BindingModels.Posts;
+    using Models.ViewModels.AdminArea.Posts;
     using Models.ViewModels.Posts;
     using Services.Contracts;
 

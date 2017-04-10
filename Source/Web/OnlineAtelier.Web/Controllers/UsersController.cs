@@ -1,5 +1,7 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
+    using System.IO;
+    using System.Web;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Models.BindingModels.Users;
@@ -35,12 +37,23 @@
         [HttpPost]
         [Route("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(EditUserBm bind)
+        public ActionResult Edit([Bind(Exclude = "UserPhoto")]EditUserBm bind)
         {
 
-            if (this.ModelState.IsValid)//todo check is email is uniq
+            if (this.ModelState.IsValid)//todo check is email is uniq and create editPicture
             {
-                this.userService.Edit(bind);
+                byte[] imageData = null;
+                if (this.Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase httpPostedFileBase = this.Request.Files["UserPhoto"];
+
+                    using (var binary = new BinaryReader(httpPostedFileBase.InputStream))
+                    {
+                        imageData = binary.ReadBytes(httpPostedFileBase.ContentLength);
+                    }
+                }
+
+                this.userService.Edit(bind, imageData);
                 return this.RedirectToAction("ProfilePage");
             }
 

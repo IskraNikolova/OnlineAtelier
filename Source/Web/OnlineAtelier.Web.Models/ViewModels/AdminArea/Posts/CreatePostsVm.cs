@@ -1,4 +1,4 @@
-﻿namespace OnlineAtelier.Web.Models.ViewModels.Posts
+﻿namespace OnlineAtelier.Web.Models.ViewModels.AdminArea.Posts
 {
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -10,9 +10,10 @@
     {
         public int Id { get; set; }
 
+        [DisplayName("Категория")]
         public string CategoryName { get; set; }
 
-        [DisplayName("URL")]
+        [DisplayName("URL на изображение")]
         public string PhotoUrl { get; set; }
 
         [DisplayName("Заглавие")]

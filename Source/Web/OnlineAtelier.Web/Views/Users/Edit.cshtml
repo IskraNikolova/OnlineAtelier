@@ -3,8 +3,8 @@
     ViewBag.Title = "Edit";
 }
 <div class="panel panel-default panel-body">
-    @using (Html.BeginForm())
-    {
+   @using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+   {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
