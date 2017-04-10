@@ -7,33 +7,34 @@
     using Contracts;
     using Data.Common.Repository;
     using OnlineAtelier.Models.Models;
-    using Web.Models.BindingModels.Publications;
-    using Web.Models.ViewModels.Publications;
+    using Web.Models.BindingModels.Posts;
+    using Web.Models.ViewModels.Posts;
 
-    public class PublicationService : IPublicationsService
+    public class PostService : IPostService
     {
-        private readonly IRepository<Publication> publications;
+        private readonly IRepository<Post> publications;
 
-        public PublicationService(IRepository<Publication> publications)
+        public PostService(IRepository<Post> publications)
         {
             this.publications = publications;
         }
 
-        public void AddPublication(PublicationBm publication)
+        public void AddPublication(PostBm post, Category category)
         {
-            var entity = Mapper.Map<PublicationBm, Publication>(publication);
+            var entity = Mapper.Map<PostBm, Post>(post);
+            entity.CategoryId = category.Id;
             this.publications.Add(entity);
             this.publications.SaveChanges();
         }
 
-        public CreatePublicationVm GetViewModel(int? id)
+        public CreatePostsVm GetViewModel(int? id)
         {
             var entity = this.publications.GetById((int)id);
-            var vModel = Mapper.Map<Publication, CreatePublicationVm>(entity);
+            var vModel = Mapper.Map<Post, CreatePostsVm>(entity);
             return vModel;
         }
 
-        public void Edit(PublicationBm model)
+        public void Edit(PostBm model)
         {
             var entity = this.publications.GetById(model.Id);
 
@@ -45,10 +46,10 @@
             this.publications.SaveChanges();
         }
 
-        public DetailsPublicationVModel GetDetailsPublicationVModel(int id)
+        public DetailsPostsVModel GetDetailsPostVModel(int id)
         {
             var entity = this.publications.GetById(id);
-            var model = Mapper.Map<Publication, DetailsPublicationVModel>(entity);
+            var model = Mapper.Map<Post, DetailsPostsVModel>(entity);
 
             return model;
         }
@@ -60,12 +61,12 @@
             this.publications.SaveChanges();
         }
 
-        public IEnumerable<IndexPublicationVm> All()
+        public IEnumerable<IndexPostsVm> All()
         {
             var model = this.publications
                 .All()
                 .Project()
-                .To<IndexPublicationVm>()
+                .To<IndexPostsVm>()
                 .ToList();
 
             return model;

@@ -70,19 +70,18 @@ namespace OnlineAtelier.Web.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<DbContext>().To<ApplicationDbContext>();
-            kernel.Bind(typeof(IRepository<Album>)).To(typeof(DeletableEntityRepository<Album>));
             kernel.Bind(typeof(IRepository<OrderComment>)).To(typeof(DeletableEntityRepository<OrderComment>));
-            kernel.Bind(typeof(IRepository<PublicationComment>)).To(typeof(DeletableEntityRepository<PublicationComment>));
+            kernel.Bind(typeof(IRepository<PostComment>)).To(typeof(DeletableEntityRepository<PostComment>));
             kernel.Bind(typeof(IRepository<Category>)).To(typeof(DeletableEntityRepository<Category>));
             kernel.Bind(typeof(IRepository<Appearance>)).To(typeof(DeletableEntityRepository<Appearance>));
             kernel.Bind(typeof(IRepository<PhotosOrder>)).To(typeof(DeletableEntityRepository<PhotosOrder>));
             kernel.Bind(typeof(IRepository<Order>)).To(typeof(DeletableEntityRepository<Order>));
-            kernel.Bind(typeof(IRepository<Publication>)).To(typeof(DeletableEntityRepository<Publication>));
+            kernel.Bind(typeof(IRepository<Post>)).To(typeof(DeletableEntityRepository<Post>));
             kernel.Bind(typeof(IUserService)).To(typeof(UserServices));
             kernel.Bind(typeof(IOrderService)).To(typeof(OrderService));
             kernel.Bind(typeof(ICommentService)).To(typeof(CommentService));
             kernel.Bind(typeof(IPhotosOrderService)).To(typeof(PhotosOrderService));
-            kernel.Bind(typeof(IPublicationsService)).To(typeof(PublicationService));
+            kernel.Bind(typeof(IPostService)).To(typeof(PostService));
             kernel.Bind(typeof(ICategoryService)).To(typeof(CategoryService));
             kernel.Bind(typeof(IAppearanceService)).To(typeof(AppearancesService));
 

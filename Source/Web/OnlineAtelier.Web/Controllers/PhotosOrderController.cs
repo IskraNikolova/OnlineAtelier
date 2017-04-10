@@ -1,11 +1,9 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
     using System.IO;
-    using System.Net;
     using System.Web;
     using System.Web.Mvc;
     using Models.BindingModels.UserPicture;
-    using OnlineAtelier.Models.Models;
     using Services.Contracts;
 
     [RoutePrefix("PhotosOrder")]

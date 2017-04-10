@@ -12,11 +12,19 @@ namespace OnlineAtelier.Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+           // routes.MapMvcAttributeRoutes();
+
+            routes.MapRoute(
+             name: "DetailsPublication",
+             url: "Publications/Details/{id}",
+             defaults: new { controller = "Publications", action = "Details" },
+             namespaces: new[] { "OnlineAtelier.Web.Controllers" });
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "OnlineAtelier.Web.Controllers" }
             );
         }
     }

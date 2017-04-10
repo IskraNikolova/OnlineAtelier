@@ -20,11 +20,13 @@
             this.orders = orders;
         }
 
-        public void AddOrder(OrderBindingModel model, string authorId,
-            Appearance appearance,
-            Category category)
+        public void AddOrder(OrderBindingModel model, 
+                            string authorId,
+                            Appearance appearance,
+                            Category category)
         {
             var order = Mapper.Map<OrderBindingModel, Order>(model);
+
             order.AppearanceId = appearance.Id;
             order.CategoryId = category.Id;
             order.ApplicationUserId = authorId;
@@ -34,8 +36,8 @@
         }
 
         public AddOrderVm GetViewModel(OrderBindingModel model,
-            IEnumerable<string> categories,
-            IEnumerable<string> appearances)
+                                        IEnumerable<string> categories,
+                                        IEnumerable<string> appearances)
         {
             var orderViewModel = Mapper.Map<OrderBindingModel, AddOrderVm>(model);
 

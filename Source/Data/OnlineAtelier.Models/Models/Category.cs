@@ -7,11 +7,11 @@
 
     public class Category : IAuditInfo, IDeletableEntity
     {
-        private ICollection<Album> albums;
+        private ICollection<Post> publications;
 
         public Category()
         {
-            this.albums = new HashSet<Album>();
+            this.publications = new HashSet<Post>();
         }
 
         [Key]
@@ -29,10 +29,10 @@
 
         public DateTime? DeletedOn { get; set; }
 
-        public virtual ICollection<Album> Albums
+        public virtual ICollection<Post> Publications
         {
-            get { return this.albums; }
-            set { this.albums = value; }
+            get { return this.publications; }
+            set { this.publications = value; }
         }
     }
 }

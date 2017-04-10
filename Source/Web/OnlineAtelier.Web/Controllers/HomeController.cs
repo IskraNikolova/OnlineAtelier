@@ -3,29 +3,30 @@
     using System.Web.Mvc;
     using Services.Contracts;
 
-
+    [RoutePrefix("Home")]
     public class HomeController : Controller
     {
-        private IPublicationsService service;
+        private readonly IPostService service;
 
-        public HomeController(IPublicationsService service)
+        public HomeController(IPostService service)
         {
             this.service = service;
         }
 
-        [HttpGet]
+        [HttpGet, Route("Index")]
         public ActionResult Index()
         {
             var model = this.service.All();
             return this.View(model);
         }
 
-
+        [HttpGet, Route("About")]
         public ActionResult About()
         {
             return this.View();
         }
 
+        [HttpGet, Route("Contact")]
         public ActionResult Contact()
         {
             return this.View();

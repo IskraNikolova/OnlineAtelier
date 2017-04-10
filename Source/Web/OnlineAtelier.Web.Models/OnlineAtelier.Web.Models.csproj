@@ -91,15 +91,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BindingModels\Comments\OrderCommentBindingModel.cs" />
-    <Compile Include="BindingModels\Publications\PublicationBm.cs" />
+    <Compile Include="BindingModels\Posts\PostBm.cs" />
+    <Compile Include="BindingModels\Users\EditUserBm.cs" />
     <Compile Include="ViewModels\Acount\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Acount\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\Acount\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Acount\ForgotViewModel.cs" />
     <Compile Include="ViewModels\Acount\LoginViewModel.cs" />
-    <Compile Include="ViewModels\Publications\CreatePublicationVm.cs" />
-    <Compile Include="ViewModels\Publications\DetailsPublicationVModel.cs" />
-    <Compile Include="ViewModels\Publications\IndexPublicationVm.cs" />
+    <Compile Include="ViewModels\Posts\CreatePostsVm.cs" />
+    <Compile Include="ViewModels\Posts\DetailsPostsVModel.cs" />
+    <Compile Include="ViewModels\Posts\IndexPostsVm.cs" />
+    <Compile Include="ViewModels\Users\EditUserVm.cs" />
     <Compile Include="ViewModels\Users\ProfileViewModel.cs" />
     <Compile Include="ViewModels\Acount\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Acount\ResetPasswordViewModel.cs" />

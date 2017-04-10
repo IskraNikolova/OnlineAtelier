@@ -9,6 +9,9 @@
             <img class="userPhoto" src="@Url.Action("UserPhotos", "Users")" />
             <h3>@Html.DisplayFor(m => m.FullName)</h3>
             <div>
+                @Html.ActionLink("Редактирай профила", "Edit", null, new { @class = "btn btn-primary" })
+            </div>
+            <div>
                 @Html.ActionLink("Направи Поръчка", "Add", "Order", null, new {@class = "btn btn-primary"})
             </div>
         </div>

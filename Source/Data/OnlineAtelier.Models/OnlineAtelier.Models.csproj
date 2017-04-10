@@ -58,14 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Appearance.cs" />
-    <Compile Include="Models\Album.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Comments\OrderComment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Publication.cs" />
-    <Compile Include="Models\Comments\PublicationComment.cs" />
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Comments\PostComment.cs" />
     <Compile Include="Models\PhotosOrder.cs" />
   </ItemGroup>
   <ItemGroup>

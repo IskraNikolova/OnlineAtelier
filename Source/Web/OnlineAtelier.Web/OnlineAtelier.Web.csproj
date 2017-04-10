@@ -204,7 +204,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\CommentOrderController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\PublicationsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
+    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\PhotosOrderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -235,6 +236,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Index.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\noImg.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -296,17 +299,16 @@
     <Content Include="Views\PhotosOrder\_AddPicturePartial.cshtml" />
     <Content Include="Views\PhotosOrder\_ViewAllUserPicturePartial.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
-    <Content Include="Views\Publications\Create.cshtml" />
-    <Content Include="Views\Publications\Delete.cshtml" />
-    <Content Include="Views\Publications\Details.cshtml" />
-    <Content Include="Views\Publications\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Delete.cshtml" />
+    <Content Include="Views\Posts\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Edit.cshtml" />
     <Content Include="Views\PhotosOrder\Delete.cshtml" />
     <Content Include="Views\CommentOrder\Delete.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Views\Gallery\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

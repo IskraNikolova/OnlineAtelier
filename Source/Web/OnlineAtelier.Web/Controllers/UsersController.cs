@@ -2,8 +2,11 @@
 {
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
+    using Models.BindingModels.Users;
+    using Models.ViewModels.Users;
     using Services.Contracts;
 
+    [RoutePrefix("Users")]
     public class UsersController : ImagesController
     {
         private readonly IUserService userService;
@@ -13,12 +16,36 @@
             this.userService = userService;
         }
 
-        [HttpGet]
+        [HttpGet, Route("ProfilePage")]
         public ActionResult ProfilePage()
         {
             var userId = this.User.Identity.GetUserId();
             var model = this.userService.GetProfileViewModel(userId);
             return this.View(model);
+        }
+
+        [HttpGet]
+        [Route("Edit")]
+        public ActionResult Edit()
+        {
+            var editUserVm = this.GetEditUserVm();
+            return this.View(editUserVm);
+        }
+
+        [HttpPost]
+        [Route("Edit")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(EditUserBm bind)
+        {
+
+            if (this.ModelState.IsValid)//todo check is email is uniq
+            {
+                this.userService.Edit(bind);
+                return this.RedirectToAction("ProfilePage");
+            }
+
+            var editUserVm = this.GetEditUserVm();
+            return this.View(editUserVm);
         }
 
         [HttpGet]
@@ -53,6 +80,14 @@
             }
 
             return new FileContentResult(user.UserPhoto, "image/jpeg");
+        }
+
+
+        private EditUserVm GetEditUserVm()
+        {
+            var userId = this.User.Identity.GetUserId();
+            EditUserVm editUserVm = this.userService.GetEditVm(userId);
+            return editUserVm;
         }
     }
 }

@@ -4,11 +4,11 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using Data.Common.Models;
 
-    public class PublicationComment :  IAuditInfo, IDeletableEntity
+    public class PostComment :  IAuditInfo, IDeletableEntity
     {
         public int Id { get; set; }
 
-        [ForeignKey("Publication")]
+        [ForeignKey("Post")]
         public int PublicationId { get; set; }
 
         public string Text { get; set; }
@@ -28,6 +28,6 @@
 
         public virtual ApplicationUser Author { get; set; }
 
-        public virtual Publication Publication { get; set; }
+        public virtual Post Post { get; set; }
     }
 }

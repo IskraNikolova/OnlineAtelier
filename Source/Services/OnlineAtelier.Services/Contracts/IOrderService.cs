@@ -1,7 +1,6 @@
 ﻿namespace OnlineAtelier.Services.Contracts
 {
     using System.Collections.Generic;
-    using System.Web.Mvc;
     using OnlineAtelier.Models.Models;
     using Web.Models.BindingModels.Order;
     using Web.Models.ViewModels.Order;

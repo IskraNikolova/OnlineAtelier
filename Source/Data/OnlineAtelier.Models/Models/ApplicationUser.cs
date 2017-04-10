@@ -14,14 +14,14 @@
     {
         private ICollection<Order> orders;
         private ICollection<OrderComment> orderComments;
-        private ICollection<PublicationComment> publicationComments;
+        private ICollection<PostComment> publicationComments;
 
         public ApplicationUser()
         {
             this.CreatedOn = DateTime.Now;
             this.orders = new HashSet<Order>();
             this.orderComments = new HashSet<OrderComment>();
-            this.publicationComments = new HashSet<PublicationComment>();
+            this.publicationComments = new HashSet<PostComment>();
         }
      
         public string FirstName { get; set; }
@@ -56,7 +56,7 @@
             set { this.orderComments = value; }
         }
 
-        public virtual ICollection<PublicationComment> PublicationComments
+        public virtual ICollection<PostComment> PublicationComments
         {
             get { return this.publicationComments; }
             set { this.publicationComments = value; }

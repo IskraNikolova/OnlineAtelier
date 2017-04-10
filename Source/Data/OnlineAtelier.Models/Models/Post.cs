@@ -5,13 +5,13 @@
     using Comments;
     using Data.Common.Models;
 
-    public class Publication : IAuditInfo, IDeletableEntity
+    public class Post : IAuditInfo, IDeletableEntity
     {
-        private ICollection<PublicationComment> comments;
+        private ICollection<PostComment> comments;
 
-        public Publication()
+        public Post()
         {
-            this.comments = new HashSet<PublicationComment>();
+            this.comments = new HashSet<PostComment>();
         }
 
         public int Id { get; set; }
@@ -32,9 +32,11 @@
 
         public DateTime? DeletedOn { get; set; }
 
-        public virtual Album Album { get; set; }
+        public int CategoryId { get; set; }
 
-        public virtual ICollection<PublicationComment> Comments
+        public virtual Category Category { get; set; }
+
+        public virtual ICollection<PostComment> Comments
         {
             get { return this.comments; }
             set { this.comments = value; }

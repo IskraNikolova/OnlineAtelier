@@ -5,8 +5,6 @@
     using Contracts;
     using Data.Common.Repository;
     using OnlineAtelier.Models.Models;
-    using Web.Models.BindingModels.Order;
-    using Web.Models.ViewModels.Order;
 
     public class AppearancesService : IAppearanceService
     {

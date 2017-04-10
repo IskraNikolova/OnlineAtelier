@@ -14,9 +14,8 @@
         <div class="col-lg-3">
             <div class="btn-group-vertical" style="width: 200px">
                 @*todo move to css fail*@
-                @Html.ActionLink("Начало", Views.Index, "Home", new { type = "button", @class = "btn btn-default active" })
-                @Html.ActionLink("За Нас", Views.About, "Home", new { type = "button", @class = "btn btn-default" })
-                @Html.ActionLink("Контакти", Views.Contact, "Home", new { type = "button", @class = "btn btn-default" })
+                @Html.ActionLink("Начало", Views.Index, null, new { type = "button", @class = "btn btn-default active" })
+                @Html.ActionLink("Публикувай", "Create", null, new { type = "button", @class = "btn btn-default" })
                 @Html.ActionLink("Поръчай", "Add", "Order", null, new { type = "button", @class = "btn btn-default" })
                 <br />
             </div>
@@ -32,7 +31,7 @@
                             <h6> @Html.DisplayFor(m => publication.Title)</h6>
                             <p> @Html.DisplayFor(m => publication.Content)</p>
                         </div>
-                        <a class="thumbnail" href='@Url.Action("Details", "Posts", new {id = publication.Id})'>
+                        <a class="thumbnail" href='@Url.Action("Edit", "Posts", new {id = publication.Id})'>
                             <img src="@publication.PhotoUrl" />
                         </a>
                         <br />

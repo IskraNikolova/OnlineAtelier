@@ -25,6 +25,7 @@
         }
 
         [HttpGet]
+        [Route("Add")]
         [Authorize]
         public ActionResult Add()
         {
@@ -35,6 +36,7 @@
 
         [HttpPost]
         [Authorize]
+        [Route("Add")]
         [ValidateAntiForgeryToken]
         public ActionResult Add(OrderBindingModel model)
         {
@@ -60,7 +62,8 @@
         }
 
         [Authorize]
-        [HttpGet, Route("Details/{id}")]
+        [HttpGet]
+        [Route("Details/{id}")]
         public ActionResult Details(int id)
         {
             DetailsOrderVm detailsOrderVm = this.orderService.GetDetails(id);

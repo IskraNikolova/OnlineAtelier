@@ -10,13 +10,13 @@
     public class Order: IAuditInfo, IDeletableEntity
     {
         private ICollection<PhotosOrder> userPictures;
-        private ICollection<Publication> galeryPictures;
+        private ICollection<Post> galeryPictures;
         private ICollection<OrderComment> comments;
 
         public Order()
         {
             this.userPictures = new HashSet<PhotosOrder>();
-            this.galeryPictures = new List<Publication>();
+            this.galeryPictures = new HashSet<Post>();
             this.comments = new HashSet<OrderComment>();
         }
 
@@ -45,7 +45,7 @@
             set { this.userPictures = value; }
         }
 
-        public ICollection<Publication> GaleryPictures
+        public virtual ICollection<Post> GaleryPictures
         {
             get { return this.galeryPictures; }
             set { this.galeryPictures = value; }
