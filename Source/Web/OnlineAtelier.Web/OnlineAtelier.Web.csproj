@@ -205,7 +205,7 @@
     <Compile Include="Controllers\CommentOrderController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
-    <Compile Include="Controllers\PostsController.cs" />
+    <Compile Include="Controllers\PostsUserController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\PhotosOrderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -238,6 +238,7 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\noImg.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -301,15 +302,13 @@
     <Content Include="Views\Order\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Delete.cshtml" />
-    <Content Include="Views\Posts\Details.cshtml" />
+    <Content Include="Views\PostsUser\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Posts\Edit.cshtml" />
     <Content Include="Views\PhotosOrder\Delete.cshtml" />
     <Content Include="Views\CommentOrder\Delete.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Views\Shared\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

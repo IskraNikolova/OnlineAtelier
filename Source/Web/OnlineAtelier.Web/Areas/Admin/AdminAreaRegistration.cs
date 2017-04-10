@@ -14,12 +14,13 @@ namespace OnlineAtelier.Web.Areas.Admin
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
-           //context.Routes.MapMvcAttributeRoutes();
+           context.Routes.MapMvcAttributeRoutes();
 
             context.MapRoute(
                 "Admin_default",
-                "{controller}/{action}/{id}",
-                new {action = "Index", id = UrlParameter.Optional }
+                "Admin/{controller}/{action}/{id}",
+                new {action = "Index", id = UrlParameter.Optional },
+                new[] { "OnlineAtelier.Areas.Admin.Controllers" }
             );
         }
     }

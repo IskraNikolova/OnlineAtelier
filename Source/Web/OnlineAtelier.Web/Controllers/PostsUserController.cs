@@ -4,12 +4,12 @@
     using System.Web.Mvc;
     using Services.Contracts;
 
-    [RoutePrefix("Posts")]
-    public class PostsController : Controller
+    [RoutePrefix("PostsUser")]
+    public class PostsUserController : Controller
     {
         private readonly IPostService service;
 
-        public PostsController(IPostService service)
+        public PostsUserController(IPostService service)
         {
             this.service = service;
         }

@@ -8,6 +8,7 @@
     using Services.Contracts;
 
     [Authorize(Roles = "Admin")]
+    [RouteArea("Admin")]
     public class PostsController : Controller
     {
         private readonly IPostService service;
@@ -20,21 +21,21 @@
             this.categoryService = categoryService;
         }
 
-        [HttpGet]
+        [HttpGet, Route("Posts/Index")]
         public ActionResult Index()
         {
             var posts = this.service.All();
             return this.View(posts);
         }
 
-        [HttpGet]
+        [HttpGet, Route("Posts/Create")]
         public ActionResult Create()
         {
             var model = this.GetCreatePublicationVm();
             return this.View(model);
         }
 
-        [HttpPost]
+        [HttpPost, Route("Posts/Create")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PostBm post)
         {
@@ -48,7 +49,7 @@
             return this.View(this.GetCreatePublicationVm());
         }
 
-        [HttpGet]
+        [HttpGet, Route("Posts/Edit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -65,7 +66,7 @@
             return this.View(publication);
         }
 
-        [HttpPost]
+        [HttpPost, Route("Posts/Edit")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(PostBm post)
         {
@@ -78,13 +79,13 @@
             return this.View(post);
         }
 
-        [HttpGet]
+        [HttpGet, Route("Posts/Delete")]
         public ActionResult Delete()
         {
             return this.View();
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete"), Route("Posts/Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
