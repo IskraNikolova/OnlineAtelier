@@ -20,5 +20,9 @@
         void Delete(int id);
 
         IEnumerable<IndexPostsVm> All();
+
+        List<ICollection<PostVm>> GroupByCategory();
+
+        IEnumerable<GalleryPostVm> GetPostsByCategory(int id);
     }
 }

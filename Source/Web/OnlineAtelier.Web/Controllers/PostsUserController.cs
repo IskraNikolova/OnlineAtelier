@@ -1,5 +1,6 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
+    using System.Collections.Generic;
     using System.Net;
     using System.Web.Mvc;
     using Services.Contracts;
@@ -29,6 +30,24 @@
             }
 
             return this.View(publication);
+        }
+
+        [HttpGet, Route("PostGallery")]
+        public ActionResult PostGallery()
+        {
+            var allByCategory = this.service.GroupByCategory();
+            if (allByCategory == null)
+            {
+                return this.HttpNotFound();
+            }
+
+            return this.View(allByCategory);
+        }
+
+        public PartialViewResult Load(int id)
+        {
+            var model = this.service.GetPostsByCategory(id);
+            return this.PartialView("_PostGalleryPartial", model);
         }
     }
 }

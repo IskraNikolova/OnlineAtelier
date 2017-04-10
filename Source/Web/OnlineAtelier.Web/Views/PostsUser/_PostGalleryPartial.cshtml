@@ -1,0 +1,17 @@
+﻿@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.Posts.GalleryPostVm>
+@{
+    ViewBag.Title = "_PostGalleryPartial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/>
+<div class="row">
+    @foreach (var post in Model)
+    {
+        <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+                <img src=@post.PhotoUrl />
+            </a>
+        </div>
+    }
+</div>
