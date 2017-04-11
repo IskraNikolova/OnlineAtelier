@@ -71,6 +71,7 @@ namespace OnlineAtelier.Web.App_Start
         {
             kernel.Bind<DbContext>().To<ApplicationDbContext>();
             kernel.Bind(typeof(IRepository<OrderComment>)).To(typeof(DeletableEntityRepository<OrderComment>));
+            kernel.Bind(typeof(IRepository<Image>)).To(typeof(DeletableEntityRepository<Image>));
             kernel.Bind(typeof(IRepository<PostComment>)).To(typeof(DeletableEntityRepository<PostComment>));
             kernel.Bind(typeof(IRepository<Category>)).To(typeof(DeletableEntityRepository<Category>));
             kernel.Bind(typeof(IRepository<Appearance>)).To(typeof(DeletableEntityRepository<Appearance>));

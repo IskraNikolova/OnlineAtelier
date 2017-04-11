@@ -19,6 +19,8 @@
 
         public IDbSet<OrderComment> OrderComments { get; set; }
 
+        public IDbSet<Image> Images { get; set; }
+
         public IDbSet<PostComment> PostComments { get; set; }
 
         public IDbSet<Category> Categories { get; set; }
