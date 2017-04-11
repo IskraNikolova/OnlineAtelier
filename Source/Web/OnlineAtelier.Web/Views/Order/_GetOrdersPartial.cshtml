@@ -6,7 +6,10 @@
 
 <div class="panel panel-body">
     <div>
-        <h5> Моите Поръчки  <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">@Model.ToList().Count</span></h5>
+        <h5>
+            Моите Поръчки
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">@Model.ToList().Count</span>
+        </h5>
     </div>
 </div>
 
@@ -17,24 +20,40 @@
         <div class="panel-heading">
             <br />
             <h5>
-                <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> @Html.DisplayFor(m => order.CategoryName) <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+                @Html.DisplayFor(m => order.CategoryName)
+                <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+                @if (order.IsАccepted)
+                {
+                    <p>Приета</p>
+                }
+                else
+                {
+                  <p>Очаква одобрение</p>
+                }
             </h5>
             <br />
             <h6>
                 @Html.DisplayFor(m => order.AppearanceName) - @Html.DisplayFor(m => order.AppearancePrice)лв.
             </h6>
-            <div><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> @Html.ActionLink("Виж детайли", "Details", new { id = order.Id })</div>
-            <em>@Html.DisplayFor(m => order.CreatedOn) <span class="glyphicon glyphicon-time" aria-hidden="true"></span></em>
-        </div>
-        <div class="panel-body">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    @Html.Action("All", "PhotosOrder", new { id = order.Id })
-                </div>
+            <div>
+                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                @Html.ActionLink("Виж детайли", "Details", new { id = order.Id })
             </div>
-            @Html.Action("GetComments", "CommentOrder", new { id = order.Id })
-            @Html.Action("AddComment", "CommentOrder", new { id = order.Id })
-            @Html.Action("AddPicture", "PhotosOrder", new { id = order.Id })
-        </div>
+            <em>
+                @Html.DisplayFor(m => order.CreatedOn)
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+        </em>
     </div>
+    <div class="panel-body">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @Html.Action("All", "PhotosOrder", new { id = order.Id })
+            </div>
+        </div>
+        @Html.Action("GetComments", "CommentOrder", new { id = order.Id })
+        @Html.Action("AddComment", "CommentOrder", new { id = order.Id })
+        @Html.Action("AddPicture", "PhotosOrder", new { id = order.Id })
+    </div>
+</div>
 }

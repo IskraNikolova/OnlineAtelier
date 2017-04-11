@@ -38,7 +38,9 @@
             <br />
             <h5>
                 <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-                @Html.DisplayFor(m => order.CategoryName)
+                @Html.DisplayFor(m => order.CategoryName) - 
+                @Html.DisplayFor(m => order.Author.FullName) - 
+                @Html.DisplayFor(m => order.DateOfDecision) 
                 <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
             </h5>
             <br />
@@ -48,6 +50,9 @@
             <div>
                 <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                 @Html.ActionLink("Виж детайли", "Details", "Order", null, new { area = "", id = order.Id })
+                <a class="thumbnail" href='@Url.Action("Edit", "AdminOrders", new {id = order.Id})'>
+                    Редактирай
+                </a>
             </div>
             <em>
                 @Html.DisplayFor(m => order.CreatedOn)

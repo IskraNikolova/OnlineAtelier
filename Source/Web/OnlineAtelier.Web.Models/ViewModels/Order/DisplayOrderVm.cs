@@ -28,6 +28,8 @@
         [DisplayName("Дата за получаване")]
         public DateTime DateOfDecision { get; set; }
 
-        //public ICollection<Order> ProfileOrders { get; set; }//todo delete this ...
+        public ApplicationUser Author { get; set; }
+
+        public bool IsАccepted { get; set; }
     }
 }

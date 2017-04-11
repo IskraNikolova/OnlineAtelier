@@ -50,7 +50,7 @@
             return this.View(this.GetCreatePublicationVm());
         }
 
-        [HttpGet, Route("Posts/Edit")]
+        [HttpGet, Route("Posts/Edit/{id}")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -67,7 +67,7 @@
             return this.View(publication);
         }
 
-        [HttpPost, Route("Posts/Edit")]
+        [HttpPost, Route("Posts/Edit/{id}")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(PostBm post)
         {

@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BindingModels\Comments\OrderCommentBindingModel.cs" />
+    <Compile Include="BindingModels\Order\EditOrderBm.cs" />
     <Compile Include="BindingModels\Posts\PostBm.cs" />
     <Compile Include="BindingModels\Users\EditUserBm.cs" />
     <Compile Include="ViewModels\Acount\ExternalLoginConfirmationViewModel.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="ViewModels\Acount\ForgotViewModel.cs" />
     <Compile Include="ViewModels\Acount\LoginViewModel.cs" />
     <Compile Include="ViewModels\AdminArea\Posts\CreatePostsVm.cs" />
+    <Compile Include="ViewModels\Order\EditOrderVm.cs" />
     <Compile Include="ViewModels\Posts\GalleryPostVm.cs" />
     <Compile Include="ViewModels\Posts\PostVm.cs" />
     <Compile Include="ViewModels\Posts\DetailsPostsVModel.cs" />

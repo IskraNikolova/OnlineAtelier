@@ -62,6 +62,7 @@
         public IEnumerable<DisplayOrderVm> GetAllNewOrders()
         {
             var profileOrdersViewModel = this.orders.All()
+                .Where(o => !o.IsExecuted)
                 .Project()
                 .To<DisplayOrderVm>()
                 .OrderByDescending(o => o.CreatedOn)
@@ -85,6 +86,29 @@
             model.CategoryName = order.Category.Name;
 
             return model;
+        }
+
+        public EditOrderVm GetViewModel(int? id)
+        {
+            var entity = this.orders.GetById((int)id);
+            var vModel = Mapper.Map<Order, EditOrderVm>(entity);
+            return vModel;
+        }
+
+        public void Edit(EditOrderBm model)
+        {
+            var entity = this.orders.GetById(model.Id);
+
+            entity.ColorOfBox = model.ColorOfBox;
+            entity.DateOfDecision = model.DateOfDecision;
+            entity.IsАccepted = model.IsАccepted;
+            entity.IsExecuted = model.IsExecuted;
+            entity.ShippingAddress = model.ShippingAddress;
+            entity.TextOfBox = model.TextOfBox;
+            entity.TextOfCookies = model.TextOfCookies;
+      
+            this.orders.Update(entity);
+            this.orders.SaveChanges();
         }
     }
 }

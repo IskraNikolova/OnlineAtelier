@@ -18,5 +18,9 @@
         DetailsOrderVm GetDetails(int id);
 
         IEnumerable<DisplayOrderVm> GetAllNewOrders();
+
+        EditOrderVm GetViewModel(int? id);
+
+        void Edit(EditOrderBm model);
     }
 }

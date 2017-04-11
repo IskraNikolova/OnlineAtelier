@@ -1,6 +1,9 @@
 ﻿namespace OnlineAtelier.Web.Areas.Admin.Controllers
 {
+    using System.Net;
     using System.Web.Mvc;
+    using Models.BindingModels.Order;
+    using Models.BindingModels.Posts;
     using Services.Contracts;
 
     [Authorize(Roles = "Admin")]
@@ -19,6 +22,37 @@
         {
             var models = this.service.GetAllNewOrders();
             return this.View(models);
+        }
+
+
+        [HttpGet, Route("AdminOrders/Edit/{id}")]
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var order = this.service.GetViewModel(id);
+            if (order == null)
+            {
+                return this.HttpNotFound();
+            }
+
+            return this.View(order);
+        }
+
+        [HttpPost, Route("AdminOrders/Edit/{id}")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(EditOrderBm orderBm)
+        {
+            if (this.ModelState.IsValid)
+            {
+                this.service.Edit(orderBm);
+                return this.RedirectToAction("Index");
+            }
+
+            return this.View(orderBm);
         }
     }
 }
