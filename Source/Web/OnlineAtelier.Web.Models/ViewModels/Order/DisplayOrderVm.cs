@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using Infrastructure.Mapping;
     using OnlineAtelier.Models.Models;
 
@@ -11,16 +12,22 @@
 
         public string Details { get; set; }
 
+        [DisplayName("Тема")]
         public string CategoryName { get; set; }
 
         public int CategoryId { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
+        [DisplayName("Вид")]
         public string AppearanceName { get; set; }
 
+        [DisplayName("Начална цена")]
         public decimal AppearancePrice { get; set; }
 
-        public ICollection<Order> ProfileOrders { get; set; }
+        [DisplayName("Дата за получаване")]
+        public DateTime DateOfDecision { get; set; }
+
+        //public ICollection<Order> ProfileOrders { get; set; }//todo delete this ...
     }
 }
