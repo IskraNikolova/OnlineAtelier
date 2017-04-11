@@ -1,6 +1,7 @@
 ﻿namespace OnlineAtelier.Web.Models.BindingModels.Order
 {
     using System;
+    using System.Collections.Generic;
     using Infrastructure.Mapping;
     using OnlineAtelier.Models.Models;
 

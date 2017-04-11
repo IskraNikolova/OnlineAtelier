@@ -19,7 +19,7 @@
 
         public IDbSet<OrderComment> OrderComments { get; set; }
 
-        public IDbSet<PostComment> PublicationComments { get; set; }
+        public IDbSet<PostComment> PostComments { get; set; }
 
         public IDbSet<Category> Categories { get; set; }
 
@@ -29,7 +29,7 @@
 
         public IDbSet<PhotosOrder> UserPictures { get; set; }
 
-        public IDbSet<Post> Publications { get; set; }
+        public IDbSet<Post> Posts { get; set; }
 
         public static ApplicationDbContext Create()
         {

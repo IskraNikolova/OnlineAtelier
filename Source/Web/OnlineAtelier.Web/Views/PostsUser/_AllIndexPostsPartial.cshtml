@@ -1,0 +1,20 @@
+﻿@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.Posts.IndexPostsVm>
+@{
+    ViewBag.Title = "_AllIndexPostsPartial";
+}
+
+@foreach (var post in Model)//todo make partial view
+    {
+    <article>
+        <div class="thumbnail">
+            <div class="panel-body">
+                <h6> @Html.DisplayFor(m => post.Title)</h6>
+                <p> @Html.DisplayFor(m => post.Content)</p>
+            </div>
+            <a class="thumbnail" href='@Url.Action("Details", "PostsUser", new {id = post.Id})'>
+                <img src="@post.Image.Url" />
+            </a>
+            <br />
+        </div>
+    </article>
+}

@@ -5,6 +5,10 @@
 
     public class GalleryPostVm : IMapFrom<Post>
     {
-        public string PhotoUrl { get; set; }
+        public int Id { get; set; }
+
+        public Image Image { get; set; }
+
+        public int OrderId { get; set; }
     }
 }

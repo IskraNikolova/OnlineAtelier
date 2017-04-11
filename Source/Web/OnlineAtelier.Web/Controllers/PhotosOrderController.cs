@@ -7,7 +7,7 @@
     using Services.Contracts;
 
     [RoutePrefix("PhotosOrder")]
-    public class PhotosOrderController : ImagesController
+    public class PhotosOrderController : ImageLoadController
     {
         private readonly IPhotosOrderService service;
 

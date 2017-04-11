@@ -1,5 +1,6 @@
 ﻿namespace OnlineAtelier.Data.Migrations
 {
+    using System;
     using System.Data.Entity.Migrations;
     using System.Linq;
     using Microsoft.AspNet.Identity;
@@ -37,6 +38,7 @@
             //  new Category()
             //  {
             //      Name = "Любов, любов за мен ти си всичко!",
+            //      CreatedOn = DateTime.Now
             //  },
             //  new Category()
             //  {
@@ -63,7 +65,43 @@
             //      Name = "Други",
             //  },
             //});
+            //context.Posts.AddOrUpdate(new Post[]
+            //{
+            //    new Post()
+            //    {
+            //        Title = "Zdrasti",
+            //        Content = "Emi",
+            //        CreatedOn = DateTime.Now,
+            //        Image = new Image()
+            //            {
+            //               Url = "https://scontent-sof1-1.xx.fbcdn.net/v/t1.0-9/17903339_1130144337094004_602623295519817319_n.jpg?oh=d6188664235c6c81161c1e34ecb3fd71&oe=594FE622",
+            //            },
 
+            //        CategoryId = 6
+            //    },
+            //     new Post()
+            //    {
+            //        Title = "Zdrasti",
+            //        Content = "Emi",
+            //        CreatedOn = DateTime.Now,
+            //       Image = new Image()
+            //            {
+            //               Url = "https://scontent-sof1-1.xx.fbcdn.net/v/t1.0-9/17903339_1130144337094004_602623295519817319_n.jpg?oh=d6188664235c6c81161c1e34ecb3fd71&oe=594FE622",
+            //            },
+            //        CategoryId = 6
+            //    },
+            //      new Post()
+            //    {
+            //        Title = "Zdrasti",
+            //        Content = "Emi",
+            //        CreatedOn = DateTime.Now,
+            //       Image = new Image()
+            //            {
+            //               Url = "https://scontent-sof1-1.xx.fbcdn.net/v/t1.0-9/17903339_1130144337094004_602623295519817319_n.jpg?oh=d6188664235c6c81161c1e34ecb3fd71&oe=594FE622",
+            //            },
+            //        CategoryId = 2
+            //    },
+            //});
             //context.Appearances.AddOrUpdate(a => a.Name, new Appearance[]
             //{
             //    new Appearance()

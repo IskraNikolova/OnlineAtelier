@@ -30,7 +30,6 @@
         public ActionResult Add()
         {
             var model = this.GetAddOrderVm();
-
             return this.View(model);
         }
 

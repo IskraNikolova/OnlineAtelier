@@ -32,7 +32,7 @@
                             <p> @Html.DisplayFor(m => publication.Content)</p>
                         </div>
                         <a class="thumbnail" href='@Url.Action("Edit", "Posts", new {id = publication.Id})'>
-                            <img src="@publication.PhotoUrl" />
+                            <img src="@publication.Image.Url" />
                         </a>
                         <br />
                     </div>

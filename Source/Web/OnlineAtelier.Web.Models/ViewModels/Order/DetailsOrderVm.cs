@@ -1,6 +1,7 @@
 ﻿namespace OnlineAtelier.Web.Models.ViewModels.Order
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using Infrastructure.Mapping;
     using OnlineAtelier.Models.Models;

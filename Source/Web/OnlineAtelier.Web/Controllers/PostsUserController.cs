@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Net;
     using System.Web.Mvc;
+    using Models.ViewModels.Posts;
     using Services.Contracts;
 
     [RoutePrefix("PostsUser")]
@@ -15,6 +16,14 @@
             this.service = service;
         }
 
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult AllIndexPosts()
+        {
+            IEnumerable<IndexPostsVm> model = this.service.GetIndexPosts();
+            return this.PartialView("_AllIndexPostsPartial", model);
+        }
+
         [HttpGet, Route("Details/{id}")]
         public ActionResult Details(int? id)
         {
@@ -23,13 +32,13 @@
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var publication = this.service.GetDetailsPostVModel((int)id);
-            if (publication == null)
+            var post = this.service.GetDetailsPostVModel((int)id);
+            if (post == null)
             {
                 return this.HttpNotFound();
             }
 
-            return this.View(publication);
+            return this.View(post);
         }
 
         [HttpGet, Route("PostGallery")]
@@ -44,9 +53,9 @@
             return this.View(allByCategory);
         }
 
-        public PartialViewResult Load(int id)
+        public PartialViewResult Load(int? id)
         {
-            var model = this.service.GetPostsByCategory(id);
+            var model = this.service.GetPostsByCategory((int)id);
             return this.PartialView("_PostGalleryPartial", model);
         }
     }

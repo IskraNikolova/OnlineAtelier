@@ -15,25 +15,25 @@
 {
     <div class="panel panel-default">
         <div class="panel-heading">
-            <br/>
+            <br />
             <h5>
                 <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span> @Html.DisplayFor(m => order.CategoryName) <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
             </h5>
-            <br/>
-                <h6>
-                    @Html.DisplayFor(m => order.AppearanceName) - @Html.DisplayFor(m => order.AppearancePrice)лв.
-                </h6>
+            <br />
+            <h6>
+                @Html.DisplayFor(m => order.AppearanceName) - @Html.DisplayFor(m => order.AppearancePrice)лв.
+            </h6>
             <div><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> @Html.ActionLink("Виж детайли", "Details", new { id = order.Id })</div>
             <em>@Html.DisplayFor(m => order.CreatedOn) <span class="glyphicon glyphicon-time" aria-hidden="true"></span></em>
         </div>
         <div class="panel-body">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    @Html.Action("All", "PhotosOrder", new {id = order.Id})
+                    @Html.Action("All", "PhotosOrder", new { id = order.Id })
                 </div>
             </div>
-            @Html.Action("GetComments", "CommentOrder", new {id = order.Id})
-            @Html.Action("AddComment", "CommentOrder", new {id = order.Id})
+            @Html.Action("GetComments", "CommentOrder", new { id = order.Id })
+            @Html.Action("AddComment", "CommentOrder", new { id = order.Id })
             @Html.Action("AddPicture", "PhotosOrder", new { id = order.Id })
         </div>
     </div>

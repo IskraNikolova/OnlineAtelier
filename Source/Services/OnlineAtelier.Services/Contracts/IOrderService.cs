@@ -10,7 +10,7 @@
         void AddOrder(OrderBindingModel model, string authorId, Appearance appearance,
             Category category);
 
-        AddOrderVm GetViewModel(OrderBindingModel model, IEnumerable<string> categories,
+        AddOrderVm GetAddOrderVm(OrderBindingModel model, IEnumerable<string> categories,
             IEnumerable<string> appearances);
 
         IEnumerable<DisplayOrderVm> GetOrders(string id);

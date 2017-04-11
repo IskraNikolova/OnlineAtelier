@@ -22,8 +22,15 @@
 
         public void AddPublication(PostBm post, Category category)
         {
+            var image = new Image()
+            {
+                Url = post.PhotoUrl
+            };
+
             var entity = Mapper.Map<PostBm, Post>(post);
             entity.CategoryId = category.Id;
+            entity.Image = image;
+
             this.posts.Add(entity);
             this.posts.SaveChanges();
         }
@@ -41,7 +48,14 @@
 
             entity.Title = model.Title;
             entity.Content = model.Content;
-            entity.PhotoUrl = model.PhotoUrl;
+            if (model.PhotoUrl != null)
+            {
+                entity.Image = new Image()
+                {
+                    Url = model.PhotoUrl
+                };
+            }
+            
 
             this.posts.Update(entity);
             this.posts.SaveChanges();
@@ -68,6 +82,7 @@
                 .All()
                 .Project()
                 .To<IndexPostsVm>()
+                .OrderByDescending(p => p.CreatedOn)
                 .ToList();
 
             return model;
@@ -95,9 +110,25 @@
 
         public IEnumerable<GalleryPostVm> GetPostsByCategory(int id)
         {
-            var model = this.posts.All().Where(p => p.CategoryId == id).Project().To<GalleryPostVm>();
+            var model = this.posts
+                .All()
+                .Where(p => p.CategoryId == id)
+                .Project()
+                .To<GalleryPostVm>();
 
             return model;
+        }
+
+        public IEnumerable<IndexPostsVm> GetIndexPosts()
+        {
+            var indexPostsVm = this.posts
+                .All()
+                .Project()
+                .To<IndexPostsVm>()
+                .OrderByDescending(p => p.CreatedOn)
+                .ToList();
+
+            return indexPostsVm;
         }
     }
 }

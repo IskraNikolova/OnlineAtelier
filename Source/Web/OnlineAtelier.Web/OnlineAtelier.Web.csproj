@@ -199,7 +199,8 @@
     <Compile Include="Config\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImagesController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\ImageLoadController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\CommentOrderController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -308,8 +309,11 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\PostsUser\PostGallery.cshtml" />
     <Content Include="Views\PostsUser\_PostGalleryPartial.cshtml" />
+    <Content Include="Views\PostsUser\_AllIndexPostsPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Image\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

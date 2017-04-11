@@ -15,7 +15,7 @@
     {
         private readonly IRepository<Order> orders;
 
-        public OrderService(IRepository<Order> orders)
+        public OrderService(IRepository<Order> orders, IRepository<Post> posts)
         {
             this.orders = orders;
         }
@@ -35,7 +35,7 @@
             this.orders.SaveChanges();
         }
 
-        public AddOrderVm GetViewModel(OrderBindingModel model,
+        public AddOrderVm GetAddOrderVm(OrderBindingModel model,
                                         IEnumerable<string> categories,
                                         IEnumerable<string> appearances)
         {

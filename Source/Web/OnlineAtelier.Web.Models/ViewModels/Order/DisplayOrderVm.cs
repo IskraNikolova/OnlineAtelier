@@ -13,6 +13,8 @@
 
         public string CategoryName { get; set; }
 
+        public int CategoryId { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public string AppearanceName { get; set; }

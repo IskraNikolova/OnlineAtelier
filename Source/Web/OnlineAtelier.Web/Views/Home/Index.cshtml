@@ -1,5 +1,5 @@
 ﻿@using OnlineAtelier.Web.Infrastructure.Constants
-@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.Posts.IndexPostsVm>
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -28,21 +28,7 @@
     </aside>
     <section>
         <div class="col-lg-6">
-            @foreach (var publication in Model)
-            {
-                <article>
-                    <div class="thumbnail">
-                        <div class="panel-body">
-                            <h6> @Html.DisplayFor(m => publication.Title)</h6>
-                            <p> @Html.DisplayFor(m => publication.Content)</p>
-                        </div>
-                        <a class="thumbnail" href='@Url.Action("Details", "PostsUser", new {id = publication.Id})'>
-                            <img src="@publication.PhotoUrl" />
-                        </a>
-                        <br />
-                    </div>
-                </article>
-            }
+           @Html.Action("AllIndexPosts", "PostsUser")
         </div>
     </section>
 </div>

@@ -8,10 +8,12 @@
     public class Category : IAuditInfo, IDeletableEntity
     {
         private ICollection<Post> publications;
+        private ICollection<Image> images;
 
         public Category()
         {
             this.publications = new HashSet<Post>();
+            this.images = new HashSet<Image>();
         }
 
         [Key]
@@ -33,6 +35,12 @@
         {
             get { return this.publications; }
             set { this.publications = value; }
+        }
+
+        public virtual ICollection<Image> Images
+        {
+            get { return this.images; }
+            set { this.images= value; }
         }
     }
 }

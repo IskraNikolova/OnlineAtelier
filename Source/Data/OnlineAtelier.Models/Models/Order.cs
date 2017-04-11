@@ -10,18 +10,18 @@
     public class Order: IAuditInfo, IDeletableEntity
     {
         private ICollection<PhotosOrder> userPictures;
-        private ICollection<Post> galeryPictures;
         private ICollection<OrderComment> comments;
 
         public Order()
         {
             this.userPictures = new HashSet<PhotosOrder>();
-            this.galeryPictures = new HashSet<Post>();
             this.comments = new HashSet<OrderComment>();
         }
 
         [Key]
         public int Id { get; set; }
+
+        public Image Image { get; set; }
 
         public string Details { get; set; }
 
@@ -39,18 +39,6 @@
 
         public bool IsАccepted { get; set; }
 
-        public virtual ICollection<PhotosOrder> UserPictures
-        {
-            get { return this.userPictures; }
-            set { this.userPictures = value; }
-        }
-
-        public virtual ICollection<Post> GaleryPictures
-        {
-            get { return this.galeryPictures; }
-            set { this.galeryPictures = value; }
-        }
-
         public DateTime CreatedOn { get; set; }
 
         public bool PreserveCreatedOn { get; set; }
@@ -60,6 +48,13 @@
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public virtual ICollection<PhotosOrder> UserPictures
+        {
+            get { return this.userPictures; }
+            set { this.userPictures = value; }
+        }
+
         public int AppearanceId { get; set; }
 
         public virtual Appearance Appearance { get; set; }

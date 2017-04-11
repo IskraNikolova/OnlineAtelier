@@ -9,7 +9,7 @@
     using Services.Contracts;
 
     [RoutePrefix("Users")]
-    public class UsersController : ImagesController
+    public class UsersController : ImageLoadController
     {
         private readonly IUserService userService;
 

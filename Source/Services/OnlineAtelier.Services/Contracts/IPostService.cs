@@ -24,5 +24,7 @@
         List<ICollection<PostVm>> GroupByCategory();
 
         IEnumerable<GalleryPostVm> GetPostsByCategory(int id);
+
+        IEnumerable<IndexPostsVm> GetIndexPosts();
     }
 }

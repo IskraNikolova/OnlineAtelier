@@ -3,7 +3,7 @@
     using System.Web.Mvc;
     using Logic;
 
-    public abstract class ImagesController : Controller
+    public abstract class ImageLoadController : Controller
     {
         public FileContentResult ImageLoad(string path)
         {

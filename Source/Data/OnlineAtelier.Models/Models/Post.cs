@@ -16,7 +16,7 @@
 
         public int Id { get; set; }
 
-        public string PhotoUrl { get; set; }
+        public virtual Image Image { get; set; }
 
         public string Title { get; set; }
 
