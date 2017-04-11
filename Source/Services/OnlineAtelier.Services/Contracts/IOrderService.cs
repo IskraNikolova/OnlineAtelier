@@ -16,5 +16,7 @@
         IEnumerable<DisplayOrderVm> GetOrders(string id);
 
         DetailsOrderVm GetDetails(int id);
+
+        IEnumerable<DisplayOrderVm> GetAllNewOrders();
     }
 }

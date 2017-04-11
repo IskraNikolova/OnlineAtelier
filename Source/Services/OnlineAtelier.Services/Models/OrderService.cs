@@ -59,6 +59,17 @@
             return profileOrdersViewModel;
         }
 
+        public IEnumerable<DisplayOrderVm> GetAllNewOrders()
+        {
+            var profileOrdersViewModel = this.orders.All()
+                .Project()
+                .To<DisplayOrderVm>()
+                .OrderByDescending(o => o.CreatedOn)
+                .ToList();
+
+            return profileOrdersViewModel;
+        }
+
         public DetailsOrderVm GetDetails(int id)
         {
             var order = this.orders

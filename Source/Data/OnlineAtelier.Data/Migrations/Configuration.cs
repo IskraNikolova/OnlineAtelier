@@ -20,7 +20,7 @@
             AddRoles(context);
 
            // AddCategories(context);
-            AddPosts(context);
+           // AddPosts(context);
             //AddAppearances(context);
         }
 
