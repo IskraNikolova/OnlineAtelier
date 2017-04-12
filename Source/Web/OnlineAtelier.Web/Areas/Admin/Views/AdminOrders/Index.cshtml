@@ -7,10 +7,14 @@
 <div class="thumbnail">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h4>Честито имаш нови @Model.ToList().Count поръчки!</h4>
+            <h4>Честито имаш @Model.Where(m => !m.IsАccepted).ToList().Count нови поръчки!</h4>
         </div>
         <div class="panel-body">
-            <p>...</p>
+            <p>
+                Имаш @Model.Where(m => !m.IsАccepted).ToList().Count поръчки, които чакат одобрение.
+                <br/>
+                Работи се по @Model.Where(m => m.IsАccepted).ToList().Count нови поръчки.
+            </p>
         </div>
         <table class="table">
             <tr>
@@ -23,10 +27,10 @@
             {
                 <tr>
                     <td>@Html.DisplayFor(m => order.CategoryName)</td>
-                    <td>@Html.DisplayFor(m =>order.AppearanceName)</td>
-                    <td>@Html.DisplayFor(m =>order.AppearancePrice)</td>
-                    <td>@Html.DisplayFor(m =>order.DateOfDecision)</td>
-                </tr>                          
+                    <td>@Html.DisplayFor(m => order.AppearanceName)</td>
+                    <td>@Html.DisplayFor(m => order.AppearancePrice)</td>
+                    <td>@Html.DisplayFor(m => order.DateOfDecision)</td>
+                </tr>
             }
 
         </table>
@@ -34,9 +38,9 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-2">
         <aside>
-            <div class="btn-group-vertical" style="width: 200px">
+            <div class="btn-group-vertical" style="width: 180px">
                 @*todo move to css fail*@
                 @Html.ActionLink("Начало", Views.Index, null, new { type = "button", @class = "btn btn-default active" })
                 @Html.ActionLink("Публикувай", "Create", "Posts", null, new { type = "button", @class = "btn btn-default" })
@@ -45,45 +49,91 @@
             </div>
         </aside>
     </div>
-    <div class="col-lg-6">
-        @foreach (var order in Model)
+    <div class="col-lg-5">
+        @foreach (var order in Model.Where(m => !m.IsАccepted))
         {
             <div class="panel panel-default">
                 <div class="panel-body">
-                    
+
                     Тема: <strong>@Html.DisplayFor(m => order.CategoryName) </strong>
-                    <br/>
+                    <br />
                     <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                     <em>
                         (@Html.DisplayFor(m => order.CreatedOn))
                     </em>
+
                     @Html.ActionLink("Отхвърли поръчката", "Delete", new { id = order.Id })
-                    <hr/>
+                    <hr />
+                    <h4>Изчаква за одобрение</h4>
+                    <hr />
                     Име на поръчителя: <strong> @Html.DisplayFor(m => order.Author.FullName) </strong>
-                    <br/>
+                    <br />
                     Дата на получаване: <strong>@Html.DisplayFor(m => order.DateOfDecision) </strong>
-                    <br/>
+                    <br />
                     @Html.DisplayFor(m => order.AppearanceName) - @Html.DisplayFor(m => order.FinalPrice)лв.
                     <div>
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                        @Html.ActionLink("Виж детайли", "Details", "Order", null, new {area = "", id = order.Id})
+                        @Html.ActionLink("Виж детайли", "Details", "Order", null, new { area = "", id = order.Id })
                     </div>
                 </div>
-                    <div class="panel-body">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                Снимки на клиента:
-                                <br/>
-                                @Html.Action("All", "PhotosOrder", new {area = "", id = order.Id})
-                            </div>
+                <div class="panel-body">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            Снимки на клиента:
+                            <br />
+                            @Html.Action("All", "PhotosOrder", new { area = "", id = order.Id })
                         </div>
-                        @Html.Action("GetComments", "CommentOrder", new { area = "", id = order.Id })
-                        @Html.Action("AddComment", "CommentOrder", new { area = "", id = order.Id })
-                        <a href='@Url.Action("Edit", "AdminOrders", new {id = order.Id})' class="btn btn-default">
-                            Редактирай
-                        </a>
                     </div>
+                    @Html.Action("GetComments", "CommentOrder", new { area = "", id = order.Id })
+                    @Html.Action("AddComment", "CommentOrder", new { area = "", id = order.Id })
+                    <a href='@Url.Action("Edit", "AdminOrders", new {id = order.Id})' class="btn btn-default">
+                        Редактирай
+                    </a>
                 </div>
+            </div>
         }
     </div>
+<div class="col-lg-5">
+    @foreach (var order in Model.Where(m => m.IsАccepted))
+    {
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                Тема: <strong>@Html.DisplayFor(m => order.CategoryName) </strong>
+                <br />
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                <em>
+                    (@Html.DisplayFor(m => order.CreatedOn))
+                </em>
+                @Html.ActionLink("Отхвърли поръчката", "Delete", new { id = order.Id })
+                <hr />
+                <h4>Приета</h4>
+                <hr/>
+                Име на поръчителя: <strong> @Html.DisplayFor(m => order.Author.FullName) </strong>
+                <br />
+                Дата на получаване: <strong>@Html.DisplayFor(m => order.DateOfDecision) </strong>
+                <br />
+                @Html.DisplayFor(m => order.AppearanceName) - @Html.DisplayFor(m => order.FinalPrice)лв.
+                <div>
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                    @Html.ActionLink("Виж детайли", "Details", "Order", null, new { area = "", id = order.Id })
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Снимки на клиента:
+                        <br />
+                        @Html.Action("All", "PhotosOrder", new { area = "", id = order.Id })
+                    </div>
+                </div>
+                @Html.Action("GetComments", "CommentOrder", new { area = "", id = order.Id })
+                @Html.Action("AddComment", "CommentOrder", new { area = "", id = order.Id })
+                <a href='@Url.Action("Edit", "AdminOrders", new {id = order.Id})' class="btn btn-default">
+                    Редактирай
+                </a>
+            </div>
+        </div>
+    }
+</div>
 </div>

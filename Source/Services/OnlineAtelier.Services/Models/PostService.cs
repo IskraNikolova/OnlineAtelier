@@ -92,11 +92,12 @@
         {
             var all = this.posts.All().GroupBy(p => p.Category.Name).ToList();
             List<ICollection<PostVm>> postVm = new List<ICollection<PostVm>>();
+           //todo now can not see image
 
-            foreach (var posts in all)
+            foreach (var grouping in all)
             {
                 ICollection<PostVm> album = new List<PostVm>();
-                foreach (var post in posts)
+                foreach (var post in grouping)
                 {
                     var model = Mapper.Map<Post, PostVm>(post);
                     album.Add(model);
