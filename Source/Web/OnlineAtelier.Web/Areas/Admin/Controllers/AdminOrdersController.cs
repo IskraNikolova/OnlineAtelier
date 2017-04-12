@@ -3,7 +3,6 @@
     using System.Net;
     using System.Web.Mvc;
     using Models.BindingModels.Order;
-    using Models.BindingModels.Posts;
     using Services.Contracts;
 
     [Authorize(Roles = "Admin")]
@@ -53,6 +52,21 @@
             }
 
             return this.View(orderBm);
+        }
+
+
+        [HttpGet, Route("AdminOrders/Delete")]
+        public ActionResult Delete()
+        {
+            return this.View();
+        }
+
+        [HttpPost, ActionName("Delete"), Route("AdminOrders/Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            this.service.Delete(id);
+            return this.RedirectToAction("Index");
         }
     }
 }

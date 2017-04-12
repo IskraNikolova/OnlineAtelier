@@ -10,6 +10,8 @@
 
         public DateTime DateOfDecision { get; set; }
 
+        public decimal FinalPrice { get; set; }
+
         public string ShippingAddress { get; set; }
 
         public string ColorOfBox { get; set; }

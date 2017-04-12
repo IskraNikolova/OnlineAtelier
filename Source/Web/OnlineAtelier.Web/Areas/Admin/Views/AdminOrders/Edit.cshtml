@@ -12,6 +12,14 @@
         <div class="form-horizontal">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Id)
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.FinalPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FinalPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FinalPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
             <div class="form-group">
                 @Html.LabelFor(model => model.ColorOfBox, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -46,10 +54,9 @@
             </div>
             
             <div class="form-group">
-                @Html.LabelFor(model => model.DateOfDecision, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DateOfDecision, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.DateOfDecision, "", new { @class = "text-danger" })
+                @Html.LabelFor(m => m.DateOfDecision, new { @class = "col-md-2 control-label" })
+                <div class="col-md-6">
+                    @Html.EditorFor(m => m.DateOfDecision, null, new { htmlAttributes = new { @class = "form-control", type = "date" } })*
                 </div>
             </div>
 

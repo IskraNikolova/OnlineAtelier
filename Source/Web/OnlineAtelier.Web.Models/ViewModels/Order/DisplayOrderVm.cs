@@ -25,6 +25,9 @@
         [DisplayName("Начална цена")]
         public decimal AppearancePrice { get; set; }
 
+        [DisplayName("Цена")]
+        public decimal FinalPrice { get; set; }
+
         [DisplayName("Дата за получаване")]
         public DateTime DateOfDecision { get; set; }
 

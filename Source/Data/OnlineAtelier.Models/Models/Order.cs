@@ -17,7 +17,7 @@
             this.userPictures = new HashSet<PhotosOrder>();
             this.comments = new HashSet<OrderComment>();
         }
-
+        
         [Key]
         public int Id { get; set; }
 
@@ -30,6 +30,8 @@
         public string ShippingAddress { get; set; }
 
         public string ColorOfBox { get; set; }
+
+        public decimal FinalPrice { get; set; }
 
         public string TextOfBox { get; set; }
 

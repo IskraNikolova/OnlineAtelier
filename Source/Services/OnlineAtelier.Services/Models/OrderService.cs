@@ -15,7 +15,7 @@
     {
         private readonly IRepository<Order> orders;
 
-        public OrderService(IRepository<Order> orders, IRepository<Post> posts)
+        public OrderService(IRepository<Order> orders)
         {
             this.orders = orders;
         }
@@ -26,7 +26,7 @@
                             Category category)
         {
             var order = Mapper.Map<OrderBindingModel, Order>(model);
-
+            order.FinalPrice = appearance.Price;
             order.AppearanceId = appearance.Id;
             order.CategoryId = category.Id;
             order.ApplicationUserId = authorId;
@@ -61,7 +61,8 @@
 
         public IEnumerable<DisplayOrderVm> GetAllNewOrders()
         {
-            var profileOrdersViewModel = this.orders.All()
+            var profileOrdersViewModel = this.orders
+                .All()
                 .Where(o => !o.IsExecuted)
                 .Project()
                 .To<DisplayOrderVm>()
@@ -100,6 +101,7 @@
             var entity = this.orders.GetById(model.Id);
 
             entity.ColorOfBox = model.ColorOfBox;
+            entity.FinalPrice = model.FinalPrice;
             entity.DateOfDecision = model.DateOfDecision;
             entity.IsАccepted = model.IsАccepted;
             entity.IsExecuted = model.IsExecuted;
@@ -108,6 +110,13 @@
             entity.TextOfCookies = model.TextOfCookies;
       
             this.orders.Update(entity);
+            this.orders.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var entity = this.orders.GetById(id);
+            this.orders.Delete(entity);
             this.orders.SaveChanges();
         }
     }

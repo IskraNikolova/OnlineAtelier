@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="thumbnail">
+    <h6>Сигурна ли си, че искаш да отхвърлиш поръчката? След като я отхвърлиш тя ще се изтрие от списъка ти с поръчки.</h6>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Назад", "Index")
+        </div>
+    }
+</div>

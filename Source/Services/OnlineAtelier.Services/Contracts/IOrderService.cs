@@ -22,5 +22,7 @@
         EditOrderVm GetViewModel(int? id);
 
         void Edit(EditOrderBm model);
+
+        void Delete(int id);
     }
 }
