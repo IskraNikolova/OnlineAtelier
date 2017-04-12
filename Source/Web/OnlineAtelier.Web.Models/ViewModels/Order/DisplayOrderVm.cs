@@ -7,6 +7,7 @@
 
     public class DisplayOrderVm : IMapFrom<Order>
     {
+        [DisplayName("Номер на поръчка")]
         public int Id { get; set; }
 
         public string Details { get; set; }

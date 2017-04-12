@@ -31,7 +31,14 @@
         </li>
         <li class="list-group-item">
             <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-            @Html.ActionLink("Назад", "ProfilePage", "Users")
+            @if (User.IsInRole("Admin"))
+            {
+                <a href='@Url.Action("Index","AdminOrders", new {area="Admin"})'>Назад</a>
+            }
+            else
+            {
+                @Html.ActionLink("Назад", "ProfilePage", "Users")
+            }
         </li>
     </ul>
 </div>

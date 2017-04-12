@@ -243,6 +243,7 @@
     <Content Include="Areas\Admin\Views\AdminOrders\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminOrders\_AllOrdersPartial.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\noImg.png" />
     <Content Include="Scripts\bootstrap.js" />
