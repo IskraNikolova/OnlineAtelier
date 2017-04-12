@@ -11,16 +11,16 @@
         </div>
         <div class="panel-body">
             <p>
-                Имаш @Model.Where(m => !m.IsАccepted).ToList().Count поръчки, които чакат одобрение.
+                Имаш @Model.Where(m => !m.IsАccepted).ToList().Count нови поръчки, които чакат одобрение.
                 <br/>
-                Работи се по @Model.Where(m => m.IsАccepted).ToList().Count нови поръчки.
+                Приети са @Model.Where(m => m.IsАccepted).ToList().Count поръчки.
             </p>
         </div>
         <table class="table">
             <tr>
                 <th>@Html.DisplayNameFor(m => m.CategoryName)</th>
                 <th>@Html.DisplayNameFor(m => m.AppearanceName)</th>
-                <th>@Html.DisplayNameFor(m => m.AppearancePrice)</th>
+                <th>@Html.DisplayNameFor(m => m.FinalPrice).</th>
                 <th>@Html.DisplayNameFor(m => m.DateOfDecision)</th>
             </tr>
             @foreach (var order in Model)
@@ -28,7 +28,7 @@
                 <tr>
                     <td>@Html.DisplayFor(m => order.CategoryName)</td>
                     <td>@Html.DisplayFor(m => order.AppearanceName)</td>
-                    <td>@Html.DisplayFor(m => order.AppearancePrice)</td>
+                    <td>@Html.DisplayFor(m => order.FinalPrice) лв</td>
                     <td>@Html.DisplayFor(m => order.DateOfDecision)</td>
                 </tr>
             }
@@ -56,17 +56,20 @@
                 <div class="panel-body">
 
                     Тема: <strong>@Html.DisplayFor(m => order.CategoryName) </strong>
+                     -  <strong>@Html.DisplayFor(m => order.AppearanceName) </strong>
                     <br />
                     <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                     <em>
                         (@Html.DisplayFor(m => order.CreatedOn))
                     </em>
-
+                    <br/>
                     @Html.ActionLink("Отхвърли поръчката", "Delete", new { id = order.Id })
                     <hr />
                     <h4>Изчаква за одобрение</h4>
                     <hr />
                     Име на поръчителя: <strong> @Html.DisplayFor(m => order.Author.FullName) </strong>
+                    <br />
+                    Телефон за връзка: <strong> @Html.DisplayFor(m => order.Author.PhoneNumber) </strong>
                     <br />
                     Дата на получаване: <strong>@Html.DisplayFor(m => order.DateOfDecision) </strong>
                     <br />
@@ -100,6 +103,7 @@
             <div class="panel-body">
 
                 Тема: <strong>@Html.DisplayFor(m => order.CategoryName) </strong>
+                -  <strong>@Html.DisplayFor(m => order.AppearanceName) </strong>
                 <br />
                 <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                 <em>
@@ -110,6 +114,8 @@
                 <h4>Приета</h4>
                 <hr/>
                 Име на поръчителя: <strong> @Html.DisplayFor(m => order.Author.FullName) </strong>
+                <br />
+                Телефон за връзка: <strong> @Html.DisplayFor(m => order.Author.PhoneNumber) </strong>
                 <br />
                 Дата на получаване: <strong>@Html.DisplayFor(m => order.DateOfDecision) </strong>
                 <br />

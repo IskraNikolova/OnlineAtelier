@@ -90,9 +90,12 @@
 
         public List<ICollection<PostVm>> GroupByCategory()
         {
-            var all = this.posts.All().GroupBy(p => p.Category.Name).ToList();
+            var all = this.posts
+                .All()
+                .GroupBy(p => p.Category.Name)
+                .ToList();
+
             List<ICollection<PostVm>> postVm = new List<ICollection<PostVm>>();
-           //todo now can not see image
 
             foreach (var grouping in all)
             {
