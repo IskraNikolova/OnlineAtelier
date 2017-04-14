@@ -193,6 +193,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminOrdersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
     <Compile Include="Config\BundleConfig.cs" />
     <Compile Include="Config\FilterConfig.cs" />
     <Compile Include="Config\IdentityConfig.cs" />
@@ -244,6 +245,8 @@
     <Content Include="Areas\Admin\Views\AdminOrders\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\_AllOrdersPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\_SearchPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\Shared\_PostLayout.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\noImg.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -316,7 +319,9 @@
     <Content Include="Views\PostsUser\_PostGalleryPartial.cshtml" />
     <Content Include="Views\PostsUser\_AllIndexPostsPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Search\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

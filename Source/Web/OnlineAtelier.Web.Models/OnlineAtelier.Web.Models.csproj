@@ -94,6 +94,7 @@
     <Compile Include="BindingModels\Order\EditOrderBm.cs" />
     <Compile Include="BindingModels\Posts\PostBm.cs" />
     <Compile Include="BindingModels\Users\EditUserBm.cs" />
+    <Compile Include="BindingModels\Users\SearchUserBm.cs" />
     <Compile Include="ViewModels\Acount\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\Acount\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\Acount\ForgotPasswordViewModel.cs" />

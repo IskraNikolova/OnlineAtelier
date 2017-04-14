@@ -62,3 +62,7 @@ textarea {
 .noAccept {
     background-color: darkred;
 }
+
+.accept {
+    color: lightgreen
+}

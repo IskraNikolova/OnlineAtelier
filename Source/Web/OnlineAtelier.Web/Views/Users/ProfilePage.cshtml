@@ -6,7 +6,7 @@
     <div class="col-md-3">
         <br />
         <div class="panel panel-body">
-            <img class="userPhoto" src="@Url.Action("UserPhotos", "Users")" />
+            <img class="userPhoto" src="@Url.Action("UserPhotos", "Users", new {id = Model.Id})" />
             <h3>@Html.DisplayFor(m => m.FullName)</h3>
             <div>
                 @Html.ActionLink("Редактирай профила", "Edit")

@@ -39,7 +39,9 @@
 
         public EditUserVm GetEditVm(string userId)
         {
-            var user = this.users.All().FirstOrDefault(u => u.Id == userId);
+            var user = this.users
+                .All()
+                .FirstOrDefault(u => u.Id == userId);
             var editVm = Mapper.Map<ApplicationUser, EditUserVm>(user);
 
             return editVm;
@@ -61,6 +63,15 @@
 
             this.users.Update(entity);
             this.users.SaveChanges();
+        }
+
+        public string GetSearchUserId(SearchUserBm bm)
+        {
+            var user = this.users
+                .All()
+                .FirstOrDefault(u => u.FirstName == bm.FirstName);
+            
+            return user.Id;
         }
     }
 }

@@ -19,9 +19,10 @@
         }
 
         [HttpGet, Route("ProfilePage")]
-        public ActionResult ProfilePage()
+        public ActionResult ProfilePage(string id)
         {
-            var userId = this.User.Identity.GetUserId();
+            var userId = id ?? this.User.Identity.GetUserId();
+           
             var model = this.userService.GetProfileViewModel(userId);
             return this.View(model);
         }
@@ -62,11 +63,11 @@
         }
 
         [HttpGet]
-        public FileContentResult UserPhotos()
+        public FileContentResult UserPhotos(string id)
         {
             if (this.User.Identity.IsAuthenticated)
             {
-                string userId = this.User.Identity.GetUserId();
+                string userId = id;//this.User.Identity.GetUserId();
                 var user = this.userService.GetUser(userId);
 
                 if (userId == null || user.UserPhoto == null || user.UserPhoto.Length == 0)

@@ -2,6 +2,7 @@
 @model IEnumerable<OnlineAtelier.Web.Models.ViewModels.Posts.IndexPostsVm>
 @{
     ViewBag.Title = "Home Page";
+    Layout = "Shared/_PostLayout.cshtml";
 }
 
 
@@ -17,23 +18,28 @@
                 @Html.ActionLink("Начало", Views.Index, null, new { type = "button", @class = "btn btn-default active" })
                 @Html.ActionLink("Нови Поръчки", Views.Index, "AdminOrders", null, new { type = "button", @class = "btn btn-default active" })
                 @Html.ActionLink("Публикувай", "Create", null, new { type = "button", @class = "btn btn-default" })
-                <a href="~/" class="btn btn-default">Exit</a>
+                <a href="~/" class="btn btn-default">Изход</a>
                 <br />
             </div>
         </div>
     </aside>
     <section>
         <div class="col-lg-6">
-            @foreach (var publication in Model)
+            @foreach (var post in Model)
             {
                 <article>
                     <div class="thumbnail">
                         <div class="panel-body">
-                            <h6> @Html.DisplayFor(m => publication.Title)</h6>
-                            <p> @Html.DisplayFor(m => publication.Content)</p>
+                            <p>
+                                <img src="http://cliparts.co/cliparts/6Ty/Xn6/6TyXn6kTn.png" style="width: 20px " />
+                                <strong>With love: Eli</strong> добави нова снимка към албума:
+                                <a href='@Url.Action("Load", "PostsUser", new {area = "", id = post.Category.Id})'>@Html.DisplayFor(p => post.Category.Name)</a>
+                            </p>
+                            <h6> @Html.DisplayFor(m => post.Title)</h6>
+                            <p> @Html.DisplayFor(m => post.Content)</p>
                         </div>
-                        <a class="thumbnail" href='@Url.Action("Edit", "Posts", new {id = publication.Id})'>
-                            <img src="@publication.Image.Url" />
+                        <a class="thumbnail" href='@Url.Action("Edit", "Posts", new {id = post.Id})'>
+                            <img src="@post.Image.Url" />
                         </a>
                         <br />
                     </div>

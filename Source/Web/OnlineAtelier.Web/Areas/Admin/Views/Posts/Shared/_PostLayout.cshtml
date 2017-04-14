@@ -28,18 +28,20 @@
                     <li>@Html.ActionLink("Публикувай", "Create", "Posts")</li>
                     <li>@Html.ActionLink("Нови Поръчки", Views.Index, "AdminOrders")</li>
                     <li><a href="@Url.Action("Index", "Home", new {area=""})">Изход</a></li>
-                </ul>               
-               @*<div class="col-sm-3 col-md-3 pull-right">*@
-                  
-                    @*<form class="navbar-form" role="search">
+                </ul>
+                @Html.Partial("_SearchPartial")
+
+                @*<div class="col-sm-3 col-md-3 pull-right">
+                    <form class="navbar-form" role="search">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-                            <div class="input-group-btn">
+                            @*<input type="text" class="form-control" placeholder="Search" name="FirstName" id="srch-term" >*@
+                            @*@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Search", type = "text" })*@
+                            @*<div class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                             </div>
                         </div>
-                    </form>*@
-                @*</div>*@
+                    </form>
+                </div>*@
             </div>
         </div>
     </div>

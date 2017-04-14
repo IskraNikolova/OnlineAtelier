@@ -13,5 +13,7 @@
         EditUserVm GetEditVm(string userId);
 
         void Edit(EditUserBm bind, byte[] imageBytes);
+
+        string GetSearchUserId(SearchUserBm bm);
     }
 }

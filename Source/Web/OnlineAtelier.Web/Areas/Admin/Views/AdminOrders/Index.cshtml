@@ -42,21 +42,10 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-2">
-        <aside>
-            <div class="btn-group-vertical" style="width: 180px">
-                @*todo move to css fail*@
-                @Html.ActionLink("Начало", Views.Index, null, new { type = "button", @class = "btn btn-default active" })
-                @Html.ActionLink("Публикувай", "Create", "Posts", null, new { type = "button", @class = "btn btn-default" })
-                <a href="~/" class="btn btn-default">Exit</a>
-                <br />
-            </div>
-        </aside>
-    </div>
-    <div class="col-lg-5">
+    <div class="col-lg-6">
         @Html.Partial("_AllOrdersPartial", Model.Where(m => !m.IsАccepted))
     </div>
-    <div class="col-lg-5">
+    <div class="col-lg-6">
         @Html.Partial("_AllOrdersPartial", Model.Where(m => m.IsАccepted))
     </div>
 </div>
