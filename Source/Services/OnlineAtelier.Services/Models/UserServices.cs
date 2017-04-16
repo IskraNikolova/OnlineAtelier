@@ -66,12 +66,12 @@
         }
 
         public string GetSearchUserId(SearchUserBm bm)
-        {
+        {           
             var user = this.users
                 .All()
-                .FirstOrDefault(u => u.FirstName == bm.FirstName);
-            
-            return user.Id;
+                .FirstOrDefault(u => (u.FirstName + " " + u.LastName).ToLower() == bm.FirstName.ToLower().Trim());
+
+            return user?.Id;
         }
     }
 }

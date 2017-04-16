@@ -33,6 +33,8 @@
 
         public IDbSet<Post> Posts { get; set; }
 
+        public IDbSet<Figure> Figures { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -43,6 +45,7 @@
             this.ApplyAuditInfoRules();
             return base.SaveChanges();
         }
+
 
         private void ApplyAuditInfoRules()
         {

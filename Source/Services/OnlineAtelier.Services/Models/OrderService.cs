@@ -14,10 +14,12 @@
     public class OrderService : IOrderService
     {
         private readonly IRepository<Order> orders;
+        private readonly IRepository<Figure> figures;
 
-        public OrderService(IRepository<Order> orders)
+        public OrderService(IRepository<Order> orders, IRepository<Figure> figures)
         {
             this.orders = orders;
+            this.figures = figures;
         }
 
         public void AddOrder(OrderBindingModel model, 
@@ -84,15 +86,25 @@
             }
 
             var model = Mapper.Map<Order, DetailsOrderVm>(order);
+            model.FiguresNames = order.Figures.Select(f => f.Name).ToList();
             model.CategoryName = order.Category.Name;
 
             return model;
         }
 
-        public EditOrderVm GetViewModel(int? id)
+        public EditOrderVm GetEditViewModel(int? id)
         {
             var entity = this.orders.GetById((int)id);
             var vModel = Mapper.Map<Order, EditOrderVm>(entity);
+            return vModel;
+        }
+
+        public DesignOrderVm GetDesignOrderVm(int? id)
+        {
+            var entity = this.orders.GetById((int)id);
+
+            var vModel = Mapper.Map<Order, DesignOrderVm>(entity);
+         
             return vModel;
         }
 
@@ -117,6 +129,21 @@
         {
             var entity = this.orders.GetById(id);
             this.orders.Delete(entity);
+            this.orders.SaveChanges();
+        }
+
+        public void AddFigures(DesignOrderBm bm)
+        {
+            var order = this.orders
+                .All()
+                .FirstOrDefault(o => o.Id == bm.Id);
+
+            order.Figures.Add(new Figure()
+            {
+                Name = bm.FigureName
+            });
+
+            this.orders.Update(order);
             this.orders.SaveChanges();
         }
     }

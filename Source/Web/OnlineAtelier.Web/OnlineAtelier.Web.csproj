@@ -193,6 +193,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminOrdersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FiguresController.cs" />
     <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
     <Compile Include="Config\BundleConfig.cs" />
     <Compile Include="Config\FilterConfig.cs" />
@@ -201,7 +202,6 @@
     <Compile Include="Config\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ImageLoadController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\CommentOrderController.cs" />
@@ -245,8 +245,10 @@
     <Content Include="Areas\Admin\Views\AdminOrders\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\_AllOrdersPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Posts\_SearchPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Posts\Shared\_PostLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_SearchPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Figures\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Figures\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminOrders\DesignIt.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\noImg.png" />
     <Content Include="Scripts\bootstrap.js" />

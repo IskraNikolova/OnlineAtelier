@@ -28,5 +28,8 @@
 
         [DisplayName("Адрес за получаване")]
         public string ShippingAddress { get; set; }
+
+        [DisplayName("Модели")]
+        public ICollection<string> FiguresNames { get; set; }
     }
 }

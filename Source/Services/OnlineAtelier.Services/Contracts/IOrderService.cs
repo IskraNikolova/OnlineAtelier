@@ -19,10 +19,14 @@
 
         IEnumerable<DisplayOrderVm> GetAllNewOrders();
 
-        EditOrderVm GetViewModel(int? id);
+        EditOrderVm GetEditViewModel(int? id);
 
         void Edit(EditOrderBm model);
 
         void Delete(int id);
+
+        void AddFigures(DesignOrderBm bm);
+
+        DesignOrderVm GetDesignOrderVm(int? id);
     }
 }

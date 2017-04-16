@@ -11,11 +11,13 @@
     {
         private ICollection<PhotosOrder> userPictures;
         private ICollection<OrderComment> comments;
+        private ICollection<Figure> figures;
 
         public Order()
         {
             this.userPictures = new HashSet<PhotosOrder>();
             this.comments = new HashSet<OrderComment>();
+            this.figures = new HashSet<Figure>();
         }
         
         [Key]
@@ -74,6 +76,12 @@
         {
             get { return this.comments; }
             set { this.comments = value; }
+        }
+
+        public virtual ICollection<Figure> Figures
+        {
+            get { return this.figures; }
+            set { this.figures = value; }
         }
     }
 }

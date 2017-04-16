@@ -30,6 +30,14 @@
             @Html.DisplayNameFor(m => m.TextOfCookies): @Html.DisplayFor(m => m.TextOfCookies)
         </li>
         <li class="list-group-item">
+            @Html.DisplayNameFor(m => m.FiguresNames)
+            @foreach (var figure in Model.FiguresNames)
+            {
+                <p>@figure</p>
+                <br/>
+            }
+        </li>
+        <li class="list-group-item">
             <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
             @if (User.IsInRole("Admin"))
             {

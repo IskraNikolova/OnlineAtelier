@@ -1,8 +1,11 @@
 ﻿namespace OnlineAtelier.Web.Areas.Admin.Controllers
 {
+    using System.Linq;
     using System.Net;
     using System.Web.Mvc;
+    using Logic;
     using Models.BindingModels.Order;
+    using Models.ViewModels.Order;
     using Services.Contracts;
 
     [Authorize(Roles = "Admin")]
@@ -10,10 +13,12 @@
     public class AdminOrdersController : Controller
     {
         private readonly IOrderService service;
+        private readonly IFigureService figureService;
 
-        public AdminOrdersController(IOrderService service)
+        public AdminOrdersController(IOrderService service, IFigureService figureService)
         {
             this.service = service;
+            this.figureService = figureService;
         }
 
         [HttpGet, Route("AdminOrders/Index")]
@@ -32,13 +37,46 @@
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var order = this.service.GetViewModel(id);
+            var order = this.service.GetEditViewModel(id);
             if (order == null)
             {
                 return this.HttpNotFound();
             }
 
             return this.View(order);
+        }
+
+        [HttpGet, Route("AdminOrders/DesignIt/{id}")]
+        public ActionResult DesignIt(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var model = this.GetDesignOrderVm(id);
+
+            return this.View(model);
+        }
+
+        private DesignOrderVm GetDesignOrderVm(int? id)
+        {
+            var model = this.service.GetDesignOrderVm((int) id);
+
+            model.FiguresSelectList = GetListItem.GetSelectListItems(this.figureService.GetAllFigures());
+            return model;
+        }
+
+        [HttpPost, Route("AdminOrders/DesignIt/{id}")]
+        public ActionResult DesignIt(DesignOrderBm bm)
+        {
+            if (this.ModelState.IsValid)
+            {
+                this.service.AddFigures(bm);
+                return this.View(this.GetDesignOrderVm(bm.Id));
+            }
+
+            return this.View(this.GetDesignOrderVm(bm.Id));
         }
 
         [HttpPost, Route("AdminOrders/Edit/{id}")]
