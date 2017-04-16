@@ -321,9 +321,7 @@
     <Content Include="Views\PostsUser\_PostGalleryPartial.cshtml" />
     <Content Include="Views\PostsUser\_AllIndexPostsPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Views\Search\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
