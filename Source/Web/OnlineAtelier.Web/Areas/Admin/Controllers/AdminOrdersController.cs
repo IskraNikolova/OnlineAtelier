@@ -28,7 +28,6 @@
             return this.View(models);
         }
 
-
         [HttpGet, Route("AdminOrders/Edit/{id}")]
         public ActionResult Edit(int? id)
         {
@@ -45,6 +44,50 @@
 
             return this.View(order);
         }
+
+        [HttpPost, Route("AdminOrders/Edit/{id}")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(EditOrderBm orderBm)
+        {
+            if (this.ModelState.IsValid)
+            {
+                this.service.Edit(orderBm);
+                return this.RedirectToAction("Index");
+            }
+
+            return this.View(orderBm);
+        }
+
+        [HttpGet, Route("AdminOrders/EditDate/{id}")]
+        public ActionResult EditDate(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var order = this.service.GetEditDateViewModel(id);
+            if (order == null)
+            {
+                return this.HttpNotFound();
+            }
+
+            return this.View(order);
+        }
+
+        [HttpPost, Route("AdminOrders/EditDate/{id}")]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDate(EditOrderDateBm orderBm)
+        {
+            if (this.ModelState.IsValid)
+            {
+                this.service.EditDate(orderBm);
+                return this.RedirectToAction("Index");
+            }
+
+            return this.View(orderBm);
+        }
+
 
         [HttpGet, Route("AdminOrders/DesignIt/{id}")]
         public ActionResult DesignIt(int? id)
@@ -77,19 +120,6 @@
             }
 
             return this.View(this.GetDesignOrderVm(bm.Id));
-        }
-
-        [HttpPost, Route("AdminOrders/Edit/{id}")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(EditOrderBm orderBm)
-        {
-            if (this.ModelState.IsValid)
-            {
-                this.service.Edit(orderBm);
-                return this.RedirectToAction("Index");
-            }
-
-            return this.View(orderBm);
         }
 
 

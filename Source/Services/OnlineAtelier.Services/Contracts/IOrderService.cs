@@ -21,7 +21,11 @@
 
         EditOrderVm GetEditViewModel(int? id);
 
+        EditOrderDateVm GetEditDateViewModel(int? id);
+
         void Edit(EditOrderBm model);
+
+        void EditDate(EditOrderDateBm model);
 
         void Delete(int id);
 

@@ -121,7 +121,6 @@
 
             entity.ColorOfBox = model.ColorOfBox;
             entity.FinalPrice = model.FinalPrice;
-            entity.DateOfDecision = model.DateOfDecision;
             entity.IsАccepted = model.IsАccepted;
             entity.IsExecuted = model.IsExecuted;
             entity.ShippingAddress = model.ShippingAddress;
@@ -157,6 +156,22 @@
                 this.orders.SaveChanges();
 
             }//todo write message can not add figure or do change of other
+        }
+
+        public EditOrderDateVm GetEditDateViewModel(int? id)
+        {
+            var entity = this.orders.GetById((int)id);
+            var vModel = Mapper.Map<Order, EditOrderDateVm>(entity);
+            return vModel;
+        }
+
+        public void EditDate(EditOrderDateBm model)
+        {
+            var entity = this.orders.GetById(model.Id);
+            entity.DateOfDecision = model.DateOfDecision;
+
+            this.orders.Update(entity);
+            this.orders.SaveChanges();
         }
     }
 }

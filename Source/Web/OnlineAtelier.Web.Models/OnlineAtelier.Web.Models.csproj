@@ -94,6 +94,7 @@
     <Compile Include="BindingModels\Figures\FigureBm.cs" />
     <Compile Include="BindingModels\Order\DesignOrderBm.cs" />
     <Compile Include="BindingModels\Order\EditOrderBm.cs" />
+    <Compile Include="BindingModels\Order\EditOrderDateBm.cs" />
     <Compile Include="BindingModels\Posts\PostBm.cs" />
     <Compile Include="BindingModels\Users\EditUserBm.cs" />
     <Compile Include="BindingModels\Users\SearchUserBm.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="ViewModels\AdminArea\Posts\CreatePostsVm.cs" />
     <Compile Include="ViewModels\Figures\FigureVm.cs" />
     <Compile Include="ViewModels\Order\DesignOrderVm.cs" />
+    <Compile Include="ViewModels\Order\EditOrderDateVm.cs" />
     <Compile Include="ViewModels\Order\EditOrderVm.cs" />
     <Compile Include="ViewModels\Posts\GalleryPostVm.cs" />
     <Compile Include="ViewModels\Posts\PostVm.cs" />

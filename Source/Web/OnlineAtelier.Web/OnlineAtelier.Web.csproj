@@ -249,6 +249,7 @@
     <Content Include="Areas\Admin\Views\Figures\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Figures\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\DesignIt.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminOrders\EditDate.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\noImg.png" />
     <Content Include="Scripts\bootstrap.js" />
