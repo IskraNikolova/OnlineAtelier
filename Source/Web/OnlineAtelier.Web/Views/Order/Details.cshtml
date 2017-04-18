@@ -30,12 +30,22 @@
             @Html.DisplayNameFor(m => m.TextOfCookies): @Html.DisplayFor(m => m.TextOfCookies)
         </li>
         <li class="list-group-item">
-            @Html.DisplayNameFor(m => m.FiguresNames)
-            @foreach (var figure in Model.FiguresNames)
-            {
-                <p>@figure</p>
-                <br/>
-            }
+            <div class="panel panel-default">
+                <div class="panel-heading">@Html.DisplayNameFor(m => m.ContentOfOrder)</div>
+                <table class="table">
+                    <tr>
+                        <th>Форма</th>
+                        <th>Брой от форма</th>
+                    </tr>
+                    @foreach (var cookie in Model.ContentOfOrder)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(m => cookie.Key)</td>
+                            <td>@Html.DisplayFor(m => cookie.Value)</td>                    
+                        </tr>
+                    }
+                </table>
+            </div>
         </li>
         <li class="list-group-item">
             <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>

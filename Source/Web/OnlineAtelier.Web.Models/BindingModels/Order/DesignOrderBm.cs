@@ -1,5 +1,6 @@
 ﻿namespace OnlineAtelier.Web.Models.BindingModels.Order
 {
+    using System.Collections.Generic;
     using Infrastructure.Mapping;
     using OnlineAtelier.Models.Models;
 
@@ -7,6 +8,6 @@
     {
         public int Id { get; set; }
 
-        public string FigureName { get; set; }
+        public string FiguresName { get; set; }
     }
 }

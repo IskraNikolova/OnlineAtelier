@@ -21,7 +21,7 @@
 
            // AddCategories(context);
            // AddPosts(context);
-            //AddAppearances(context);
+           // AddAppearances(context);
         }
 
         private static void AddRoles(ApplicationDbContext context)
@@ -93,37 +93,50 @@
                 new Appearance()
                 {
                     Name = "Кутия от 3бр.",
-                    Price = 17
+                    Price = 17,
+                    CookiesCount = 3,
+                    IsBoxOfNormalSize = true
                 },
                 new Appearance()
                 {
                     Name = "Кутия от 4бр.",
-                    Price = 20
+                    Price = 20,
+                    CookiesCount = 4,
+                    IsBoxOfNormalSize = true
                 },
                 new Appearance()
                 {
                     Name = "Кутия от 6бр.",
-                    Price = 25
+                    Price = 25,
+                    CookiesCount = 6
                 },
                 new Appearance()
                 {
                     Name = "Кутия от 9бр.",
-                    Price = 30
+                    Price = 30,
+                    CookiesCount = 9,
+                    IsBoxOfNormalSize = true
                 },
                 new Appearance()
                 {
                     Name = "Кутия от 12бр.",
-                    Price = 35
+                    Price = 35,
+                    CookiesCount = 12,
+                    IsBoxOfNormalSize = true
                 },
                 new Appearance()
                 {
                     Name = "Кутия от 16бр.",
-                    Price = 45
+                    Price = 45,
+                    CookiesCount = 16,
+                    IsBoxOfNormalSize = true
                 },
                 new Appearance()
                 {
                     Name = "Кутия от 20бр.",
-                    Price = 55
+                    Price = 55,
+                    CookiesCount = 20,
+                    IsBoxOfNormalSize = true
                 }
             });
         }

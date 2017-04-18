@@ -80,13 +80,19 @@
                 .All()
                 .FirstOrDefault(o => o.Id == id);
 
-            if (order == null)
-            {
-                return null;
-            }
-
             var model = Mapper.Map<Order, DetailsOrderVm>(order);
             model.FiguresNames = order.Figures.Select(f => f.Name).ToList();
+
+            foreach (var figure in order.Figures)
+            {
+                if (!model.ContentOfOrder.ContainsKey(figure.Name))
+                {
+                    model.ContentOfOrder[figure.Name] = 0;
+                }
+
+                model.ContentOfOrder[figure.Name]++;
+            }
+           
             model.CategoryName = order.Category.Name;
 
             return model;
@@ -104,6 +110,7 @@
             var entity = this.orders.GetById((int)id);
 
             var vModel = Mapper.Map<Order, DesignOrderVm>(entity);
+            vModel.Fn = entity.Figures.Select(f => f.Name);
          
             return vModel;
         }
@@ -140,7 +147,7 @@
 
             order.Figures.Add(new Figure()
             {
-                Name = bm.FigureName
+                Name = bm.FiguresName
             });
 
             this.orders.Update(order);

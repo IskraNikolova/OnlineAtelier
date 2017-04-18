@@ -8,6 +8,10 @@
 
     public class DetailsOrderVm : IMapFrom<Order>
     {
+        public DetailsOrderVm()
+        {
+            this.ContentOfOrder = new Dictionary<string, int>();
+        }
         [DisplayName("Детайли")]
         public string Details { get; set; }
 
@@ -31,5 +35,8 @@
 
         [DisplayName("Модели")]
         public ICollection<string> FiguresNames { get; set; }
+
+        [DisplayName("Съдържание на поръчката")]
+        public IDictionary<string, int> ContentOfOrder { get; set; }
     }
 }

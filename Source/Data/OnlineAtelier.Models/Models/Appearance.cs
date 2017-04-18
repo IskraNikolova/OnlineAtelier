@@ -11,6 +11,10 @@
 
         public decimal Price { get; set; }
 
+        public int CookiesCount { get; set; }
+
+        public bool IsBoxOfNormalSize { get; set; }
+
         public DateTime CreatedOn { get; set; }
 
         public bool PreserveCreatedOn { get; set; }
