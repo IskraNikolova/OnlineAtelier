@@ -110,7 +110,7 @@
             var entity = this.orders.GetById((int)id);
 
             var vModel = Mapper.Map<Order, DesignOrderVm>(entity);
-            vModel.Fn = entity.Figures.Select(f => f.Name);
+            vModel.AllForms = entity.Figures.Select(f => f.Name);
          
             return vModel;
         }
@@ -145,13 +145,18 @@
                 .All()
                 .FirstOrDefault(o => o.Id == bm.Id);
 
-            order.Figures.Add(new Figure()
+            if (order.Appearance.CookiesCount > order.Figures.Count)
             {
-                Name = bm.FiguresName
-            });
+                order.Figures.Add(new Figure()
+                {
+                    Name = bm.FiguresName
+                });
 
-            this.orders.Update(order);
-            this.orders.SaveChanges();
+
+                this.orders.Update(order);
+                this.orders.SaveChanges();
+
+            }//todo write message can not add figure or do change of other
         }
     }
 }

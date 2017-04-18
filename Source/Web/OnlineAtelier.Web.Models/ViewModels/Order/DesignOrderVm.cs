@@ -9,8 +9,9 @@
     {
         public DesignOrderVm()
         {
-            this.Fn = new List<string>();
+            this.AllForms = new List<string>();
         }
+
         public int Id { get; set; }
 
         public string FiguresName { get; set; }
@@ -23,6 +24,6 @@
 
         public IEnumerable<SelectListItem> FiguresSelectList { get; set; }
 
-        public IEnumerable<string> Fn { get; set; }
+        public IEnumerable<string> AllForms { get; set; }
     }
 }
