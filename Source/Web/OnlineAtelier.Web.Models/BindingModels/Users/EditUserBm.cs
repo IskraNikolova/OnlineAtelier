@@ -8,7 +8,7 @@
     {
         public string Id { get; set; }
 
-        [Display(Name = "UserPhoto")]
+        [Display(Name = "Избери файл")]
         public byte[] UserPhoto { get; set; }
     }
 }

@@ -18,7 +18,8 @@
             this.userService = userService;
         }
 
-        [HttpGet, Route("ProfilePage")]
+        [HttpGet]
+        [Route("ProfilePage")]
         public ActionResult ProfilePage(string id)
         {
             var userId = id ?? this.User.Identity.GetUserId();
@@ -40,7 +41,7 @@
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Exclude = "UserPhoto")]EditUserBm bind)
         {
-            if (this.ModelState.IsValid)//todo check is email is uniq and create editPicture
+            if (this.ModelState.IsValid)
             {
                 byte[] imageData = null;
                 if (this.Request.Files.Count > 0)
