@@ -5,34 +5,37 @@
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Моля, попълнете валиден мейл адрес.")]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "Имейл")]
         public string Email { get; set; }
 
 
-        [Display(Name = "UserPhoto")]
+        [Display(Name = "Снимка на профила")]
+        [DataType(DataType.Upload)]
         public byte[] UserPhoto { get; set; }
 
-        [Required]
-        [Display(Name = "First Name")]
+        [Required(ErrorMessage = "Моля, попълнете Вашето име.")]
+        [StringLength(20, ErrorMessage = "{0}то трябва да е поне {2} символа.", MinimumLength = 2)]
+        [Display(Name = "Име")]
         public string FirstName { get; set; }
 
-        [Required]
-        [Display(Name = "Last Name")]
+        [Required(ErrorMessage = "Моля, попълнете Вашата фамилия.")]
+        [StringLength(20, ErrorMessage = "{0}та трябва да е поне {2} символа.", MinimumLength = 2)]
+        [Display(Name = "Фамилия")]
         public string LastName { get; set; }
-
+        
         public AddPhoneNumberViewModel PhoneNumber { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 1)]
+        [Required(ErrorMessage = "Полето за парола е задължително.")]
+        [StringLength(100, ErrorMessage = "{0}та трябва да съдържа най-малко {2} символа.", MinimumLength = 1)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Парола")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Повтори парола")]
+        [Compare("Password", ErrorMessage = "Няма съвпадение на символите.")]
         public string ConfirmPassword { get; set; }
     }
 }

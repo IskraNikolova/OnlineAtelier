@@ -193,6 +193,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminOrdersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminAppearanceController.cs" />
     <Compile Include="Areas\Admin\Controllers\FiguresController.cs" />
     <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
     <Compile Include="Config\BundleConfig.cs" />
@@ -201,6 +202,7 @@
     <Compile Include="Config\RouteConfig.cs" />
     <Compile Include="Config\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppearanceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageLoadController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -250,6 +252,10 @@
     <Content Include="Areas\Admin\Views\Figures\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\DesignIt.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\EditDate.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAppearance\Create.cshtml" />
+    <Content Include="Views\Appearance\PriceLIst.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAppearance\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminAppearance\Edit.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\noImg.png" />
     <Content Include="Scripts\bootstrap.js" />

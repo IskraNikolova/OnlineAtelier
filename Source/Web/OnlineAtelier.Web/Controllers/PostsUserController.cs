@@ -24,7 +24,8 @@
             return this.PartialView("_AllIndexPostsPartial", model);
         }
 
-        [HttpGet, Route("Details/{id}")]
+        [HttpGet]
+        [Route("Details/{id}")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -41,7 +42,8 @@
             return this.View(post);
         }
 
-        [HttpGet, Route("PostGallery")]
+        [HttpGet]
+        [Route("PostGallery")]
         public ActionResult PostGallery()
         {
             var allByCategory = this.service.GroupByCategory();

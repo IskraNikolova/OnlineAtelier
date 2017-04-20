@@ -4,12 +4,10 @@
     using Web.Models.BindingModels.Comments;
     using Web.Models.ViewModels.Comments;
 
-    public interface ICommentService : IService
+    public interface ICommentService : IDeletable
     {
         void AddCommentToOrder(OrderCommentBindingModel model, int orderId, string userId);
 
         IEnumerable<OrderCommentViewModel> GetComments(int id);
-
-        void Delete(int id);
     }
 }

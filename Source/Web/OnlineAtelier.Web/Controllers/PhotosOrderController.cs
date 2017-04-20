@@ -27,18 +27,23 @@
         [ValidateAntiForgeryToken]
         public ActionResult AddPicture([Bind(Exclude = "UserPictures")]AddPictureBindingModel model, int id)
         {
-            byte[] imageData = null;
-            if (this.Request.Files.Count > 0)
+            if (this.ModelState.IsValid)
             {
-                HttpPostedFileBase httpPostedFileBase = this.Request.Files["UserPictures"];
-
-                using (var binary = new BinaryReader(httpPostedFileBase.InputStream))
+                byte[] imageData = null;
+                if (this.Request.Files.Count > 0)
                 {
-                    imageData = binary.ReadBytes(httpPostedFileBase.ContentLength);
-                }
-            }
+                    HttpPostedFileBase httpPostedFileBase = this.Request.Files["UserPictures"];
 
-            this.service.AddPictureToOrder(imageData, id);
+                    using (var binary = new BinaryReader(httpPostedFileBase.InputStream))
+                    {
+                        imageData = binary.ReadBytes(httpPostedFileBase.ContentLength);
+                    }
+                }
+
+                this.service.AddPictureToOrder(imageData, id);
+
+                return this.RedirectToAction("ProfilePage", "Users");
+            }
 
             return this.RedirectToAction("ProfilePage", "Users");
         }
@@ -47,15 +52,12 @@
         public FileContentResult TakePhoto(int id, int orderId)
         {
             var photo = this.service.TakePhotoFromOrder(id, orderId);
-            if (id == null || photo == null || photo.Length == 0)
-            {
-                return null;//todo
-            }
 
             return new FileContentResult(photo, "image/jpeg");
         }
 
-        [HttpGet, Route("TakePhoto/{id}")]
+        [HttpGet]
+        [Route("TakePhoto/{id}")]
         public FileContentResult TakePhotoDetails(int id)
         {
             var photo = this.service.TakePhoto(id);

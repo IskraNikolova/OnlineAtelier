@@ -40,7 +40,6 @@
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Exclude = "UserPhoto")]EditUserBm bind)
         {
-
             if (this.ModelState.IsValid)//todo check is email is uniq and create editPicture
             {
                 byte[] imageData = null;
@@ -67,7 +66,7 @@
         {
             if (this.User.Identity.IsAuthenticated)
             {
-                string userId = id;//this.User.Identity.GetUserId();
+                string userId = id;
                 var user = this.userService.GetUser(userId);
 
                 if (userId == null || user.UserPhoto == null || user.UserPhoto.Length == 0)

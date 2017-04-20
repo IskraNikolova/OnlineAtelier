@@ -1,0 +1,40 @@
+﻿@model ICollection<OnlineAtelier.Web.Models.ViewModels.AdminArea.Appearance.AppearanceAllVm>
+@{
+    ViewBag.Title = "PriceLIst";
+}
+
+<div class="thumbnail">
+    <h2>Ценоразпис</h2>
+    
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>Продукт</th>
+            <th>Цена</th>
+        </tr>
+        @foreach (var appearanceAllVm in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => appearanceAllVm.Id).</td>
+                <td>@Html.DisplayFor(m => appearanceAllVm.Name)</td>
+                <td>@Html.DisplayFor(m => appearanceAllVm.Price) лв.</td>
+                @if (this.User.IsInRole("Admin"))
+                {
+                    <td>                       
+                        <a href='@Url.Action("Delete", "AdminAppearance", new {area="Admin", id = appearanceAllVm.Id })'>Изтрий</a>
+                    </td>
+                    <td>
+                        <a href='@Url.Action("Edit", "AdminAppearance", new {area="Admin", id = appearanceAllVm.Id})'>Редактирай</a>
+                    </td>
+                }           
+            </tr>
+        }
+
+    </table>
+    @if (this.User.IsInRole("Admin"))
+    {
+        <div>           
+            <a href='@Url.Action("Create", "AdminAppearance", new {area="Admin"})'>Добави нов продукт към ценоразписа</a>
+        </div>
+    }
+</div>

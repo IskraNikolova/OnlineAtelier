@@ -6,7 +6,6 @@
     {
         public int Id { get; set; }
 
-        [Display(Name = "UserPictures")]
         [Required]
         public byte[] UserPictures { get; set; }
     }

@@ -5,7 +5,7 @@
     using Web.Models.BindingModels.Order;
     using Web.Models.ViewModels.Order;
 
-    public interface IOrderService
+    public interface IOrderService : IDeletable
     {
         void AddOrder(OrderBindingModel model, string authorId, Appearance appearance,
             Category category);
@@ -26,8 +26,6 @@
         void Edit(EditOrderBm model);
 
         void EditDate(EditOrderDateBm model);
-
-        void Delete(int id);
 
         void AddFigures(DesignOrderBm bm);
 

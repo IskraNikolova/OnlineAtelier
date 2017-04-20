@@ -28,7 +28,8 @@
             return this.View(models);
         }
 
-        [HttpGet, Route("AdminOrders/Edit/{id}")]
+        [HttpGet]
+        [Route("AdminOrders/Edit/{id}")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -58,7 +59,8 @@
             return this.View(orderBm);
         }
 
-        [HttpGet, Route("AdminOrders/EditDate/{id}")]
+        [HttpGet]
+        [Route("AdminOrders/EditDate/{id}")]
         public ActionResult EditDate(int? id)
         {
             if (id == null)
@@ -75,7 +77,8 @@
             return this.View(order);
         }
 
-        [HttpPost, Route("AdminOrders/EditDate/{id}")]
+        [HttpPost]
+        [Route("AdminOrders/EditDate/{id}")]
         [ValidateAntiForgeryToken]
         public ActionResult EditDate(EditOrderDateBm orderBm)
         {
@@ -89,7 +92,8 @@
         }
 
 
-        [HttpGet, Route("AdminOrders/DesignIt/{id}")]
+        [HttpGet]
+        [Route("AdminOrders/DesignIt/{id}")]
         public ActionResult DesignIt(int? id)
         {
             if (id == null)
@@ -102,15 +106,9 @@
             return this.View(model);
         }
 
-        private DesignOrderVm GetDesignOrderVm(int? id)
-        {
-            var model = this.service.GetDesignOrderVm((int) id);
-
-            model.FiguresSelectList = GetListItem.GetSelectListItems(this.figureService.GetAllFigures());
-            return model;
-        }
-
-        [HttpPost, Route("AdminOrders/DesignIt/{id}")]
+        [HttpPost]
+        [Route("AdminOrders/DesignIt/{id}")]
+        [ValidateAntiForgeryToken]
         public ActionResult DesignIt(DesignOrderBm bm)
         {
             if (this.ModelState.IsValid)
@@ -123,18 +121,29 @@
         }
 
 
-        [HttpGet, Route("AdminOrders/Delete")]
+        [HttpGet]
+        [Route("AdminOrders/Delete")]
         public ActionResult Delete()
         {
             return this.View();
         }
 
-        [HttpPost, ActionName("Delete"), Route("AdminOrders/Delete")]
+        [HttpPost]
+        [ActionName("Delete"), Route("AdminOrders/Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             this.service.Delete(id);
             return this.RedirectToAction("Index");
         }
+
+        private DesignOrderVm GetDesignOrderVm(int? id)
+        {
+            var model = this.service.GetDesignOrderVm((int)id);
+
+            model.FiguresSelectList = GetListItem.GetSelectListItems(this.figureService.GetAllFigures());
+            return model;
+        }
+
     }
 }

@@ -3,11 +3,9 @@
     using System.Collections.Generic;
     using Web.Models.BindingModels.Figures;
 
-    public interface IFigureService
+    public interface IFigureService : IDeletable
     {
         void AddFigure(FigureBm model);
-
-        void Delete(int id);
 
         IEnumerable<string> GetAllFigures();
     }

@@ -4,7 +4,7 @@
     using OnlineAtelier.Models.Models;
     using Web.Models.ViewModels.UsersPicture;
 
-    public interface IPhotosOrderService : IService
+    public interface IPhotosOrderService : IDeletable
     {
         void AddPictureToOrder(byte[] content, int id);
 
@@ -15,7 +15,5 @@
         byte[] TakePhoto(int userPictureId);
 
         PhotosOrder GetEntity(int? id);
-
-        void Delete(int id);
     }
 }

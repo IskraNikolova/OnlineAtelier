@@ -4,8 +4,8 @@
 
     public class ExternalLoginConfirmationViewModel
     {
-        [Required]
-        [Display(Name = "Email")]
+        [Required(ErrorMessage = "Моля, попълнете валиден мейл адрес.")]
+        [Display(Name = "Имейл")]
         public string Email { get; set; }
     }
 }

@@ -42,6 +42,7 @@
             var user = this.users
                 .All()
                 .FirstOrDefault(u => u.Id == userId);
+
             var editVm = Mapper.Map<ApplicationUser, EditUserVm>(user);
 
             return editVm;
@@ -49,17 +50,14 @@
 
         public void Edit(EditUserBm bind, byte[] imageBytes)
         {
-            var entity = this.users.All().FirstOrDefault(u => u.Id == bind.Id);
+            var entity = this.users
+                .All()
+                .FirstOrDefault(u => u.Id == bind.Id);
 
             if (imageBytes != null)
             {
                 entity.UserPhoto = imageBytes;
             }
-
-
-            entity.PhoneNumber = bind.PhoneNumber;
-            entity.Email = bind.Email;
-            entity.UserName = bind.Email;
 
             this.users.Update(entity);
             this.users.SaveChanges();

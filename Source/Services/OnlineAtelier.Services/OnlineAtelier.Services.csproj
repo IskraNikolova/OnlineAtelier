@@ -133,6 +133,7 @@
   <ItemGroup>
     <Compile Include="Contracts\IAppearanceService.cs" />
     <Compile Include="Contracts\ICategoryService.cs" />
+    <Compile Include="Contracts\IDeletable.cs" />
     <Compile Include="Contracts\IFigureService.cs" />
     <Compile Include="Contracts\IPostService.cs" />
     <Compile Include="Models\AppearancesService.cs" />

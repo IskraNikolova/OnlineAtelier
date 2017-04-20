@@ -60,8 +60,8 @@
             return this.PartialView("_GetOrdersPartial", model);
         }
 
-        [Authorize]
         [HttpGet]
+        [Authorize]
         [Route("Details/{id}")]
         public ActionResult Details(int id)
         {
@@ -79,7 +79,7 @@
             var model = new AddOrderVm
             {
                 Categories = GetListItem.GetSelectListItems(this.categoryService.GetAllCategories()),
-                Appearances = GetListItem.GetSelectListItems(this.appearanceService.GetAllAppearances())
+                Appearances = GetListItem.GetSelectListItems(this.appearanceService.GetAllNameOfAppearances())
             };
 
             return model;

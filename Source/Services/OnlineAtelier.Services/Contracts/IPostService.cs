@@ -7,7 +7,7 @@
     using Web.Models.ViewModels.Posts;
 
 
-    public interface IPostService : IService
+    public interface IPostService : IDeletable
     {
         void AddPublication(PostBm post, Category category);
 
@@ -16,8 +16,6 @@
         void Edit(PostBm model);
 
         DetailsPostsVModel GetDetailsPostVModel(int id);
-
-        void Delete(int id);
 
         IEnumerable<IndexPostsVm> All();
 

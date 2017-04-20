@@ -4,9 +4,9 @@
 
     public class AddPhoneNumberViewModel
     {
-        [Required]
-        [Phone]
-        [Display(Name = "Phone Number")]
+        [Required(ErrorMessage = "Моля, попълнете телефон за връзка.")]
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Телефон")]
         public string Number { get; set; }
     }
 }

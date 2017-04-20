@@ -6,7 +6,8 @@
 
     public class AddPictureViewModel : IMapFrom<PhotosOrder>
     {
-        [Required]
+        [Required(ErrorMessage = "Избери снимка.")]
+        [DataType(DataType.Upload)]
         public byte[] UserPictures { get; set; }
     }
 }

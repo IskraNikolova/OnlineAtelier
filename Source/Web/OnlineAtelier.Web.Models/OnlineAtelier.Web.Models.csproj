@@ -90,6 +90,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindingModels\Appearance\AppearanceCreateBm.cs" />
+    <Compile Include="BindingModels\Appearance\AppearanceEditBm.cs" />
     <Compile Include="BindingModels\Comments\OrderCommentBindingModel.cs" />
     <Compile Include="BindingModels\Figures\FigureBm.cs" />
     <Compile Include="BindingModels\Order\DesignOrderBm.cs" />
@@ -103,6 +105,9 @@
     <Compile Include="ViewModels\Acount\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModels\Acount\ForgotViewModel.cs" />
     <Compile Include="ViewModels\Acount\LoginViewModel.cs" />
+    <Compile Include="ViewModels\AdminArea\Appearance\AppearanceAllVm.cs" />
+    <Compile Include="ViewModels\AdminArea\Appearance\AppearanceCreateVm.cs" />
+    <Compile Include="ViewModels\AdminArea\Appearance\AppearanceEditVm.cs" />
     <Compile Include="ViewModels\AdminArea\Posts\CreatePostsVm.cs" />
     <Compile Include="ViewModels\Figures\FigureVm.cs" />
     <Compile Include="ViewModels\Order\DesignOrderVm.cs" />

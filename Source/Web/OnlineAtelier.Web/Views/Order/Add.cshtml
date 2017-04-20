@@ -7,7 +7,6 @@
 @using (Html.BeginForm("Add", "Order", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary("", new { @class = "text-danger" })
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -15,7 +14,8 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.CategoryName, new { @class = "col-md-2 control-label" })
                 <div class="col-md-6">
-                    @Html.DropDownListFor(m => m.CategoryName, Model.Categories, "- Избери категория -", new { @class = "form-control" })*
+                    @Html.DropDownListFor(m => m.CategoryName, Model.Categories, "- Избери категория -", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m=>m.CategoryName, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -23,7 +23,8 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.AppearanceName, new { @class = "col-md-2 control-label" })
                 <div class="col-md-6">
-                    @Html.DropDownListFor(m => m.AppearanceName, Model.Appearances, "- Избери вид на поръчката -", new { @class = "form-control" })*
+                    @Html.DropDownListFor(m => m.AppearanceName, Model.Appearances, "- Избери вид на поръчката -", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.AppearanceName, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -37,7 +38,8 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.DateOfDecision, new { @class = "col-md-2 control-label" })
                 <div class="col-md-6">
-                    @Html.EditorFor(m => m.DateOfDecision, null, new { htmlAttributes = new { @class = "form-control", type = "date" } })*
+                    @Html.EditorFor(m => m.DateOfDecision, null, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                    @Html.ValidationMessageFor(m => m.DateOfDecision, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -78,4 +80,7 @@
 
         </div>
     </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }

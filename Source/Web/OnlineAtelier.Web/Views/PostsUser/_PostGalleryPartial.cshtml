@@ -8,10 +8,11 @@
 <div class="row">
     @foreach (var post in Model)
     {
-        <div class="col-xs-6 col-md-3">
-            <a href='' class="thumbnail">
+        <div class="col-xs-6 col-md-3 thumbnail">
+            <a href=''>
                 <img src=@post.Image.Url />
             </a>
+            <a  href='' >Добави към твоята поръчка</a>
         </div>
     }
 </div>

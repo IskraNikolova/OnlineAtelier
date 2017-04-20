@@ -9,7 +9,7 @@
             <img class="userPhoto" src="@Url.Action("UserPhotos", "Users", new {id = Model.Id})" />
             <h3>@Html.DisplayFor(m => m.FullName)</h3>
             <div>
-                @Html.ActionLink("Редактирай профила", "Edit")
+                @Html.ActionLink("Качване на нова снимка", "Edit")
             </div>
             <div>
                 @Html.ActionLink("Направи Поръчка", "Add", "Order", null, new {@class = "btn btn-primary"})
