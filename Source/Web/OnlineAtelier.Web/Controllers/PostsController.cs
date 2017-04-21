@@ -6,12 +6,12 @@
     using Models.ViewModels.Posts;
     using Services.Contracts;
 
-    [RoutePrefix("PostsUser")]
-    public class PostsUserController : Controller
+    [RoutePrefix("Posts")]
+    public class PostsController : Controller
     {
         private readonly IPostService service;
 
-        public PostsUserController(IPostService service)
+        public PostsController(IPostService service)
         {
             this.service = service;
         }

@@ -35,12 +35,12 @@
                             <p>
                                 <img src="http://cliparts.co/cliparts/6Ty/Xn6/6TyXn6kTn.png" style="width: 20px " />
                                 <strong>With love: Eli</strong> добави нова снимка към албума:
-                                <a href='@Url.Action("Load", "PostsUser", new {area = "", id = post.Category.Id})'>@Html.DisplayFor(p => post.Category.Name)</a>
+                                <a href='@Url.Action("Load", "Posts", new {area = "", id = post.Category.Id})'>@Html.DisplayFor(p => post.Category.Name)</a>
                             </p>
                             <h6> @Html.DisplayFor(m => post.Title)</h6>
                             <p> @Html.DisplayFor(m => post.Content)</p>
                         </div>
-                        <a class="thumbnail" href='@Url.Action("Edit", "Posts", new {id = post.Id})'>
+                        <a class="thumbnail" href='@Url.Action("Edit", "AdminPosts", new {area = "Admin",id = post.Id})'>
                             <img src="@post.Image.Url" />
                         </a>
                         <br />

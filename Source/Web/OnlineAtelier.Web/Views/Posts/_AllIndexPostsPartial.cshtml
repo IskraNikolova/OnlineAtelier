@@ -16,7 +16,7 @@
                 <h6> @Html.DisplayFor(m => post.Title)</h6>
                 <p> @Html.DisplayFor(m => post.Content)</p>
             </div>
-            <a class="thumbnail" href='@Url.Action("Details", "PostsUser", new {id = post.Id})'>
+            <a class="thumbnail" href='@Url.Action("Details", "Posts", new {id = post.Id})'>
                 <img src="@post.Image.Url" />
             </a>
             <br />

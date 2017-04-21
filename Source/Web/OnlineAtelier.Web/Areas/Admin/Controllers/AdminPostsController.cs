@@ -9,33 +9,33 @@
 
     [Authorize(Roles = "Admin")]
     [RouteArea("Admin")]
-    public class PostsController : Controller
+    public class AdminPostsController : Controller
     {
         private readonly IPostService service;
         private readonly ICategoryService categoryService;
 
-        public PostsController(IPostService service,
+        public AdminPostsController(IPostService service,
             ICategoryService categoryService)
         {
             this.service = service;
             this.categoryService = categoryService;
         }
 
-        [HttpGet, Route("Posts/Index")]
+        [HttpGet, Route("AdminPosts/Index")]
         public ActionResult Index()
         {
             var posts = this.service.All();
             return this.View(posts);
         }
 
-        [HttpGet, Route("Posts/Create")]
+        [HttpGet, Route("AdminPosts/Create")]
         public ActionResult Create()
         {
             var model = this.GetCreatePublicationVm();
             return this.View(model);
         }
 
-        [HttpPost, Route("Posts/Create")]
+        [HttpPost, Route("AdminPosts/Create")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PostBm post)
         {
@@ -49,7 +49,7 @@
             return this.View(this.GetCreatePublicationVm());
         }
 
-        [HttpGet, Route("Posts/Edit/{id}")]
+        [HttpGet, Route("AdminPosts/Edit/{id}")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -66,7 +66,7 @@
             return this.View(publication);
         }
 
-        [HttpPost, Route("Posts/Edit/{id}")]
+        [HttpPost, Route("AdminPosts/Edit/{id}")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(PostBm post)
         {
@@ -79,13 +79,13 @@
             return this.View(post);
         }
 
-        [HttpGet, Route("Posts/Delete")]
+        [HttpGet, Route("AdminPosts/Delete")]
         public ActionResult Delete()
         {
             return this.View();
         }
 
-        [HttpPost, ActionName("Delete"), Route("Posts/Delete")]
+        [HttpPost, ActionName("Delete"), Route("AdminPosts/Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
