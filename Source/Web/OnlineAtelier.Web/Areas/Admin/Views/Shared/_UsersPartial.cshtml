@@ -1,0 +1,18 @@
+﻿@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.Users.DisplayAllUsersVm>
+@{
+    ViewBag.Title = "_UsersPartial";
+}
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.FirstName)</th>
+        <th>@Html.DisplayNameFor(m => m.LastName)</th>
+    </tr>
+    @foreach (var user in Model)
+            {
+        <tr>
+            <td>@Html.DisplayFor(m => user.FirstName)</td>
+            <td>@Html.DisplayFor(m => user.LastName)</td>
+        </tr>
+    }
+</table>

@@ -1,10 +1,12 @@
 ﻿namespace OnlineAtelier.Web.Areas.Admin.Controllers
 {
+    using System.Collections.Generic;
     using System.Net;
     using System.Web.Mvc;
     using Logic;
     using Models.BindingModels.Posts;
     using Models.ViewModels.AdminArea.Posts;
+    using OnlineAtelier.Models.Models;
     using Services.Contracts;
 
     [Authorize(Roles = "Admin")]
@@ -13,29 +15,35 @@
     {
         private readonly IPostService service;
         private readonly ICategoryService categoryService;
+        private readonly IUserService userService;
 
         public AdminPostsController(IPostService service,
-            ICategoryService categoryService)
+            ICategoryService categoryService,
+            IUserService userServise)
         {
             this.service = service;
             this.categoryService = categoryService;
+            this.userService = userServise;
         }
 
-        [HttpGet, Route("AdminPosts/Index")]
+        [HttpGet]
+        [Route("AdminPosts/Index")]
         public ActionResult Index()
         {
             var posts = this.service.All();
             return this.View(posts);
         }
 
-        [HttpGet, Route("AdminPosts/Create")]
+        [HttpGet]
+        [Route("AdminPosts/Create")]
         public ActionResult Create()
         {
             var model = this.GetCreatePublicationVm();
             return this.View(model);
         }
 
-        [HttpPost, Route("AdminPosts/Create")]
+        [HttpPost]
+        [Route("AdminPosts/Create")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PostBm post)
         {
@@ -49,7 +57,8 @@
             return this.View(this.GetCreatePublicationVm());
         }
 
-        [HttpGet, Route("AdminPosts/Edit/{id}")]
+        [HttpGet]
+        [Route("AdminPosts/Edit/{id}")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -66,7 +75,8 @@
             return this.View(publication);
         }
 
-        [HttpPost, Route("AdminPosts/Edit/{id}")]
+        [HttpPost]
+        [Route("AdminPosts/Edit/{id}")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(PostBm post)
         {
@@ -79,13 +89,15 @@
             return this.View(post);
         }
 
-        [HttpGet, Route("AdminPosts/Delete")]
+        [HttpGet]
+        [Route("AdminPosts/Delete")]
         public ActionResult Delete()
         {
             return this.View();
         }
 
-        [HttpPost, ActionName("Delete"), Route("AdminPosts/Delete")]
+        [HttpPost, ActionName("Delete")]
+        [Route("AdminPosts/Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

@@ -15,8 +15,8 @@
             this.service = service;
         }
 
-        [HttpPost, Route("Search/Search")]
-        [ValidateAntiForgeryToken]
+        [HttpPost]
+        [Route("Search/Search")]
         public ActionResult Search(SearchUserBm bm)
         {
             var userId = this.service.GetSearchUserId(bm);

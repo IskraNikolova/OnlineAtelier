@@ -1,5 +1,6 @@
 ﻿namespace OnlineAtelier.Services.Contracts
 {
+    using System.Collections.Generic;
     using OnlineAtelier.Models.Models;
     using Web.Models.BindingModels.Users;
     using Web.Models.ViewModels.Users;
@@ -15,5 +16,9 @@
         void Edit(EditUserBm bind, byte[] imageBytes);
 
         string GetSearchUserId(SearchUserBm bm);
+
+        IEnumerable<DisplayAllUsersVm> GetSearchUsers(string query);
+
+        IEnumerable<DisplayAllUsersVm> GetAllUsers();
     }
 }

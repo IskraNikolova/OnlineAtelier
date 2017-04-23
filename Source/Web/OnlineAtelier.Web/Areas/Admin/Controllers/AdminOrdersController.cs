@@ -28,6 +28,14 @@
             return this.View(models);
         }
 
+
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult GetNewOrders()
+        {
+            return this.PartialView("_GetAllNewOrdersPartial");
+        }
+
         [HttpGet]
         [Route("AdminOrders/Edit/{id}")]
         public ActionResult Edit(int? id)

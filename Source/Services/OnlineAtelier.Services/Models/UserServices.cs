@@ -1,7 +1,9 @@
 ﻿namespace OnlineAtelier.Services.Models
 {
+    using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using Contracts;
     using Data.Common.Repository;
     using OnlineAtelier.Models.Models;
@@ -70,6 +72,19 @@
                 .FirstOrDefault(u => (u.FirstName + " " + u.LastName).ToLower() == bm.FirstName.ToLower().Trim());
 
             return user?.Id;
+        }
+
+        public IEnumerable<DisplayAllUsersVm> GetSearchUsers(string query)
+        {
+            var models =  this.users.All().Where(m => (m.FirstName + " " + m.LastName).Contains(query)).Project().To<DisplayAllUsersVm>().ToList();
+
+            return models;
+        }
+
+        public IEnumerable<DisplayAllUsersVm> GetAllUsers()
+        {
+            var usersVm = this.users.All().Project().To<DisplayAllUsersVm>();
+            return usersVm;
         }
     }
 }

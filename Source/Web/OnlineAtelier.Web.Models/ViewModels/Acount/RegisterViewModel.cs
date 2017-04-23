@@ -11,9 +11,9 @@
         public string Email { get; set; }
 
 
-        [Display(Name = "Снимка на профила")]
-        [DataType(DataType.Upload)]
-        public byte[] UserPhoto { get; set; }
+        //[Display(Name = "Снимка на профила")]
+        //[DataType(DataType.Upload)]
+        //public byte[] UserPhoto { get; set; }
 
         [Required(ErrorMessage = "Моля, попълнете Вашето име.")]
         [StringLength(20, ErrorMessage = "{0}то трябва да е поне {2} символа.", MinimumLength = 2)]

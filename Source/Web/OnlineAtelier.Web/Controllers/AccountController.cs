@@ -148,23 +148,10 @@
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register([Bind(Exclude = "UserPhoto")]RegisterViewModel model)
+        public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (this.ModelState.IsValid)
             {
-                // To convert the user uploaded Photo as Byte Array before save to DB 
-                //byte[] imageData = null;
-                //if (this.Request.Files.Count > 0)
-                //{
-                //    HttpPostedFileBase httpPostedFileBase = this.Request.Files["UserPhoto"];
-
-                //    using (var binary = new BinaryReader(httpPostedFileBase.InputStream))
-                //    {
-                //        imageData = binary.ReadBytes(httpPostedFileBase.ContentLength);
-                //    }
-                //}
-
-
                 var user = new ApplicationUser
                 {
                     UserName = model.Email,
@@ -173,9 +160,6 @@
                     LastName = model.LastName,
                     PhoneNumber = model.PhoneNumber.Number
                 };
-
-                //Here we pass the byte array to user context to store in db 
-               // user.UserPhoto = imageData;
 
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 

@@ -117,6 +117,7 @@
     <Compile Include="ViewModels\Posts\PostVm.cs" />
     <Compile Include="ViewModels\Posts\DetailsPostsVModel.cs" />
     <Compile Include="ViewModels\Posts\IndexPostsVm.cs" />
+    <Compile Include="ViewModels\Users\DisplayAllUsersVm.cs" />
     <Compile Include="ViewModels\Users\EditUserVm.cs" />
     <Compile Include="ViewModels\Users\ProfileViewModel.cs" />
     <Compile Include="ViewModels\Acount\RegisterViewModel.cs" />

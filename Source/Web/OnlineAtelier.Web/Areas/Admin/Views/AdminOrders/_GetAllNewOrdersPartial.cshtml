@@ -1,0 +1,39 @@
+﻿@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.Order.DisplayOrderVm>
+@{
+    ViewBag.Title = "_GetAllNewOrdersPartial";
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>Честито, имаш @Model.Where(m => !m.IsАccepted).ToList().Count нови поръчки!</h4>
+    </div>
+    <div class="panel-body">
+        <p>
+            Имаш <strong>@Model.Where(m => !m.IsАccepted).ToList().Count</strong> нови поръчки, които чакат одобрение.
+            <br />
+            Приети са <strong>@Model.Where(m => m.IsАccepted).ToList().Count</strong> поръчки.
+        </p>
+    </div>
+    <table class="table">
+        <tr>
+            <th>#</th>
+            <th>@Html.DisplayNameFor(m => m.CategoryName)</th>
+            <th>@Html.DisplayNameFor(m => m.AppearanceName)</th>
+            <th>@Html.DisplayNameFor(m => m.FinalPrice).</th>
+            <th>@Html.DisplayNameFor(m => m.DateOfDecision)</th>
+        </tr>
+        @foreach (var order in Model)
+            {
+                string className = order.IsАccepted ? "accept" : "noAccept";
+            <tr class=@className>
+                <td>@Html.DisplayFor(m => order.Id)</td>
+                <td>@Html.DisplayFor(m => order.CategoryName)</td>
+                <td>@Html.DisplayFor(m => order.AppearanceName)</td>
+                <td>@Html.DisplayFor(m => order.FinalPrice) лв</td>
+                <td>@Html.DisplayFor(m => order.DateOfDecision)</td>
+            </tr>
+        }
+
+    </table>
+</div>

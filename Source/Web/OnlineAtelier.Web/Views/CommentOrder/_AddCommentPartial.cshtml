@@ -1,8 +1,13 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "_AddCommentPartial";
 }
 
-@using (Html.BeginForm("AddComment", "CommentOrder", FormMethod.Post))
+@using (Ajax.BeginForm("AddComment", new AjaxOptions()
+{
+    InsertionMode = InsertionMode.Replace,
+    HttpMethod = "POST"
+}))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary("", new { @class = "text-danger" })

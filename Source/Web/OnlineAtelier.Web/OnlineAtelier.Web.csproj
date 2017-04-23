@@ -194,6 +194,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminOrdersController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminAppearanceController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminUsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\FiguresController.cs" />
     <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
     <Compile Include="Config\BundleConfig.cs" />
@@ -253,9 +254,14 @@
     <Content Include="Areas\Admin\Views\AdminOrders\DesignIt.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\EditDate.cshtml" />
     <Content Include="Areas\Admin\Views\AdminAppearance\Create.cshtml" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Views\Appearance\PriceLIst.cshtml" />
     <Content Include="Areas\Admin\Views\AdminAppearance\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AdminAppearance\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminOrders\_GetAllNewOrdersPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_UsersPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\Index.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\noImg.png" />
     <Content Include="Scripts\bootstrap.js" />
