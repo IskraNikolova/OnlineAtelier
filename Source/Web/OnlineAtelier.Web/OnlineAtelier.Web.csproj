@@ -261,7 +261,7 @@
     <Content Include="Areas\Admin\Views\AdminAppearance\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\_GetAllNewOrdersPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_UsersPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminUsers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminUsers\Phonebook.cshtml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\noImg.png" />
     <Content Include="Scripts\bootstrap.js" />

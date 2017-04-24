@@ -26,7 +26,8 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Начало", Views.Index, "AdminPosts")</li>
                     <li>@Html.ActionLink("Публикувай", "Create", "AdminPosts")</li>
-                    <li>@Html.ActionLink("Нови Поръчки", Views.Index, "AdminOrders")</li>
+                    <li>@Html.ActionLink("Нови поръчки", Views.Index, "AdminOrders")</li>
+                    <li>@Html.ActionLink("Телефонен указател", "Phonebook", "AdminUsers", null, new {@class="btn btn-default"})</li>
                     <li><a href="@Url.Action("Index", "Home", new {area=""})">Изход</a></li>
                 </ul>
                 @*@Html.Partial("_SearchPartial")*@

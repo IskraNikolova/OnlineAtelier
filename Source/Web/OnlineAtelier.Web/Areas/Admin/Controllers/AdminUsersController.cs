@@ -17,8 +17,8 @@
         }
 
         [HttpGet]
-        [Route("AdminUsers/Index")]
-        public ActionResult Index()
+        [Route("AdminUsers/Phonebook")]
+        public ActionResult Phonebook()
         {
             var model = this.service.GetAllUsers();
             return this.View(model);

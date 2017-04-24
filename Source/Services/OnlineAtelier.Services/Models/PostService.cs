@@ -83,6 +83,7 @@
                 .Project()
                 .To<IndexPostsVm>()
                 .OrderByDescending(p => p.CreatedOn)
+                .Take(10)
                 .ToList();
 
             return model;

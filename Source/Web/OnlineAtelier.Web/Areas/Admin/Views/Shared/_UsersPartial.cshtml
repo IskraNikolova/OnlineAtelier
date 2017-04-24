@@ -2,17 +2,18 @@
 @{
     ViewBag.Title = "_UsersPartial";
 }
-
+ 
 <table class="table">
     <tr>
-        <th>@Html.DisplayNameFor(m => m.FirstName)</th>
-        <th>@Html.DisplayNameFor(m => m.LastName)</th>
+        
+        <th>@Html.Label("Име на клиента")</th>
+        <th>@Html.Label("Телефон")</th>
     </tr>
-    @foreach (var user in Model)
+    @foreach(var user in Model)
             {
         <tr>
-            <td>@Html.DisplayFor(m => user.FirstName)</td>
-            <td>@Html.DisplayFor(m => user.LastName)</td>
+            <td>@Html.DisplayFor(m => user.FirstName)  @Html.DisplayFor(m => user.LastName)</td>
+            <td>@Html.DisplayFor(m => user.PhoneNumber)</td>
         </tr>
     }
 </table>
