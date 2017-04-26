@@ -57,31 +57,6 @@
             entry.State = EntityState.Modified;
         }
 
-        //public virtual void Add(T entity)
-        //{
-        //    DbEntityEntry entry = this.Context.Entry(entity);
-        //    if (entry.State != EntityState.Detached)
-        //    {
-        //        entry.State = EntityState.Added;
-        //    }
-        //    else
-        //    {
-        //        this.Update(entity);
-        //        this.DbSet.Add(entity);
-        //    }
-        //}
-
-        //public virtual void Update(T entity)
-        //{
-        //    DbEntityEntry entry = this.Context.Entry(entity);
-        //    if (entry.State == EntityState.Detached)
-        //    {
-        //        this.DbSet.Attach(entity);
-        //    }
-
-        //    entry.State = EntityState.Modified;
-        //}
-
         public virtual void Delete(T entity)
         {
             DbEntityEntry entry = this.Context.Entry(entity);

@@ -4,12 +4,13 @@
     using System.Data.Entity;
     using System.Linq;
     using Common.Models;
+    using Interfaces;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Migrations;
     using Models.Models;
     using Models.Models.Comments;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IOnlineAtelierDbContext
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

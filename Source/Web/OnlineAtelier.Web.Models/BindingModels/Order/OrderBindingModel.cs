@@ -11,6 +11,8 @@
 
         public string CategoryName { get; set; }
 
+        public string UserId { get; set; }
+
         public string AppearanceName { get; set; }
 
         public DateTime DateOfDecision { get; set; }

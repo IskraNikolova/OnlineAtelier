@@ -14,7 +14,6 @@
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
             var autoMapperConfig = new AutoMapperConfig(Assembly.Load("OnlineAtelier.Web.Models"));
             autoMapperConfig.Execute();
         }

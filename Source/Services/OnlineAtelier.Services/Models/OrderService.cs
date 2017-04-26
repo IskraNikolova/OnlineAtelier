@@ -14,24 +14,36 @@
     public class OrderService : IOrderService
     {
         private readonly IRepository<Order> orders;
-        private readonly IRepository<Figure> figures;
+        private readonly IRepository<Appearance> appearance;
+        private readonly IRepository<Category> categories;
 
-        public OrderService(IRepository<Order> orders, IRepository<Figure> figures)
+        public OrderService(IRepository<Order> orders, 
+            IRepository<Appearance> appearanses, 
+            IRepository<Category> categories)
         {
             this.orders = orders;
-            this.figures = figures;
+            this.appearance = appearanses;
+            this.categories = categories;
+
         }
 
-        public void AddOrder(OrderBindingModel model, 
-                            string authorId,
-                            Appearance appearance,
-                            Category category)
+        public void AddOrder(OrderBindingModel model)
         {
+            var appearance1 = this.appearance.All().FirstOrDefault(a => a.Name == model.AppearanceName) ?? new Appearance()
+            {
+                Name = model.AppearanceName
+            };
+
+            var category = this.categories.All().FirstOrDefault(c => c.Name == model.CategoryName)?? new Category()
+            {
+                Name = model.CategoryName
+            };
+
             var order = Mapper.Map<OrderBindingModel, Order>(model);
-            order.FinalPrice = appearance.Price;
-            order.AppearanceId = appearance.Id;
+            order.FinalPrice = appearance1.Price;
+            order.AppearanceId = appearance1.Id;
             order.CategoryId = category.Id;
-            order.ApplicationUserId = authorId;
+            order.ApplicationUserId = model.UserId;
 
             this.orders.Add(order);
             this.orders.SaveChanges();

@@ -19,10 +19,10 @@
             this.comments = comments;
         }
 
-        public void AddCommentToOrder(OrderCommentBindingModel model, int orderId, string userId)
+        public void AddCommentToOrder(OrderCommentBm model, int orderId)
         {
-            var orderCommentVm = Mapper.Map<OrderCommentBindingModel, OrderComment>(model);
-            orderCommentVm.ApplicationUserId = userId;
+            var orderCommentVm = Mapper.Map<OrderCommentBm, OrderComment>(model);
+            orderCommentVm.ApplicationUserId = model.UserId;
             orderCommentVm.OrderId = orderId;
 
             this.comments.Add(orderCommentVm);

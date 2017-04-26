@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{64AB94BF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAtelier.Logic", "Logic\OnlineAtelier.Logic\OnlineAtelier.Logic.csproj", "{8BCFB2D7-5DF9-4E08-8327-DC7F47E04E01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAtelier.Test", "Tests\OnlineAtelier.Test\OnlineAtelier.Test.csproj", "{D1329DF1-6046-42C8-986C-6C6089695923}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{8BCFB2D7-5DF9-4E08-8327-DC7F47E04E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BCFB2D7-5DF9-4E08-8327-DC7F47E04E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BCFB2D7-5DF9-4E08-8327-DC7F47E04E01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1329DF1-6046-42C8-986C-6C6089695923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1329DF1-6046-42C8-986C-6C6089695923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1329DF1-6046-42C8-986C-6C6089695923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1329DF1-6046-42C8-986C-6C6089695923}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

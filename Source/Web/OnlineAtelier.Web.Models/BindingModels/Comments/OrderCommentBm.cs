@@ -4,8 +4,10 @@
     using Infrastructure.Mapping;
     using OnlineAtelier.Models.Models.Comments;
 
-    public class OrderCommentBindingModel : IMapFrom<OrderComment>
+    public class OrderCommentBm : IMapFrom<OrderComment>
     {
+        public string UserId { get; set; }
+
         [Required]
         public string Text { get; set; }
 

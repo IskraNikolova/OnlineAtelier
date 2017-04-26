@@ -1,4 +1,5 @@
-﻿@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.Order.DisplayOrderVm>
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<OnlineAtelier.Web.Models.ViewModels.Order.DisplayOrderVm>
 
 @{
     ViewBag.Title = "_GetOrdersPartial";
@@ -35,7 +36,7 @@
                 </div>
             </div>
             @Html.Action("GetComments", "CommentOrder", new { id = order.Id })
-            @Html.Action("AddComment", "CommentOrder", new { id = order.Id })
+            @Html.Action("AddComment", "CommentOrder", new { id = order.Id})
             @Html.Action("AddPicture", "PhotosOrder", new { id = order.Id })
         </div>
     </div>

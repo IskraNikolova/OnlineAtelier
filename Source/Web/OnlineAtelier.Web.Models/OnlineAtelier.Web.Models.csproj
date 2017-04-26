@@ -92,7 +92,7 @@
   <ItemGroup>
     <Compile Include="BindingModels\Appearance\AppearanceCreateBm.cs" />
     <Compile Include="BindingModels\Appearance\AppearanceEditBm.cs" />
-    <Compile Include="BindingModels\Comments\OrderCommentBindingModel.cs" />
+    <Compile Include="BindingModels\Comments\OrderCommentBm.cs" />
     <Compile Include="BindingModels\Figures\FigureBm.cs" />
     <Compile Include="BindingModels\Order\DesignOrderBm.cs" />
     <Compile Include="BindingModels\Order\EditOrderBm.cs" />

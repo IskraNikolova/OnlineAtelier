@@ -39,13 +39,11 @@
         [ValidateAntiForgeryToken]
         public ActionResult Add(OrderBindingModel model)
         {
-            var userId = this.User.Identity.GetUserId();
-
             if (this.ModelState.IsValid)
             {
-                var appearance = this.appearanceService.GetAppearence(model.AppearanceName);
-                var category = this.categoryService.GetCategory(model.CategoryName);
-                this.orderService.AddOrder(model, userId, appearance, category);
+                //var appearance = this.appearanceService.GetAppearence(model.AppearanceName);
+                //var category = this.categoryService.GetCategory(model.CategoryName);
+                this.orderService.AddOrder(model);
                 return this.RedirectToAction("ProfilePage", "Users");
             }
 

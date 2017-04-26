@@ -1,9 +1,9 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
     using System.Web.Mvc;
-    using Microsoft.AspNet.Identity;
     using Models.BindingModels.Comments;
     using Services.Contracts;
+
 
     public class CommentOrderController : Controller
     {
@@ -23,17 +23,15 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddComment(OrderCommentBindingModel model, int id)
+        public ActionResult AddComment(OrderCommentBm model, int id)
         {
-            string userId = this.User.Identity.GetUserId();
-
             if (this.ModelState.IsValid)
             {
-                this.service.AddCommentToOrder(model, id, userId);
-                if (this.User.IsInRole("Admin"))
-                {
-                    return this.RedirectToAction("Index", "AdminOrders", new {area="Admin"});
-                }
+                this.service.AddCommentToOrder(model, id);
+                //if (this.User.IsInRole("Admin"))
+                //{
+                //    return this.RedirectToAction("Index", "AdminOrders", new {area="Admin"});
+                //}//todo repeat this admin redirect after added comment
 
                 return this.RedirectToAction("ProfilePage", "Users");
             }

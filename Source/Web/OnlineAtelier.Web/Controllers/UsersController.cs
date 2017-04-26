@@ -20,11 +20,11 @@
 
         [HttpGet]
         [Route("ProfilePage")]
-        public ActionResult ProfilePage(string id)
+        public ActionResult ProfilePage(string userId)
         {
-            var userId = id ?? this.User.Identity.GetUserId();
+            var userId1 = userId ?? this.User.Identity.GetUserId();
            
-            var model = this.userService.GetProfileViewModel(userId);
+            var model = this.userService.GetProfileViewModel(userId1);
             return this.View(model);
         }
 

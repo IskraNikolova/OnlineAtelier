@@ -16,7 +16,7 @@
         [Required(ErrorMessage = "Избери {0}")]
         [DisplayName("Вид на поръчката/Количество")]
         public string AppearanceName { get; set; }
-      
+
         [DisplayName("Детайли")]
         public string Details { get; set; }
 

@@ -7,8 +7,7 @@
 
     public interface IOrderService : IDeletable
     {
-        void AddOrder(OrderBindingModel model, string authorId, Appearance appearance,
-            Category category);
+        void AddOrder(OrderBindingModel model);
 
         AddOrderVm GetAddOrderVm(OrderBindingModel model, IEnumerable<string> categories,
             IEnumerable<string> appearances);

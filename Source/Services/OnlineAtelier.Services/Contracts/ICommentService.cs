@@ -6,7 +6,7 @@
 
     public interface ICommentService : IDeletable
     {
-        void AddCommentToOrder(OrderCommentBindingModel model, int orderId, string userId);
+        void AddCommentToOrder(OrderCommentBm model, int orderId);
 
         IEnumerable<OrderCommentViewModel> GetComments(int id);
     }

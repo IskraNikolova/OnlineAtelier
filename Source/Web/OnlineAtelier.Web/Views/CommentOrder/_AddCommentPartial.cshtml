@@ -1,19 +1,17 @@
-﻿
+﻿@using Microsoft.AspNet.Identity
+
 @{
     ViewBag.Title = "_AddCommentPartial";
 }
 
-@using (Ajax.BeginForm("AddComment", new AjaxOptions()
-{
-    InsertionMode = InsertionMode.Replace,
-    HttpMethod = "POST"
-}))
+@using (Html.BeginForm("AddComment"))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="row">
         <div class="col-lg-6">
             <div class="input-group">
+                <input type="hidden" name="UserId" value="@User.Identity.GetUserId()"/>
                 <input type="text" class="form-control" placeholder="Коментирай..." name="Text">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
@@ -23,6 +21,7 @@
     </div>
 }
 
-@section Scripts {
+@section scripts
+{
     @Scripts.Render("~/bundles/jqueryval")
 }

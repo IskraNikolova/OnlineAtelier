@@ -1,7 +1,6 @@
 ﻿using Microsoft.Owin;
 
 [assembly: OwinStartup(typeof(OnlineAtelier.Web.Startup))]
-
 namespace OnlineAtelier.Web
 {
     using Owin;
@@ -10,7 +9,8 @@ namespace OnlineAtelier.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            this.ConfigureAuth(app);
+            app.MapSignalR();
         }
     }
 }
