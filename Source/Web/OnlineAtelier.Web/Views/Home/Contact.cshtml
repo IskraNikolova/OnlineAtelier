@@ -1,19 +1,50 @@
-﻿@{
+﻿@model OnlineAtelier.Web.Models.ViewModels.ContactVm
+@{
     ViewBag.Title = "Contact";
 }
+<style>
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+</style>
 <div class="thumbnail">
     <div class="panel-body">
-    <h2>Контакти</h2>
+        <h2>Контакти</h2>
 
-    <address>
-        ул. Дубровник 46<br/>
-        Варна, България<br/><br/>
-        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-        +359 899 81 74 31
-    </address>
+        <address>
+            ул. Дубровник 46<br />
+            Варна, България<br /><br />
+            <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+            +359 899 81 74 31
+        </address>
 
-    <address>
-        <strong>Имейл:</strong> <a href="mailto:withlove.eli@abv.bg">withlove.eli@abv.bg</a><br/>
-    </address>
+        <address>
+            <strong>Имейл:</strong> <a href="mailto:withlove.eli@abv.bg">withlove.eli@abv.bg</a><br />
+        </address>
+
+        <div id="map"></div>
+    </div>
 </div>
-</div>
+
+@section scripts
+{
+    <script>
+        function initMap() {
+            var uluru = { lat: 43.2228149, lng: 27.9250262 };
+            var map = new google.maps.Map(document.getElementById('map'),
+            {
+                zoom: 13,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=@Model.ApiKey&callback=initMap">
+    </script>
+}

@@ -109,6 +109,7 @@
     <Compile Include="ViewModels\AdminArea\Appearance\AppearanceCreateVm.cs" />
     <Compile Include="ViewModels\AdminArea\Appearance\AppearanceEditVm.cs" />
     <Compile Include="ViewModels\AdminArea\Posts\CreatePostsVm.cs" />
+    <Compile Include="ViewModels\ContactVm.cs" />
     <Compile Include="ViewModels\Figures\FigureVm.cs" />
     <Compile Include="ViewModels\Order\DesignOrderVm.cs" />
     <Compile Include="ViewModels\Order\EditOrderDateVm.cs" />

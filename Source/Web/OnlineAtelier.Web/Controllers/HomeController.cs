@@ -1,6 +1,7 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
     using System.Web.Mvc;
+    using Models.ViewModels;
     using Services.Contracts;
 
     public class HomeController : Controller
@@ -28,7 +29,11 @@
         [HttpGet]
         public ActionResult Contact()
         {
-            return this.View();
+            var model = new ContactVm()
+            {
+                ApiKey = "AIzaSyBIRHww6KjTo7Z4a92cAsjEPHkxJpcAH2k"
+            };
+            return this.View(model);
         }
     }
 }
