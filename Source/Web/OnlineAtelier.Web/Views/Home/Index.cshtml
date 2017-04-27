@@ -3,15 +3,20 @@
 @{
     ViewBag.Title = "Home Page";
 }
-
+<style>
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+</style>
 <div class="jumbotron eli">
     <h2 class="lead">Cookies!!! I can say everything with cookies!</h2>
 </div>
 
 <div class="row">
     <aside>
-        <div class="col-lg-3">
-            <div class="btn-group-vertical" style="width: 200px">
+        <div class="col-lg-2">
+            <div class="btn-group-vertical" style="width: 150px">
                 @*todo move to css fail*@
                 @Html.ActionLink("Начало", Views.Index, "Home", new { type = "button", @class = "btn btn-default active" })
                 @Html.ActionLink("Галерия", "PostGallery", "Posts", null, new { type = "button", @class = "btn btn-default" })
@@ -30,5 +35,31 @@
         <div class="col-lg-6">
             @Html.Action("AllIndexPosts", "Posts", new { area = "" })
         </div>
+        <div class="col-lg-4 thumbnail">
+            @Html.Label("Къде се намираме")
+            <div id="map"></div>
+        </div>
     </section>
 </div>
+
+@section scripts
+{
+    <script>
+        function initMap() {
+            var uluru = { lat: 43.2228149, lng: 27.9250262 };
+            var map = new google.maps.Map(document.getElementById('map'),
+            {
+                zoom: 13,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+    </script>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIRHww6KjTo7Z4a92cAsjEPHkxJpcAH2k&callback=initMap">
+    </script>
+}
