@@ -10,11 +10,11 @@
     using Web.Models.BindingModels.Users;
     using Web.Models.ViewModels.Users;
 
-    public class UserServices : IUserService
+    public class UserService : IUserService
     {
         private readonly IRepository<ApplicationUser> users;
 
-        public UserServices(IRepository<ApplicationUser> users)
+        public UserService(IRepository<ApplicationUser> users)
         {
             this.users = users;
         }

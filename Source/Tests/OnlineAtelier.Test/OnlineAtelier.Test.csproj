@@ -138,6 +138,7 @@
     <Compile Include="Controllers\Orders\TestOrderController.cs" />
     <Compile Include="Controllers\Posts\TestAdminPostsController.cs" />
     <Compile Include="Controllers\Posts\TestPostsController.cs" />
+    <Compile Include="Controllers\Users\TestUsersController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

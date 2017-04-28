@@ -61,6 +61,7 @@
     <Compile Include="Interfaces\IOnlineAtelierDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Mocks\FakeDbSet.cs" />
+    <Compile Include="Mocks\FakeDeletableApplicationUserRepository.cs" />
     <Compile Include="Mocks\FakeDeletableRepository.cs" />
     <Compile Include="Mocks\FakeOnlineAtelierDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

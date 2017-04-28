@@ -60,6 +60,11 @@
         public AppearanceAllVm GetAppearanceAllVm(int? id)
         {
             var entity = this.appearances.GetById((int)id);
+            if (entity == null)
+            {
+                return null;
+            }
+
             var model = Mapper.Map<Appearance, AppearanceAllVm>(entity);
 
             return model;
@@ -91,6 +96,11 @@
         public AppearanceEditVm GetAppearanceEditVm(int? id)
         {
             var entity = this.appearances.GetById((int)id);
+            if (entity == null)
+            {
+                return null;
+            }
+
             var model = Mapper.Map<Appearance, AppearanceEditVm>(entity);
 
             return model;
