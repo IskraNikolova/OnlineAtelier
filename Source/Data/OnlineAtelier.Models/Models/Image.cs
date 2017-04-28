@@ -2,10 +2,9 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-    using System.Net.Configuration;
     using Data.Common.Models;
 
-    public class Image : IAuditInfo, IDeletableEntity
+    public class Image : IAuditInfo, IDeletableEntity, IIdEntity
     {
         public int Id { get; set; }
 

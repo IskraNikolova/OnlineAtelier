@@ -91,7 +91,7 @@
         public void DeleteCommentPost_ShouldDeleteCommentAndReturnRedirectToAction()
         {
 
-            this._controller.WithCallTo(orderCommentController => orderCommentController.DeleteConfirmed(22))
+            this._controller.WithCallTo(orderCommentController => orderCommentController.DeleteConfirmed(21))
                   .ShouldRedirectTo<UsersController>(c2 => c2.ProfilePage("a2f23d5c-f9ef-41c0-95d4-52934b9d9dde"));
 
             Assert.AreEqual(this._repository.Set.Count, 1);

@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using Data.Common.Models;
 
-    public class PostComment :  IAuditInfo, IDeletableEntity
+    public class PostComment :  IAuditInfo, IDeletableEntity, IIdEntity
     {
         public int Id { get; set; }
 

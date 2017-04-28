@@ -7,7 +7,7 @@
     using Comments;
     using Data.Common.Models;
 
-    public class Order: IAuditInfo, IDeletableEntity
+    public class Order: IAuditInfo, IDeletableEntity, IIdEntity
     {
         private ICollection<PhotosOrder> userPictures;
         private ICollection<OrderComment> comments;

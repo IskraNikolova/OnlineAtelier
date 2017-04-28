@@ -132,10 +132,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Controllers\Appearances\TestAdminAppearancesController.cs" />
     <Compile Include="Controllers\CommentOrders\TestCommentOrdersController.cs" />
     <Compile Include="Controllers\Orders\TestAdminOrdersController.cs" />
     <Compile Include="Controllers\Orders\TestOrderController.cs" />
     <Compile Include="Controllers\Posts\TestAdminPostsController.cs" />
+    <Compile Include="Controllers\Posts\TestPostsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +156,10 @@
     <ProjectReference Include="..\..\Services\OnlineAtelier.Services\OnlineAtelier.Services.csproj">
       <Project>{92F406BD-986A-436B-9C3E-BC723B828FCD}</Project>
       <Name>OnlineAtelier.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\OnlineAtelier.Web.Infrastructure\OnlineAtelier.Web.Infrastructure.csproj">
+      <Project>{84CD06BF-04D7-4A2A-B04C-78C1F3371885}</Project>
+      <Name>OnlineAtelier.Web.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Web\OnlineAtelier.Web.Models\OnlineAtelier.Web.Models.csproj">
       <Project>{e7019785-08c9-4f49-9836-1b3731b1b0c4}</Project>

@@ -4,10 +4,11 @@
     using System.Linq;
     using Common.Models;
     using Common.Repository;
+    using Interfaces;
     using Models.Models;
 
     public class FakeDeletableRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
-        where T : class, IDeletableEntity, new()
+        where T : class, IDeletableEntity, IIdEntity
     {
         protected Dictionary<object, object> Set2;
         //public HashSet<T> Set;
@@ -30,8 +31,8 @@
 
         public override T GetById(int id)
         {
-            //var entity = this.Set2[id];
-            return this.Set.FirstOrDefault();
+            var en = this.Set.FirstOrDefault(e => e.Id ==  id);
+            return en;
         }
 
         public override IQueryable<T> All()
@@ -41,7 +42,6 @@
 
         public override void Delete(T entity)
         {
-            //this.RemoveByValue(this.Set2, entity);
             this.Set.Remove(entity);
         }
 
@@ -52,7 +52,6 @@
 
         public void ActualDelete(T entity)
         {
-            //this.RemoveByValue(this.Set2, entity);
             this.Set.Remove(entity);
         }
 

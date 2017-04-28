@@ -1,8 +1,6 @@
 ﻿namespace OnlineAtelier.Web.Areas.Admin.Controllers
 {
-    using System.Collections.Generic;
     using System.Web.Mvc;
-    using Models.ViewModels.Users;
     using Services.Contracts;
 
     [Authorize(Roles = "Admin")]

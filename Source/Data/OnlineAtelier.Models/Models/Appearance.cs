@@ -3,7 +3,7 @@
     using System;
     using Data.Common.Models;
 
-    public class Appearance : IAuditInfo, IDeletableEntity
+    public class Appearance : IAuditInfo, IDeletableEntity, IIdEntity
     {
         public int Id { get; set; }
 

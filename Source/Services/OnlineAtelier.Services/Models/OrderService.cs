@@ -95,6 +95,11 @@
                 .All()
                 .FirstOrDefault(o => o.Id == id);
 
+            if (order == null)
+            {
+                return null;
+            }
+
             var model = Mapper.Map<Order, DetailsOrderVm>(order);
             model.FiguresNames = order.Figures.Select(f => f.Name).ToList();
 
@@ -125,6 +130,11 @@
             var entity = this.orders.GetById((int)id);
 
             var vModel = Mapper.Map<Order, DesignOrderVm>(entity);
+            if (vModel == null)
+            {
+                return null;
+            }
+
             vModel.AllForms = entity.Figures.Select(f => f.Name);
          
             return vModel;
@@ -159,13 +169,12 @@
                 .All()
                 .FirstOrDefault(o => o.Id == bm.Id);
 
-            if (order.Appearance != null && order.Appearance.CookiesCount > order.Figures.Count)
+            if (order.Appearance.CookiesCount > order.Figures.Count)
             {
                 order.Figures.Add(new Figure()
                 {
                     Name = bm.FiguresName
                 });
-
 
                 this.orders.Update(order);
                 this.orders.SaveChanges();

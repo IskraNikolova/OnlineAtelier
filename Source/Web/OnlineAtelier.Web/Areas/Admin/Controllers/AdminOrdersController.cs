@@ -21,13 +21,13 @@
             this.figureService = figureService;
         }
 
-        [HttpGet, Route("AdminOrders/Index")]
+        [HttpGet]
+        [Route("AdminOrders/Index")]
         public ActionResult Index()
         {
             var models = this.service.GetAllNewOrders();
             return this.View(models);
         }
-
 
         [HttpGet]
         [ChildActionOnly]
@@ -54,7 +54,8 @@
             return this.View(order);
         }
 
-        [HttpPost, Route("AdminOrders/Edit/{id}")]
+        [HttpPost]
+        [Route("AdminOrders/Edit/{id}")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(EditOrderBm orderBm)
         {
@@ -99,7 +100,6 @@
             return this.View(orderBm);
         }
 
-
         [HttpGet]
         [Route("AdminOrders/DesignIt/{id}")]
         public ActionResult DesignIt(int? id)
@@ -110,6 +110,10 @@
             }
 
             var model = this.GetDesignOrderVm(id);
+            if (model == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
 
             return this.View(model);
         }
@@ -128,7 +132,6 @@
             return this.View(this.GetDesignOrderVm(bm.Id));
         }
 
-
         [HttpGet]
         [Route("AdminOrders/Delete")]
         public ActionResult Delete()
@@ -137,7 +140,8 @@
         }
 
         [HttpPost]
-        [ActionName("Delete"), Route("AdminOrders/Delete")]
+        [ActionName("Delete")]
+        [Route("AdminOrders/Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -148,10 +152,13 @@
         private DesignOrderVm GetDesignOrderVm(int? id)
         {
             var model = this.service.GetDesignOrderVm((int)id);
+            if (model == null)
+            {
+                return null;
+            }
 
             model.FiguresSelectList = GetListItem.GetSelectListItems(this.figureService.GetAllFigures());
             return model;
         }
-
     }
 }

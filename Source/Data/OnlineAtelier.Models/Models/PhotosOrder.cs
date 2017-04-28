@@ -3,7 +3,7 @@
     using System;
     using Data.Common.Models;
 
-    public class PhotosOrder : IAuditInfo, IDeletableEntity
+    public class PhotosOrder : IAuditInfo, IDeletableEntity, IIdEntity
     {
         public int Id { get; set; }
 

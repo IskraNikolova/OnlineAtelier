@@ -5,7 +5,7 @@
     using Comments;
     using Data.Common.Models;
 
-    public class Post : IAuditInfo, IDeletableEntity
+    public class Post : IAuditInfo, IDeletableEntity, IIdEntity
     {
         private ICollection<PostComment> comments;
 

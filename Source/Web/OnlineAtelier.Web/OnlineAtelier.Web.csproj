@@ -204,7 +204,6 @@
     <Compile Include="Areas\Admin\Controllers\AdminAppearanceController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminUsersController.cs" />
     <Compile Include="Areas\Admin\Controllers\FiguresController.cs" />
-    <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
     <Compile Include="Config\BundleConfig.cs" />
     <Compile Include="Config\FilterConfig.cs" />
     <Compile Include="Config\IdentityConfig.cs" />

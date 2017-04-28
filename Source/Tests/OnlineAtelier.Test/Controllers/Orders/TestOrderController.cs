@@ -1,6 +1,7 @@
 ﻿namespace OnlineAtelier.Test.Controllers.Orders
 {
     using System.Collections.Generic;
+    using System.Net;
     using AutoMapper;
     using Data.Common.Repository;
     using Data.Mocks;
@@ -11,6 +12,7 @@
     using TestStack.FluentMVCTesting;
     using Web.Controllers;
     using Web.Models.BindingModels.Order;
+    using Web.Models.ViewModels.Order;
 
     [TestClass]
     public class TestOrderController
@@ -29,6 +31,7 @@
             Mapper.Initialize(expression =>
             {
                 expression.CreateMap<OrderBindingModel, Order>();
+                expression.CreateMap<DetailsOrderVm, Order>();
             });
         }
 
@@ -88,6 +91,13 @@
                 .ShouldRedirectTo<UsersController>(c2 => c2.ProfilePage("a2f23d5c-f9ef-41c0-95d4-52934b9d9dde"));
 
             Assert.AreEqual(this._repository.Set.Count, 3);
+        }
+
+        [TestMethod]
+        public void DetailsOrderWithNullModel_ShouldReturnNotFound()
+        {
+            this._controller.WithCallTo(order => order.Details(22))
+                .ShouldGiveHttpStatus(HttpStatusCode.NotFound);
         }
     }
 }

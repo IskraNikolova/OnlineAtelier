@@ -2,6 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
     using AutoMapper;
     using Data.Common.Repository;
     using Data.Mocks;
@@ -46,8 +48,7 @@
                 new Order()
                 {
                     Id = 1,
-                    ApplicationUserId = "a2f23d5c-f9ef-41c0-95d4-52934b9d9dde"
-
+                    ApplicationUserId = "a2f23d5c-f9ef-41c0-95d4-52934b9d9dde"                    
                 },
                 new Order()
                 {
@@ -64,6 +65,13 @@
 
             foreach (var order in this.orders)
             {
+                order.Appearance = new Appearance()
+                {
+                    Name = "Кутия от 100бр",
+                    Price = 2990.23m,
+                    CookiesCount = 10
+                };
+
                 this._repository.Add(order);
             }
 
@@ -73,7 +81,7 @@
         }
 
         [TestMethod]
-        public void EditOrder_ShouldReturnRedirectToAction()
+        public void EditOrderPost_ShouldEditAndReturnRedirectToAction()
         {
             var orderBm = new EditOrderBm()
             {
@@ -86,10 +94,18 @@
 
             this._controller.WithCallTo(order => order.Edit(orderBm))
                 .ShouldRedirectTo<AdminOrdersController>(c2 => c2.Index());
+
+            var orderEntity = this._repository.Set.FirstOrDefault(p => p.Id == orderBm.Id);
+
+            Assert.AreEqual(orderEntity.Id, 1);
+            Assert.AreEqual(orderEntity.TextOfCookies, "нещо");
+            Assert.AreEqual(orderEntity.TextOfBox, "нещо");
+            Assert.AreEqual(orderEntity.ColorOfBox, "нещо");
+            Assert.AreEqual(orderEntity.FinalPrice, 78.0m);
         }
 
         [TestMethod]
-        public void EditDateOrder_ShouldReturnRedirectToAction()
+        public void EditDateOrderPost_ShouldEditDateAndReturnRedirectToAction()
         {
             var orderBm = new EditOrderDateBm()
             {
@@ -99,24 +115,46 @@
 
             this._controller.WithCallTo(order => order.EditDate(orderBm))
                 .ShouldRedirectTo<AdminOrdersController>(c2 => c2.Index());
+
+            var orderEntity = this._repository.Set.FirstOrDefault(p => p.Id == orderBm.Id);
+
+            Assert.AreEqual(orderEntity.Id, 1);
+            Assert.AreEqual(orderEntity.DateOfDecision, new DateTime(2017, 03, 02));
         }
 
         [TestMethod]
-        public void DeleteConfirmed_ShouldReturnRedirectToAction()
+        public void DeleteConfirmedPost_ShouldDeleteAndReturnRedirectToAction()
         {
             this._controller.WithCallTo(order=> order.DeleteConfirmed(1))
                   .ShouldRedirectTo<AdminOrdersController>(c2 => c2.Index());
+
+            Assert.AreEqual(this._repository.Set.Count, 1);
         }
 
         [TestMethod]
-        public void Delete_ShouldReturnThisView()
+        public void DeleteGet_ShouldReturnThisView()
         {
             this._controller.WithCallTo(order => order.Delete())
                 .ShouldRenderDefaultView();
         }
 
         [TestMethod]
-        public void Design_ShouldReturnThisView()
+        public void DesignGetWithNullId_ShouldReturnBadRequest()
+        {
+            int? id = null;
+            this._controller.WithCallTo(order => order.DesignIt(id))
+                .ShouldGiveHttpStatus(HttpStatusCode.BadRequest);
+        }
+
+        [TestMethod]
+        public void DesignGetWithModelNull_ShouldReturnNotFound()
+        {
+            this._controller.WithCallTo(order => order.DesignIt(2))
+                .ShouldGiveHttpStatus(HttpStatusCode.NotFound);
+        }
+
+        [TestMethod]
+        public void DesignPost_ShouldAddFigureAndReturnThisView()
         {
             var model = new DesignOrderBm()
             {
@@ -127,6 +165,10 @@
             this._controller.WithCallTo(order => order.DesignIt(model))
                 .ShouldRenderDefaultView()
                .WithModel<DesignOrderVm>(m => m.Id = 1);
+
+            var orderEntity = this._repository.Set.FirstOrDefault(o => o.Id == model.Id);
+            if (orderEntity != null)
+                Assert.AreEqual(orderEntity.Figures.Count, 1);
         }
     }
 }

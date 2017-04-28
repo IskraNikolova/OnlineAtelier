@@ -5,7 +5,7 @@
     using System.ComponentModel.DataAnnotations;
     using Data.Common.Models;
 
-    public class Category : IAuditInfo, IDeletableEntity
+    public class Category : IAuditInfo, IDeletableEntity, IIdEntity
     {
         private ICollection<Post> publications;
         private ICollection<Image> images;

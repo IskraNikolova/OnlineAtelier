@@ -1,6 +1,7 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
     using System.Collections.Generic;
+    using System.Net;
     using System.Web.Mvc;
     using Logic;
     using Microsoft.AspNet.Identity;

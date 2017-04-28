@@ -3,9 +3,10 @@
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Security.Principal;
     using Data.Common.Models;
 
-    public class OrderComment : IAuditInfo, IDeletableEntity
+    public class OrderComment : IAuditInfo, IDeletableEntity, IIdEntity
     {
         [Key]
         public int Id { get; set; }

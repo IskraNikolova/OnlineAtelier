@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using Data.Common.Models;
 
-    public class Figure : IAuditInfo, IDeletableEntity
+    public class Figure : IAuditInfo, IDeletableEntity, IIdEntity
     {
         [Key]
         public int Id { get; set; }

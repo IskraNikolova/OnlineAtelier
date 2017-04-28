@@ -1,6 +1,7 @@
 ﻿namespace OnlineAtelier.Test.Controllers.Posts
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net;
     using AutoMapper;
     using Data.Common.Repository;
@@ -99,17 +100,22 @@
                .ShouldRenderView("Edit");
         }
 
-
         [TestMethod]
-        public void EditPost_ShouldRedirectToAll()
+        public void EditPost_ShouldEditAndRedirectToAll()
         {
             var postBm = new PostBm()
             {
+                Id = 1,
                 Title = "нещо ново"
             };
 
             this._controller.WithCallTo(adminPostsController => adminPostsController.Edit(postBm))
                .ShouldRedirectTo<AdminPostsController>(c2 => c2.All());
+
+             var post = this._repository.Set.FirstOrDefault(p => p.Id == postBm.Id);
+
+             Assert.AreEqual(post.Id, 1);
+             Assert.AreEqual(post.Title, "нещо ново");
         }
 
         [TestMethod]
@@ -128,9 +134,8 @@
             Assert.AreEqual(this._repository.Set.Count, 1);
         }
 
-
         [TestMethod]
-        public void CreateGet_ShouldReturnView()
+        public void CreateGet_ShouldAddedOnePostAndReturnView()
         {
             this._controller.WithCallTo(adminPostsController => adminPostsController.Create())
                 .ShouldRenderView("Create");

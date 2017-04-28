@@ -31,7 +31,8 @@
 
         public Appearance GetAppearence(string name)
         {
-            var appearance = this.appearances.All()
+            var appearance = this.appearances
+                .All()
                 .FirstOrDefault(a => a.Name == name);
 
             return appearance;
@@ -40,6 +41,7 @@
         public void AddAppearance(AppearanceCreateBm bind)
         {
             var entity = Mapper.Map<AppearanceCreateBm, Appearance>(bind);
+
             this.appearances.Add(entity);
             this.appearances.SaveChanges();
         }
