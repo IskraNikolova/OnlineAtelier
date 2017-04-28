@@ -18,7 +18,7 @@
 
         [HttpGet]
         [ChildActionOnly]
-        public ActionResult AllIndexPosts()
+        public ActionResult All()
         {
             IEnumerable<IndexPostsVm> model = this.service.GetIndexPosts();
             return this.PartialView("_AllIndexPostsPartial", model);

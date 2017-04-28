@@ -13,7 +13,6 @@
     using Web.Models.BindingModels.Comments;
     using Web.Models.ViewModels.Comments;
 
-
     [TestClass]
     public class TestCommentOrdersController
     {
@@ -30,7 +29,6 @@
                 expression.CreateMap<OrderComment, OrderCommentViewModel>();
             });
         }
-
 
         [TestInitialize]
         public void Init()
@@ -60,7 +58,7 @@
 
             foreach (var comment in this.comments)
             {
-                this._repository.Add(comment);
+                this._repository.Set.Add(comment);
             }
 
             this._service = new CommentService(this._repository);
@@ -68,7 +66,7 @@
         }
 
         [TestMethod]
-        public void AddComment_ShouldReturnRedirectToAction()
+        public void AddCommentPost_ShouldAddCommentAndReturnRedirectToAction()
         {
             var bm = new OrderCommentBm()
             {
@@ -78,21 +76,32 @@
 
             this._controller.WithCallTo(orderCommentController => orderCommentController.AddComment(bm, 22))
                   .ShouldRedirectTo<UsersController>(c2 => c2.ProfilePage("a2f23d5c-f9ef-41c0-95d4-52934b9d9dde"));
+
+            Assert.AreEqual(this._repository.Set.Count, 3);
         }
 
-        //[TestMethod]
-        //public void GetComments_ShouldReturnPartialView()
-        //{
-        //    this._controller.WithCallTo(orderCommentController => orderCommentController.GetComments(22))
-        //          .ShouldRenderPartialView("_ViewCommentsPartial");
-        //}
+        [TestMethod]
+        public void AddCommentGet_ShouldReturnRedirectToAction()
+        {
+            this._controller.WithCallTo(orderCommentController => orderCommentController.AddComment(22))
+                .ShouldRenderPartialView("_AddCommentPartial");
+        }
 
         [TestMethod]
-        public void DeleteComment_ShouldReturnRedirectToAction()
+        public void DeleteCommentPost_ShouldDeleteCommentAndReturnRedirectToAction()
         {
 
             this._controller.WithCallTo(orderCommentController => orderCommentController.DeleteConfirmed(22))
                   .ShouldRedirectTo<UsersController>(c2 => c2.ProfilePage("a2f23d5c-f9ef-41c0-95d4-52934b9d9dde"));
+
+            Assert.AreEqual(this._repository.Set.Count, 1);
+        }
+
+        [TestMethod]
+        public void DeleteCommentGet_ShouldReturnRedirectToAction()
+        {
+            this._controller.WithCallTo(orderCommentController => orderCommentController.Delete())
+                .ShouldRenderView("Delete");
         }
     }
 }

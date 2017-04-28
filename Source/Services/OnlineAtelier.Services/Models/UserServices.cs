@@ -39,11 +39,11 @@
             return profileViewModel;
         }
 
-        public EditUserVm GetEditVm(string userId)
+        public EditUserVm GetEditVm(string id)
         {
             var user = this.users
                 .All()
-                .FirstOrDefault(u => u.Id == userId);
+                .FirstOrDefault(u => u.Id == id);
 
             var editVm = Mapper.Map<ApplicationUser, EditUserVm>(user);
 
@@ -76,7 +76,11 @@
 
         public IEnumerable<DisplayAllUsersVm> GetSearchUsers(string query)
         {
-            var models =  this.users.All().Where(m => (m.FirstName + " " + m.LastName).Contains(query)).Project().To<DisplayAllUsersVm>().ToList();
+            var models =  this.users
+                .All()
+                .Where(m => (m.FirstName + " " + m.LastName).Contains(query))
+                .Project().To<DisplayAllUsersVm>()
+                .ToList();
 
             return models;
         }

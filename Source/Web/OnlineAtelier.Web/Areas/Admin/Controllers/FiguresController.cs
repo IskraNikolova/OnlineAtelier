@@ -31,7 +31,7 @@
             if (this.ModelState.IsValid)
             {
                 this.service.AddFigure(model);
-                return this.RedirectToAction("Index", "AdminPosts");
+                return this.RedirectToAction("All", "AdminPosts");
             }
 
             return this.View();
@@ -48,7 +48,7 @@
         public ActionResult DeleteConfirmed(int id)
         {
             this.service.Delete(id);
-            return this.RedirectToAction("Index", "AdminPosts");
+            return this.RedirectToAction("All", "AdminPosts");
         }
     }
 }

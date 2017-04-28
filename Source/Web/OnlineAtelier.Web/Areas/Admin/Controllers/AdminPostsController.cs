@@ -1,12 +1,10 @@
 ﻿namespace OnlineAtelier.Web.Areas.Admin.Controllers
 {
-    using System.Collections.Generic;
     using System.Net;
     using System.Web.Mvc;
     using Logic;
     using Models.BindingModels.Posts;
     using Models.ViewModels.AdminArea.Posts;
-    using OnlineAtelier.Models.Models;
     using Services.Contracts;
 
     [Authorize(Roles = "Admin")]
@@ -15,20 +13,17 @@
     {
         private readonly IPostService service;
         private readonly ICategoryService categoryService;
-        private readonly IUserService userService;
 
         public AdminPostsController(IPostService service,
-            ICategoryService categoryService,
-            IUserService userServise)
+            ICategoryService categoryService)
         {
             this.service = service;
             this.categoryService = categoryService;
-            this.userService = userServise;
         }
 
         [HttpGet]
-        [Route("AdminPosts/Index")]
-        public ActionResult Index()
+        [Route("AdminPosts/All")]
+        public ActionResult All()
         {
             var posts = this.service.All();
             return this.View(posts);
@@ -51,7 +46,7 @@
             {
                 var category = this.categoryService.GetCategory(post.CategoryName);
                 this.service.AddPublication(post, category);
-                return this.RedirectToAction("Index");
+                return this.RedirectToAction("All");
             }
 
             return this.View(this.GetCreatePublicationVm());
@@ -83,7 +78,7 @@
             if (this.ModelState.IsValid)
             {
                 this.service.Edit(post);
-                return this.RedirectToAction("Index");
+                return this.RedirectToAction("All");
             }
 
             return this.View(post);
@@ -102,7 +97,7 @@
         public ActionResult DeleteConfirmed(int id)
         {
             this.service.Delete(id);
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("All");
         }
 
         private CreatePostsVm GetCreatePublicationVm()

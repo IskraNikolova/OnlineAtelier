@@ -64,8 +64,9 @@
             if (this.ModelState.IsValid)
             {
                 this.service.Edit(bind);
-                return this.RedirectToAction("PriceList","Appearance", new {area=""});
+                return this.RedirectToAction("PriceList", "Appearance", new {area=""});
             }
+
             var appearanceEditVm = this.service.GetAppearanceEditVm(bind.Id);
             return this.View(appearanceEditVm);
         }

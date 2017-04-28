@@ -33,16 +33,18 @@
     </aside>
     <section>
         <div class="col-lg-6">
-            @Html.Action("AllIndexPosts", "Posts", new { area = "" })
-        </div>
-        <div class="col-lg-4 thumbnail">
-            @Html.Label("Къде се намираме")
-            <div id="map"></div>
+            @Html.Action("All", "Posts", new { area = "" })
         </div>
     </section>
+    <aside>
+        <div class="col-lg-4 thumbnail">
+            @Html.Label("Къде се намирамe") @*todo move this to partial view*@
+            <div id="map"></div>
+        </div>
+    </aside>
 </div>
 
-@section scripts
+@section scripts       
 {
     <script>
         function initMap() {

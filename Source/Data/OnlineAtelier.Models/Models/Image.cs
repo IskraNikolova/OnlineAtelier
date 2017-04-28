@@ -1,12 +1,15 @@
 ﻿namespace OnlineAtelier.Models.Models
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.Net.Configuration;
     using Data.Common.Models;
 
     public class Image : IAuditInfo, IDeletableEntity
     {
         public int Id { get; set; }
 
+        [Required]
         public string Url { get; set; }
 
         public DateTime CreatedOn { get; set; }

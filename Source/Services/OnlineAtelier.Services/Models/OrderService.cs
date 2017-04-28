@@ -29,12 +29,15 @@
 
         public void AddOrder(OrderBindingModel model)
         {
-            var appearance1 = this.appearance.All().FirstOrDefault(a => a.Name == model.AppearanceName) ?? new Appearance()
+            var appearance1 = this.appearance
+                .All()
+                .FirstOrDefault(a => a.Name == model.AppearanceName) ?? new Appearance()
             {
                 Name = model.AppearanceName
             };
 
-            var category = this.categories.All().FirstOrDefault(c => c.Name == model.CategoryName)?? new Category()
+            var category = this.categories
+                .All().FirstOrDefault(c => c.Name == model.CategoryName) ?? new Category()
             {
                 Name = model.CategoryName
             };
@@ -156,7 +159,7 @@
                 .All()
                 .FirstOrDefault(o => o.Id == bm.Id);
 
-            if (order.Appearance.CookiesCount > order.Figures.Count)
+            if (order.Appearance != null && order.Appearance.CookiesCount > order.Figures.Count)
             {
                 order.Figures.Add(new Figure()
                 {

@@ -6,11 +6,7 @@
 }
 
 <div class="panel panel-default panel-body">
-@using (Ajax.BeginForm(new AjaxOptions()
-{
-    InsertionMode = InsertionMode.Replace,
-    HttpMethod = "POST"
-}))
+@using (Html.BeginForm())
 { 
         @Html.AntiForgeryToken()
 
@@ -59,7 +55,7 @@
     }
 
     <div>
-        @Html.ActionLink("Назад", "Index")
+        @Html.ActionLink("Назад", "All")
     </div>
 
     </div>

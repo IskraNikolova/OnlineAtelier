@@ -41,8 +41,6 @@
         {
             if (this.ModelState.IsValid)
             {
-                //var appearance = this.appearanceService.GetAppearence(model.AppearanceName);
-                //var category = this.categoryService.GetCategory(model.CategoryName);
                 this.orderService.AddOrder(model);
                 return this.RedirectToAction("ProfilePage", "Users");
             }

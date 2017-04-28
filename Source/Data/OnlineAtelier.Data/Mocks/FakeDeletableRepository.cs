@@ -1,24 +1,27 @@
 ﻿namespace OnlineAtelier.Data.Mocks
 {
     using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
     using System.Linq;
     using Common.Models;
     using Common.Repository;
+    using Models.Models;
 
     public class FakeDeletableRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
         where T : class, IDeletableEntity, new()
     {
-        protected HashSet<T> Set;
+        protected Dictionary<object, object> Set2;
+        //public HashSet<T> Set;
         protected IQueryable<T> Query;
 
-        public FakeDeletableRepository() 
+        public FakeDeletableRepository()
             : base(new FakeOnlineAtelierDbContext())
         {
+            this.Set2 = new Dictionary<object, object>();
             this.Set = new HashSet<T>();
             this.Query = this.Set.AsQueryable();
         }
+
+        public HashSet<T> Set { get; set; }
 
         public override void Add(T entity)
         {
@@ -27,7 +30,8 @@
 
         public override T GetById(int id)
         {
-            return this.Set.FirstOrDefault()?? new T();
+            //var entity = this.Set2[id];
+            return this.Set.FirstOrDefault();
         }
 
         public override IQueryable<T> All()
@@ -37,6 +41,7 @@
 
         public override void Delete(T entity)
         {
+            //this.RemoveByValue(this.Set2, entity);
             this.Set.Remove(entity);
         }
 
@@ -47,7 +52,28 @@
 
         public void ActualDelete(T entity)
         {
+            //this.RemoveByValue(this.Set2, entity);
             this.Set.Remove(entity);
+        }
+
+        public override void Update(T entity)
+        {            
+        }
+
+        private void RemoveByValue<TKey, TValue>(Dictionary<TKey, TValue> dictionary, TValue someValue)
+        {
+            List<TKey> itemsToRemove = new List<TKey>();
+
+            foreach (var pair in dictionary)
+            {
+                if (pair.Value.Equals(someValue))
+                    itemsToRemove.Add(pair.Key);
+            }
+
+            foreach (TKey item in itemsToRemove)
+            {
+                dictionary.Remove(item);
+            }
         }
     }
 }

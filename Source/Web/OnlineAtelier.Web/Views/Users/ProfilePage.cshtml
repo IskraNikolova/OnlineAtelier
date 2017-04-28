@@ -1,4 +1,5 @@
-﻿@model OnlineAtelier.Web.Models.ViewModels.Users.ProfileViewModel
+﻿@using Microsoft.AspNet.Identity
+@model OnlineAtelier.Web.Models.ViewModels.Users.ProfileViewModel
 @{
     ViewBag.Title = "Profile Page";
 }
@@ -9,7 +10,7 @@
             <img class="userPhoto" src="@Url.Action("UserPhotos", "Users", new {id = Model.Id})" />
             <h3>@Html.DisplayFor(m => m.FullName)</h3>
             <div>
-                @Html.ActionLink("Качване на нова снимка", "Edit")
+                @Html.ActionLink("Качване на нова снимка", "Edit", new {id=User.Identity.GetUserId()})
             </div>
             <div>
                 @Html.ActionLink("Направи Поръчка", "Add", "Order", null, new {@class = "btn btn-primary"})

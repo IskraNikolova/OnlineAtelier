@@ -11,7 +11,7 @@
 
         ProfileViewModel GetProfileViewModel(string userId);
 
-        EditUserVm GetEditVm(string userId);
+        EditUserVm GetEditVm(string id);
 
         void Edit(EditUserBm bind, byte[] imageBytes);
 

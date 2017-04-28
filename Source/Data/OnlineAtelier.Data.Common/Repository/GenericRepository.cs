@@ -1,6 +1,7 @@
 ﻿namespace OnlineAtelier.Data.Common.Repository
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Linq;
@@ -109,5 +110,7 @@
         {
             this.Context.Dispose();
         }
+
+        public HashSet<T> Set { get; }
     }
 }

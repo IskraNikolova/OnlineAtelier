@@ -1,6 +1,7 @@
 ﻿namespace OnlineAtelier.Data.Common.Repository
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     public interface IRepository<T> : IDisposable where T : class
@@ -20,5 +21,7 @@
         void Detach(T entity);
 
         int SaveChanges();
+
+        HashSet<T> Set { get; }
     }
 }

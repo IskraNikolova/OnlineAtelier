@@ -14,11 +14,11 @@
         <div class="col-lg-3">
             <div class="btn-group-vertical" style="width: 200px">
                 @*todo move to css fail*@
-                @Html.ActionLink("Начало", Views.Index, null, new { type = "button", @class = "btn btn-default active" })
+                @Html.ActionLink("Начало", "All", null, new { type = "button", @class = "btn btn-default active" })
                 @Html.ActionLink("Нови Поръчки", Views.Index, "AdminOrders", null, new { type = "button", @class = "btn btn-default" })
                 @Html.ActionLink("Добави Модел", "Add", "Figures", null, new { type = "button", @class = "btn btn-default" })
                 @Html.ActionLink("Добави Нов Продукт", "Create", "AdminAppearance", null, new { type = "button", @class = "btn btn-default" })
-                <a class = "btn btn-default" href="@Url.Action("PriceList", "Appearance", new {area=""})">Ценоразпис</a>
+                <a class="btn btn-default" href="@Url.Action("PriceList", "Appearance", new {area=""})">Ценоразпис</a>
                 @Html.ActionLink("Публикувай", "Create", null, new { type = "button", @class = "btn btn-default" })
                 <a href="~/" class="btn btn-default">Изход</a>
                 <br />
@@ -40,9 +40,11 @@
                             <h6> @Html.DisplayFor(m => post.Title)</h6>
                             <p> @Html.DisplayFor(m => post.Content)</p>
                         </div>
-                        <a class="thumbnail" href='@Url.Action("Edit", "AdminPosts", new {area = "Admin",id = post.Id})'>
+                        <a class="thumbnail" href='@Url.Action("Details", "Posts", new { area= "", id = post.Id})'>
                             <img src="@post.Image.Url" />
                         </a>
+                        @Html.ActionLink("Изтрий", "Delete",  new {id = post.Id }) | 
+                        @Html.ActionLink("Редактирай", "Edit",  new {id = post.Id })
                         <br />
                     </div>
                 </article>

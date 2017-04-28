@@ -5,14 +5,14 @@
 }
 
 <br/>
+
 <div class="row">
     @foreach (var post in Model)
     {
         <div class="col-xs-6 col-md-3 thumbnail">
-            <a href=''>
+            <a href='@Url.Action("Details", "Posts", new {id = post.Id})'>
                 <img src=@post.Image.Url />
             </a>
-            <a  href='' >Добави към твоята поръчка</a>
         </div>
     }
 </div>

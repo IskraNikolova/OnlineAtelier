@@ -250,7 +250,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminPosts\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminPosts\All.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\Index.cshtml" />
     <Content Include="Areas\Admin\Views\AdminOrders\Edit.cshtml" />

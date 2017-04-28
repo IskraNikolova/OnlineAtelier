@@ -133,7 +133,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Controllers\CommentOrders\TestCommentOrdersController.cs" />
+    <Compile Include="Controllers\Orders\TestAdminOrdersController.cs" />
     <Compile Include="Controllers\Orders\TestOrderController.cs" />
+    <Compile Include="Controllers\Posts\TestAdminPostsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

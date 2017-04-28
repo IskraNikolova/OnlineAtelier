@@ -1,11 +1,11 @@
 ﻿namespace OnlineAtelier.Web.Controllers
 {
     using System.IO;
+    using System.Net;
     using System.Web;
     using System.Web.Mvc;
     using Microsoft.AspNet.Identity;
     using Models.BindingModels.Users;
-    using Models.ViewModels.Users;
     using Services.Contracts;
 
     [RoutePrefix("Users")]
@@ -29,15 +29,25 @@
         }
 
         [HttpGet]
-        [Route("Edit")]
-        public ActionResult Edit()
+        [Route("Edit/{id}")]
+        public ActionResult Edit(string id)
         {
-            var editUserVm = this.GetEditUserVm();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var editUserVm = this.userService.GetEditVm(id);
+            if (editUserVm == null)
+            {
+                return this.HttpNotFound();
+            }
+
             return this.View(editUserVm);
         }
 
         [HttpPost]
-        [Route("Edit")]
+        [Route("Edit/{id}")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Exclude = "UserPhoto")]EditUserBm bind)
         {
@@ -58,7 +68,7 @@
                 return this.RedirectToAction("ProfilePage");
             }
 
-            var editUserVm = this.GetEditUserVm();
+            var editUserVm = this.userService.GetEditVm(bind.Id);
             return this.View(editUserVm);
         }
 
@@ -94,14 +104,6 @@
             }
 
             return new FileContentResult(user.UserPhoto, "image/jpeg");
-        }
-
-
-        private EditUserVm GetEditUserVm()
-        {
-            var userId = this.User.Identity.GetUserId();
-            EditUserVm editUserVm = this.userService.GetEditVm(userId);
-            return editUserVm;
         }
     }
 }
