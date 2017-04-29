@@ -19,15 +19,14 @@
             <div class="btn-group-vertical" style="width: 150px">
                 @*todo move to css fail*@
                 @Html.ActionLink("Начало", Views.Index, "Home", new { type = "button", @class = "btn btn-default active" })
-                @Html.ActionLink("Галерия", "PostGallery", "Posts", null, new { type = "button", @class = "btn btn-default" })
-                @Html.ActionLink("За Нас", Views.About, "Home", new { type = "button", @class = "btn btn-default" })
-                @Html.ActionLink("Контакти", Views.Contact, "Home", new { type = "button", @class = "btn btn-default" })
-                @Html.ActionLink("Поръчай", "Add", "Order", null, new { type = "button", @class = "btn btn-default" })
+                @Html.ActionLink("Галерия", "PostGallery", "Posts", null, new { type = "button", @class = "btn btn-default active" })
+                @Html.ActionLink("За Нас", Views.About, "Home", new { type = "button", @class = "btn btn-default active" })
+                @Html.ActionLink("Контакти", Views.Contact, "Home", new { type = "button", @class = "btn btn-default active" })
+                @Html.ActionLink("Поръчай", "Add", "Order", null, new { type = "button", @class = "btn btn-default active" })
                 @if (User.IsInRole("Admin"))
                 {
                     <a href=@Views.AdminIndex class="btn btn-default">Администрирай</a>
                 }
-                <a href="https://www.facebook.com/WithLoveEli/?ref=aymt_homepage_panel">fb</a>
                 <br />
             </div>
         </div>

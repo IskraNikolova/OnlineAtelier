@@ -12,17 +12,27 @@
     <script src="/signalr/hubs" type="text/javascript"></script>@*todo use this or delete signalr*@
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/bg_BG/sdk.js#xfbml=1&version=v2.9&appId=1689139458055428";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div class="navbar">
         <div class="container">
             <div class="navbar-header">
-                <img src="http://cliparts.co/cliparts/6Ty/Xn6/6TyXn6kTn.png" style="width: 40px " />
+                <img src="http://cliparts.co/cliparts/6Ty/Xn6/6TyXn6kTn.png" style="width: 40px" />
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
 
-                @Html.ActionLink("With Love: Eli", Views.Index, "Home", new {area = ""}, new {@class = "navbar-brand"})
+                @Html.ActionLink("With Love: Eli", Views.Index, "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -37,12 +47,17 @@
         </div>
     </div>
     <div class="container body-content">
+        <div>
+            <div class="fb-follow" data-href="https://www.facebook.com/WithLoveEli" data-layout="button" data-size="small" data-show-faces="true"></div>
+            <div class="fb-share-button" data-href="https://www.facebook.com/WithLoveEli/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
+                <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FWithLoveEli%2F&amp;src=sdkpreparse">Споделяне</a>
+            </div>
+        </div>
         @RenderBody()
         <footer class="eli">
             <p>&copy; @DateTime.Now.Year - Суит Арт Дизаин</p>
         </footer>
     </div>
-
     @*@Scripts.Render("~/bundles/jquery") todo if no use this delete comments*@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

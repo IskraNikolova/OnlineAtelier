@@ -10,7 +10,7 @@
         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
         @if (User.IsInRole("Admin"))
         {
-            <a  href='@Url.Action("All", "AdminPosts", new { area= "Admin"})'>
+            <a href='@Url.Action("All", "AdminPosts", new { area= "Admin"})'>
                 Назад
             </a>
         }

@@ -8,7 +8,6 @@
     {
         public string Id { get; set; }
 
-        [Display(Name = "Избери файл")]
         public byte[] UserPhoto { get; set; }
     }
 }

@@ -242,6 +242,8 @@
     <Content Include="Content\bootstrap.cyborg.css" />
     <Content Include="Content\bootstrap.cyborg.min.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.simplex.css" />
+    <Content Include="Content\bootstrap.simplex.min.css" />
     <Content Include="Content\cherry.jpg" />
     <Content Include="Content\dots.png" />
     <Content Include="favicon.ico" />

@@ -8,11 +8,11 @@
         <ul class="nav navbar-nav navbar-right">
             <li>
                 <a href='@Url.Action("ProfilePage", "Users")'>
-                    <img class="userPhotoMini" src="@Url.Action("UserPhotos", "Users", new {id=User.Identity.GetUserId()})" />
+                    <img class="userPhotoMini" src="@Url.Action("UserPhotos", "Users",  new { id = User.Identity.GetUserId()})" />
                 </a>
             </li>
             <li>
-                @Html.ActionLink("Здравей, " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new {title = "Manage"})
+                @Html.ActionLink("Здравей, " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new {title = "Настройки"})
             </li>
             <li><a href="javascript:document.getElementById('logoutForm').submit()">Изход</a></li>
         </ul>

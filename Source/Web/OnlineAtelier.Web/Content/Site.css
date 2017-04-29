@@ -1,8 +1,9 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-image: url("dots.png");
+    /*background-image: url("dots.png");*/
     background-size: 80px 60px;
+    font-family: Seagoe UI, sans-serif !important;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -29,23 +30,23 @@ textarea {
 .userPhoto {
     width:160px;
     height:160px;
-    background: #FFFFFF;
+    /*background: #fceee3;*/
     margin: auto;
     -moz-border-radius: 18px;
     border-radius: 100px;
     padding: 1px;
-    box-shadow: 0px 0px 2px #888;
+    /*box-shadow: 0px 0px 2px #888;*/
 }
 
 .userPhotoMini {
-    width:25px;
-    height:25px;
-    background: #FFFFFF;
+    width: 40px;
+    height:40px;
+    /*background: #fceee3;*/
     margin: auto;
     -moz-border-radius: 18px;
     border-radius: 23px;
     padding: 1px;
-    box-shadow: 0px 0px 2px #888;
+    /*box-shadow: 0px 0px 2px #888;*/
 }
 
 .userPictures {
@@ -54,16 +55,42 @@ textarea {
 }
 
 .eli {
-    background-color: darkred;
+    background-color: #ca0425;
     padding: 1%;
     border-radius: 5px;
 }
 
 .noAccept {
-    background-color: darkred;
+    background-color: #ca0425;
 }
 
 .accept {
-    color: lightgreen
+    color: #658da7
 }
 
+.cont {
+    background-color: #fceee3;
+}
+.navbar-brand {
+    font-size: 15pt;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
