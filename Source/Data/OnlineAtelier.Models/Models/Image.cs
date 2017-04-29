@@ -8,7 +8,6 @@
     {
         public int Id { get; set; }
 
-        [Required]
         public string Url { get; set; }
 
         public DateTime CreatedOn { get; set; }
