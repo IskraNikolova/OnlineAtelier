@@ -4,15 +4,16 @@
 namespace OnlineAtelier.Web.App_Start
 {
     using System;
-    using System.Data.Entity;
     using System.Web;
-    using Data;
+
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
     using Ninject.Web.Common;
-    using OnlineAtelier.Models.Models.Comments;
     using Data.Common.Repository;
+    using System.Data.Entity;
+    using Data;
+    using OnlineAtelier.Models.Models.Comments;
     using OnlineAtelier.Models.Models;
     using Services.Contracts;
     using Services.Models;
@@ -93,7 +94,7 @@ namespace OnlineAtelier.Web.App_Start
 
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
 
-           // kernel.Bind(typeof(ISanitizer)).To(typeof(HtmlSanitizerAdapter));
-        }        
+            // kernel.Bind(typeof(ISanitizer)).To(typeof(HtmlSanitizerAdapter));
+        }
     }
 }

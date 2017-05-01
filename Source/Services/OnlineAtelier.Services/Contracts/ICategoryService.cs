@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
     using OnlineAtelier.Models.Models;
+    using Web.Models.ViewModels.Categories;
+    using Web.Models.BindingModels.Categories;
 
     public interface ICategoryService : IService
     {
@@ -9,5 +11,7 @@
 
 
         Category GetCategory(string name);
+
+        void AddNewCategory(AddCategoryBm bm);
     }
 }

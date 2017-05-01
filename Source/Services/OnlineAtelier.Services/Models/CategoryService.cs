@@ -5,6 +5,8 @@
     using Contracts;
     using Data.Common.Repository;
     using OnlineAtelier.Models.Models;
+    using Web.Models.BindingModels.Categories;
+    using AutoMapper;
 
     public class CategoryService : ICategoryService
     {
@@ -13,6 +15,14 @@
         public CategoryService(IRepository<Category> categories)
         {
             this.categories = categories;
+        }
+
+        public void AddNewCategory(AddCategoryBm bm)
+        {
+            var entity = Mapper.Map<AddCategoryBm, Category>(bm);
+
+            this.categories.Add(entity);
+            this.categories.SaveChanges();
         }
 
         public IEnumerable<string> GetAllCategories()

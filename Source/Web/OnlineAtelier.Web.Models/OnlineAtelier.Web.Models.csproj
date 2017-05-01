@@ -92,6 +92,7 @@
   <ItemGroup>
     <Compile Include="BindingModels\Appearance\AppearanceCreateBm.cs" />
     <Compile Include="BindingModels\Appearance\AppearanceEditBm.cs" />
+    <Compile Include="BindingModels\Categories\AddCategoryBm.cs" />
     <Compile Include="BindingModels\Comments\OrderCommentBm.cs" />
     <Compile Include="BindingModels\Figures\FigureBm.cs" />
     <Compile Include="BindingModels\Order\DesignOrderBm.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="ViewModels\AdminArea\Appearance\AppearanceCreateVm.cs" />
     <Compile Include="ViewModels\AdminArea\Appearance\AppearanceEditVm.cs" />
     <Compile Include="ViewModels\AdminArea\Posts\CreatePostsVm.cs" />
+    <Compile Include="ViewModels\Categories\AddCategoryVm.cs" />
     <Compile Include="ViewModels\ContactVm.cs" />
     <Compile Include="ViewModels\Figures\FigureVm.cs" />
     <Compile Include="ViewModels\Order\DesignOrderVm.cs" />

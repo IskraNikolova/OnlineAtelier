@@ -8,8 +8,8 @@
     {
         public int Id { get; set; }
 
-        //[Required(ErrorMessage = "Попълни наименование на продукта.")]
-        [StringLength(100, ErrorMessage = "Името не може да е по-късо от {0}, символа.", MinimumLength = 3)]
+        [Required(ErrorMessage = "Попълни наименование на продукта.")]
+        [StringLength(100, ErrorMessage = "Името не може да е по-късо от {1}, символа.", MinimumLength = 3)]
         [Display(Name = "Име")]
         public string Name { get; set; }
 
