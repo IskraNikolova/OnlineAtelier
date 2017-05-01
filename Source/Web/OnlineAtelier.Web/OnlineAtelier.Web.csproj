@@ -355,9 +355,7 @@
     <Content Include="Views\Posts\_AllIndexPostsPartial.cshtml" />
     <Content Include="Views\Shared\_GoogleMapPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Hubs\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
