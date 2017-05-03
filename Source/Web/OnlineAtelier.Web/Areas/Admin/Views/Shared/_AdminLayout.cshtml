@@ -13,7 +13,7 @@
     <script src="/signalr/hubs" type="text/javascript"></script>
 </head>
 <body>
-    <div class="navbar">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <img src="http://cliparts.co/cliparts/6Ty/Xn6/6TyXn6kTn.png" style="width: 40px " />
@@ -29,7 +29,7 @@
                     <li>@Html.ActionLink("Начало", "All", "AdminPosts")</li>
                     <li>@Html.ActionLink("Публикувай", "Create", "AdminPosts")</li>
                     <li>@Html.ActionLink("Нови поръчки", Views.Index, "AdminOrders")</li>
-                    <li>@Html.ActionLink("Телефонен указател", "Phonebook", "AdminUsers", null, new {@class="btn btn-default"})</li>
+                    <li>@Html.ActionLink("Телефонен указател", "Phonebook", "AdminUsers")</li>
                     <li><a href="@Url.Action("Index", "Home", new {area=""})">Излез от административния панел</a></li>
                 </ul>
             </div>

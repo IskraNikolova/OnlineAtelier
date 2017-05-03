@@ -45,13 +45,11 @@
                 {
                     Id = 1,
                     ApplicationUserId = "a2f23d5c-f9ef-41c0-95d4-52934b9d9dde"
-
                 },
                 new Order()
                 {
                     Id = 21,
                     ApplicationUserId = "a2f23d5c-f9ef-41c0-95d4-52934b9d9dde"
-
                 }
             };
 

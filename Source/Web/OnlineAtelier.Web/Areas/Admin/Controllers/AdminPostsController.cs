@@ -7,9 +7,8 @@
     using Models.ViewModels.AdminArea.Posts;
     using Services.Contracts;
 
-    [Authorize(Roles = "Admin")]
-    [RouteArea("Admin")]
-    public class AdminPostsController : Controller
+
+    public class AdminPostsController : BaseAdminController
     {
         private readonly IPostService service;
         private readonly ICategoryService categoryService;
@@ -61,7 +60,7 @@
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var publication = this.service.GetViewModel(id);
+            var publication = this.service.GetEditViewModel(id);
             if (publication == null)
             {
                 return this.HttpNotFound();
@@ -73,7 +72,7 @@
         [HttpPost]
         [Route("AdminPosts/Edit/{id}")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(PostBm post)
+        public ActionResult Edit(EditPostBm post)
         {
             if (this.ModelState.IsValid)
             {
@@ -81,7 +80,8 @@
                 return this.RedirectToAction("All");
             }
 
-            return this.View(post);
+            var model = this.service.GetEditViewModel(post.Id);
+            return this.View(model);
         }
 
         [HttpGet]

@@ -42,7 +42,16 @@
             return vModel;
         }
 
-        public void Edit(PostBm model)
+        public EditPostVm GetEditViewModel(int? id)
+        {
+            var entity = this.posts.GetById((int)id);
+            var vModel = Mapper.Map<Post, EditPostVm>(entity);
+            vModel.PhotoUrl = entity.Image.Url;
+
+            return vModel;
+        }
+
+        public void Edit(EditPostBm model)
         {
             var entity = this.posts.GetById(model.Id);
 
@@ -56,7 +65,6 @@
                 };
             }
             
-
             this.posts.Update(entity);
             this.posts.SaveChanges();
         }

@@ -4,9 +4,7 @@
     using Models.BindingModels.Figures;
     using Services.Contracts;
 
-    [Authorize(Roles = "Admin")]
-    [RouteArea("Admin")]
-    public class FiguresController : Controller
+    public class FiguresController : BaseAdminController
     {
         private readonly IFigureService service;
 

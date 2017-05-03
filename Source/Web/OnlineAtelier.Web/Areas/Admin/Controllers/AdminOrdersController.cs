@@ -8,9 +8,7 @@
     using Models.ViewModels.Order;
     using Services.Contracts;
 
-    [Authorize(Roles = "Admin")]
-    [RouteArea("Admin")]
-    public class AdminOrdersController : Controller
+    public class AdminOrdersController : BaseAdminController
     {
         private readonly IOrderService service;
         private readonly IFigureService figureService;

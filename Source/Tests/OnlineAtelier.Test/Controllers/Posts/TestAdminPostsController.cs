@@ -32,6 +32,7 @@
             {
                 expression.CreateMap<Post, CreatePostsVm>();
                 expression.CreateMap<PostBm, Post>();
+                expression.CreateMap<Post, EditPostVm>();
             });
         }
 
@@ -46,14 +47,22 @@
                     Id = 1,
                     Title = "Title",
                     Content = "Content",
-                    CategoryId = 1
+                    CategoryId = 1,
+                    Image = new Image()
+                    {
+                        Url = "https://scontent-sof1-1.xx.fbcdn.net/v/t1.0-9/18199261_1153152284793209_4465157778782947538_n.jpg?oh=a8257d3281c2ed222b695985de82a53f&oe=59B6E6BE"
+                    }
                 },
                 new Post()
                 {
                     Id = 21,
                     Title = "Title",
                     Content = "Content",
-                    CategoryId = 1
+                    CategoryId = 1,
+                    Image = new Image()
+                    {
+                        Url = "https://scontent-sof1-1.xx.fbcdn.net/v/t1.0-9/18199261_1153152284793209_4465157778782947538_n.jpg?oh=a8257d3281c2ed222b695985de82a53f&oe=59B6E6BE"
+                    }
                 }
             };
 
@@ -103,7 +112,7 @@
         [TestMethod]
         public void EditPost_ShouldEditAndRedirectToAll()
         {
-            var postBm = new PostBm()
+            var postBm = new EditPostBm()
             {
                 Id = 1,
                 Title = "нещо ново"

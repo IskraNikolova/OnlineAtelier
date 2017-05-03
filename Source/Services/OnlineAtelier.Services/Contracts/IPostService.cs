@@ -13,7 +13,9 @@
 
         CreatePostsVm GetViewModel(int? id);
 
-        void Edit(PostBm model);
+        EditPostVm GetEditViewModel(int? id);
+
+        void Edit(EditPostBm model);
 
         DetailsPostsVModel GetDetailsPostVModel(int id);
 

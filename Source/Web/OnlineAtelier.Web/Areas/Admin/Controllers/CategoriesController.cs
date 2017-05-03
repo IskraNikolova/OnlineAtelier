@@ -4,11 +4,9 @@
     using System.Web.Mvc;
     using Models.BindingModels.Categories;
 
-    [Authorize(Roles = "Admin")]
-    [RouteArea("Admin")]
-    public class CategoriesController : Controller
+    public class CategoriesController : BaseAdminController
     {
-        private ICategoryService service;
+        private readonly ICategoryService service;
 
         public CategoriesController(ICategoryService service)
         {

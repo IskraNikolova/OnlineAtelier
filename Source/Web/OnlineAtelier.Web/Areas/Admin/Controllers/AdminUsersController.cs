@@ -3,9 +3,7 @@
     using System.Web.Mvc;
     using Services.Contracts;
 
-    [Authorize(Roles = "Admin")]
-    [RouteArea("Admin")]
-    public class AdminUsersController : Controller
+    public class AdminUsersController : BaseAdminController
     {
         private readonly IUserService service;
 

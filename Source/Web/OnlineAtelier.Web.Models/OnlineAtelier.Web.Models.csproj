@@ -98,6 +98,7 @@
     <Compile Include="BindingModels\Order\DesignOrderBm.cs" />
     <Compile Include="BindingModels\Order\EditOrderBm.cs" />
     <Compile Include="BindingModels\Order\EditOrderDateBm.cs" />
+    <Compile Include="BindingModels\Posts\EditPostBm.cs" />
     <Compile Include="BindingModels\Posts\PostBm.cs" />
     <Compile Include="BindingModels\Users\EditUserBm.cs" />
     <Compile Include="BindingModels\Users\SearchUserBm.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="ViewModels\AdminArea\Appearance\AppearanceCreateVm.cs" />
     <Compile Include="ViewModels\AdminArea\Appearance\AppearanceEditVm.cs" />
     <Compile Include="ViewModels\AdminArea\Posts\CreatePostsVm.cs" />
+    <Compile Include="ViewModels\AdminArea\Posts\EditPostVm.cs" />
     <Compile Include="ViewModels\Categories\AddCategoryVm.cs" />
     <Compile Include="ViewModels\ContactVm.cs" />
     <Compile Include="ViewModels\Figures\FigureVm.cs" />

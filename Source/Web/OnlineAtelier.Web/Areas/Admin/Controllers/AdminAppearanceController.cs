@@ -5,9 +5,7 @@
     using Services.Contracts;
     using Models.BindingModels.Appearance;
 
-    [Authorize(Roles = "Admin")]
-    [RouteArea("Admin")]
-    public class AdminAppearanceController : Controller
+    public class AdminAppearanceController : BaseAdminController
     {
         private readonly IAppearanceService service;
 
