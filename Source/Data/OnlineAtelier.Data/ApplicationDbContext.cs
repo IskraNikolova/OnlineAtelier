@@ -17,7 +17,7 @@
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
-
+        
         public IDbSet<OrderComment> OrderComments { get; set; }
 
         public IDbSet<Image> Images { get; set; }

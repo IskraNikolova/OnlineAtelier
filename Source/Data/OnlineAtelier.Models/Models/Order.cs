@@ -23,8 +23,6 @@
         [Key]
         public int Id { get; set; }
 
-        public Image Image { get; set; }
-
         public string Details { get; set; }
 
         public DateTime DateOfDecision { get; set; }

@@ -13,15 +13,14 @@
     <aside>
         <div class="col-lg-3">
             <div class="btn-group-vertical" style="width: 200px">
-                @*todo move to css fail*@
-                @Html.ActionLink("Начало", "All", null, new { type = "button", @class = "btn btn-default active" })
+                @*todo move to css fail*@          
                 @Html.ActionLink("Нови поръчки", Views.Index, "AdminOrders", null, new { type = "button", @class = "btn btn-default" })
                 @Html.ActionLink("Добави модел", "Add", "Figures", null, new { type = "button", @class = "btn btn-default" })
                 @Html.ActionLink("Добави нов продукт", "Create", "AdminAppearance", null, new { type = "button", @class = "btn btn-default" })
                 @Html.ActionLink("Добави нова категория", "Add", "Categories", null, new { type = "button", @class = "btn btn-default" })
                 <a class="btn btn-default" href="@Url.Action("PriceList", "Appearance", new {area=""})">Ценоразпис</a>
                 @Html.ActionLink("Публикувай", "Create", null, new { type = "button", @class = "btn btn-default" })
-                <a href="~/" class="btn btn-default">Изход</a>
+                @*<a href="~/" class="btn btn-default">Изход</a>*@
                 <br />
             </div>
         </div>

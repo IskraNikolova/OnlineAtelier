@@ -4,14 +4,13 @@
     ViewBag.Title = "Create";
 
 }
-
+<h2>Добави нова публикация</h2>
 <div class="panel panel-default panel-body">
 @using (Html.BeginForm())
 { 
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
             <div class="form-group">              
@@ -48,7 +47,7 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Създай" class="btn btn-default" />
                 </div>
             </div>
         </div>

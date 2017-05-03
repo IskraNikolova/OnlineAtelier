@@ -1,13 +1,14 @@
 ﻿@{
     ViewBag.Title = "Delete";
 }
+<h2>Искаш ли да изтриеш тази публикация?</h2>
 <div class="thumbnail">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Изтрий" class="btn btn-default" /> |
             @Html.ActionLink("Назад", "All")
         </div>
     }
