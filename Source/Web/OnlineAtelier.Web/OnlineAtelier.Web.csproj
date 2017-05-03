@@ -240,8 +240,6 @@
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.cyborg.css" />
-    <Content Include="Content\bootstrap.cyborg.min.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.simplex.css" />
     <Content Include="Content\bootstrap.simplex.min.css" />
@@ -277,6 +275,7 @@
     <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\myJS.js" />
     <Content Include="Views\Appearance\PriceLIst.cshtml" />
     <Content Include="Areas\Admin\Views\AdminAppearance\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AdminAppearance\Edit.cshtml" />
