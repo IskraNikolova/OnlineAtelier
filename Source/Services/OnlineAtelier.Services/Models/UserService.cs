@@ -96,7 +96,7 @@
             var user = this.users.All().FirstOrDefault(u => u.Id == id);
             var model = new InCartViewModel()
             {
-                OrderCount = user.Orders.Count
+                OrderCount = user.Orders.Where(o => o.IsАccepted).ToList().Count
             };
 
             return model;
