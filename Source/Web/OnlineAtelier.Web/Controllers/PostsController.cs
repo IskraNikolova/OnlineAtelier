@@ -1,4 +1,6 @@
-﻿namespace OnlineAtelier.Web.Controllers
+﻿using OnlineAtelier.Web.Models.BindingModels.Posts;
+
+namespace OnlineAtelier.Web.Controllers
 {
     using System.Collections.Generic;
     using System.Net;
@@ -59,6 +61,21 @@
         {
             var model = this.service.GetPostsByCategory((int)id);
             return this.PartialView("_PostGalleryPartial", model);
+        }
+
+        [HttpGet]
+        [Route("Vote/{id}")]
+        public ActionResult Vote(int? id)
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        [Route("Vote/{id}")]
+        public ActionResult Vote(VotePostBm postBm)
+        {
+            this.service.Vote(postBm);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -26,5 +26,7 @@
         IEnumerable<GalleryPostVm> GetPostsByCategory(int id);
 
         IEnumerable<IndexPostsVm> GetIndexPosts();
+
+        void Vote(VotePostBm postBm);
     }
 }

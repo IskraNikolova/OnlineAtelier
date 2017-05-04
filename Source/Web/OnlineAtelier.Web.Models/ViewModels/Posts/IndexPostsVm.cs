@@ -16,6 +16,8 @@
 
         public string Content { get; set; }
 
+        public int Rate { get; set; }
+
         public DateTime CreatedOn { get; set; }
     }
 }

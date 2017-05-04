@@ -19,7 +19,11 @@
             <a class="thumbnail" href='@Url.Action("Details", "Posts", new {id = post.Id})'>
                 <img src="@post.Image.Url" />
             </a>
-            <br />
+            <div class="body-content voteButton">        
+                <button type="button" class="btn btn-eli" aria-label="Left Align" href=@Url.Action("Vote", new { id = post.Id })>
+                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">@post.Rate</span>
+                </button>
+            </div>
         </div>
     </article>
 }

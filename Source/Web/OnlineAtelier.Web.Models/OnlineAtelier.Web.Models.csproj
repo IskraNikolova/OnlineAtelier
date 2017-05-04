@@ -100,6 +100,7 @@
     <Compile Include="BindingModels\Order\EditOrderDateBm.cs" />
     <Compile Include="BindingModels\Posts\EditPostBm.cs" />
     <Compile Include="BindingModels\Posts\PostBm.cs" />
+    <Compile Include="BindingModels\Posts\VotePostBm.cs" />
     <Compile Include="BindingModels\Users\EditUserBm.cs" />
     <Compile Include="BindingModels\Users\SearchUserBm.cs" />
     <Compile Include="ViewModels\Acount\ExternalLoginConfirmationViewModel.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="ViewModels\Posts\PostVm.cs" />
     <Compile Include="ViewModels\Posts\DetailsPostsVModel.cs" />
     <Compile Include="ViewModels\Posts\IndexPostsVm.cs" />
+    <Compile Include="ViewModels\Posts\VotePostVm.cs" />
     <Compile Include="ViewModels\Users\DisplayAllUsersVm.cs" />
     <Compile Include="ViewModels\Users\EditUserVm.cs" />
     <Compile Include="ViewModels\Users\ProfileViewModel.cs" />

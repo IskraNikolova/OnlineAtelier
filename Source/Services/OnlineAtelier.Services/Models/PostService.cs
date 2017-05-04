@@ -143,5 +143,14 @@
 
             return indexPostsVm;
         }
+
+        public void Vote(VotePostBm postBm)
+        {
+            var entity = this.posts.GetById(postBm.Id);
+            entity.Rate++;
+
+            this.posts.Update(entity);
+            this.posts.SaveChanges();
+        }
     }
 }
