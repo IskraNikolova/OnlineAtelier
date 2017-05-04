@@ -9,8 +9,11 @@
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="row">
         <div class="col-lg-6">
+
             <div class="input-group">
-                <input type="file" class="form-control" value="" name="UserPictures" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif" />
+                <span class="form-control btn-file">
+                    Избери файл...  <input type="file" value="" name="UserPictures" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif" />                  
+                </span>
                 <span class="input-group-btn">
                     <span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
                     <button class="btn btn-default" type="submit"> <span class="glyphicon glyphicon-camera" aria-hidden="true"></span></button>

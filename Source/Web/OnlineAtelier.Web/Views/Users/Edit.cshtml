@@ -9,8 +9,8 @@
 </div>
 
 <div class="panel panel-default panel-body">
-   @using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
-   {
+    @using (Html.BeginForm("Edit", "Users", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
@@ -31,6 +31,7 @@
         </div>
     }
 </div>
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
