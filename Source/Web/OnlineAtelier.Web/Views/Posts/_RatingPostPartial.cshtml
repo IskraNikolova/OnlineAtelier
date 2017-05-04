@@ -2,3 +2,12 @@
 @{
     ViewBag.Title = "_RatingPostPartial";
 }
+
+@foreach (var post in @Model)
+{
+    <div class="col-xs-6 col-md-4 thumbnail">
+        <a href='@Url.Action("Details", "Posts", new {id = post.Id})'>
+            <img src=@post.Image.Url />
+        </a>  
+    </div>
+}

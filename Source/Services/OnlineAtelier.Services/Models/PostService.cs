@@ -155,8 +155,14 @@
 
         public IEnumerable<PostVm> GetBestPosts()
         {
-            
-            return null;
+            var rating = this.posts
+                .All()
+                .OrderByDescending(p => p.Rate)
+                .Take(6)
+                .Project()
+                .To<PostVm>();
+
+            return rating;
         }
     }
 }

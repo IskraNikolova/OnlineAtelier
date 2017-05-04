@@ -17,8 +17,12 @@
             </div>
         </div>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-5">
         <br />
-            @Html.Action("GetOrders", "Order", new { id = Model.Id })
-        </div>
+        @Html.Action("GetOrders", "Order", new { id = Model.Id })
+    </div>
+    <div class="col-md-4">
+        <h4>Приятелите на With love Eli: са дали най-много гласове за тези продукти</h4>
+        @Html.Action("Rating","Posts")
+    </div>
 </div>
