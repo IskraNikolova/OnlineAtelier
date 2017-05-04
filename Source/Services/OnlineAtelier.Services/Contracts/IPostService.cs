@@ -28,5 +28,7 @@
         IEnumerable<IndexPostsVm> GetIndexPosts();
 
         void Vote(VotePostBm postBm);
+
+        IEnumerable<PostVm> GetBestPosts();
     }
 }

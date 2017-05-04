@@ -57,7 +57,7 @@ namespace OnlineAtelier.Web.Controllers
             return this.View(allByCategory);
         }
 
-        public PartialViewResult Load(int? id)
+        public PartialViewResult LoadPostByCategory(int? id)
         {
             var model = this.service.GetPostsByCategory((int)id);
             return this.PartialView("_PostGalleryPartial", model);
@@ -76,6 +76,14 @@ namespace OnlineAtelier.Web.Controllers
         {
             this.service.Vote(postBm);
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        [ChildActionOnly]
+        public PartialViewResult Rating()
+        {
+            var model = this.service.GetBestPosts();
+            return this.PartialView("_RatingPostPartial", model);
         }
     }
 }

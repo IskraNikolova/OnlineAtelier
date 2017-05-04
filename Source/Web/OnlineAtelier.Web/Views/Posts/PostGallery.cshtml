@@ -13,7 +13,7 @@
                 <div class="caption">
                     <h5>@album.First().Category.Name</h5>
                     <p>
-                        @Html.ActionLink("Разгледай", "Load", new {id = @album.First().Category.Id})
+                        @Html.ActionLink("Разгледай", "LoadPostByCategory", new {id = @album.First().Category.Id})
                     </p>
                 </div>
             </div>

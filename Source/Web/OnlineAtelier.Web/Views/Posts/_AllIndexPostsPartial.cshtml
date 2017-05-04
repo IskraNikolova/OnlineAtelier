@@ -11,7 +11,7 @@
                 <p>
                     <img src="http://cliparts.co/cliparts/6Ty/Xn6/6TyXn6kTn.png" style="width: 20px " />
                     <strong>With love: Eli</strong> добави нова снимка към албума:
-                    <a href='@Url.Action("Load", new {id = post.Category.Id})'>@Html.DisplayFor(p => post.Category.Name)</a>
+                    <a href='@Url.Action("LoadPostByCategory", new {id = post.Category.Id})'>@Html.DisplayFor(p => post.Category.Name)</a>
                 </p>
                 <h6> @Html.DisplayFor(m => post.Title)</h6>
                 <p> @Html.DisplayFor(m => post.Content)</p>
@@ -19,11 +19,12 @@
             <a class="thumbnail" href='@Url.Action("Details", "Posts", new {id = post.Id})'>
                 <img src="@post.Image.Url" />
             </a>
-            <div class="body-content voteButton">        
-                <button type="button" class="btn btn-eli" aria-label="Left Align" href=@Url.Action("Vote", new { id = post.Id })>
+            <div class="body-content">     
+                <a class ="btn-eli" href='@Url.Action("Vote", new { id = post.Id })'>
                     <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">@post.Rate</span>
-                </button>
-            </div>
+                </a>
+            </div> 
+            <br/>   
         </div>
     </article>
 }

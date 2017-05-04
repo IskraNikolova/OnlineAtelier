@@ -46,14 +46,20 @@
         </div>
     </section>
     <aside>
-        <div class="col-lg-4 thumbnail">
-            @Html.Label("Къде се намирамe")
-            <div id="map"></div>
+        <div class="col-lg-4">
+            <div class="thumbnail">
+                @Html.Label("Къде се намирамe")
+                <div id="map"></div>
+            </div>
+            <div>
+                <h3>Класация</h3>
+                @Html.Action("Rating", "Posts")
+            </div>
         </div>
     </aside>
 </div>
 
-@section scripts       
+@section scripts
 {
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIRHww6KjTo7Z4a92cAsjEPHkxJpcAH2k&callback=initMap">

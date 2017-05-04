@@ -152,5 +152,11 @@
             this.posts.Update(entity);
             this.posts.SaveChanges();
         }
+
+        public IEnumerable<PostVm> GetBestPosts()
+        {
+            
+            return null;
+        }
     }
 }
