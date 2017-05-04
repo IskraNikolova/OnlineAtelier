@@ -10,7 +10,7 @@
         width: 100%;
     }
 </style>
-
+<div id="notifications"></div>  
 <div>
     <div class="fb-follow" data-href="https://www.facebook.com/WithLoveEli" data-layout="button" data-size="small" data-show-faces="true"></div>
     <div class="fb-share-button" data-href="https://www.facebook.com/WithLoveEli/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
@@ -63,5 +63,17 @@
 {
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIRHww6KjTo7Z4a92cAsjEPHkxJpcAH2k&callback=initMap">
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var notificationsHub = $.connection.notifications;
+            notificationsHub.client.receiveNotification = function (type, notification) {
+                var notificationElement = $("<div>").addClass("alert alert-dismissible alert-" + type).html("<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>" + notification);
+                $("#notifications").append(notificationElement);
+            };
+
+            $.connection.hub.start();
+        });
     </script>
 }

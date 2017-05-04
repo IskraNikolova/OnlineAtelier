@@ -1,8 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-image: url("dots.png");
-    background-size: 80px 60px;
+    background-image: url("2.jpg");/*todo move to google drive folder*/
     font-family: Seagoe UI, sans-serif !important;
 }
 
@@ -104,7 +103,7 @@ textarea {
     width:150px;
     height:150px;
     background-color: #fceee3;
-    -moz-border-radius: 18px;
+    border-radius: 20px;
     box-shadow: 0px 0px 2px #888;
     margin: auto;
     padding: 5px 5px 5px 5px;
@@ -118,5 +117,5 @@ textarea {
 .my {
     padding: 50px;
     background-color: white;
-    -moz-border-radius: 18px;
+    border-radius: 18px;
 }
