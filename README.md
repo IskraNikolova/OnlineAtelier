@@ -4,6 +4,6 @@ Sample online atelier
 TODO
 ================
 
-*Admin Area
-*File storage
-*ASURE?
+*Paging
+*File storage(Google Drive)
+*Asure
