@@ -3,7 +3,10 @@
 @{
     ViewBag.Title = "Edit";
 }
-<br />
+<div>
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    <a href="@Url.Action("PriceList", "Appearance", new {area="", type = "button", @class = "btn btn-default"})">Назад</a>
+</div>
 <div class="panel panel-default panel-body">
     @using (Html.BeginForm())
     {
@@ -35,11 +38,6 @@
             </div>
         </div>
     }
-
-    <div>
-        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-        <a href="@Url.Action("PriceList", "Appearance", new {area="", type = "button", @class = "btn btn-default"})">Назад</a>
-    </div>
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

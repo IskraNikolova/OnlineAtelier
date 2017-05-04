@@ -3,6 +3,9 @@
     ViewBag.Title = "Index";
 }
 
+<div>
+    @Html.ActionLink("Назад", "All", "AdminPosts")
+</div>
 <h2>Изпрати съобщение</h2>
 @using (Ajax.BeginForm("SendNotification", "Notifications", new AjaxOptions()
 {

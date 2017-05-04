@@ -4,6 +4,12 @@
     ViewBag.Title = "Add";
 
 }
+
+<div>
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    @Html.ActionLink("Назад", "All", "AdminPosts")
+</div>
+
 <h3>Добави нов модел/форма</h3>
 <div class="panel panel-default panel-body">
     @using (Html.BeginForm())
@@ -28,11 +34,6 @@
             </div>
         </div>
     }
-
-    <div>
-        @Html.ActionLink("Назад", "All", "AdminPosts")
-    </div>
-
 </div>
 
 @section Scripts {

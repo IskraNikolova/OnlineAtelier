@@ -4,6 +4,10 @@
     ViewBag.Title = "Edit";
 }
 <br/>
+<div>
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    @Html.ActionLink("Назад", "All")
+</div>
 <div class="panel panel-default panel-body">
     @using (Html.BeginForm())
     {
@@ -44,11 +48,6 @@
             </div>
         </div>
     }
-
-    <div>
-        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-        @Html.ActionLink("Назад", "All")
-    </div>
 </div>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

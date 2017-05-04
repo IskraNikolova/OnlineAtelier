@@ -126,6 +126,7 @@
     <Compile Include="ViewModels\Posts\VotePostVm.cs" />
     <Compile Include="ViewModels\Users\DisplayAllUsersVm.cs" />
     <Compile Include="ViewModels\Users\EditUserVm.cs" />
+    <Compile Include="ViewModels\Users\InCartViewModel.cs" />
     <Compile Include="ViewModels\Users\ProfileViewModel.cs" />
     <Compile Include="ViewModels\Acount\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Acount\ResetPasswordViewModel.cs" />

@@ -105,5 +105,13 @@
 
             return new FileContentResult(user.UserPhoto, "image/jpeg");
         }
+
+        [HttpGet]
+        [ChildActionOnly]
+        public PartialViewResult InCart(string id)
+        {
+            var model = this.userService.GetOrderCount(id);
+            return this.PartialView("_InCartPartial", model);
+        }
     }
 }

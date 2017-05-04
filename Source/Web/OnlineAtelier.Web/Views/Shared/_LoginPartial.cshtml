@@ -9,6 +9,7 @@
             <li>
                 <a href='@Url.Action("ProfilePage", "Users")'>
                     <img class="userPhotoMini" src="@Url.Action("UserPhotos", "Users",  new { id = User.Identity.GetUserId()})" />
+                    @Html.Action("InCart","Users", new { id = User.Identity.GetUserId() })
                 </a>
             </li>
             <li>

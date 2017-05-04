@@ -20,5 +20,7 @@
         IEnumerable<DisplayAllUsersVm> GetSearchUsers(string query);
 
         IEnumerable<DisplayAllUsersVm> GetAllUsers();
+
+        InCartViewModel GetOrderCount(string id);
     }
 }

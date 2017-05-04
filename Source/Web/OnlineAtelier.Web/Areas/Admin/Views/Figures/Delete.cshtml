@@ -3,6 +3,8 @@
     ViewBag.Title = "Delete";
 }
 
+<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+@Html.ActionLink("Назад", "All", "AdminPosts")
 <h3>Искаш ли да изтриеш този модел?</h3>
 
     @using (Html.BeginForm())
@@ -11,7 +13,6 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Изтрий" class="btn btn-default" /> |
-            @Html.ActionLink("Назад", "All", "AdminPosts")
         </div>
     }
 

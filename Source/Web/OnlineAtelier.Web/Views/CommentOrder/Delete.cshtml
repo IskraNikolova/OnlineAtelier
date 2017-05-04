@@ -2,15 +2,16 @@
     ViewBag.Title = "Delete";
 }
 
+<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+@Html.ActionLink("Назад", "ProfilePage", "Users")
 <div class="panel panel-default">
-    <h3>Are you sure you want to delete this?</h3>
+    <h3>Искаш ли да изтриеш този коментар?</h3>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Назад", "ProfilePage", "Users")
+            <input type="submit" value="Изтрий" class="btn btn-default" /> |
         </div>
     }
 </div>

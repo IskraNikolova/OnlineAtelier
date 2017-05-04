@@ -38,8 +38,8 @@ textarea {
 }
 
 .userPhotoMini {
-    width: 40px;
-    height:40px;
+    width: 30px;
+    height:30px;
     /*background: #fceee3;*/
     margin: auto;
     -moz-border-radius: 18px;
@@ -115,10 +115,22 @@ textarea {
 }
 
 .my {
-    padding: 50px;
+    width: 89%;
+    padding: 20px;
     background-color: white;
     border-radius: 18px;
 }
+
 .nav-style {
-     width: 150px;
+     width: 95%;
+}
+
+.my-caption {
+    color: #fceee3;
+    height: 300pt;
+}
+
+.st {
+    width: 90%;
+    height: 300pt;
 }

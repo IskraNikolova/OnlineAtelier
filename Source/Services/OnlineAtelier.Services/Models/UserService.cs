@@ -90,5 +90,16 @@
             var usersVm = this.users.All().Project().To<DisplayAllUsersVm>();
             return usersVm;
         }
+
+        public InCartViewModel GetOrderCount(string id)
+        {
+            var user = this.users.All().FirstOrDefault(u => u.Id == id);
+            var model = new InCartViewModel()
+            {
+                OrderCount = user.Orders.Count
+            };
+
+            return model;
+        }
     }
 }

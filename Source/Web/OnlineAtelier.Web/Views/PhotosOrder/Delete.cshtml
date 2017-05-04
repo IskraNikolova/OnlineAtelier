@@ -2,6 +2,9 @@
     ViewBag.Title = "Delete";
 }
 
+<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+@Html.ActionLink("Назад", "ProfilePage", "Users")
+
 <div class="panel panel-default">
     <h3>Искаш ли да изтриеш тази снимка?</h3>
     @using (Html.BeginForm())
@@ -10,8 +13,6 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Изтрий" class="btn btn-default"/> |
-            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-            @Html.ActionLink("Назад", "ProfilePage", "Users")
         </div>
     }
 </div>

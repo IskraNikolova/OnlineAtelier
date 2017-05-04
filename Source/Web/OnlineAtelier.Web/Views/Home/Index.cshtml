@@ -10,52 +10,50 @@
         width: 100%;
     }
 </style>
-<div id="notifications"></div>  
+<div id="notifications"></div>
 <div>
     <div class="fb-follow" data-href="https://www.facebook.com/WithLoveEli" data-layout="button" data-size="small" data-show-faces="true"></div>
     <div class="fb-share-button" data-href="https://www.facebook.com/WithLoveEli/" data-layout="button_count" data-size="small" data-mobile-iframe="true">
         <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FWithLoveEli%2F&amp;src=sdkpreparse">Споделяне</a>
     </div>
 </div>
-<div class="jumbotron eli">
-    <h2 class="lead">Cookies!!! I can say everything with cookies!</h2>
-</div>
-
+<br />
 <div class="row">
-    <aside>
-        <div class="col-lg-2">
-            <div class="btn-group-vertical nav-style">
-                @Html.ActionLink("Начало", Views.Index, "Home", new { type = "button", @class = "btn btn-default active" })
-                @Html.ActionLink("Галерия", "PostGallery", "Posts", null, new { type = "button", @class = "btn btn-default active" })
-                @Html.ActionLink("За Нас", Views.About, "Home", new { type = "button", @class = "btn btn-default active" })
-                @Html.ActionLink("Контакти", Views.Contact, "Home", new { type = "button", @class = "btn btn-default active" })
-                @Html.ActionLink("Поръчай", "Add", "Order", null, new { type = "button", @class = "btn btn-default active" })
-                @if (User.IsInRole("Admin"))
-                {
-                    <a href=@Views.AdminIndex class="btn btn-default">Администрирай</a>
-                }
-
-                <br />
+    <div class="col-sm-3">
+        <div class="thumbnail nav-style">
+            <img src="https://scontent-sof1-1.xx.fbcdn.net/v/t1.0-1/p200x200/15439845_1021484167960022_489758679723944314_n.jpg?oh=c7efafc2e9abd2fc156213cddc5e7721&oe=59C01C96" />
+            @Html.ActionLink("Поръчай", "Add", "Order", null, new { type = "button", @class = "btn btn-primary active nav-style" })
+        </div>
+        <div class="btn-group-vertical nav-style">
+            @Html.ActionLink("Начало", Views.Index, "Home", new { type = "button", @class = "btn btn-default active" })
+            @Html.ActionLink("Галерия", "PostGallery", "Posts", null, new { type = "button", @class = "btn btn-default active" })
+            @Html.ActionLink("За Нас", Views.About, "Home", new { type = "button", @class = "btn btn-default active" })
+            @Html.ActionLink("Контакти", Views.Contact, "Home", new { type = "button", @class = "btn btn-default active" })
+            @if (User.IsInRole("Admin"))
+            {
+                <a href=@Views.AdminIndex class="btn btn-default">Администрирай</a>
+            }
+        </div>
+    </div>
+    <div class="col-sm-9">
+        @Html.Partial("_CaroulselPartial")
+        <hr />
+        <div class="row">
+            <div class="col-sm-7">
+                @Html.Action("All", "Posts", new { area = string.Empty })
+            </div>
+            <div class="col-sm-5">
+                <div class="thumbnail">
+                    @Html.Label("Къде се намирамe")
+                    <div id="map"></div>
+                </div>
+                <div>
+                    <h3>Класация</h3>
+                    @Html.Action("Rating", "Posts")
+                </div>
             </div>
         </div>
-    </aside>
-    <section>
-        <div class="col-lg-6">
-            @Html.Action("All", "Posts", new { area = string.Empty })
-        </div>
-    </section>
-    <aside>
-        <div class="col-lg-4">
-            <div class="thumbnail">
-                @Html.Label("Къде се намирамe")
-                <div id="map"></div>
-            </div>
-            <div>
-                <h3>Класация</h3>
-                @Html.Action("Rating", "Posts")
-            </div>
-        </div>
-    </aside>
+    </div>
 </div>
 
 @section scripts

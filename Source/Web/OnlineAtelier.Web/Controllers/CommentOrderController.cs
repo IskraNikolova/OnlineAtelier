@@ -28,10 +28,6 @@
             if (this.ModelState.IsValid)
             {
                 this.service.AddCommentToOrder(model, id);
-                //if (this.User.IsInRole("Admin"))
-                //{
-                //    return this.RedirectToAction("Index", "AdminOrders", new {area="Admin"});
-                //}//todo repeat this admin redirect after added comment
 
                 return this.RedirectToAction("ProfilePage", "Users");
             }

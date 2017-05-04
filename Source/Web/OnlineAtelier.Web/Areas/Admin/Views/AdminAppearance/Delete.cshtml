@@ -2,7 +2,8 @@
 @{
     ViewBag.Title = "Delete";
 }
-
+<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+@Html.ActionLink("Назад", "PriceList", "Appearance", null, new {area = string.Empty})
 <div class="thumbnail">
     <h3>Искаш ли да изтриеш този продукт от ценоразписа?</h3>
     @using (Html.BeginForm())
@@ -11,7 +12,6 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Изтрий" class="btn btn-default" /> |
-            @Html.ActionLink("Назад", "PriceList", "Appearance", null, new {area = string.Empty})
         </div>
     }
 </div>

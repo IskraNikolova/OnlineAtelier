@@ -4,6 +4,12 @@
     ViewBag.Title = "Create";
 
 }
+
+<div>
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    @Html.ActionLink("Назад", "All")
+</div>
+
 <h2>Добави нова публикация</h2>
 <div class="panel panel-default panel-body">
 @using (Html.BeginForm())
@@ -52,11 +58,6 @@
             </div>
         </div>
     }
-
-    <div>
-        @Html.ActionLink("Назад", "All")
-    </div>
-
     </div>
 
     @section Scripts {

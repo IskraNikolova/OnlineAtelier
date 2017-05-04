@@ -3,6 +3,8 @@
     ViewBag.Title = "Delete";
 }
 <div class="thumbnail">
+    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    @Html.ActionLink("Назад", "Index")
     <h6>Сигурна ли си, че искаш да отхвърлиш поръчката? След като я отхвърлиш тя ще се изтрие от списъка ти с поръчки.</h6>
 
 
@@ -11,9 +13,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Отхвърли" class="btn btn-default" /> |
-            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-            @Html.ActionLink("Назад", "Index")
+            <input type="submit" value="Отхвърли" class="btn btn-default"/> |
         </div>
     }
 </div>
