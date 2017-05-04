@@ -18,8 +18,15 @@
         [Route("Notifications")]
         public ActionResult SendNotification(string type, string notification)
         {
-            var hubContext = GlobalHost.ConnectionManager.GetHubContext<NotificationsHub>();
-            hubContext.Clients.All.receiveNotification(type, notification);
+            var hubContext = GlobalHost
+                .ConnectionManager
+                .GetHubContext<NotificationsHub>();
+
+            hubContext
+                .Clients
+                .All
+                .receiveNotification(type, notification);
+
             return this.Content("Notification sent.<br />");
         }
     }
