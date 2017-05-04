@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    /*background-image: url("dots.png");*/
+    background-image: url("dots.png");
     background-size: 80px 60px;
     font-family: Seagoe UI, sans-serif !important;
 }
@@ -113,4 +113,10 @@ textarea {
 .btn-eli:hover {
     background-color: #658da7;
     color: #fceee3;
+}
+
+.my {
+    padding: 50px;
+    background-color: white;
+    -moz-border-radius: 18px;
 }
