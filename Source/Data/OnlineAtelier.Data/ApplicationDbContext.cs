@@ -47,7 +47,6 @@
             return base.SaveChanges();
         }
 
-
         private void ApplyAuditInfoRules()
         {
             // Approach via @julielerman: http://bit.ly/123661P

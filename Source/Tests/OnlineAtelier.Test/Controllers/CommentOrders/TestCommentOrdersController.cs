@@ -1,4 +1,6 @@
-﻿namespace OnlineAtelier.Test.Controllers.CommentOrders
+﻿using OnlineAtelier.Web.Models.BindingModels.Order;
+
+namespace OnlineAtelier.Test.Controllers.CommentOrders
 {
     using System.Collections.Generic;
     using AutoMapper;
@@ -66,35 +68,10 @@
         }
 
         [TestMethod]
-        public void AddCommentPost_ShouldAddCommentAndReturnRedirectToAction()
-        {
-            var bm = new OrderCommentBm()
-            {
-                Text = "Hi",
-                OrderId = 22
-            };
-
-            this._controller.WithCallTo(orderCommentController => orderCommentController.AddComment(bm, 22))
-                  .ShouldRedirectTo<UsersController>(c2 => c2.ProfilePage("a2f23d5c-f9ef-41c0-95d4-52934b9d9dde"));
-
-            Assert.AreEqual(this._repository.Set.Count, 3);
-        }
-
-        [TestMethod]
         public void AddCommentGet_ShouldReturnRedirectToAction()
         {
             this._controller.WithCallTo(orderCommentController => orderCommentController.AddComment(22))
                 .ShouldRenderPartialView("_AddCommentPartial");
-        }
-
-        [TestMethod]
-        public void DeleteCommentPost_ShouldDeleteCommentAndReturnRedirectToAction()
-        {
-
-            this._controller.WithCallTo(orderCommentController => orderCommentController.DeleteConfirmed(21))
-                  .ShouldRedirectTo<UsersController>(c2 => c2.ProfilePage("a2f23d5c-f9ef-41c0-95d4-52934b9d9dde"));
-
-            Assert.AreEqual(this._repository.Set.Count, 1);
         }
 
         [TestMethod]

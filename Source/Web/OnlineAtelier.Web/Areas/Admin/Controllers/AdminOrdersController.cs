@@ -63,7 +63,7 @@
                 return this.RedirectToAction("Index");
             }
 
-            return this.View(orderBm);
+            return this.View(this.service.GetEditViewModel(orderBm.Id));
         }
 
         [HttpGet]
@@ -95,7 +95,7 @@
                 return this.RedirectToAction("Index");
             }
 
-            return this.View(orderBm);
+            return this.View(this.service.GetEditDateViewModel(orderBm.Id));
         }
 
         [HttpGet]

@@ -28,6 +28,10 @@
             if (this.ModelState.IsValid)
             {
                 this.service.AddCommentToOrder(model, id);
+                if (this.User.IsInRole("Admin"))
+                {
+                    return this.RedirectToAction("Index", "AdminOrders", new {area="Admin"});
+                }
 
                 return this.RedirectToAction("ProfilePage", "Users");
             }
@@ -56,6 +60,11 @@
         public ActionResult DeleteConfirmed(int id)
         {
             this.service.Delete(id);
+            if (this.User.IsInRole("Admin"))
+            {
+                return this.RedirectToAction("Index", "AdminOrders", new { area = "Admin" });
+            }
+
             return this.RedirectToAction("ProfilePage", "Users");
         }
     }
