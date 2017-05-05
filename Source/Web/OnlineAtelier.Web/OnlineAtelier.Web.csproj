@@ -216,11 +216,11 @@
     <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\FiguresController.cs" />
     <Compile Include="Areas\Admin\Controllers\NotificationsController.cs" />
-    <Compile Include="Config\BundleConfig.cs" />
-    <Compile Include="Config\FilterConfig.cs" />
-    <Compile Include="Config\IdentityConfig.cs" />
-    <Compile Include="Config\RouteConfig.cs" />
-    <Compile Include="Config\Startup.Auth.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AppearanceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -286,6 +286,9 @@
     <Content Include="Areas\Admin\Views\AdminUsers\Phonebook.cshtml" />
     <Content Include="Areas\Admin\Views\Categories\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Notifications\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\release.pubxml" />
+    <None Include="Properties\PublishProfiles\WithLoveEli - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\WithLoveEli - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Images\noImg.png" />
     <Content Include="Scripts\bootstrap.js" />

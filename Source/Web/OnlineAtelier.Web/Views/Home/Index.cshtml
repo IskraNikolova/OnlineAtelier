@@ -1,7 +1,7 @@
 ﻿@using OnlineAtelier.Web.Infrastructure.Constants
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Начало";
 }
 
 <style>
@@ -22,7 +22,7 @@
     <div class="col-sm-3">
         <div class="thumbnail nav-style">
             <img src="https://scontent-sof1-1.xx.fbcdn.net/v/t1.0-1/p200x200/15439845_1021484167960022_489758679723944314_n.jpg?oh=c7efafc2e9abd2fc156213cddc5e7721&oe=59C01C96" />
-            @Html.ActionLink("Поръчай", "Add", "Order", null, new { type = "button", @class = "btn btn-primary active nav-style" })
+            @Html.ActionLink("Поръчай сега", "Add", "Order", null, new { type = "button", @class = "btn btn-primary active nav-style" })
         </div>
         <div class="btn-group-vertical nav-style">
             @Html.ActionLink("Начало", Views.Index, "Home", new { type = "button", @class = "btn btn-default active" })

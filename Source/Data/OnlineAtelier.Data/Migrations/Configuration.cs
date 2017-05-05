@@ -7,27 +7,27 @@
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
             this.AutomaticMigrationsEnabled = true;
-            this.AutomaticMigrationDataLossAllowed = true;
+            //this.AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(ApplicationDbContext context)
         {
-             AddRoles(context);
-             AddCategories(context);          
-             AddAppearances(context); 
-             AddUsers(context);
-             AddPosts(context);
-             AddOrders(context);
+            AddRoles(context);
+            AddCategories(context);
+            AddAppearances(context);
+            AddUsers(context);
+            AddPosts(context);
+            AddOrders(context);
         }
 
         private static void AddOrders(ApplicationDbContext context)
         {
-            var user1 = context.Users.OrderByDescending(u => u.CreatedOn).FirstOrDefault();
+            var user = context.Users.OrderByDescending(u => u.CreatedOn).FirstOrDefault();
 
             if (!context.Orders.Any())
             {
@@ -35,7 +35,7 @@
                 {
                     new Order()
                     {
-                        ApplicationUserId = user1.Id,
+                        ApplicationUserId = user.Id,
                         CreatedOn = DateTime.Now,
                         AppearanceId = 1,
                         CategoryId = 1,
@@ -48,7 +48,7 @@
                     },
                     new Order()
                     {
-                        ApplicationUserId = user1.Id,
+                        ApplicationUserId = user.Id,
                         CreatedOn = DateTime.Now,
                         AppearanceId = 2,
                         CategoryId = 1,
@@ -62,7 +62,7 @@
                     },
                     new Order()
                     {
-                        ApplicationUserId = user1.Id,
+                        ApplicationUserId = user.Id,
                         CreatedOn = DateTime.Now,
                         AppearanceId = 1,
                         CategoryId = 1,
@@ -75,7 +75,7 @@
                     },
                     new Order()
                     {
-                        ApplicationUserId = user1.Id,
+                        ApplicationUserId = user.Id,
                         CreatedOn = DateTime.Now,
                         AppearanceId = 2,
                         CategoryId = 1,
@@ -89,7 +89,7 @@
                     },
                     new Order()
                     {
-                        ApplicationUserId = user1.Id,
+                        ApplicationUserId = user.Id,
                         CreatedOn = DateTime.Now,
                         AppearanceId = 2,
                         CategoryId = 1,

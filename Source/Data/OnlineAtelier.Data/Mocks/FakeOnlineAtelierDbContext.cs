@@ -7,6 +7,11 @@
 
     public class FakeOnlineAtelierDbContext : DbContext, IOnlineAtelierDbContext
     {
+        public FakeOnlineAtelierDbContext()
+        {
+            
+        }
+
         public IDbSet<OrderComment> OrderComments { get; set; }
 
         public IDbSet<Image> Images { get; set; }

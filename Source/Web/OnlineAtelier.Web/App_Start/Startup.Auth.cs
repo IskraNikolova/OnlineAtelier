@@ -59,8 +59,8 @@ namespace OnlineAtelier.Web
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "696516417202761",
-               appSecret: "781e669073533bdb8f4ebb1ee4853076");
+               appId: "1518945951458405",
+               appSecret: "dc20c11a336efcdd4e374158f7aea1ff");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
