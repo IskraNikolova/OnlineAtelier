@@ -41,7 +41,7 @@ namespace OnlineAtelier.Test.Controllers.CommentOrders
                 new OrderComment()
                 {
                     Id = 1,
-                    Text = "Hello",
+                    Text = "Hello ",
                     OrderId = 1,
                     ApplicationUserId = "a2f23d5c-f9ef-41c0-95d4-52934b9d9dde"
 
