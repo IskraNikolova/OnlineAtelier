@@ -12,8 +12,8 @@
     {
         protected void Application_Start()
         {
-            var migrator = new DbMigrator(new Configuration());
-            migrator.Update();
+            //var migrator = new DbMigrator(new Configuration());
+            //migrator.Update();
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
